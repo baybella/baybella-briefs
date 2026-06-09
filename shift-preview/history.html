@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Shift History · Baybella</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#211C18;--ink2:#463E37;--grey:#8C8279;--pink:#E5147F;--pink-deep:#BE185D;--line-soft:#EAD9E4;
+  --purple:#7C3AED;--serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#FDF4F8}
+body{font-family:var(--sans);background:linear-gradient(160deg,#FCE3F0 0%,#F1E7FB 55%,#E7E7FB 100%);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;position:relative;min-height:100vh}
+.blooms{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blooms::before{content:"";position:absolute;top:-220px;right:-200px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.6}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#F49AC1 0%,#BBA2E8 100%);border:1px solid #E58BB4;border-radius:24px;padding:clamp(28px,5vw,40px) clamp(24px,5vw,40px);margin:26px 0 14px;text-align:center;box-shadow:0 28px 60px -28px rgba(150,40,100,.55),inset 0 1px 0 rgba(255,255,255,.4)}
+.hero .logo{font-family:var(--serif);font-weight:500;font-size:1.5rem;letter-spacing:.22em;color:var(--ink);margin-bottom:12px}
+.hero .eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:10px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.02em;color:var(--ink)}
+.hero .period{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#5a2540;margin-top:10px}
+
+.statbar{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+.stat{flex:1;min-width:130px;background:#fff;border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;box-shadow:0 14px 30px -26px rgba(60,30,30,.5)}
+.stat .l{font-size:.64rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pink)}
+.stat .v{font-family:var(--serif);font-size:1.6rem;color:var(--ink);margin-top:2px}
+.stat .v.bad{color:var(--pink-deep)}
+
+.tablecard{background:#fff;border:1px solid var(--line-soft);border-radius:18px;padding:6px;margin:16px 0;box-shadow:0 20px 46px -34px rgba(60,30,30,.55);overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:560px}
+thead th{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);text-align:left;padding:14px 14px;border-bottom:2px solid var(--line-soft);white-space:nowrap}
+thead th.num,tbody td.num{text-align:center}
+tbody td{padding:13px 14px;border-bottom:1px solid #F4E8F0;color:var(--ink2);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody td.date{font-weight:700;color:var(--ink);white-space:nowrap}
+tbody td.big{font-family:var(--serif);font-size:1.1rem;color:var(--ink)}
+tbody tr.missed{background:#FCEAF1}
+tbody tr.missed td.big{color:var(--pink-deep);font-weight:600}
+.pill{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--pink-deep);background:#FCDDEA;border:1px solid #F6CDDE;border-radius:20px;padding:2px 8px;margin-left:7px;vertical-align:middle}
+a.loom{display:inline-block;font-size:.74rem;font-weight:800;letter-spacing:.03em;color:#fff;background:linear-gradient(135deg,var(--pink),var(--purple));border-radius:20px;padding:5px 12px;text-decoration:none;white-space:nowrap;transition:.15s}
+a.loom:hover{filter:brightness(1.06)}
+.noloom{color:#D8C8D4}
+td.notes{color:var(--grey);font-size:.86rem;max-width:220px}
+.empty{text-align:center;padding:50px 20px;color:var(--grey);font-family:var(--serif);font-style:italic;font-size:1.05rem}
+.loading{text-align:center;padding:50px 20px;color:var(--grey)}
+
+footer{padding:22px 0 50px;text-align:center}
+footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a098}
+</style>
+</head>
+<body>
+<div class="blooms"></div>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="logo">BAYBELLA</div>
+    <div class="eyebrow">Creator Ops</div>
+    <h1>Shift history</h1>
+    <div class="period" id="period"></div>
+  </div>
+
+  <div class="statbar" id="statbar" style="display:none">
+    <div class="stat"><div class="l">Days logged</div><div class="v" id="sLogged">—</div></div>
+    <div class="stat"><div class="l">Target hit</div><div class="v" id="sHit">—</div></div>
+    <div class="stat"><div class="l">Missed (under 5)</div><div class="v bad" id="sMissed">—</div></div>
+  </div>
+
+  <div class="tablecard">
+    <div class="loading" id="loading">Loading the record…</div>
+    <table id="tbl" style="display:none">
+      <thead><tr>
+        <th>Date</th>
+        <th class="num">Creators</th>
+        <th class="num">Orders</th>
+        <th class="num">Snippets</th>
+        <th class="num">Loom</th>
+        <th>Notes</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <footer><div class="fb">Baybella &middot; target is 5 creator reviews per shift</div></footer>
+</div>
+
+<script>
+function esc(s){ return String(s==null?'':s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+
+var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+function currentPeriod(rows){
+  // Real app: the actual current calendar month. Preview: month of the newest entry.
+  if(typeof google !== 'undefined' && google.script && google.script.run){
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
+  }
+  return rows.length ? String(rows[0].date).slice(0,7) : '';
+}
+
+function render(allRows){
+  document.getElementById('loading').style.display = 'none';
+  allRows = allRows || [];
+  var period = currentPeriod(allRows);
+  var rows = allRows.filter(function(r){ return String(r.date).slice(0,7) === period; });
+
+  if(period){
+    var p = period.split('-');
+    document.getElementById('period').textContent = MONTHS[parseInt(p[1],10)-1] + ' ' + p[0];
+  }
+
+  if(!rows.length){
+    document.getElementById('loading').style.display = 'block';
+    document.getElementById('loading').className = 'empty';
+    document.getElementById('loading').textContent = 'No shifts logged yet this month. Days appear here as Xanthe submits.';
+    return;
+  }
+
+  var hit = rows.filter(function(r){return !r.missed;}).length;
+  document.getElementById('sLogged').textContent = rows.length;
+  document.getElementById('sHit').textContent = hit;
+  document.getElementById('sMissed').textContent = rows.length - hit;
+  document.getElementById('statbar').style.display = 'flex';
+
+  var html = rows.map(function(r){
+    return '<tr class="'+(r.missed?'missed':'')+'">'+
+      '<td class="date">'+esc(r.date)+'</td>'+
+      '<td class="num big">'+esc(r.creators)+(r.missed?'<span class="pill">missed</span>':'')+'</td>'+
+      '<td class="num big">'+esc(r.orders)+'</td>'+
+      '<td class="num big">'+esc(r.snippets)+'</td>'+
+      '<td class="num">'+(r.loom ? '<a class="loom" href="'+esc(r.loom)+'" target="_blank" rel="noopener">&#9654; Watch</a>' : '<span class="noloom">&mdash;</span>')+'</td>'+
+      '<td class="notes">'+esc(r.notes)+'</td>'+
+    '</tr>';
+  }).join('');
+  document.getElementById('rows').innerHTML = html;
+  document.getElementById('tbl').style.display = 'table';
+}
+
+if(typeof google !== 'undefined' && google.script && google.script.run){
+  google.script.run.withSuccessHandler(render).withFailureHandler(function(){
+    document.getElementById('loading').textContent = 'Could not load the record. Refresh to retry.';
+  }).getHistory();
+} else {
+  // local preview sample
+  render([
+    {date:'2026-06-09', creators:3, orders:4, snippets:12, loom:'https://www.loom.com/share/abc', notes:'Slow morning, batch was small', missed:true},
+    {date:'2026-06-06', creators:6, orders:2, snippets:9,  loom:'https://www.loom.com/share/abc', notes:'', missed:false},
+    {date:'2026-06-05', creators:5, orders:5, snippets:15, loom:'https://www.loom.com/share/abc', notes:'All caught up', missed:false},
+    {date:'2026-06-04', creators:2, orders:1, snippets:7,  loom:'', notes:'Power outage pm', missed:true},
+    {date:'2026-06-03', creators:7, orders:3, snippets:11, loom:'https://www.loom.com/share/abc', notes:'', missed:false}
+  ]);
+}
+</script>
+</body>
+</html>
