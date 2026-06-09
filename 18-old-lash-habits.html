@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Baybella · Creator Brief - "Different Lives, Same Lashes"</title>
+<title>Baybella · Creator Brief - "Old Lash Habits"</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -185,6 +185,7 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
 <div class="topbar">
   <div class="row">
     <div class="brand"><b>BAYBELLA</b> · CREATOR BRIEF</div>
+    <button class="lockbtn" onclick="openModal()">🔑 Agency</button>
   </div>
 </div>
 
@@ -240,11 +241,17 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
       <p class="muted" style="font-size:.86rem;margin-bottom:18px">The script below (excluding the hook) is just a guide - keep the structure &amp; core message, but make the wording sound natural to you.</p>
 
       <div class="scene">
-        <div class="round-top"><span class="round-k">🎬 Hook · film it both ways (same energy)</span></div>
+        <div class="round-top"><span class="round-k">🎬 Hook · film two takes</span></div>
+        <p class="muted" style="font-size:.86rem;margin:0 0 14px">We want <strong>two hooks</strong> for this one - please film <strong>both</strong> takes below, same energy each time. Everything after the hook is filmed just once, as normal.</p>
         <div class="ost"><span class="ost-l">📱 On-screen text (native TikTok)</span><span class="ost-t">ranking my old lash habits</span></div>
-        <p class="say" style="margin:0 0 9px">“ranking my old lash habits.. the first three are just embarrassing. number four actually cost me.”</p>
-        <p class="say" style="margin:0 0 9px">“ranking my old lash habits.. the first two are just embarrassing. number three actually cost me.”</p>
-        <p class="muted" style="font-size:.82rem;margin-bottom:12px">Only difference is the count (four reasons vs three) - for the three-reason take, skip one of the first three below.</p>
+        <div style="border-left:3px solid color-mix(in srgb,var(--c) 32%,#fff);padding-left:13px;margin-bottom:13px">
+          <span class="round-k" style="display:block;margin-bottom:6px">Take 1</span>
+          <p class="say" style="margin:0">“ranking my old lash habits.. the first three are just embarrassing. number four actually cost me.”</p>
+        </div>
+        <div style="border-left:3px solid color-mix(in srgb,var(--c) 32%,#fff);padding-left:13px;margin-bottom:14px">
+          <span class="round-k" style="display:block;margin-bottom:6px">Take 2</span>
+          <p class="say" style="margin:0">“ranking my old lash habits.. the first two are just embarrassing. number three actually cost me.”</p>
+        </div>
         <div class="screen"><span class="e">🎬</span><span class="act-lbl">Action:</span><span class="act">apply a lash.</span></div>
       </div>
 
@@ -321,12 +328,42 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
 
 </div>
 
+<div class="agency" id="agency">
+  <div class="wrap" style="max-width:720px">
+    <div class="ahead"><div class="abadge">🔒 Internal · not visible to creator</div><h2>Agency - back of house</h2></div>
+    <div class="acard ai-flag">
+      <div class="ah">🧪 Why two hooks (internal only)</div>
+      <div class="ab">
+        <p>We’re getting the creator to film <strong>two takes</strong> so we can split test two versions of this ad - a <strong>three-reason cut</strong> and a <strong>four-reason cut</strong>. We want to see whether four reasons beats three.</p>
+      </div>
+    </div>
+  </div>
+  <div style="height:50px"></div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalbg">
+  <div class="modal">
+    <button class="x" onclick="closeModal()">×</button>
+    <div class="mlock">🔑</div>
+    <h3>Agency Notes</h3>
+    <p>Internal back-of-house. Enter the password.</p>
+    <input type="password" id="pw" placeholder="• • • • • •" onkeydown="if(event.key==='Enter')checkPw()" autocomplete="off">
+    <div class="err" id="err"></div>
+    <button class="unlock" onclick="checkPw()">Unlock</button>
+  </div>
+</div>
+
 <footer><div class="fb">Baybella × Creator · “Old Lash Habits”</div></footer>
 
 <script>
 function tog(b){const d=b.nextElementSibling;d.classList.toggle('open');b.style.opacity=d.classList.contains('open')?'.55':'1';}
 function tick(el){el.classList.toggle('done');const id=[...el.parentNode.children].indexOf(el);const s=JSON.parse(localStorage.getItem('wyr_check')||'{}');s[id]=el.classList.contains('done');localStorage.setItem('wyr_check',JSON.stringify(s));}
 (function(){const s=JSON.parse(localStorage.getItem('wyr_check')||'{}');const c=document.querySelectorAll('#checklist .check');for(const k in s){if(s[k]&&c[k])c[k].classList.add('done');}})();
+function openModal(){document.getElementById('modalbg').classList.add('show');setTimeout(()=>document.getElementById('pw').focus(),60);}
+function closeModal(){document.getElementById('modalbg').classList.remove('show');document.getElementById('err').textContent='';document.getElementById('pw').value='';}
+function checkPw(){const v=document.getElementById('pw').value.trim().toLowerCase();if(v==='ecomrepublic123'){closeModal();const a=document.getElementById('agency');a.classList.add('show');setTimeout(()=>a.scrollIntoView({behavior:'smooth'}),120);}else{document.getElementById('err').textContent='Incorrect password';}}
+document.getElementById('modalbg').addEventListener('click',e=>{if(e.target.id==='modalbg')closeModal();});
 </script>
 </body>
 </html>
