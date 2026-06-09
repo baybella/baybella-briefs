@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Daily Shift · Baybella</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#211C18;--ink2:#463E37;--grey:#8C8279;--pink:#E5147F;--pink-deep:#BE185D;--line-soft:#EAD9E4;
+  --purple:#7C3AED;--serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:#FDF4F8}
+body{font-family:var(--sans);background:linear-gradient(160deg,#FCE3F0 0%,#F1E7FB 55%,#E7E7FB 100%);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;position:relative;min-height:100vh}
+.blooms{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blooms::before{content:"";position:absolute;top:-220px;right:-200px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.6}
+.blooms::after{content:"";position:absolute;bottom:-220px;left:-220px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#C4B5FD 0%,transparent 70%);opacity:.5}
+.wrap{max-width:620px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#F49AC1 0%,#BBA2E8 100%);border:1px solid #E58BB4;border-radius:24px;padding:clamp(30px,6vw,46px) clamp(24px,5vw,40px);margin:26px 0 14px;text-align:center;box-shadow:0 28px 60px -28px rgba(150,40,100,.55),inset 0 1px 0 rgba(255,255,255,.4)}
+.hero::before{content:"";position:absolute;top:-140px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.7}
+.hero>*{position:relative;z-index:1}
+.hero .logo{font-family:var(--serif);font-weight:500;font-size:1.7rem;letter-spacing:.22em;color:var(--ink);margin-bottom:16px}
+.hero .eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:12px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,5vw,2.2rem);line-height:1.05;letter-spacing:-.02em;color:var(--ink)}
+.hero .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1rem,2.4vw,1.15rem);color:#5a2540;margin-top:13px}
+
+.section-label{display:flex;align-items:center;gap:13px;margin:30px 4px 14px}
+.section-label .num{font-family:var(--serif);font-style:italic;font-size:.95rem;color:var(--pink)}
+.section-label .line{width:30px;height:1px;background:var(--purple)}
+.section-label .name{font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--purple)}
+
+/* form */
+.formcard{background:#fff;border:1px solid var(--line-soft);border-radius:18px;padding:24px 22px;margin-top:6px;box-shadow:0 20px 46px -34px rgba(60,30,30,.55)}
+.field{margin-bottom:17px}
+.field label{display:block;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:6px}
+.field .hint{font-weight:700;color:var(--pink-deep);letter-spacing:.04em}
+.field input,.field textarea{width:100%;font-family:var(--sans);font-size:1rem;color:var(--ink);background:#FBF6FA;border:1.5px solid var(--line-soft);border-radius:10px;padding:12px 14px;outline:none;transition:.15s}
+.field input:focus,.field textarea:focus{border-color:var(--pink)}
+.field input[type=number]{-moz-appearance:textfield}
+.field textarea{min-height:74px;resize:vertical}
+.help{font-size:.78rem;color:var(--grey);margin-top:5px}
+.submit{width:100%;margin-top:8px;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;border-radius:12px;padding:15px;font-family:var(--sans);font-size:.98rem;font-weight:800;letter-spacing:.04em;cursor:pointer;transition:.2s}
+.submit:hover{filter:brightness(1.05)}
+.submit:disabled{opacity:.5;cursor:default;filter:none}
+.err{color:var(--pink-deep);font-size:.85rem;margin-top:10px;min-height:18px;font-weight:600;text-align:center}
+
+/* confirmation */
+.done{display:none;text-align:center;background:#fff;border:1px solid var(--line-soft);border-radius:20px;padding:48px 28px;margin:6px 0 26px;box-shadow:0 24px 54px -34px rgba(60,30,30,.55)}
+.done.show{display:block;animation:pop .45s ease}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.done .tick{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));margin:0 auto 18px;display:flex;align-items:center;justify-content:center}
+.done .tick svg{width:32px;height:32px;stroke:#fff;stroke-width:3.5;fill:none}
+.done h2{font-family:var(--serif);font-weight:500;font-size:1.7rem;color:var(--ink);margin-bottom:10px}
+.done p{color:var(--ink2);max-width:42ch;margin:0 auto;font-size:1rem}
+.done .again{display:inline-block;margin-top:20px;font-size:.82rem;font-weight:700;color:var(--purple);background:none;border:none;cursor:pointer;border-bottom:1px solid transparent}
+.done .again:hover{border-bottom-color:var(--purple)}
+
+footer{padding:22px 0 50px;text-align:center}
+footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a098}
+</style>
+</head>
+<body>
+<div class="blooms"></div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="logo">BAYBELLA</div>
+    <div class="eyebrow">Daily Shift Report</div>
+    <h1>Log today&rsquo;s shift</h1>
+    <div class="sub">Pop in your numbers and hit submit &mdash; takes 15 seconds.</div>
+  </div>
+
+  <!-- FORM -->
+  <div id="formView">
+    <div class="section-label"><span class="num">01</span><span class="line"></span><span class="name">Today&rsquo;s numbers</span></div>
+
+    <div class="formcard">
+      <div class="field">
+        <label for="date">Date</label>
+        <input type="date" id="date">
+      </div>
+
+      <div class="field">
+        <label for="creators">Creators reviewed / filtered today <span class="hint">&middot; target 5</span></label>
+        <input type="number" id="creators" min="0" inputmode="numeric" placeholder="0">
+      </div>
+
+      <div class="field">
+        <label for="orders">Shopify orders created today <span style="color:var(--grey);font-weight:700">(product sends)</span></label>
+        <input type="number" id="orders" min="0" inputmode="numeric" placeholder="0">
+      </div>
+
+      <div class="field">
+        <label for="snippets">Snippets reviewed today</label>
+        <input type="number" id="snippets" min="0" inputmode="numeric" placeholder="0">
+      </div>
+
+      <div class="field">
+        <label for="loom">Loom walkthrough link <span class="hint">&middot; required</span></label>
+        <input type="url" id="loom" inputmode="url" placeholder="https://www.loom.com/share/&hellip;">
+        <div class="help">Paste the link to today&rsquo;s Loom of you going through the creators.</div>
+      </div>
+
+      <div class="field">
+        <label for="notes">Anything else? <span style="color:var(--grey);font-weight:700">(optional)</span></label>
+        <textarea id="notes" placeholder="Blockers, a slow day, anything worth noting&hellip;"></textarea>
+      </div>
+
+      <button class="submit" id="submitBtn" onclick="submit()">Submit today&rsquo;s shift</button>
+      <div class="err" id="err"></div>
+    </div>
+  </div>
+
+  <!-- DONE -->
+  <div class="done" id="doneView">
+    <div class="tick"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></div>
+    <h2>Logged &mdash; thank you!</h2>
+    <p id="doneMsg">Today&rsquo;s shift is recorded. See you tomorrow.</p>
+    <button class="again" onclick="reset()">Log another day</button>
+  </div>
+
+  <footer><div class="fb">Baybella &middot; creator operations</div></footer>
+</div>
+
+<script>
+// default the date to today (her local = Manila)
+(function(){
+  var d = new Date();
+  var s = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+  document.getElementById('date').value = s;
+})();
+
+function submit(){
+  var err = document.getElementById('err');
+  err.textContent = '';
+  var payload = {
+    date:     document.getElementById('date').value,
+    creators: document.getElementById('creators').value,
+    orders:   document.getElementById('orders').value,
+    snippets: document.getElementById('snippets').value,
+    loom:     document.getElementById('loom').value.trim(),
+    notes:    document.getElementById('notes').value
+  };
+  if(!payload.date){ err.textContent = 'Please pick a date.'; return; }
+  if(!payload.loom){ err.textContent = 'Please paste your Loom walkthrough link.'; return; }
+  if(!/^https?:\/\/.+/i.test(payload.loom)){ err.textContent = 'That doesn’t look like a link — paste the full Loom URL.'; return; }
+
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Saving…';
+
+  function ok(res){
+    var msg = document.getElementById('doneMsg');
+    if(res && res.creators < res.target){
+      msg.innerHTML = "Today&rsquo;s shift is recorded. Heads up &mdash; that&rsquo;s under the daily target of " + res.target + " reviews.";
+    }
+    document.getElementById('formView').style.display = 'none';
+    document.getElementById('doneView').classList.add('show');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  function fail(e){
+    btn.disabled = false; btn.textContent = "Submit today’s shift";
+    err.textContent = 'Something went wrong saving that. Try again in a moment.';
+  }
+
+  if(typeof google !== 'undefined' && google.script && google.script.run){
+    google.script.run.withSuccessHandler(ok).withFailureHandler(fail).submitEntry(payload);
+  } else {
+    // local preview (no Apps Script backend) — just show the confirmation
+    setTimeout(function(){ ok({creators:Number(payload.creators)||0, target:5}); }, 400);
+  }
+}
+
+function reset(){
+  document.getElementById('doneView').classList.remove('show');
+  document.getElementById('formView').style.display = 'block';
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = false; btn.textContent = "Submit today’s shift";
+  ['creators','orders','snippets','loom','notes'].forEach(function(id){ document.getElementById(id).value=''; });
+}
+</script>
+</body>
+</html>
