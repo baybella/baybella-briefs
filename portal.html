@@ -213,7 +213,7 @@ document.getElementById('submit').addEventListener('click',async()=>{
   const err=document.getElementById('err');
   if(!name||!handle||!email){err.textContent="Please add your name, handle and email.";return;}
   if(!picks.length){err.textContent="Tick at least one brief you'd like to make.";return;}
-  if(!capacity){err.textContent="Let us know how many you could realistically film.";return;}
+  if(!capacity){err.textContent="Let us know how many videos you are able to film.";return;}
   if(!canFilm){err.textContent="Please confirm you can film within 7 days of receiving a brief.";return;}
   err.textContent="";
   const btn=document.getElementById('submit'); btn.disabled=true; btn.textContent="Sending…";
