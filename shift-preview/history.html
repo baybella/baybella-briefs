@@ -112,13 +112,13 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
     </table>
   </div>
 
-  <footer><div class="fb">Baybella &middot; weekly target 25 (5 creator reviews &times; 5 weekdays)</div></footer>
+  <footer><div class="fb">Baybella &middot; weekly target 50 (10 creator reviews &times; 5 weekdays)</div></footer>
 </div>
 
 <script>
 function esc(s){ return String(s==null?'':s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
 var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-var DAILY_TARGET = 5, WORK_DAYS = 5, WEEK_TARGET = DAILY_TARGET * WORK_DAYS;
+var DAILY_TARGET = 10, WORK_DAYS = 5, WEEK_TARGET = DAILY_TARGET * WORK_DAYS;
 
 // In the real app this is "now" in Manila; in local preview it's a fixed date so the demo makes sense.
 var IS_APP = (typeof google !== 'undefined' && google.script && google.script.run);
@@ -221,13 +221,13 @@ if (IS_APP){
     document.getElementById('loading').textContent = 'Could not load the record. Refresh to retry.';
   }).getHistory();
 } else {
-  // local preview sample — week of Mon 06-15, "today" = Wed 06-17 → 13 reviewed vs 15 expected (slightly behind)
+  // local preview sample — week of Mon 06-15, "today" = Wed 06-17 → 27 reviewed vs 30 expected (slightly behind)
   render([
-    {date:'2026-06-17', creators:4, orders:0, snippets:0, loom:'https://www.loom.com/share/abc', notes:'', missed:true},
-    {date:'2026-06-16', creators:4, orders:0, snippets:1, loom:'https://www.loom.com/share/abc', notes:'1 duplicate, 1 broken link', missed:true},
-    {date:'2026-06-15', creators:5, orders:1, snippets:0, loom:'https://www.loom.com/share/abc', notes:'', missed:false},
-    {date:'2026-06-12', creators:5, orders:2, snippets:2, loom:'https://www.loom.com/share/abc', notes:'', missed:false},
-    {date:'2026-06-11', creators:6, orders:1, snippets:3, loom:'', notes:'caught up', missed:false}
+    {date:'2026-06-17', creators:9,  orders:0, snippets:0, loom:'https://www.loom.com/share/abc', notes:'', missed:true},
+    {date:'2026-06-16', creators:8,  orders:0, snippets:1, loom:'https://www.loom.com/share/abc', notes:'sample row', missed:true},
+    {date:'2026-06-15', creators:10, orders:1, snippets:0, loom:'https://www.loom.com/share/abc', notes:'', missed:false},
+    {date:'2026-06-12', creators:10, orders:2, snippets:2, loom:'https://www.loom.com/share/abc', notes:'', missed:false},
+    {date:'2026-06-11', creators:7,  orders:1, snippets:3, loom:'', notes:'sample row', missed:true}
   ]);
 }
 </script>
