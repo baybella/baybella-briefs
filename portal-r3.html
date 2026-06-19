@@ -215,6 +215,7 @@ document.getElementById('submit').addEventListener('click',async()=>{
   if(!canFilm){err.textContent="Please confirm you can film within 7 days of receiving a brief.";return;}
   err.textContent="";
   const btn=document.getElementById('submit'); btn.disabled=true; btn.textContent="Sending…";
+  // round = INTERNAL tag written to the Sheet. Keep it UNIQUE per portal (Round 2 / Round 3 / Round 4...). NOT the label creators see in the hero/footer - set the two independently.
   const payload={name,handle,email,picks:picks.join(", "),capacity,canFilmIn7Days:canFilm?"yes":"no",notes,round:"Round 3"};
   try{
     if(ENDPOINT){
