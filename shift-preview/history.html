@@ -12,6 +12,7 @@
 :root{
   --ink:#211C18;--ink2:#463E37;--grey:#8C8279;--pink:#E5147F;--pink-deep:#BE185D;--line-soft:#EAD9E4;
   --purple:#7C3AED;--serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;
+  --green:#15803D;--green-bg:#E4F6EA;--amber:#B45309;--amber-bg:#FBEBCB;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:#FDF4F8}
@@ -26,15 +27,30 @@ body{font-family:var(--sans);background:linear-gradient(160deg,#FCE3F0 0%,#F1E7F
 .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.02em;color:var(--ink)}
 .hero .period{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#5a2540;margin-top:10px}
 
-.statbar{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
-.stat{flex:1;min-width:130px;background:#fff;border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;box-shadow:0 14px 30px -26px rgba(60,30,30,.5)}
-.stat .l{font-size:.64rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pink)}
-.stat .v{font-family:var(--serif);font-size:1.6rem;color:var(--ink);margin-top:2px}
-.stat .v.bad{color:var(--pink-deep)}
+/* weekly pace scoreboard */
+.weekcard{background:#fff;border:1px solid var(--line-soft);border-radius:18px;padding:22px 24px 24px;margin:16px 0 6px;box-shadow:0 20px 46px -34px rgba(60,30,30,.55)}
+.wk-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.wk-label{font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--pink)}
+.wk-pill{font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:30px;white-space:nowrap}
+.wk-pill.ok{color:var(--green);background:var(--green-bg);border:1px solid #BBE6C8}
+.wk-pill.warn{color:var(--amber);background:var(--amber-bg);border:1px solid #F1D79A}
+.wk-pill.bad{color:var(--pink-deep);background:#FCDDEA;border:1px solid #F6CDDE}
+.wk-num{font-family:var(--serif);font-weight:500;font-size:2.8rem;line-height:1;color:var(--ink);margin:14px 0 4px}
+.wk-num .of{font-size:1.4rem;color:var(--grey)}
+.wk-bar{position:relative;height:14px;border-radius:10px;background:#F3E7EF;margin:16px 0 12px;overflow:visible}
+.wk-fill{position:absolute;left:0;top:0;bottom:0;border-radius:10px;transition:width .5s ease}
+.wk-fill.ok{background:linear-gradient(90deg,#34D27F,var(--green))}
+.wk-fill.warn{background:linear-gradient(90deg,#F0B44A,var(--amber))}
+.wk-fill.bad{background:linear-gradient(90deg,var(--pink),var(--pink-deep))}
+.wk-marker{position:absolute;top:-5px;bottom:-5px;width:3px;border-radius:3px;background:var(--ink);opacity:.55}
+.wk-marker::after{content:"today";position:absolute;top:-17px;left:50%;transform:translateX(-50%);font-size:.56rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);white-space:nowrap}
+.wk-sub{font-size:.92rem;color:var(--ink2);line-height:1.5}
+.wk-sub b{color:var(--ink)}
 
 .tablecard{background:#fff;border:1px solid var(--line-soft);border-radius:18px;padding:6px;margin:16px 0;box-shadow:0 20px 46px -34px rgba(60,30,30,.55);overflow-x:auto}
+.tablecard .tcap{font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);padding:14px 14px 4px}
 table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:560px}
-thead th{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);text-align:left;padding:14px 14px;border-bottom:2px solid var(--line-soft);white-space:nowrap}
+thead th{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);text-align:left;padding:10px 14px 12px;border-bottom:2px solid var(--line-soft);white-space:nowrap}
 thead th.num,tbody td.num{text-align:center}
 tbody td{padding:13px 14px;border-bottom:1px solid #F4E8F0;color:var(--ink2);vertical-align:top}
 tbody tr:last-child td{border-bottom:none}
@@ -47,7 +63,7 @@ a.loom{display:inline-block;font-size:.74rem;font-weight:800;letter-spacing:.03e
 a.loom:hover{filter:brightness(1.06)}
 .noloom{color:#D8C8D4}
 td.notes{color:var(--grey);font-size:.86rem;max-width:220px}
-.empty{text-align:center;padding:50px 20px;color:var(--grey);font-family:var(--serif);font-style:italic;font-size:1.05rem}
+.empty{text-align:center;padding:40px 20px;color:var(--grey);font-family:var(--serif);font-style:italic;font-size:1.05rem}
 .loading{text-align:center;padding:50px 20px;color:var(--grey)}
 
 footer{padding:22px 0 50px;text-align:center}
@@ -65,13 +81,23 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
     <div class="period" id="period"></div>
   </div>
 
-  <div class="statbar" id="statbar" style="display:none">
-    <div class="stat"><div class="l">Days logged</div><div class="v" id="sLogged">—</div></div>
-    <div class="stat"><div class="l">Target hit</div><div class="v" id="sHit">—</div></div>
-    <div class="stat"><div class="l">Missed (under 5)</div><div class="v bad" id="sMissed">—</div></div>
+  <!-- WEEKLY PACE SCOREBOARD -->
+  <div class="weekcard" id="weekcard" style="display:none">
+    <div class="wk-top">
+      <div class="wk-label">This week &middot; creator reviews</div>
+      <div class="wk-pill" id="wkPill">—</div>
+    </div>
+    <div class="wk-num"><span id="wkReviewed">0</span><span class="of"> / <span id="wkTarget">25</span> target</span></div>
+    <div class="wk-bar">
+      <div class="wk-fill" id="wkFill" style="width:0"></div>
+      <div class="wk-marker" id="wkMarker" style="left:0"></div>
+    </div>
+    <div class="wk-sub" id="wkSub"></div>
   </div>
 
+  <!-- MONTHLY RECORD -->
   <div class="tablecard">
+    <div class="tcap" id="tcap">Daily log</div>
     <div class="loading" id="loading">Loading the record…</div>
     <table id="tbl" style="display:none">
       <thead><tr>
@@ -86,47 +112,96 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
     </table>
   </div>
 
-  <footer><div class="fb">Baybella &middot; target is 5 creator reviews per shift</div></footer>
+  <footer><div class="fb">Baybella &middot; weekly target 25 (5 creator reviews &times; 5 weekdays)</div></footer>
 </div>
 
 <script>
 function esc(s){ return String(s==null?'':s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
-
 var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+var DAILY_TARGET = 5, WORK_DAYS = 5, WEEK_TARGET = DAILY_TARGET * WORK_DAYS;
+
+// In the real app this is "now" in Manila; in local preview it's a fixed date so the demo makes sense.
+var IS_APP = (typeof google !== 'undefined' && google.script && google.script.run);
+var PREVIEW_TODAY = '2026-06-17'; // a Wednesday
+
+function todayManilaStr(){
+  if (IS_APP) return new Date().toLocaleDateString('en-CA', {timeZone:'Asia/Manila'}); // yyyy-mm-dd
+  return PREVIEW_TODAY;
+}
+function addDays(str, n){
+  var d = new Date(str+'T00:00:00'); d.setDate(d.getDate()+n);
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function dow(str){ return new Date(str+'T00:00:00').getDay(); } // 0=Sun..6=Sat
+
+function weekScoreboard(allRows){
+  var today = todayManilaStr();
+  var back = (dow(today)+6) % 7;          // days since Monday (Mon=0)
+  var monday = addDays(today, -back);
+
+  // latest submission per day (rows arrive newest-first), summed across this week so far
+  var seen = {}, reviewed = 0;
+  allRows.forEach(function(r){
+    var d = String(r.date);
+    if (seen[d]) return; seen[d] = true;
+    if (d >= monday && d <= today) reviewed += (Number(r.creators)||0);
+  });
+
+  // working days elapsed this week, including today (capped at 5)
+  var elapsed = 0;
+  for (var i=0;i<7;i++){ var d=addDays(monday,i); if (d>today) break; var w=dow(d); if (w>=1 && w<=5) elapsed++; }
+  elapsed = Math.min(elapsed, WORK_DAYS);
+  var expected = DAILY_TARGET * elapsed;
+  var deficit = expected - reviewed;
+
+  var cls, label;
+  if (deficit <= 0){ cls='ok'; label = reviewed>expected ? 'Ahead' : 'On track'; }
+  else if (deficit <= DAILY_TARGET){ cls='warn'; label='Slightly behind'; }
+  else { cls='bad'; label='Behind'; }
+
+  document.getElementById('wkTarget').textContent = WEEK_TARGET;
+  document.getElementById('wkReviewed').textContent = reviewed;
+  var pill = document.getElementById('wkPill');
+  pill.textContent = label; pill.className = 'wk-pill '+cls;
+  var fill = document.getElementById('wkFill');
+  fill.style.width = Math.min(100, reviewed/WEEK_TARGET*100)+'%'; fill.className = 'wk-fill '+cls;
+  document.getElementById('wkMarker').style.left = Math.min(100, expected/WEEK_TARGET*100)+'%';
+
+  var sub;
+  if (deficit <= 0){
+    sub = '<b>'+reviewed+'</b> reviewed so far this week. By today you&rsquo;d expect <b>'+expected+'</b> — '+
+          (reviewed>expected ? ('you&rsquo;re <b>'+(reviewed-expected)+' ahead</b>. ') : 'right on pace. ')+
+          'Target is '+WEEK_TARGET+' for the full week.';
+  } else {
+    sub = '<b>'+reviewed+'</b> reviewed so far. By today you&rsquo;d expect <b>'+expected+'</b> — that&rsquo;s <b>'+
+          deficit+' behind</b> the pace needed to hit '+WEEK_TARGET+' by Friday.';
+  }
+  document.getElementById('wkSub').innerHTML = sub;
+  document.getElementById('weekcard').style.display = 'block';
+}
 
 function currentPeriod(rows){
-  // Real app: the actual current calendar month. Preview: month of the newest entry.
-  if(typeof google !== 'undefined' && google.script && google.script.run){
-    var d = new Date();
-    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
-  }
+  if (IS_APP){ return todayManilaStr().slice(0,7); }
   return rows.length ? String(rows[0].date).slice(0,7) : '';
 }
 
 function render(allRows){
   document.getElementById('loading').style.display = 'none';
   allRows = allRows || [];
+
+  if (allRows.length) weekScoreboard(allRows);
+
   var period = currentPeriod(allRows);
+  if (period){ var p=period.split('-'); document.getElementById('period').textContent = MONTHS[parseInt(p[1],10)-1]+' '+p[0]; }
+  document.getElementById('tcap').textContent = 'Daily log — ' + (period ? MONTHS[parseInt(period.split('-')[1],10)-1] : '');
+
   var rows = allRows.filter(function(r){ return String(r.date).slice(0,7) === period; });
-
-  if(period){
-    var p = period.split('-');
-    document.getElementById('period').textContent = MONTHS[parseInt(p[1],10)-1] + ' ' + p[0];
-  }
-
-  if(!rows.length){
-    document.getElementById('loading').style.display = 'block';
-    document.getElementById('loading').className = 'empty';
-    document.getElementById('loading').textContent = 'No shifts logged yet this month. Days appear here as Xanthe submits.';
+  if (!rows.length){
+    document.getElementById('loading').style.display='block';
+    document.getElementById('loading').className='empty';
+    document.getElementById('loading').textContent='No shifts logged yet this month.';
     return;
   }
-
-  var hit = rows.filter(function(r){return !r.missed;}).length;
-  document.getElementById('sLogged').textContent = rows.length;
-  document.getElementById('sHit').textContent = hit;
-  document.getElementById('sMissed').textContent = rows.length - hit;
-  document.getElementById('statbar').style.display = 'flex';
-
   var html = rows.map(function(r){
     return '<tr class="'+(r.missed?'missed':'')+'">'+
       '<td class="date">'+esc(r.date)+'</td>'+
@@ -141,18 +216,18 @@ function render(allRows){
   document.getElementById('tbl').style.display = 'table';
 }
 
-if(typeof google !== 'undefined' && google.script && google.script.run){
+if (IS_APP){
   google.script.run.withSuccessHandler(render).withFailureHandler(function(){
     document.getElementById('loading').textContent = 'Could not load the record. Refresh to retry.';
   }).getHistory();
 } else {
-  // local preview sample
+  // local preview sample — week of Mon 06-15, "today" = Wed 06-17 → 13 reviewed vs 15 expected (slightly behind)
   render([
-    {date:'2026-06-09', creators:3, orders:4, snippets:12, loom:'https://www.loom.com/share/abc', notes:'Slow morning, batch was small', missed:true},
-    {date:'2026-06-06', creators:6, orders:2, snippets:9,  loom:'https://www.loom.com/share/abc', notes:'', missed:false},
-    {date:'2026-06-05', creators:5, orders:5, snippets:15, loom:'https://www.loom.com/share/abc', notes:'All caught up', missed:false},
-    {date:'2026-06-04', creators:2, orders:1, snippets:7,  loom:'', notes:'Power outage pm', missed:true},
-    {date:'2026-06-03', creators:7, orders:3, snippets:11, loom:'https://www.loom.com/share/abc', notes:'', missed:false}
+    {date:'2026-06-17', creators:4, orders:0, snippets:0, loom:'https://www.loom.com/share/abc', notes:'', missed:true},
+    {date:'2026-06-16', creators:4, orders:0, snippets:1, loom:'https://www.loom.com/share/abc', notes:'1 duplicate, 1 broken link', missed:true},
+    {date:'2026-06-15', creators:5, orders:1, snippets:0, loom:'https://www.loom.com/share/abc', notes:'', missed:false},
+    {date:'2026-06-12', creators:5, orders:2, snippets:2, loom:'https://www.loom.com/share/abc', notes:'', missed:false},
+    {date:'2026-06-11', creators:6, orders:1, snippets:3, loom:'', notes:'caught up', missed:false}
   ]);
 }
 </script>
