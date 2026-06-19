@@ -215,7 +215,7 @@ document.getElementById('submit').addEventListener('click',async()=>{
   if(!canFilm){err.textContent="Please confirm you can film within 7 days of receiving a brief.";return;}
   err.textContent="";
   const btn=document.getElementById('submit'); btn.disabled=true; btn.textContent="Sending…";
-  const payload={name,handle,email,picks:picks.join(", "),capacity,canFilmIn7Days:canFilm?"yes":"no",notes,round:"Round 2"};
+  const payload={name,handle,email,picks:picks.join(", "),capacity,canFilmIn7Days:canFilm?"yes":"no",notes,round:"Round 3"};
   try{
     if(ENDPOINT){
       await fetch(ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
