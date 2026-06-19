@@ -124,7 +124,7 @@ var DAILY_TARGET = 10, WORK_DAYS = 5, WEEK_TARGET = DAILY_TARGET * WORK_DAYS;
 
 // In the real app this is "now" in Manila; in local preview it's a fixed date so the demo makes sense.
 var IS_APP = (typeof google !== 'undefined' && google.script && google.script.run);
-var PREVIEW_TODAY = '2026-06-17'; // a Wednesday
+var PREVIEW_TODAY = '2026-06-19'; // a Friday — 5 business days elapsed (preview only) // a Wednesday
 
 function todayManilaStr(){
   if (IS_APP) return new Date().toLocaleDateString('en-CA', {timeZone:'Asia/Manila'}); // yyyy-mm-dd
@@ -237,11 +237,13 @@ if (IS_APP){
 } else {
   // local preview sample — week of Mon 06-15, "today" = Wed 06-17 → 27 reviewed vs 30 expected (slightly behind)
   render([
-    {date:'2026-06-17', creators:9,  orders:0, snippets:0, loom:'https://www.loom.com/share/abc', notes:'', missed:true},
-    {date:'2026-06-16', creators:8,  orders:0, snippets:1, loom:'https://www.loom.com/share/abc', notes:'sample row', missed:true},
+    {date:'2026-06-19', creators:8,  orders:0, snippets:0, loom:'https://www.loom.com/share/abc', notes:'', missed:true},
+    {date:'2026-06-18', creators:9,  orders:0, snippets:1, loom:'https://www.loom.com/share/abc', notes:'', missed:true},
+    {date:'2026-06-17', creators:9,  orders:0, snippets:0, loom:'https://www.loom.com/share/abc', notes:'sample row', missed:true},
+    {date:'2026-06-16', creators:8,  orders:0, snippets:1, loom:'https://www.loom.com/share/abc', notes:'', missed:true},
     {date:'2026-06-15', creators:10, orders:1, snippets:0, loom:'https://www.loom.com/share/abc', notes:'', missed:false},
     {date:'2026-06-12', creators:10, orders:2, snippets:2, loom:'https://www.loom.com/share/abc', notes:'', missed:false},
-    {date:'2026-06-11', creators:7,  orders:1, snippets:3, loom:'', notes:'sample row', missed:true}
+    {date:'2026-06-11', creators:8,  orders:1, snippets:3, loom:'', notes:'sample row', missed:true}
   ]);
 }
 </script>
