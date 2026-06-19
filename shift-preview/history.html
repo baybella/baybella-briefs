@@ -144,11 +144,10 @@ function weekScoreboard(allRows){
   var back = (dow(today)+6) % 7;          // days since Monday (Mon=0)
   var monday = addDays(today, -back);
 
-  // latest submission per day (rows arrive newest-first), summed across this week so far
-  var seen = {}, reviewed = 0;
+  // sum every entry in the week (a day can have multiple entries; they add up)
+  var reviewed = 0;
   allRows.forEach(function(r){
     var d = String(r.date);
-    if (seen[d]) return; seen[d] = true;
     if (d >= monday && d <= today) reviewed += (Number(r.creators)||0);
   });
 
@@ -207,6 +206,10 @@ function render(allRows){
     document.getElementById('loading').textContent='No shifts logged yet this month.';
     return;
   }
+  // a day's "missed" is judged on the day's TOTAL (multiple entries on one date add up)
+  var dayTot = {};
+  rows.forEach(function(r){ var d=String(r.date); dayTot[d] = (dayTot[d]||0) + (Number(r.creators)||0); });
+
   var thisMon = mondayOf(todayManilaStr());
   var curWeek = null, html = '';
   rows.forEach(function(r){
@@ -217,9 +220,10 @@ function render(allRows){
       var lbl = isNow ? 'This week &middot; '+shortDate(mon) : 'Week of '+shortDate(mon);
       html += '<tr class="wk-div'+(isNow?' now':'')+'"><td colspan="6">'+lbl+'</td></tr>';
     }
-    html += '<tr class="'+(r.missed?'missed':'')+'">'+
+    var miss = (dayTot[String(r.date)] || 0) < DAILY_TARGET;
+    html += '<tr class="'+(miss?'missed':'')+'">'+
       '<td class="date">'+esc(r.date)+'</td>'+
-      '<td class="num big">'+esc(r.creators)+(r.missed?'<span class="pill">missed</span>':'')+'</td>'+
+      '<td class="num big">'+esc(r.creators)+(miss?'<span class="pill">missed</span>':'')+'</td>'+
       '<td class="num big">'+esc(r.orders)+'</td>'+
       '<td class="num big">'+esc(r.snippets)+'</td>'+
       '<td class="num">'+(r.loom ? '<a class="loom" href="'+esc(r.loom)+'" target="_blank" rel="noopener">&#9654; Watch</a>' : '<span class="noloom">&mdash;</span>')+'</td>'+
@@ -237,13 +241,12 @@ if (IS_APP){
 } else {
   // local preview sample — week of Mon 06-15, "today" = Wed 06-17 → 27 reviewed vs 30 expected (slightly behind)
   render([
-    {date:'2026-06-19', creators:8,  orders:0, snippets:0, loom:'https://www.loom.com/share/abc', notes:'', missed:true},
-    {date:'2026-06-18', creators:9,  orders:0, snippets:1, loom:'https://www.loom.com/share/abc', notes:'', missed:true},
-    {date:'2026-06-17', creators:9,  orders:0, snippets:0, loom:'https://www.loom.com/share/abc', notes:'sample row', missed:true},
-    {date:'2026-06-16', creators:8,  orders:0, snippets:1, loom:'https://www.loom.com/share/abc', notes:'', missed:true},
-    {date:'2026-06-15', creators:10, orders:1, snippets:0, loom:'https://www.loom.com/share/abc', notes:'', missed:false},
-    {date:'2026-06-12', creators:10, orders:2, snippets:2, loom:'https://www.loom.com/share/abc', notes:'', missed:false},
-    {date:'2026-06-11', creators:8,  orders:1, snippets:3, loom:'', notes:'sample row', missed:true}
+    {date:'2026-06-18', creators:5, orders:0, snippets:0, loom:'https://www.loom.com/share/abc', notes:'', missed:false},
+    {date:'2026-06-16', creators:5, orders:0, snippets:0, loom:'https://www.loom.com/share/abc', notes:'first batch note', missed:false},
+    {date:'2026-06-16', creators:4, orders:0, snippets:0, loom:'https://www.loom.com/share/abc', notes:'second batch note', missed:false},
+    {date:'2026-06-16', creators:3, orders:0, snippets:1, loom:'https://www.loom.com/share/abc', notes:'third batch note', missed:false},
+    {date:'2026-06-15', creators:5, orders:1, snippets:0, loom:'https://www.loom.com/share/abc', notes:'', missed:false},
+    {date:'2026-06-12', creators:10, orders:2, snippets:2, loom:'https://www.loom.com/share/abc', notes:'', missed:false}
   ]);
 }
 </script>
