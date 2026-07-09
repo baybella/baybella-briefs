@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Baybella · Creator Brief - "Can My Eyes Handle These?"</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#211C18;--ink2:#463E37;--grey:#8C8279;--pink:#E5147F;--line-soft:#EAD9E4;
+  --serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:#FBEAF1}
+body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160deg,#FCE3F0 0%,#F1E7FB 55%,#E7E7FB 100%);background-attachment:fixed;color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;position:relative}
+.blooms{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blooms::before{content:"";position:absolute;top:-220px;right:-200px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.6}
+.blooms::after{content:"";position:absolute;bottom:-220px;left:-220px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle,#C4B5FD 0%,transparent 70%);opacity:.5}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+.topbar{position:sticky;top:0;z-index:50;background:rgba(252,233,241,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+.topbar .row{max-width:720px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:var(--ink)}
+.brand b{color:var(--pink)}
+.lockbtn{font-family:var(--sans);font-size:11px;letter-spacing:.04em;font-weight:700;background:none;border:1px solid #E3C7D6;color:#9a4a72;padding:7px 13px;border-radius:40px;cursor:pointer;transition:.2s;white-space:nowrap}
+.lockbtn:hover{border-color:var(--pink);color:var(--pink);background:#fff}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#F49AC1 0%,#BBA2E8 100%);border:1px solid #E58BB4;border-radius:24px;padding:clamp(32px,6vw,50px) clamp(26px,5vw,42px);margin:24px 0 30px;box-shadow:0 28px 60px -28px rgba(150,40,100,.55),inset 0 1px 0 rgba(255,255,255,.4)}
+.hero::before{content:"";position:absolute;top:-140px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.7}
+.hero>*{position:relative;z-index:1}
+.hero{text-align:center}
+.hero .eyebrow{font-size:.92rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:16px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.4rem,4vw,1.95rem);line-height:1.06;letter-spacing:-.02em;color:var(--ink)}
+.hero .meta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 40px;border-top:1px solid #E9C6D9;padding-top:20px;margin-top:26px}
+.hero .mi{display:flex;flex-direction:column;align-items:center;gap:2px}
+.hero .mi .l{font-size:.62rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--pink)}
+.hero .mi .v{font-family:var(--serif);font-size:1rem;color:var(--ink)}
+
+/* SECTION = its own coloured block */
+.sec{margin-bottom:20px}
+.panel{position:relative;overflow:hidden;background:#fff;background:color-mix(in srgb,var(--c) 7%,#fff);border-radius:16px;padding:0 22px 24px;box-shadow:0 20px 46px -34px color-mix(in srgb,var(--c) 58%,#000),0 0 0 1px color-mix(in srgb,var(--c) 16%,#fff)}
+.phead{background:var(--c);background:linear-gradient(135deg, color-mix(in srgb,var(--c) 86%,#fff) 0%, var(--c) 56%, color-mix(in srgb,var(--c) 86%,#000) 100%);color:#fff;margin:0 -22px 20px;padding:14px 22px;display:flex;align-items:baseline;gap:12px}
+.phead .pnum{font-size:.8rem;font-weight:800;color:rgba(255,255,255,.72)}
+.phead .pname{font-size:.92rem;font-weight:800;color:#fff;letter-spacing:.13em;text-transform:uppercase;line-height:1}
+.phead .pwhat{margin-left:auto;font-family:var(--serif);font-style:italic;font-size:.95rem;color:rgba(255,255,255,.9)}
+@media(max-width:440px){.phead .pwhat{display:none}}
+
+/* prose - BLACK */
+.vision p{font-size:1.02rem;line-height:1.7;margin-bottom:14px;color:var(--ink)}.vision p:last-child{margin-bottom:0}
+.vision strong{color:var(--ink);font-weight:800}.vision em{font-style:italic}
+.lead{font-size:.98rem;line-height:1.7;margin-bottom:12px;color:var(--ink)}.lead:last-child{margin-bottom:0}
+.lead strong{color:var(--ink);font-weight:800}.muted{color:var(--grey)}
+
+/* notes - white box inside the tinted card */
+.note{background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-left:3px solid var(--c);border-radius:12px;padding:16px 17px;margin:15px 0;font-size:.94rem;line-height:1.6;color:var(--ink)}
+.note .wt{font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--c);font-weight:800;margin-bottom:8px}
+.note ol{margin:8px 0 0 18px}.note li{margin-bottom:5px}.note:last-child{margin-bottom:0}.note strong{color:var(--ink)}
+
+/* inspo */
+.inspo-grid{display:grid;grid-template-columns:1fr;gap:11px;margin-top:14px}
+.inspo{display:flex;align-items:center;gap:11px;text-decoration:none;background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-radius:12px;padding:13px;transition:.2s}
+.inspo:hover{border-color:var(--c)}
+.inspo .play{width:30px;height:30px;border-radius:50%;background:var(--c);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;flex-shrink:0}
+.inspo .lbl{font-size:12.5px;font-weight:800;color:var(--ink)}
+.inspo .sm{color:var(--grey);font-size:11.5px;font-style:italic;font-family:var(--serif)}
+
+/* rounds - SAY black serif */
+.round{padding:22px 0;border-top:1px solid color-mix(in srgb,var(--c) 18%,#fff)}
+.round:first-of-type{padding-top:6px;border-top:none}.round:last-of-type{padding-bottom:2px}
+.round-top{display:flex;align-items:baseline;gap:11px;margin-bottom:12px}
+.round-n{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--c)}
+.round-k{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);font-weight:800}
+.screen{display:flex;gap:8px;align-items:flex-start;font-size:.82rem;color:var(--grey);margin-bottom:12px;font-style:italic}
+.screen .e{font-style:normal;flex-shrink:0}
+.say{font-family:var(--serif);font-weight:500;font-size:1.26rem;line-height:1.5;color:var(--ink)}
+
+/* row-list */
+.row-list{list-style:none}
+.row-list li{display:flex;gap:12px;padding:13px 0;border-top:1px solid color-mix(in srgb,var(--c) 18%,#fff);font-size:.95rem;line-height:1.55;color:var(--ink)}
+.row-list li:first-child{border-top:none;padding-top:0}.row-list .e{flex-shrink:0}.row-list em{font-style:italic}.row-list strong{font-weight:800}
+
+footer{padding:24px 0 56px;text-align:center}
+footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a098}
+
+/* agency (gated - hidden by default) */
+.agency{display:none;background:#1f1419;color:#EAD9E4;position:relative;z-index:1}.agency.show{display:block}
+.agency .ahead{padding:36px 0 18px}
+.agency .abadge{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#F3A3C6;margin-bottom:12px;font-weight:800}
+.agency h2{font-family:var(--serif);font-weight:400;font-size:1.7rem;color:#FCEAF1}
+.acard{background:rgba(61,38,50,.4);border:1px solid #3d2632;border-radius:12px;margin-bottom:13px;overflow:hidden}
+.acard .ah{background:rgba(61,38,50,.6);padding:11px 16px;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:#F3A3C6;font-weight:800}
+.acard .ab{padding:16px}
+.acard .ab p,.acard .ab li{color:#D9C4D0;font-size:.9rem;margin-bottom:8px;line-height:1.55}
+.acard .ab p:last-child,.acard .ab li:last-child{margin-bottom:0}
+.acard .ab ul{list-style:none}.acard .ab li{display:flex;gap:9px}.acard .ab li .e{flex-shrink:0;color:#F3A3C6}.acard .ab strong{color:#FCEAF1}
+.acard .ab a{color:#F7A3C4;text-decoration:underline;word-break:break-all}
+.ai-flag{border-color:var(--pink)!important}.ai-flag .ah{background:rgba(229,20,127,.2);color:#F7A3C4}
+.gate{display:inline-flex;align-items:center;gap:6px;background:rgba(120,90,110,.2);border:1px solid #5a3d4d;color:#dcb9cb;font-size:.66rem;padding:5px 10px;border-radius:30px;margin:3px 4px 3px 0;font-weight:700}
+.mono-note{font-family:var(--serif);font-style:italic;font-size:.86rem;color:#c79bb0;background:rgba(0,0,0,.22);padding:11px 14px;border-radius:10px;border-left:2px solid var(--pink);margin-top:10px;line-height:1.5}
+</style>
+</head>
+<body>
+<!-- baybella-skeleton-v1 · DO NOT REMOVE. check_brief.py requires this signature so every brief is built FROM this skeleton (its design + fixed boilerplate), never custom-styled. -->
+<!-- baybella-no-lv · no on-camera self-application demo (product b-roll only) - LV section intentionally omitted. -->
+
+<div class="blooms"></div>
+
+<div class="topbar">
+  <div class="row">
+    <div class="brand"><b>BAYBELLA</b> &middot; CREATOR BRIEF</div>
+    <button class="lockbtn" id="agencyBtn">Agency notes</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Content Brief</div>
+    <h1>&ldquo;Can My Eyes Handle These?&rdquo;</h1>
+    <div class="meta">
+      <div class="mi"><span class="l">Format</span><span class="v">Stitch reaction</span></div>
+      <div class="mi"><span class="l">Length</span><span class="v">~25 sec</span></div>
+    </div>
+  </div>
+
+  <!-- 01 -->
+  <div class="sec" style="--c:#E5147F">
+    <div class="panel">
+      <div class="phead"><span class="pnum">01</span><span class="pname">What We&rsquo;re Making</span><span class="pwhat">the concept</span></div>
+      <div class="vision">
+        <p><strong>A stitch reaction.</strong> You reply to a girl venting that her lashes hurt her eyes, as the person who had the exact same problem and worked out why. We hand you the clip.</p>
+        <p><strong>The point:</strong> if lashes sting, it&rsquo;s the glue - not your eyes. So you use ones with no glue: a magnet on each end clips the top and bottom lash together around your own, and nothing touches your eye.</p>
+      </div>
+      <div class="inspo-grid">
+        <a class="inspo" href="https://vt.tiktok.com/ZSxULs3Aa/" target="_blank" rel="noopener">
+          <span class="play">&#9654;</span>
+          <span><span class="lbl">What the format looks like</span><br><span class="sm">a stitch reaction - how the reply sits over the clip</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="sec" style="--c:#9D1FB0">
+    <div class="panel">
+      <div class="phead"><span class="pnum">02</span><span class="pname">The Vibe</span><span class="pwhat">how to play it</span></div>
+      <p class="lead"><strong>Warm, been-there, no drama.</strong> You&rsquo;re not selling - you&rsquo;re telling someone you get it because you lived it, then showing them the thing that actually fixed it for you. Calm and reassuring, like you&rsquo;re helping out a mate who&rsquo;s about to give up on lashes for good.</p>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="sec" style="--c:#7C3AED">
+    <div class="panel">
+      <div class="phead"><span class="pnum">03</span><span class="pname">How To Film It</span><span class="pwhat">setup</span></div>
+      <p class="lead"><strong>Film your reaction on its own - we add the clip.</strong></p>
+      <ul class="row-list">
+        <li><span class="e">&#128241;</span><span><strong>Front camera, talking to us</strong> - a normal, well-lit spot.</span></li>
+        <li><span class="e">&#127909;</span><span>Film the <strong>close product shots</strong> separately: the bands, the magnets, clicking together, one going on the eye.</span></li>
+        <li><span class="e">&#128172;</span><span><strong>We supply and stitch the clip you&rsquo;re replying to.</strong> Just answer as if someone said their eyes hurt every time they try lashes.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="sec" style="--c:#1D6FE0">
+    <div class="panel">
+      <div class="phead"><span class="pnum">04</span><span class="pname">The Script</span><span class="pwhat">what you say + do</span></div>
+      <div class="script-legend" style="display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-radius:12px;padding:14px 16px;margin-bottom:15px">
+        <span class="screen" style="margin:0"><span class="e">&#127909;</span><span>Grey = what you DO / what&rsquo;s on screen.</span></span>
+        <span class="say" style="font-size:1rem">Black = what you SAY.</span>
+      </div>
+
+      <div class="round" style="border-top:none;padding-top:4px">
+        <div class="round-top"><span class="round-k">&#127909; The clip (we add it)</span></div>
+        <div class="screen" style="margin:0"><span class="e">&#128279;</span><span>We stitch on the video you&rsquo;re replying to - a girl saying her eyes are in pain from her lashes. You come in right after.</span></div>
+      </div>
+
+      <div class="round">
+        <div class="round-top"><span class="round-n">1</span><span class="round-k">Your reaction</span></div>
+        <div class="screen" style="margin:0 0 12px"><span class="e">&#127909;</span><span>talk to camera</span></div>
+        <p class="say">&ldquo;if your eyes sting every time you try lashes, it&rsquo;s the glue, not you. mine used to sting and water within minutes, go red and puffy, till i gave up on lashes completely and figured they just weren&rsquo;t for me. it was never my eyes though, it was the glue. so now i use ones with no glue at all.&rdquo;</p>
+      </div>
+
+      <div class="round">
+        <div class="round-top"><span class="round-n">2</span><span class="round-k">How it works</span></div>
+        <div class="screen" style="margin:0 0 12px"><span class="e">&#127909;</span><span>keep talking - over the top we cut to a close product shot: the two lash bands, the tiny magnet on each end, them clicking together, then one going on the eye</span></div>
+        <p class="say">&ldquo;they&rsquo;ve got a tiny magnet on each end, so the top lash and the bottom one click together around your own lashes. nothing touches your eye.&rdquo;</p>
+      </div>
+
+      <div class="round">
+        <div class="round-top"><span class="round-n">3</span><span class="round-k">Close</span></div>
+        <div class="screen" style="margin:0 0 12px"><span class="e">&#127909;</span><span>back to camera</span></div>
+        <p class="say">&ldquo;they sit on your own lashes and lift straight off. if the glue&rsquo;s always been the problem, this is the version that isn&rsquo;t.&rdquo;</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="agency" id="agency">
+  <div class="wrap">
+    <div class="ahead"><div class="abadge">&#128274; Agency / Post - internal, not creator-facing</div><h2>Behind the brief</h2></div>
+
+    <div class="acard ai-flag"><div class="ah">&#127909; Split test - one reaction film, two setup clips</div><div class="ab">
+      <p>The creator films her reaction <strong>generic</strong> - it never names the specific clip, it answers the shared fear (eye pain from glue lashes). So the <strong>same reaction footage stitches onto TWO different setup clips</strong> = a split test from a single film. Cut two versions:</p>
+      <ul>
+        <li><span class="e">A.</span><span><strong>@raybies.ink</strong> - &ldquo;painful eyelash extensions, I&rsquo;ve known no peace&rdquo; - <a href="https://www.tiktok.com/@raybies.ink/video/7635077760611929375" target="_blank" rel="noopener">tiktok.com/@raybies.ink/video/7635077760611929375</a></span></li>
+        <li><span class="e">B.</span><span><strong>@teighanjade</strong> - &ldquo;my eyes are so painful&rdquo; - <a href="https://www.tiktok.com/@teighanjade/video/7501026233627544854" target="_blank" rel="noopener">tiktok.com/@teighanjade/video/7501026233627544854</a></span></li>
+      </ul>
+      <p>Both share the exact fear the reaction answers (eye pain from glue), so the reaction sits cleanly on either.</p>
+    </div></div>
+
+    <div class="acard ai-flag"><div class="ah">&#9888; Paid-ad rights - clear before paid</div><div class="ab">
+      <p>Both setup clips are <strong>strangers&rsquo; videos.</strong> An <strong>organic</strong> stitch is fine. For a <strong>PAID ad</strong> we need the original creator&rsquo;s permission / whitelist first - do NOT run either version as paid until that clip is cleared.</p>
+    </div></div>
+
+    <div class="acard"><div class="ah">Engine + gates</div><div class="ab">
+      <p><strong>Engine:</strong> the glue was the problem, not lashes and not your eyes. <strong>Villain:</strong> glue (eye reactions from glue lashes / extensions) - kept on the category, never on the buyer&rsquo;s eyes.</p>
+      <p><strong>Job:</strong> closer. <strong>Script is founder-locked</strong> - built verbatim, do not reword the spoken lines.</p>
+      <div class="gate">MECHANISM-ONLY compliance: every claim is mechanism (&ldquo;it&rsquo;s the glue, not you&rdquo; / &ldquo;no glue at all&rdquo; / &ldquo;nothing touches your eye&rdquo; / &ldquo;clip onto your own lashes&rdquo;). NO medical / health claim - no &ldquo;safe for sensitive eyes,&rdquo; &ldquo;won&rsquo;t irritate,&rdquo; &ldquo;hypoallergenic,&rdquo; &ldquo;gentle.&rdquo; No cost claim.</div>
+      <div class="gate">G6 (hook) n/a - the stitched clip IS the hook. G13 magnetic named (revealed via &ldquo;magnet&rdquo; + b-roll, not announced). G14/LV n/a - no on-camera self-application demo; the demo is PRODUCT b-roll. G12 clean.</div>
+      <div class="mono-note">REAL vs POST - REAL: creator to camera + the close product b-roll (bands, magnets, click, one going on the eye). POST: we stitch the setup clip, add any on-screen text + the &ldquo;magnetic&rdquo; caption. She NEVER announces &ldquo;these are magnetic lashes&rdquo; - the word &ldquo;magnet&rdquo; + the b-roll reveal it. Scene count 1.</div>
+    </div></div>
+  </div>
+</div>
+
+<footer><div class="fb">Baybella &times; Creator &middot; &ldquo;Can My Eyes Handle These?&rdquo;</div></footer>
+<script>
+document.getElementById('agencyBtn').addEventListener('click',function(){
+  var a=document.getElementById('agency');a.classList.toggle('show');
+  this.textContent=a.classList.contains('show')?'Hide agency notes':'Agency notes';
+  if(a.classList.contains('show'))a.scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body>
+</html>
