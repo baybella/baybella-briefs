@@ -76,7 +76,7 @@
 <body>
 <div class="wrap">
   <h1>Round 5 - Brief Opt-Ins</h1>
-  <div class="sub">Who ticked each brief, from the live Sheet · 9 creators · generated 13 jul 2026, 1:50am (Toronto). Rates in green; <b style="color:#ff8a8a">rate?</b> = no rate on file.</div>
+  <div class="sub">Who ticked each brief, from the live Sheet · 9 creators · generated 13 jul 2026, 1:54am (Toronto). Rates in green; <b style="color:#ff8a8a">rate?</b> = no rate on file.</div>
   <div class="legend">
     <span><i class="dot solo"></i> Solo - 1 creator</span>
     <span><i class="dot comp"></i> Compilation / snippet - multiple creators</span>
@@ -124,16 +124,32 @@
   <div class="notes"><h2>Before you lock assignments</h2><ul><li><b>Eye photos FAILED to save</b> for Alana, Brianna, Brodie, Holly - the portal Apps Script hit a Drive permission error, the photos are gone. Re-authorize the Apps Script (Drive scope) and ask these creators to resubmit their photo.</li><li><b>No rate on file:</b> Abby, Alana, Brianna, Holly, Lucy. Send rates and they go into <code>references/creator-rates.json</code>.</li></ul></div>
 </div>
 <div class="tally"><div class="in" id="tally">
-  <span class="hint">Click a creator to select them for that brief - the tally shows their load.</span>
+  <span class="hint">Click a creator to select them for that brief. Your picks are saved in the page URL - keep or share that link.</span>
 </div></div>
 <script>
 (function(){
   var KEY = "bb-optins-r5-sel";
   var store = { get: function(){ try { return localStorage.getItem(KEY); } catch(e) { return null; } },
                 set: function(v){ try { localStorage.setItem(KEY, v); } catch(e) {} } };
-  var sel = new Set(JSON.parse(store.get() || "[]"));
   var chips = document.querySelectorAll(".chip[data-c]");
+  var chipsArr = Array.prototype.slice.call(chips);
   function keyOf(ch){ return ch.dataset.b + "\u001f" + ch.dataset.c; }
+  function readHash(){
+    var m = location.hash.match(/s=([0-9.]+)/);
+    if (!m) return null;
+    var s = new Set();
+    m[1].split(".").forEach(function(i){ var ch = chipsArr[+i]; if (ch) s.add(keyOf(ch)); });
+    return s;
+  }
+  function writeHash(){
+    var idx = [];
+    chipsArr.forEach(function(ch, i){ if (sel.has(keyOf(ch))) idx.push(i); });
+    try {
+      history.replaceState(null, "", idx.length ? "#s=" + idx.join(".")
+                                                : location.pathname + location.search);
+    } catch(e) {}
+  }
+  var sel = readHash() || new Set(JSON.parse(store.get() || "[]"));
   function render(){
     var counts = {}, caps = {};
     chips.forEach(function(ch){
@@ -145,7 +161,7 @@
     var t = document.getElementById("tally");
     var names = Object.keys(counts).sort();
     if (!names.length) {
-      t.innerHTML = '<span class="hint">Click a creator to select them for that brief - the tally shows their load.</span>';
+      t.innerHTML = '<span class="hint">Click a creator to select them for that brief. Your picks are saved in the page URL - keep or share that link.</span>';
       return;
     }
     var h = '<span class="lbl">Selected</span>';
@@ -190,9 +206,11 @@
       var k = keyOf(ch);
       sel.has(k) ? sel.delete(k) : sel.add(k);
       store.set(JSON.stringify(Array.from(sel)));
+      writeHash();
       render();
     });
   });
+  writeHash();
   render();
 })();
 </script>
