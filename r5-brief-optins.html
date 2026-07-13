@@ -46,6 +46,18 @@
   .chip .cap{font-size:11px;color:var(--mut)}
   .chip .eye{font-size:11px;color:var(--gold);text-decoration:none;border-bottom:1px dotted var(--gold)}
   .chip .eye.fail{color:var(--red);border-bottom:none}
+  .chip .ig{font-size:11px;color:var(--mut);text-decoration:none}
+  .chip .ig:hover{color:var(--pink)}
+  .roster{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:10px 16px;margin-top:16px}
+  .roster summary{cursor:pointer;font-size:13px;color:var(--mut);font-weight:600}
+  .rrow{display:flex;gap:14px;flex-wrap:wrap;align-items:baseline;padding:7px 2px;border-top:1px solid var(--line);font-size:13px}
+  .rrow:first-of-type{margin-top:10px}
+  .rrow b{min-width:70px}
+  .rrow a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--chip-line)}
+  .rrow a:hover{color:var(--pink)}
+  .rig{min-width:150px} .rmail{flex:1;min-width:200px}
+  .rrate{color:var(--green);font-weight:700} .rcap{color:var(--mut)}
+  .dim{color:var(--mut)}
   .chip.new{border-color:#4a3a5a}
   .none-yet{color:var(--mut);font-size:13px}
   .notes{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-top:26px}
@@ -68,60 +80,66 @@
   .tally .tc.over b{color:var(--red)}
   .tally .tc.full b{color:var(--gold)}
   .tally .hint{color:var(--mut);font-size:13px}
-  .tally .copy{margin-left:auto;background:var(--pink-d);color:#ffaecf;border:1px solid #5a2c40;border-radius:999px;
+  .tally .tc.total{border-color:#3a5a3e;background:var(--green-d)}
+  .tally .tc.total b{color:var(--green)}
+  .tally .btns{margin-left:auto;display:inline-flex;gap:8px}
+  .tally .copy{background:var(--pink-d);color:#ffaecf;border:1px solid #5a2c40;border-radius:999px;
     padding:5px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
   .tally .copy:hover{border-color:var(--pink)}
+  .tally .copy.alt{background:var(--chip);color:var(--mut);border-color:var(--chip-line)}
+  .tally .copy.alt:hover{color:var(--ink);border-color:var(--mut)}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Round 5 - Brief Opt-Ins</h1>
-  <div class="sub">Who ticked each brief, from the live Sheet · 9 creators · generated 13 jul 2026, 1:54am (Toronto). Rates in green; <b style="color:#ff8a8a">rate?</b> = no rate on file.</div>
+  <div class="sub">Who ticked each brief, from the live Sheet · 9 creators · generated 13 jul 2026, 2:05am (Toronto). Rates in green; <b style="color:#ff8a8a">rate?</b> = no rate on file.</div>
   <div class="legend">
     <span><i class="dot solo"></i> Solo - 1 creator</span>
     <span><i class="dot comp"></i> Compilation / snippet - multiple creators</span>
     <span><i class="dot" style="background:#6a3030"></i> Needs a decision</span>
   </div>
+  <details class="roster"><summary>Creators this round - Instagram + email</summary><div class="rrow"><b>Abby</b><span class="rig"><a href="https://instagram.com/abbylb20" target="_blank" rel="noopener">@abbylb20</a></span><span class="rmail"><a href="mailto:abby@oztrack.com">abby@oztrack.com</a></span><span class="rrate">$375</span><span class="rcap">cap 2</span></div><div class="rrow"><b>Alana</b><span class="rig"><a href="https://instagram.com/alanaaceski" target="_blank" rel="noopener">@alanaaceski</a></span><span class="rmail"><a href="mailto:alanaaceskii@gmail.com">alanaaceskii@gmail.com</a></span><span class="rrate">$250</span><span class="rcap">cap 4</span></div><div class="rrow"><b>Brianna</b><span class="rig"><a href="https://instagram.com/briannaachambers" target="_blank" rel="noopener">@briannaachambers</a></span><span class="rmail"><a href="mailto:briannachambersbusiness@gmail.com">briannachambersbusiness@gmail.com</a></span><span class="rrate">$400</span><span class="rcap">cap 3</span></div><div class="rrow"><b>Brodie</b><span class="rig"><a href="https://instagram.com/Brodiejenkins" target="_blank" rel="noopener">@Brodiejenkins</a></span><span class="rmail"><a href="mailto:brodie.makeup@outlook.com">brodie.makeup@outlook.com</a></span><span class="rrate">$250</span><span class="rcap">cap 4</span></div><div class="rrow"><b>Dani</b><span class="rig"><a href="https://instagram.com/dani.sealey" target="_blank" rel="noopener">@dani.sealey</a></span><span class="rmail"><a href="mailto:danisealey1912@gmail.com">danisealey1912@gmail.com</a></span><span class="rrate">$200</span><span class="rcap">cap 1</span></div><div class="rrow"><b>Holly</b><span class="rig"><a href="https://instagram.com/_hollyturnerr" target="_blank" rel="noopener">@_hollyturnerr</a></span><span class="rmail"><a href="mailto:hollycturner@icloud.com">hollycturner@icloud.com</a></span><span class="rrate">$200</span><span class="rcap">cap 3</span></div><div class="rrow"><b>Libby</b><span class="rig"><a href="https://instagram.com/Libbyy.jane" target="_blank" rel="noopener">@Libbyy.jane</a></span><span class="rmail"><a href="mailto:libbyjstawicki@gmail.com">libbyjstawicki@gmail.com</a></span><span class="rrate">$150</span><span class="rcap">cap 4</span></div><div class="rrow"><b>Lucy</b><span class="rig"><a href="https://instagram.com/makeupbyylucy" target="_blank" rel="noopener">@makeupbyylucy</a></span><span class="rmail"><a href="mailto:makeupbyylucy@gmail.com">makeupbyylucy@gmail.com</a></span><span class="rrate">$150</span><span class="rcap">cap 2</span></div><div class="rrow"><b>Rylie</b><span class="rig"><a href="https://instagram.com/ryliewatson" target="_blank" rel="noopener">@ryliewatson</a></span><span class="rmail"><a href="mailto:watsonrylie@gmail.com">watsonrylie@gmail.com</a></span><span class="rrate">$230</span><span class="rcap">cap 4</span></div></details>
   
   <div class="secttl">Solo briefs (1 creator each)</div>
   <div class="card">
   <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-fit-its-not-you-reply.html" target="_blank" rel="noopener">It's Not You, It's the Fit</a></span><span class="badge solo">Solo</span><span class="count"><b>5</b> opted in</span></div>
-  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="It's Not You, It's the Fit" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span></span><span class="chip" data-c="Libby" data-cap="4" data-b="It's Not You, It's the Fit" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span></span><span class="chip" data-c="Rylie" data-cap="4" data-b="It's Not You, It's the Fit" role="button" tabindex="0">Rylie <span class="rate">$230</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Holly" data-cap="3" data-b="It's Not You, It's the Fit" role="button" tabindex="0">Holly <span class="rate none">rate?</span><span class="cap">cap 3</span></span><span class="chip new" data-c="Lucy" data-cap="2" data-b="It's Not You, It's the Fit" role="button" tabindex="0">Lucy <span class="rate none">rate?</span><span class="cap">cap 2</span></span></div>
+  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="It's Not You, It's the Fit" data-bi="1" data-rate="250" data-comp="" data-e="brodie.makeup@outlook.com" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/Brodiejenkins" target="_blank" rel="noopener">@Brodiejenkins</a></span><span class="chip" data-c="Holly" data-cap="3" data-b="It's Not You, It's the Fit" data-bi="1" data-rate="200" data-comp="" data-e="hollycturner@icloud.com" role="button" tabindex="0">Holly <span class="rate">$200</span><span class="cap">cap 3</span> <a class="ig" href="https://instagram.com/_hollyturnerr" target="_blank" rel="noopener">@_hollyturnerr</a></span><span class="chip" data-c="Libby" data-cap="4" data-b="It's Not You, It's the Fit" data-bi="1" data-rate="150" data-comp="" data-e="libbyjstawicki@gmail.com" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/Libbyy.jane" target="_blank" rel="noopener">@Libbyy.jane</a></span><span class="chip" data-c="Lucy" data-cap="2" data-b="It's Not You, It's the Fit" data-bi="1" data-rate="150" data-comp="" data-e="makeupbyylucy@gmail.com" role="button" tabindex="0">Lucy <span class="rate">$150</span><span class="cap">cap 2</span> <a class="ig" href="https://instagram.com/makeupbyylucy" target="_blank" rel="noopener">@makeupbyylucy</a></span><span class="chip" data-c="Rylie" data-cap="4" data-b="It's Not You, It's the Fit" data-bi="1" data-rate="230" data-comp="" data-e="watsonrylie@gmail.com" role="button" tabindex="0">Rylie <span class="rate">$230</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/ryliewatson" target="_blank" rel="noopener">@ryliewatson</a></span></div>
 </div>
 <div class="card">
   <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-fit-slip-off.html" target="_blank" rel="noopener">The Slip-Off Fix</a></span><span class="badge solo">Solo</span><span class="count"><b>3</b> opted in</span></div>
-  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="The Slip-Off Fix" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span></span><span class="chip" data-c="Libby" data-cap="4" data-b="The Slip-Off Fix" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Lucy" data-cap="2" data-b="The Slip-Off Fix" role="button" tabindex="0">Lucy <span class="rate none">rate?</span><span class="cap">cap 2</span></span></div>
+  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="The Slip-Off Fix" data-bi="2" data-rate="250" data-comp="" data-e="brodie.makeup@outlook.com" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/Brodiejenkins" target="_blank" rel="noopener">@Brodiejenkins</a></span><span class="chip" data-c="Libby" data-cap="4" data-b="The Slip-Off Fix" data-bi="2" data-rate="150" data-comp="" data-e="libbyjstawicki@gmail.com" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/Libbyy.jane" target="_blank" rel="noopener">@Libbyy.jane</a></span><span class="chip" data-c="Lucy" data-cap="2" data-b="The Slip-Off Fix" data-bi="2" data-rate="150" data-comp="" data-e="makeupbyylucy@gmail.com" role="button" tabindex="0">Lucy <span class="rate">$150</span><span class="cap">cap 2</span> <a class="ig" href="https://instagram.com/makeupbyylucy" target="_blank" rel="noopener">@makeupbyylucy</a></span></div>
 </div>
 <div class="card">
   <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-fit-learning-curve.html" target="_blank" rel="noopener">The Learning Curve</a></span><span class="badge solo">Solo</span><span class="count"><b>5</b> opted in</span></div>
-  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="The Learning Curve" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span></span><span class="chip" data-c="Dani" data-cap="1" data-b="The Learning Curve" role="button" tabindex="0">Dani <span class="rate">$200</span><span class="cap">cap 1</span></span><span class="chip" data-c="Libby" data-cap="4" data-b="The Learning Curve" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span></span><span class="chip" data-c="Rylie" data-cap="4" data-b="The Learning Curve" role="button" tabindex="0">Rylie <span class="rate">$230</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Alana" data-cap="4" data-b="The Learning Curve" role="button" tabindex="0">Alana <span class="rate none">rate?</span><span class="cap">cap 4</span></span></div>
+  <div class="chips"><span class="chip" data-c="Alana" data-cap="4" data-b="The Learning Curve" data-bi="3" data-rate="250" data-comp="" data-e="alanaaceskii@gmail.com" role="button" tabindex="0">Alana <span class="rate">$250</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/alanaaceski" target="_blank" rel="noopener">@alanaaceski</a></span><span class="chip" data-c="Brodie" data-cap="4" data-b="The Learning Curve" data-bi="3" data-rate="250" data-comp="" data-e="brodie.makeup@outlook.com" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/Brodiejenkins" target="_blank" rel="noopener">@Brodiejenkins</a></span><span class="chip" data-c="Dani" data-cap="1" data-b="The Learning Curve" data-bi="3" data-rate="200" data-comp="" data-e="danisealey1912@gmail.com" role="button" tabindex="0">Dani <span class="rate">$200</span><span class="cap">cap 1</span> <a class="ig" href="https://instagram.com/dani.sealey" target="_blank" rel="noopener">@dani.sealey</a></span><span class="chip" data-c="Libby" data-cap="4" data-b="The Learning Curve" data-bi="3" data-rate="150" data-comp="" data-e="libbyjstawicki@gmail.com" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/Libbyy.jane" target="_blank" rel="noopener">@Libbyy.jane</a></span><span class="chip" data-c="Rylie" data-cap="4" data-b="The Learning Curve" data-bi="3" data-rate="230" data-comp="" data-e="watsonrylie@gmail.com" role="button" tabindex="0">Rylie <span class="rate">$230</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/ryliewatson" target="_blank" rel="noopener">@ryliewatson</a></span></div>
 </div>
 <div class="card">
   <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-waste-of-money-mum-daughter.html" target="_blank" rel="noopener">Waste of Money? (Mum + Daughter)</a></span><span class="badge solo">Solo</span><span class="count"><b>2</b> opted in</span></div>
-  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="Waste of Money? (Mum + Daughter)" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Alana" data-cap="4" data-b="Waste of Money? (Mum + Daughter)" role="button" tabindex="0">Alana <span class="rate none">rate?</span><span class="cap">cap 4</span></span></div>
+  <div class="chips"><span class="chip" data-c="Alana" data-cap="4" data-b="Waste of Money? (Mum + Daughter)" data-bi="4" data-rate="250" data-comp="" data-e="alanaaceskii@gmail.com" role="button" tabindex="0">Alana <span class="rate">$250</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/alanaaceski" target="_blank" rel="noopener">@alanaaceski</a></span><span class="chip" data-c="Brodie" data-cap="4" data-b="Waste of Money? (Mum + Daughter)" data-bi="4" data-rate="250" data-comp="" data-e="brodie.makeup@outlook.com" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/Brodiejenkins" target="_blank" rel="noopener">@Brodiejenkins</a></span></div>
 </div>
 <div class="card">
   <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-parked-which-lash-are-you.html" target="_blank" rel="noopener">Which Lash Are You?</a></span><span class="badge solo">Solo</span><span class="count"><b>4</b> opted in</span></div>
-  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="Which Lash Are You?" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span></span><span class="chip" data-c="Libby" data-cap="4" data-b="Which Lash Are You?" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span></span><span class="chip" data-c="Rylie" data-cap="4" data-b="Which Lash Are You?" role="button" tabindex="0">Rylie <span class="rate">$230</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Abby" data-cap="2" data-b="Which Lash Are You?" role="button" tabindex="0">Abby <span class="rate none">rate?</span><span class="cap">cap 2</span></span></div>
+  <div class="chips"><span class="chip" data-c="Abby" data-cap="2" data-b="Which Lash Are You?" data-bi="5" data-rate="375" data-comp="" data-e="abby@oztrack.com" role="button" tabindex="0">Abby <span class="rate">$375</span><span class="cap">cap 2</span> <a class="ig" href="https://instagram.com/abbylb20" target="_blank" rel="noopener">@abbylb20</a></span><span class="chip" data-c="Brodie" data-cap="4" data-b="Which Lash Are You?" data-bi="5" data-rate="250" data-comp="" data-e="brodie.makeup@outlook.com" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/Brodiejenkins" target="_blank" rel="noopener">@Brodiejenkins</a></span><span class="chip" data-c="Libby" data-cap="4" data-b="Which Lash Are You?" data-bi="5" data-rate="150" data-comp="" data-e="libbyjstawicki@gmail.com" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/Libbyy.jane" target="_blank" rel="noopener">@Libbyy.jane</a></span><span class="chip" data-c="Rylie" data-cap="4" data-b="Which Lash Are You?" data-bi="5" data-rate="230" data-comp="" data-e="watsonrylie@gmail.com" role="button" tabindex="0">Rylie <span class="rate">$230</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/ryliewatson" target="_blank" rel="noopener">@ryliewatson</a></span></div>
 </div>
 <div class="card">
   <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-parked-split-screen-carousel.html" target="_blank" rel="noopener">Style × Application</a></span><span class="badge solo">Solo</span><span class="count"><b>2</b> opted in</span></div>
-  <div class="chips"><span class="chip" data-c="Libby" data-cap="4" data-b="Style × Application" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Alana" data-cap="4" data-b="Style × Application" role="button" tabindex="0">Alana <span class="rate none">rate?</span><span class="cap">cap 4</span></span></div>
+  <div class="chips"><span class="chip" data-c="Alana" data-cap="4" data-b="Style × Application" data-bi="6" data-rate="250" data-comp="" data-e="alanaaceskii@gmail.com" role="button" tabindex="0">Alana <span class="rate">$250</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/alanaaceski" target="_blank" rel="noopener">@alanaaceski</a></span><span class="chip" data-c="Libby" data-cap="4" data-b="Style × Application" data-bi="6" data-rate="150" data-comp="" data-e="libbyjstawicki@gmail.com" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/Libbyy.jane" target="_blank" rel="noopener">@Libbyy.jane</a></span></div>
 </div>
 <div class="card">
   <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-parked-first-lash-stitch.html" target="_blank" rel="noopener">First Lash That Fits Her Life</a></span><span class="badge solo">Solo</span><span class="count"><b>2</b> opted in</span></div>
-  <div class="chips"><span class="chip" data-c="Libby" data-cap="4" data-b="First Lash That Fits Her Life" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Brianna" data-cap="3" data-b="First Lash That Fits Her Life" role="button" tabindex="0">Brianna <span class="rate none">rate?</span><span class="cap">cap 3</span></span></div>
+  <div class="chips"><span class="chip" data-c="Brianna" data-cap="3" data-b="First Lash That Fits Her Life" data-bi="7" data-rate="400" data-comp="" data-e="briannachambersbusiness@gmail.com" role="button" tabindex="0">Brianna <span class="rate">$400</span><span class="cap">cap 3</span> <a class="ig" href="https://instagram.com/briannaachambers" target="_blank" rel="noopener">@briannaachambers</a></span><span class="chip" data-c="Libby" data-cap="4" data-b="First Lash That Fits Her Life" data-bi="7" data-rate="150" data-comp="" data-e="libbyjstawicki@gmail.com" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/Libbyy.jane" target="_blank" rel="noopener">@Libbyy.jane</a></span></div>
 </div>
 <div class="card">
   <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-fresh-sensitive-eyes-stitch.html" target="_blank" rel="noopener">Can My Eyes Handle These?</a></span><span class="badge solo">Solo</span><span class="count"><b>6</b> opted in</span></div>
-  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="Can My Eyes Handle These?" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span></span><span class="chip" data-c="Rylie" data-cap="4" data-b="Can My Eyes Handle These?" role="button" tabindex="0">Rylie <span class="rate">$230</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Abby" data-cap="2" data-b="Can My Eyes Handle These?" role="button" tabindex="0">Abby <span class="rate none">rate?</span><span class="cap">cap 2</span></span><span class="chip new" data-c="Alana" data-cap="4" data-b="Can My Eyes Handle These?" role="button" tabindex="0">Alana <span class="rate none">rate?</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Brianna" data-cap="3" data-b="Can My Eyes Handle These?" role="button" tabindex="0">Brianna <span class="rate none">rate?</span><span class="cap">cap 3</span></span><span class="chip new" data-c="Holly" data-cap="3" data-b="Can My Eyes Handle These?" role="button" tabindex="0">Holly <span class="rate none">rate?</span><span class="cap">cap 3</span></span></div>
+  <div class="chips"><span class="chip" data-c="Abby" data-cap="2" data-b="Can My Eyes Handle These?" data-bi="8" data-rate="375" data-comp="" data-e="abby@oztrack.com" role="button" tabindex="0">Abby <span class="rate">$375</span><span class="cap">cap 2</span> <a class="ig" href="https://instagram.com/abbylb20" target="_blank" rel="noopener">@abbylb20</a></span><span class="chip" data-c="Alana" data-cap="4" data-b="Can My Eyes Handle These?" data-bi="8" data-rate="250" data-comp="" data-e="alanaaceskii@gmail.com" role="button" tabindex="0">Alana <span class="rate">$250</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/alanaaceski" target="_blank" rel="noopener">@alanaaceski</a></span><span class="chip" data-c="Brianna" data-cap="3" data-b="Can My Eyes Handle These?" data-bi="8" data-rate="400" data-comp="" data-e="briannachambersbusiness@gmail.com" role="button" tabindex="0">Brianna <span class="rate">$400</span><span class="cap">cap 3</span> <a class="ig" href="https://instagram.com/briannaachambers" target="_blank" rel="noopener">@briannaachambers</a></span><span class="chip" data-c="Brodie" data-cap="4" data-b="Can My Eyes Handle These?" data-bi="8" data-rate="250" data-comp="" data-e="brodie.makeup@outlook.com" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/Brodiejenkins" target="_blank" rel="noopener">@Brodiejenkins</a></span><span class="chip" data-c="Holly" data-cap="3" data-b="Can My Eyes Handle These?" data-bi="8" data-rate="200" data-comp="" data-e="hollycturner@icloud.com" role="button" tabindex="0">Holly <span class="rate">$200</span><span class="cap">cap 3</span> <a class="ig" href="https://instagram.com/_hollyturnerr" target="_blank" rel="noopener">@_hollyturnerr</a></span><span class="chip" data-c="Rylie" data-cap="4" data-b="Can My Eyes Handle These?" data-bi="8" data-rate="230" data-comp="" data-e="watsonrylie@gmail.com" role="button" tabindex="0">Rylie <span class="rate">$230</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/ryliewatson" target="_blank" rel="noopener">@ryliewatson</a></span></div>
 </div>
   <div class="secttl">Compilations / snippets</div>
   <div class="card comp">
   <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-fit-eye-shape-comp.html" target="_blank" rel="noopener">Eye-Shape Compilation</a></span><span class="badge comp">Compilation</span><span class="count"><b>4</b> opted in</span></div>
-  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="Eye-Shape Compilation" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span> <span class="eye fail">photo failed</span></span><span class="chip new" data-c="Alana" data-cap="4" data-b="Eye-Shape Compilation" role="button" tabindex="0">Alana <span class="rate none">rate?</span><span class="cap">cap 4</span> <span class="eye fail">photo failed</span></span><span class="chip new" data-c="Brianna" data-cap="3" data-b="Eye-Shape Compilation" role="button" tabindex="0">Brianna <span class="rate none">rate?</span><span class="cap">cap 3</span> <span class="eye fail">photo failed</span></span><span class="chip new" data-c="Holly" data-cap="3" data-b="Eye-Shape Compilation" role="button" tabindex="0">Holly <span class="rate none">rate?</span><span class="cap">cap 3</span> <span class="eye fail">photo failed</span></span></div>
+  <div class="chips"><span class="chip" data-c="Alana" data-cap="4" data-b="Eye-Shape Compilation" data-bi="0" data-rate="250" data-comp="1" data-e="alanaaceskii@gmail.com" role="button" tabindex="0">Alana <span class="rate">$250</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/alanaaceski" target="_blank" rel="noopener">@alanaaceski</a> <span class="eye fail">photo failed</span></span><span class="chip" data-c="Brianna" data-cap="3" data-b="Eye-Shape Compilation" data-bi="0" data-rate="400" data-comp="1" data-e="briannachambersbusiness@gmail.com" role="button" tabindex="0">Brianna <span class="rate">$400</span><span class="cap">cap 3</span> <a class="ig" href="https://instagram.com/briannaachambers" target="_blank" rel="noopener">@briannaachambers</a> <span class="eye fail">photo failed</span></span><span class="chip" data-c="Brodie" data-cap="4" data-b="Eye-Shape Compilation" data-bi="0" data-rate="250" data-comp="1" data-e="brodie.makeup@outlook.com" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span> <a class="ig" href="https://instagram.com/Brodiejenkins" target="_blank" rel="noopener">@Brodiejenkins</a> <span class="eye fail">photo failed</span></span><span class="chip" data-c="Holly" data-cap="3" data-b="Eye-Shape Compilation" data-bi="0" data-rate="200" data-comp="1" data-e="hollycturner@icloud.com" role="button" tabindex="0">Holly <span class="rate">$200</span><span class="cap">cap 3</span> <a class="ig" href="https://instagram.com/_hollyturnerr" target="_blank" rel="noopener">@_hollyturnerr</a> <span class="eye fail">photo failed</span></span></div>
 </div>
-  <div class="notes"><h2>Before you lock assignments</h2><ul><li><b>Eye photos FAILED to save</b> for Alana, Brianna, Brodie, Holly - the portal Apps Script hit a Drive permission error, the photos are gone. Re-authorize the Apps Script (Drive scope) and ask these creators to resubmit their photo.</li><li><b>No rate on file:</b> Abby, Alana, Brianna, Holly, Lucy. Send rates and they go into <code>references/creator-rates.json</code>.</li></ul></div>
+  <div class="notes"><h2>Before you lock assignments</h2><ul><li><b>Eye photos FAILED to save</b> for Alana, Brianna, Brodie, Holly - the portal Apps Script hit a Drive permission error, the photos are gone. Re-authorize the Apps Script (Drive scope) and ask these creators to resubmit their photo.</li></ul></div>
 </div>
 <div class="tally"><div class="in" id="tally">
   <span class="hint">Click a creator to select them for that brief. Your picks are saved in the page URL - keep or share that link.</span>
@@ -134,34 +152,80 @@
   var chips = document.querySelectorAll(".chip[data-c]");
   var chipsArr = Array.prototype.slice.call(chips);
   function keyOf(ch){ return ch.dataset.b + "\u001f" + ch.dataset.c; }
+  function findChip(bi, name){
+    return chipsArr.filter(function(ch){ return ch.dataset.bi === bi && ch.dataset.c === name; })[0];
+  }
   function readHash(){
-    var m = location.hash.match(/s=([0-9.]+)/);
+    var m = location.hash.match(/s=([^&]+)/);
     if (!m) return null;
     var s = new Set();
-    m[1].split(".").forEach(function(i){ var ch = chipsArr[+i]; if (ch) s.add(keyOf(ch)); });
+    if (/^[0-9.]+$/.test(m[1])) {
+      m[1].split(".").forEach(function(i){ var ch = chipsArr[+i]; if (ch) s.add(keyOf(ch)); });
+      return s;
+    }
+    m[1].split("_").forEach(function(tok){
+      var p = tok.split("-");
+      var ch = findChip(p[0], decodeURIComponent(p.slice(1).join("-")));
+      if (ch) s.add(keyOf(ch));
+    });
     return s;
   }
+  function hashStr(){
+    var toks = [];
+    chipsArr.forEach(function(ch){
+      if (sel.has(keyOf(ch))) toks.push(ch.dataset.bi + "-" + encodeURIComponent(ch.dataset.c));
+    });
+    return toks.length ? "#s=" + toks.join("_") : "";
+  }
   function writeHash(){
-    var idx = [];
-    chipsArr.forEach(function(ch, i){ if (sel.has(keyOf(ch))) idx.push(i); });
+    var h = hashStr();
     try {
-      history.replaceState(null, "", idx.length ? "#s=" + idx.join(".")
-                                                : location.pathname + location.search);
+      history.replaceState(null, "", h || location.pathname + location.search);
     } catch(e) {}
   }
   var sel = readHash() || new Set(JSON.parse(store.get() || "[]"));
+
+  function money(v){
+    var s = v.toFixed(2);
+    return "$" + (s.slice(-3) === ".00" ? s.slice(0, -3) : s);
+  }
+  function costOf(ch){
+    if (!ch.dataset.rate) return null;
+    var r = parseFloat(ch.dataset.rate);
+    return ch.dataset.comp ? r * 0.25 : r;
+  }
+  function copyText(txt, btn, label){
+    function flash(){ btn.textContent = "copied \u2713";
+      setTimeout(function(){ btn.textContent = label; }, 1500); }
+    function legacy(){
+      var ta = document.createElement("textarea");
+      ta.value = txt; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); flash(); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText)
+      navigator.clipboard.writeText(txt).then(flash, legacy);
+    else legacy();
+  }
+
   function render(){
-    var counts = {}, caps = {};
-    chips.forEach(function(ch){
+    var counts = {}, caps = {}, costs = {}, unknown = false, total = 0;
+    chipsArr.forEach(function(ch){
       var on = sel.has(keyOf(ch));
       ch.classList.toggle("sel", on);
-      if (on) counts[ch.dataset.c] = (counts[ch.dataset.c] || 0) + 1;
+      if (on) {
+        var nm = ch.dataset.c;
+        counts[nm] = (counts[nm] || 0) + 1;
+        var c = costOf(ch);
+        if (c === null) unknown = true;
+        else { costs[nm] = (costs[nm] || 0) + c; total += c; }
+      }
       if (ch.dataset.cap) caps[ch.dataset.c] = ch.dataset.cap;
     });
     var t = document.getElementById("tally");
     var names = Object.keys(counts).sort();
     if (!names.length) {
-      t.innerHTML = '<span class="hint">Click a creator to select them for that brief. Your picks are saved in the page URL - keep or share that link.</span>';
+      t.innerHTML = '<span class="hint">Click a creator to select them for that brief. Hit "save + copy share link" and send THAT link - it carries your picks.</span>';
       return;
     }
     var h = '<span class="lbl">Selected</span>';
@@ -170,34 +234,32 @@
       var cls = "tc";
       if (cap && counts[nm] > cap) cls += " over";
       else if (cap && counts[nm] === cap) cls += " full";
-      h += '<span class="' + cls + '">' + nm + ' <b>' + counts[nm] + (cap ? "/" + cap : "") + '</b></span>';
+      var cost = costs[nm] ? " \u00b7 " + money(costs[nm]) : "";
+      h += '<span class="' + cls + '">' + nm + ' <b>' + counts[nm] + (cap ? "/" + cap : "") + '</b>' + cost + '</span>';
     });
-    h += '<button class="copy" id="copybtn">copy allocation</button>';
+    h += '<span class="tc total">Total <b>' + money(total) + (unknown ? " +?" : "") + '</b></span>';
+    h += '<span class="btns"><button class="copy" id="sharebtn">save + copy share link</button>';
+    h += '<button class="copy alt" id="copybtn">copy allocation</button></span>';
     t.innerHTML = h;
+    document.getElementById("sharebtn").onclick = function(){
+      writeHash();
+      copyText(location.origin + location.pathname + location.search + hashStr(),
+               this, "save + copy share link");
+    };
     document.getElementById("copybtn").onclick = function(){
       var byBrief = {};
-      sel.forEach(function(k){
-        var p = k.split("\u001f");
-        (byBrief[p[0]] = byBrief[p[0]] || []).push(p[1]);
+      chipsArr.forEach(function(ch){
+        if (!sel.has(keyOf(ch))) return;
+        var who = ch.dataset.c + (ch.dataset.e ? " (" + ch.dataset.e + ")" : "");
+        (byBrief[ch.dataset.b] = byBrief[ch.dataset.b] || []).push(who);
       });
       var lines = [];
       document.querySelectorAll(".title a").forEach(function(a){
         var ttl = a.textContent;
         if (byBrief[ttl]) lines.push(ttl + ": " + byBrief[ttl].join(", "));
       });
-      var txt = "Round 5 allocation\n" + lines.join("\n");
-      var btn = this;
-      function flash(){ btn.textContent = "copied ✓";
-        setTimeout(function(){ btn.textContent = "copy allocation"; }, 1500); }
-      function legacy(){
-        var ta = document.createElement("textarea");
-        ta.value = txt; document.body.appendChild(ta); ta.select();
-        try { document.execCommand("copy"); flash(); } catch(e) {}
-        document.body.removeChild(ta);
-      }
-      if (navigator.clipboard && navigator.clipboard.writeText)
-        navigator.clipboard.writeText(txt).then(flash, legacy);
-      else legacy();
+      lines.push("Est. spend: " + money(total) + (unknown ? " plus unpriced picks" : ""));
+      copyText("Round 5 allocation\n" + lines.join("\n"), this, "copy allocation");
     };
   }
   chips.forEach(function(ch){
