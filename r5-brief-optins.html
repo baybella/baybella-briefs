@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Round 5 - Brief Opt-Ins</title>
+<style>
+  :root{
+    --bg:#0f1115; --card:#171a21; --card2:#1c2029; --line:#2a2f3a;
+    --ink:#eef1f6; --mut:#9aa3b2; --pink:#ff5fa2; --pink-d:#3a1d2b;
+    --gold:#ffce5c; --gold-d:#352d16; --green:#46d27f; --green-d:#16321f;
+    --chip:#222734; --chip-line:#333a48; --red:#ff8a8a; --red-d:#3a1d1d;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; padding:28px 18px 60px;}
+  .wrap{max-width:900px;margin:0 auto}
+  h1{font-size:22px;margin:0 0 4px}
+  .sub{color:var(--mut);font-size:13px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:var(--mut)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+  .dot.solo{background:var(--pink)} .dot.comp{background:var(--gold)}
+  .banner{background:var(--red-d);border:1px solid #6a3030;border-radius:12px;padding:11px 15px;margin:16px 0 4px;font-size:13px;color:#ffd2d2}
+  .banner b{color:#fff}
+  .secttl{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);margin:26px 2px 12px;font-weight:600}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+  .card.comp{border-color:#5a4a1e;background:linear-gradient(180deg,#1d1a12,#181a21)}
+  .card.warn{border-color:#6a3030}
+  .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  .title{font-size:16px;font-weight:650;flex:1;min-width:150px}
+  .title a{color:inherit;text-decoration:none;border-bottom:1px solid var(--chip-line)}
+  .title a:hover{color:var(--pink);border-bottom-color:var(--pink)}
+  .title a::after{content:"\2197";font-size:11px;color:var(--mut);margin-left:5px;vertical-align:1px}
+  .badge{font-size:11px;font-weight:700;letter-spacing:.4px;padding:3px 9px;border-radius:999px;text-transform:uppercase;white-space:nowrap}
+  .badge.solo{background:var(--pink-d);color:#ffaecf;border:1px solid #5a2c40}
+  .badge.comp{background:var(--gold-d);color:var(--gold);border:1px solid #5a4a1e}
+  .count{font-size:12px;color:var(--mut)} .count b{color:var(--ink)}
+  .flag{font-size:11px;color:#ffd2d2;background:var(--red-d);border:1px solid #6a3030;padding:2px 8px;border-radius:999px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{display:inline-flex;align-items:center;gap:7px;background:var(--chip);border:1px solid var(--chip-line);border-radius:999px;padding:5px 11px;font-size:14px}
+  .chip .rate{font-size:12px;font-weight:700;color:var(--green);font-variant-numeric:tabular-nums}
+  .chip .rate.none{color:var(--red);font-weight:600}
+  .chip .cap{font-size:11px;color:var(--mut)}
+  .chip .eye{font-size:11px;color:var(--gold);text-decoration:none;border-bottom:1px dotted var(--gold)}
+  .chip .eye.fail{color:var(--red);border-bottom:none}
+  .chip.new{border-color:#4a3a5a}
+  .none-yet{color:var(--mut);font-size:13px}
+  .notes{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-top:26px}
+  .notes h2{font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--mut);margin:0 0 10px}
+  .notes ul{margin:0;padding-left:18px} .notes li{margin:6px 0;color:#cfd5e0} .notes b{color:var(--ink)}
+  .notes code{background:var(--chip);padding:1px 5px;border-radius:5px;font-size:12px}
+  .chip[data-c]{cursor:pointer;user-select:none}
+  .chip[data-c]:hover{border-color:var(--pink)}
+  .chip.sel{background:var(--pink-d);border-color:var(--pink)}
+  .chip.sel::before{content:"✓";color:var(--pink);font-weight:800;font-size:12px}
+  body{padding-bottom:110px}
+  .tally{position:fixed;left:0;right:0;bottom:0;background:rgba(15,17,21,.96);border-top:1px solid var(--line);
+    backdrop-filter:blur(6px);padding:10px 18px;z-index:10}
+  .tally .in{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .tally .lbl{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--mut);margin-right:4px}
+  .tally .tc{display:inline-flex;align-items:center;gap:6px;background:var(--chip);border:1px solid var(--chip-line);
+    border-radius:999px;padding:4px 11px;font-size:13px}
+  .tally .tc b{color:var(--pink);font-variant-numeric:tabular-nums}
+  .tally .tc.over{border-color:#6a3030;background:var(--red-d)}
+  .tally .tc.over b{color:var(--red)}
+  .tally .tc.full b{color:var(--gold)}
+  .tally .hint{color:var(--mut);font-size:13px}
+  .tally .copy{margin-left:auto;background:var(--pink-d);color:#ffaecf;border:1px solid #5a2c40;border-radius:999px;
+    padding:5px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+  .tally .copy:hover{border-color:var(--pink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Round 5 - Brief Opt-Ins</h1>
+  <div class="sub">Who ticked each brief, from the live Sheet · 9 creators · generated 13 jul 2026, 1:50am (Toronto). Rates in green; <b style="color:#ff8a8a">rate?</b> = no rate on file.</div>
+  <div class="legend">
+    <span><i class="dot solo"></i> Solo - 1 creator</span>
+    <span><i class="dot comp"></i> Compilation / snippet - multiple creators</span>
+    <span><i class="dot" style="background:#6a3030"></i> Needs a decision</span>
+  </div>
+  
+  <div class="secttl">Solo briefs (1 creator each)</div>
+  <div class="card">
+  <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-fit-its-not-you-reply.html" target="_blank" rel="noopener">It's Not You, It's the Fit</a></span><span class="badge solo">Solo</span><span class="count"><b>5</b> opted in</span></div>
+  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="It's Not You, It's the Fit" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span></span><span class="chip" data-c="Libby" data-cap="4" data-b="It's Not You, It's the Fit" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span></span><span class="chip" data-c="Rylie" data-cap="4" data-b="It's Not You, It's the Fit" role="button" tabindex="0">Rylie <span class="rate">$230</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Holly" data-cap="3" data-b="It's Not You, It's the Fit" role="button" tabindex="0">Holly <span class="rate none">rate?</span><span class="cap">cap 3</span></span><span class="chip new" data-c="Lucy" data-cap="2" data-b="It's Not You, It's the Fit" role="button" tabindex="0">Lucy <span class="rate none">rate?</span><span class="cap">cap 2</span></span></div>
+</div>
+<div class="card">
+  <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-fit-slip-off.html" target="_blank" rel="noopener">The Slip-Off Fix</a></span><span class="badge solo">Solo</span><span class="count"><b>3</b> opted in</span></div>
+  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="The Slip-Off Fix" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span></span><span class="chip" data-c="Libby" data-cap="4" data-b="The Slip-Off Fix" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Lucy" data-cap="2" data-b="The Slip-Off Fix" role="button" tabindex="0">Lucy <span class="rate none">rate?</span><span class="cap">cap 2</span></span></div>
+</div>
+<div class="card">
+  <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-fit-learning-curve.html" target="_blank" rel="noopener">The Learning Curve</a></span><span class="badge solo">Solo</span><span class="count"><b>5</b> opted in</span></div>
+  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="The Learning Curve" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span></span><span class="chip" data-c="Dani" data-cap="1" data-b="The Learning Curve" role="button" tabindex="0">Dani <span class="rate">$200</span><span class="cap">cap 1</span></span><span class="chip" data-c="Libby" data-cap="4" data-b="The Learning Curve" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span></span><span class="chip" data-c="Rylie" data-cap="4" data-b="The Learning Curve" role="button" tabindex="0">Rylie <span class="rate">$230</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Alana" data-cap="4" data-b="The Learning Curve" role="button" tabindex="0">Alana <span class="rate none">rate?</span><span class="cap">cap 4</span></span></div>
+</div>
+<div class="card">
+  <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-waste-of-money-mum-daughter.html" target="_blank" rel="noopener">Waste of Money? (Mum + Daughter)</a></span><span class="badge solo">Solo</span><span class="count"><b>2</b> opted in</span></div>
+  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="Waste of Money? (Mum + Daughter)" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Alana" data-cap="4" data-b="Waste of Money? (Mum + Daughter)" role="button" tabindex="0">Alana <span class="rate none">rate?</span><span class="cap">cap 4</span></span></div>
+</div>
+<div class="card">
+  <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-parked-which-lash-are-you.html" target="_blank" rel="noopener">Which Lash Are You?</a></span><span class="badge solo">Solo</span><span class="count"><b>4</b> opted in</span></div>
+  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="Which Lash Are You?" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span></span><span class="chip" data-c="Libby" data-cap="4" data-b="Which Lash Are You?" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span></span><span class="chip" data-c="Rylie" data-cap="4" data-b="Which Lash Are You?" role="button" tabindex="0">Rylie <span class="rate">$230</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Abby" data-cap="2" data-b="Which Lash Are You?" role="button" tabindex="0">Abby <span class="rate none">rate?</span><span class="cap">cap 2</span></span></div>
+</div>
+<div class="card">
+  <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-parked-split-screen-carousel.html" target="_blank" rel="noopener">Style × Application</a></span><span class="badge solo">Solo</span><span class="count"><b>2</b> opted in</span></div>
+  <div class="chips"><span class="chip" data-c="Libby" data-cap="4" data-b="Style × Application" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Alana" data-cap="4" data-b="Style × Application" role="button" tabindex="0">Alana <span class="rate none">rate?</span><span class="cap">cap 4</span></span></div>
+</div>
+<div class="card">
+  <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-parked-first-lash-stitch.html" target="_blank" rel="noopener">First Lash That Fits Her Life</a></span><span class="badge solo">Solo</span><span class="count"><b>2</b> opted in</span></div>
+  <div class="chips"><span class="chip" data-c="Libby" data-cap="4" data-b="First Lash That Fits Her Life" role="button" tabindex="0">Libby <span class="rate">$150</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Brianna" data-cap="3" data-b="First Lash That Fits Her Life" role="button" tabindex="0">Brianna <span class="rate none">rate?</span><span class="cap">cap 3</span></span></div>
+</div>
+<div class="card">
+  <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-fresh-sensitive-eyes-stitch.html" target="_blank" rel="noopener">Can My Eyes Handle These?</a></span><span class="badge solo">Solo</span><span class="count"><b>6</b> opted in</span></div>
+  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="Can My Eyes Handle These?" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span></span><span class="chip" data-c="Rylie" data-cap="4" data-b="Can My Eyes Handle These?" role="button" tabindex="0">Rylie <span class="rate">$230</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Abby" data-cap="2" data-b="Can My Eyes Handle These?" role="button" tabindex="0">Abby <span class="rate none">rate?</span><span class="cap">cap 2</span></span><span class="chip new" data-c="Alana" data-cap="4" data-b="Can My Eyes Handle These?" role="button" tabindex="0">Alana <span class="rate none">rate?</span><span class="cap">cap 4</span></span><span class="chip new" data-c="Brianna" data-cap="3" data-b="Can My Eyes Handle These?" role="button" tabindex="0">Brianna <span class="rate none">rate?</span><span class="cap">cap 3</span></span><span class="chip new" data-c="Holly" data-cap="3" data-b="Can My Eyes Handle These?" role="button" tabindex="0">Holly <span class="rate none">rate?</span><span class="cap">cap 3</span></span></div>
+</div>
+  <div class="secttl">Compilations / snippets</div>
+  <div class="card comp">
+  <div class="top"><span class="title"><a href="https://baybella.github.io/baybella-briefs/r5-fit-eye-shape-comp.html" target="_blank" rel="noopener">Eye-Shape Compilation</a></span><span class="badge comp">Compilation</span><span class="count"><b>4</b> opted in</span></div>
+  <div class="chips"><span class="chip" data-c="Brodie" data-cap="4" data-b="Eye-Shape Compilation" role="button" tabindex="0">Brodie <span class="rate">$250</span><span class="cap">cap 4</span> <span class="eye fail">photo failed</span></span><span class="chip new" data-c="Alana" data-cap="4" data-b="Eye-Shape Compilation" role="button" tabindex="0">Alana <span class="rate none">rate?</span><span class="cap">cap 4</span> <span class="eye fail">photo failed</span></span><span class="chip new" data-c="Brianna" data-cap="3" data-b="Eye-Shape Compilation" role="button" tabindex="0">Brianna <span class="rate none">rate?</span><span class="cap">cap 3</span> <span class="eye fail">photo failed</span></span><span class="chip new" data-c="Holly" data-cap="3" data-b="Eye-Shape Compilation" role="button" tabindex="0">Holly <span class="rate none">rate?</span><span class="cap">cap 3</span> <span class="eye fail">photo failed</span></span></div>
+</div>
+  <div class="notes"><h2>Before you lock assignments</h2><ul><li><b>Eye photos FAILED to save</b> for Alana, Brianna, Brodie, Holly - the portal Apps Script hit a Drive permission error, the photos are gone. Re-authorize the Apps Script (Drive scope) and ask these creators to resubmit their photo.</li><li><b>No rate on file:</b> Abby, Alana, Brianna, Holly, Lucy. Send rates and they go into <code>references/creator-rates.json</code>.</li></ul></div>
+</div>
+<div class="tally"><div class="in" id="tally">
+  <span class="hint">Click a creator to select them for that brief - the tally shows their load.</span>
+</div></div>
+<script>
+(function(){
+  var KEY = "bb-optins-r5-sel";
+  var store = { get: function(){ try { return localStorage.getItem(KEY); } catch(e) { return null; } },
+                set: function(v){ try { localStorage.setItem(KEY, v); } catch(e) {} } };
+  var sel = new Set(JSON.parse(store.get() || "[]"));
+  var chips = document.querySelectorAll(".chip[data-c]");
+  function keyOf(ch){ return ch.dataset.b + "\u001f" + ch.dataset.c; }
+  function render(){
+    var counts = {}, caps = {};
+    chips.forEach(function(ch){
+      var on = sel.has(keyOf(ch));
+      ch.classList.toggle("sel", on);
+      if (on) counts[ch.dataset.c] = (counts[ch.dataset.c] || 0) + 1;
+      if (ch.dataset.cap) caps[ch.dataset.c] = ch.dataset.cap;
+    });
+    var t = document.getElementById("tally");
+    var names = Object.keys(counts).sort();
+    if (!names.length) {
+      t.innerHTML = '<span class="hint">Click a creator to select them for that brief - the tally shows their load.</span>';
+      return;
+    }
+    var h = '<span class="lbl">Selected</span>';
+    names.forEach(function(nm){
+      var cap = caps[nm] ? parseInt(caps[nm], 10) : null;
+      var cls = "tc";
+      if (cap && counts[nm] > cap) cls += " over";
+      else if (cap && counts[nm] === cap) cls += " full";
+      h += '<span class="' + cls + '">' + nm + ' <b>' + counts[nm] + (cap ? "/" + cap : "") + '</b></span>';
+    });
+    h += '<button class="copy" id="copybtn">copy allocation</button>';
+    t.innerHTML = h;
+    document.getElementById("copybtn").onclick = function(){
+      var byBrief = {};
+      sel.forEach(function(k){
+        var p = k.split("\u001f");
+        (byBrief[p[0]] = byBrief[p[0]] || []).push(p[1]);
+      });
+      var lines = [];
+      document.querySelectorAll(".title a").forEach(function(a){
+        var ttl = a.textContent;
+        if (byBrief[ttl]) lines.push(ttl + ": " + byBrief[ttl].join(", "));
+      });
+      var txt = "Round 5 allocation\n" + lines.join("\n");
+      var btn = this;
+      function flash(){ btn.textContent = "copied ✓";
+        setTimeout(function(){ btn.textContent = "copy allocation"; }, 1500); }
+      function legacy(){
+        var ta = document.createElement("textarea");
+        ta.value = txt; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); flash(); } catch(e) {}
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText)
+        navigator.clipboard.writeText(txt).then(flash, legacy);
+      else legacy();
+    };
+  }
+  chips.forEach(function(ch){
+    ch.addEventListener("click", function(e){
+      if (e.target.closest("a")) return;
+      var k = keyOf(ch);
+      sel.has(k) ? sel.delete(k) : sel.add(k);
+      store.set(JSON.stringify(Array.from(sel)));
+      render();
+    });
+  });
+  render();
+})();
+</script>
+</body>
+</html>
