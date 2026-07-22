@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Baybella · Creator Brief - "Still Clipping On"</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#211C18;--ink2:#463E37;--grey:#8C8279;--pink:#E5147F;--line-soft:#EAD9E4;
+  --serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:#FBEAF1}
+body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160deg,#FCE3F0 0%,#F1E7FB 55%,#E7E7FB 100%);background-attachment:fixed;color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;position:relative}
+.blooms{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blooms::before{content:"";position:absolute;top:-220px;right:-200px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.6}
+.blooms::after{content:"";position:absolute;bottom:-220px;left:-220px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle,#C4B5FD 0%,transparent 70%);opacity:.5}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+.topbar{position:sticky;top:0;z-index:50;background:rgba(252,233,241,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+.topbar .row{max-width:720px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:var(--ink)}
+.brand b{color:var(--pink)}
+.lockbtn{font-family:var(--sans);font-size:11px;letter-spacing:.04em;font-weight:700;background:none;border:1px solid #E3C7D6;color:#9a4a72;padding:7px 13px;border-radius:40px;cursor:pointer;transition:.2s;white-space:nowrap}
+.lockbtn:hover{border-color:var(--pink);color:var(--pink);background:#fff}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#F49AC1 0%,#BBA2E8 100%);border:1px solid #E58BB4;border-radius:24px;padding:clamp(32px,6vw,50px) clamp(26px,5vw,42px);margin:24px 0 30px;box-shadow:0 28px 60px -28px rgba(150,40,100,.55),inset 0 1px 0 rgba(255,255,255,.4)}
+.hero::before{content:"";position:absolute;top:-140px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.7}
+.hero>*{position:relative;z-index:1}
+.hero{text-align:center}
+.hero .logo{display:block;margin:0 auto 22px;width:240px;max-width:74%;height:auto}
+.hero .eyebrow{font-size:.92rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:16px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.4rem,4vw,1.95rem);line-height:1.06;letter-spacing:-.02em;color:var(--ink)}
+.hero .meta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 40px;border-top:1px solid #E9C6D9;padding-top:20px;margin-top:26px}
+.hero .mi{display:flex;flex-direction:column;align-items:center;gap:2px}
+.hero .mi .l{font-size:.62rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--pink)}
+.hero .mi .v{font-family:var(--serif);font-size:1rem;color:var(--ink)}
+
+/* SECTION = its own coloured block */
+.sec{margin-bottom:20px}
+.panel{position:relative;overflow:hidden;background:#fff;background:color-mix(in srgb,var(--c) 7%,#fff);border-radius:16px;padding:0 22px 24px;box-shadow:0 20px 46px -34px color-mix(in srgb,var(--c) 58%,#000),0 0 0 1px color-mix(in srgb,var(--c) 16%,#fff)}
+.phead{background:var(--c);background:linear-gradient(135deg, color-mix(in srgb,var(--c) 86%,#fff) 0%, var(--c) 56%, color-mix(in srgb,var(--c) 86%,#000) 100%);color:#fff;margin:0 -22px 20px;padding:14px 22px;display:flex;align-items:baseline;gap:12px}
+.phead .pnum{font-size:.8rem;font-weight:800;color:rgba(255,255,255,.72)}
+.phead .pname{font-size:.92rem;font-weight:800;color:#fff;letter-spacing:.13em;text-transform:uppercase;line-height:1}
+.phead .pwhat{margin-left:auto;font-family:var(--serif);font-style:italic;font-size:.95rem;color:rgba(255,255,255,.9)}
+@media(max-width:440px){.phead .pwhat{display:none}}
+
+/* prose - BLACK */
+.vision p{font-size:1.02rem;line-height:1.7;margin-bottom:14px;color:var(--ink)}.vision p:last-child{margin-bottom:0}
+.vision strong{color:var(--ink);font-weight:800}.vision em{font-style:italic}
+.vision .feel{font-family:var(--serif);font-style:italic;color:var(--pink);font-size:1.02rem;margin-top:4px}
+.lead{font-size:.98rem;line-height:1.7;margin-bottom:12px;color:var(--ink)}.lead:last-child{margin-bottom:0}
+.lead strong{color:var(--ink);font-weight:800}.muted{color:var(--grey)}
+
+/* notes - white box inside the tinted card */
+.note{background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-left:3px solid var(--c);border-radius:12px;padding:16px 17px;margin:15px 0;font-size:.94rem;line-height:1.6;color:var(--ink)}
+.note .wt{font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--c);font-weight:800;margin-bottom:8px}
+.note ol{margin:8px 0 0 18px}.note li{margin-bottom:5px}.note:last-child{margin-bottom:0}.note strong{color:var(--ink)}
+
+/* lash boxes */
+.lv-box{border-radius:12px;padding:20px;font-size:.93rem;line-height:1.6}
+.lv-yellow{background:#FCF4A6;border:1px solid #E0C94F;color:#3a3418;margin-bottom:12px}
+.lv-yellow .lvh{font-weight:800;color:#241f08;margin-bottom:14px}
+.lv-yellow .q{font-weight:800;color:#241f08;margin:14px 0 8px}
+.lv-yellow ol.lvl{margin:0 0 0 24px;padding:0}.lv-yellow ol.lvl li{margin-bottom:6px;padding-left:6px}
+.lv-yellow .lvlink{font-weight:800;color:#241f08;margin-top:16px}.lv-yellow .lvlink a{color:#1155cc;text-decoration:underline}
+.lv-green{background:#CCEFBE;border:1px solid #87C775;color:#243319}
+.lv-green p{margin-bottom:12px}.lv-green p:last-child{margin-bottom:0}.lv-green strong{color:#15240c}
+
+footer{padding:24px 0 56px;text-align:center}
+footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a098}
+
+/* agency */
+.agency{display:none;background:#1f1419;color:#EAD9E4;position:relative;z-index:1}.agency.show{display:block}
+.agency .phead .pname{color:#fff}
+.agency .vision p{color:#D9C4D0}.agency .vision strong{color:#FCEAF1}
+</style>
+</head>
+<body>
+<!-- baybella-skeleton-v1 · DO NOT REMOVE. check_brief.py requires this signature so every brief is built FROM this skeleton (its design + fixed boilerplate), never custom-styled. -->
+
+<div class="blooms"></div>
+
+<div class="topbar">
+  <div class="row">
+    <div class="brand"><b>BAYBELLA</b> · CREATOR BRIEF</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Content Brief</div>
+    <h1>&ldquo;Still Clipping On&rdquo;</h1>
+    <div class="meta">
+      <div class="mi"><span class="l">Format</span><span class="v">Close-up b-roll · one clip</span></div>
+      <div class="mi"><span class="l">Your part</span><span class="v">One clean clip, ~10 sec</span></div>
+    </div>
+  </div>
+
+
+  <!-- 01 -->
+  <div class="sec" style="--c:#E5147F">
+    <div class="panel">
+      <div class="phead"><span class="pnum">01</span><span class="pname">What We&rsquo;re Making</span><span class="pwhat">the concept</span></div>
+      <div class="vision">
+        <p><strong>An up-close b-roll clip.</strong> One short, silent, close-up shot of you clipping a magnetic lash on. We lay a single line of text over it and pair it with a trending sound.</p>
+        <p style="margin-top:14px">The point: the same pair, worn over and over, and it still clips on like new. That&rsquo;s the whole flex.</p>
+        <p style="margin-top:16px"><strong>Filming Style Inspiration:</strong><br>
+        <a href="https://www.tiktok.com/@baybellabeauty/video/7610249714339958036" target="_blank" rel="noopener" style="color:#1155cc;text-decoration:underline">Video 1</a><br>
+        <span class="muted" style="font-size:.9rem">For the filming setup only, how close and clean the up-close shot is.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="sec" style="--c:#7C3AED">
+    <div class="panel">
+      <div class="phead"><span class="pnum">02</span><span class="pname">How To Film It</span><span class="pwhat">your one clip</span></div>
+      <p class="lead"><strong>A 5-8 second silent clip: up close on one eye, clip the lash on, show the eye.</strong></p>
+      <ul style="list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:10px;font-size:.98rem;line-height:1.5">
+        <li>&#127916; <strong>Start on the action</strong> - lash already going on.</li>
+        <li>&#10024; <strong>One clean go,</strong> refilm any messy take.</li>
+        <li>&#128247; <strong>Close enough to see the lash line,</strong> no closer.</li>
+        <li>&#128161; <strong>Bright even light,</strong> steady camera, bare eye to start.</li>
+        <li>&#128263; <strong>No talking, no text</strong> - we add wording in post.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="sec" style="--c:#1D6FE0">
+    <div class="panel">
+      <div class="phead"><span class="pnum">03</span><span class="pname">What To Send</span><span class="pwhat">deliver</span></div>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:.98rem;line-height:1.55">
+        <li>&#127909; <strong>Your one clip:</strong> the 5-8 second up-close application, nothing written on it, no sound needed.</li>
+        <li>&#128257; <strong>Film it twice if you can</strong> - one a touch wider, one a touch closer - so we can pick the cleanest frame.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="sec" style="--c:#6366F1">
+    <div class="panel">
+      <div class="phead"><span class="pnum">04</span><span class="pname">Lash Visibility</span><span class="pwhat">read this</span></div>
+      <div class="lv-box lv-yellow">
+        <div class="lvh">&#10024; IMPORTANT - READ THIS</div>
+        <div class="q">When demonstrating the product, always ask yourself this:</div>
+        <ol class="lvl"><li>Can the camera clearly see the lashes when I use them?</li></ol>
+        <div class="q">Secondary questions:</div>
+        <ol class="lvl" start="2">
+          <li>Are my hands blocking my face?</li>
+          <li>Is the applicator covering my eyes?</li>
+          <li>Is my face turned away?</li>
+        </ol>
+        <div class="lvlink">Please click <a href="https://baybella.my.canva.site/guidelines" target="_blank" rel="noopener">here</a> for video examples.</div>
+      </div>
+      <div class="lv-box lv-green">
+        <p>If you need to hold your phone while applying the lash and you don&rsquo;t have a way to see yourself while recording, please let us know.</p>
+        <p>We know applying lashes while looking through the camera app can be a little tricky, so <strong>we can send you a clip-on phone mirror attachment</strong> which lets you see yourself properly while recording.</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="lockbtn" onclick="unlockAgency()" style="margin:24px auto;display:block;padding:10px 18px;border:1px solid #ccc;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:.85rem">&#128274; Agency notes</button>
+  <div class="agency" id="agency">
+    <div class="sec" style="--c:#333">
+      <div class="panel">
+        <div class="phead"><span class="pnum">&#9733;</span><span class="pname">Agency Notes</span><span class="pwhat">internal - not for the creator</span></div>
+        <div class="vision">
+          <p><strong>Format:</strong> single-clip close-up b-roll meme. One creator, one silent 5-8 second up-close application clip (one eye, clip on, show the eye). Format-key = close-up-broll; reference reel = the brand&rsquo;s own up-close b-roll (video 7610249714339958036). Same DNA as winners &#9312;/&#9321; (application-clip proof), stripped to a single reach asset. NOT a compilation, so no snippet pay - this is one creator&rsquo;s flat rate for one clip.</p>
+          <p><strong>Job:</strong> top-funnel REACH, not a closer. Longevity is the angle, and it&rsquo;s the right fit for b-roll because the footage plus the overlay <em>demonstrates</em> it (you watch the same well-worn pair still clip on cleanly). Pair it with a closer (the cost/value or fit work) in the release window; do not grade it on its own conversion.</p>
+          <p><strong>Overlay line (POST - we add it, single line over the clip):</strong> &ldquo;one pair. over 100 wears. still clipping on.&rdquo; This carries the locked meaning (one pair, worn a lot, still going) while staying literally true against the product fact (~115 wears per pair). We deliberately did NOT write &ldquo;200-something wears&rdquo; on a single pair - that overshoots the ~115/pair basis and trips the truth gate (G11, no inflated claims) in a scam-sensitive category. &ldquo;over 100 wears&rdquo; is defensible and still an outsized-longevity flex. If a bigger number is wanted, anchor it to the whole KIT (two pairs, ~230 wears) and reword to &ldquo;one kit&rdquo;, never &ldquo;one pair&rdquo;.</p>
+          <p><strong>Mechanism:</strong> the clip is silent, so &ldquo;magnetic&rdquo; lands in the on-screen text / caption (agency job), never a spoken line. The overlay above already implies the clip-on; add &ldquo;magnetic, no glue&rdquo; to the caption for the mandatory mechanism-naming.</p>
+          <p><strong>Register:</strong> flex-not-settle. It&rsquo;s a quiet brag about how long one pair lasts, not a dig at anyone still rebuying. No scold, no &ldquo;you&rsquo;re still&hellip;&rdquo; framing, no year stamp.</p>
+          <p><strong>Two-trays value (AI-3):</strong> consciously SKIPPED on the CLIP itself (a single-line meme can carry only one idea - longevity). It can live in the CAPTION as a light aside if wanted (&ldquo;and the kit comes with a whole spare pair&rdquo;), since longevity and the two-pair value are coupled - agency&rsquo;s call, do not crowd the overlay.</p>
+          <p><strong>Round 5 audience/callout (AI-4):</strong> script-target the verified 35-54 buyer (longevity/value-per-wear lands hardest with her), cast a YOUNG creator per the locked concept (the up-close eye is age-neutral on a silent clip, so young casting doesn&rsquo;t fight the 35-54 message). No spoken callout; the overlay is the targeting frame. Founder&rsquo;s call on any further callout.</p>
+          <p><strong>Villain:</strong> none (locked). A no-villain longevity flex is fully valid and does not bundle into a shared-enemy audience.</p>
+          <p><strong>Compliance:</strong> clean application only, no fumble on camera (a fumble sells the problem). No claim beyond what the clip shows plus the defensible &ldquo;over 100 wears&rdquo; longevity figure. Trending audio must be a commercially-cleared / licensed track for paid use, not just a viral organic sound.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>.agency{display:none}.agency.show{display:block}</style>
+  <script>function unlockAgency(){var p=prompt("Password");if(p==="baybella"){document.getElementById("agency").classList.add("show");}}</script>
+
+</div>
+
+<footer><div class="fb">Baybella &times; Creator · &ldquo;Still Clipping On&rdquo;</div></footer>
+
+</body>
+</html>

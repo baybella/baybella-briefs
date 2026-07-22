@@ -1,0 +1,107 @@
+<style>
+  :root{--ink:#1a1a1a;--ink2:#40404a;--grey:#6b6b76;--pink:#d94a7a;--c:#7C3AED;--line:#ece9f5;--serif:Georgia,'Times New Roman',serif}
+  *{box-sizing:border-box}
+  body{margin:0}
+  .wrap{max-width:820px;margin:0 auto;padding:34px 22px 60px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:var(--ink);line-height:1.55}
+  .tag{display:inline-block;background:#1a1a1a;color:#fff;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:20px;font-weight:600}
+  h1{font-family:var(--serif);font-weight:600;font-size:1.9rem;margin:16px 0 4px;letter-spacing:-.01em}
+  .sub{color:var(--grey);font-size:.95rem;margin-bottom:24px}
+  .sec{border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px;background:#fff}
+  .sec .h{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+  .sec .h .n{font-size:.75rem;font-weight:700;color:#fff;background:var(--c);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+  .sec .h .t{font-family:var(--serif);font-weight:600;font-size:1.12rem}
+  p{margin:.4rem 0}
+  .meta{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:.9rem;margin:6px 0}
+  .meta .k{color:var(--grey);font-weight:600}
+  ul{margin:.4rem 0;padding-left:18px}
+  li{margin:.28rem 0}
+  .mum{border:1px solid var(--line);border-left:4px solid var(--pink);border-radius:0 12px 12px 0;padding:15px 17px;margin-bottom:15px;background:#fffdfe}
+  .mum h3{font-family:var(--serif);margin:0 0 4px;font-size:1.12rem}
+  .mum .spec{font-size:.85rem;color:var(--grey);margin-bottom:10px}
+  .lbl{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--pink);margin:12px 0 4px}
+  .line{font-family:var(--serif);font-size:1.02rem;background:#faf8ff;border-radius:8px;padding:10px 12px}
+  pre{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;line-height:1.5;background:#f7f7fb;border:1px solid var(--line);border-radius:9px;padding:12px 13px;margin:2px 0 0;color:#26263a}
+  .flag{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:11px 14px;font-size:.88rem;margin-top:10px}
+  .flag b{color:#c2410c}
+  .step{display:flex;gap:10px;margin:7px 0;font-size:.92rem}
+  .step .s{flex:none;width:20px;height:20px;border-radius:50%;background:var(--c);color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+</style>
+<div class="wrap">
+
+  <span class="tag">Internal · AI-avatar production spec</span>
+  <h1>"As a Mum of [X]" — AI Avatar Compilation</h1>
+  <div class="sub">Round 5 · parked bucket · four AI mums, split-screen testimonial, ~32s (~8s each)</div>
+
+  <div class="sec">
+    <div class="h"><span class="n">1</span><span class="t">What We're Making</span></div>
+    <div class="meta">
+      <span class="k">Format</span><span>Split-screen. TOP = the AI mum holding the Baybella case. BOTTOM = real clip-on footage (AI can't do the application). Four mums, ~8s each, stitched.</span>
+      <span class="k">Engine</span><span>"The first lashes that fit her life" — activation, not conversion. Re-entry into the category, not winning a comparison.</span>
+      <span class="k">Persona</span><span>Avatar B, the busy NON-BEAUTY mum. Wrote lashes off as too much faff/time/glue. Her word is "life-saver," not "money-saver."</span>
+      <span class="k">Villain</span><span>Her OWN belief that lashes aren't for someone with her life. Never salon / strips / a person.</span>
+      <span class="k">Register</span><span>Warm, inviting-back, candid — never a pitch.</span>
+    </div>
+    <p style="margin-top:10px">The only uniform part is the shared opener <b>"As a mum of [X]…"</b> — each mum a different number of kids. Everything after is her own words: one concrete benefit + the real emotional pain.</p>
+  </div>
+
+  <div class="sec">
+    <div class="h"><span class="n">2</span><span class="t">How the Lines Are Delivered (locked)</span></div>
+    <p>Each mum <b>speaks her line</b> so Sora moves her lips naturally. We then <b>throw away Sora's audio and lip-sync a consistent Sydney voice over the top in ElevenLabs</b> (a distinct voice per mum). So it plays as a real spoken testimonial with the lips moving — no silent captions, no AI lip-sync warp. A text overlay can carry the "As a mum of [X]" tag on screen.</p>
+  </div>
+
+  <div class="sec">
+    <div class="h"><span class="n">3</span><span class="t">The Four Mums</span><span style="margin-left:auto;color:var(--grey);font-size:.82rem;font-style:italic">Soul prompt + spoken line each</span></div>
+
+    <div class="mum">
+      <h3>Mum of 3 — time + emotional</h3>
+      <div class="spec">Early 40s · white · INDOORS, lived-in kitchen · reflective-then-warm energy</div>
+      <div class="lbl">Spoken line (Sora lips + ElevenLabs voice)</div>
+      <div class="line">"As a mum of three, I hadn't done anything for me in… god, years. Saw an old photo and I was like, when did I get so tired. Now it's ten seconds and I actually look awake."</div>
+      <div class="lbl">Stage-1 Soul prompt (text-to-image, moodboard OFF, character empty)</div>
+      <pre>Candid arm's-length iPhone selfie of an ordinary, average-looking, relatable woman with shoulder-length loosely-tied brown hair, early 40s - a normal everyday mum, pleasant but not glamorous or model-like, not conventionally beautiful, the kind of real woman you'd see at school pickup. Healthy and well, not gaunt or haggard. Standing in a lived-in family kitchen holding her phone at arm's length, looking at the camera with a warm, friendly, relaxed expression, a soft genuine smile and bright, lively, alert eyes - happy and full of life, never blank, flat, tired or sad. Face and shoulders in frame, not zoomed into her eyes. Casual marl-grey t-shirt. Wearing subtle everyday false lashes. Real skin with visible pores and fine lines, not airbrushed or smoothed. A slightly imperfect, unflattering real snapshot: flat everyday kitchen lighting, a natural slightly awkward candid angle, not perfectly sharp and not perfectly lit, with natural phone-camera softness and matte eyes with no glossy plastic sheen. Shot on an iPhone 15 Pro. Candid and unposed, not a model, not a studio.</pre>
+    </div>
+
+    <div class="mum">
+      <h3>Mum of 4 — on-the-go ease</h3>
+      <div class="spec">Late 30s · Lebanese-Australian · OUTDOORS, park bench / waterfront · brisk, easy energy</div>
+      <div class="lbl">Spoken line</div>
+      <div class="line">"As a mum of four, honestly, no time and no patience for glue and all that. I just clip these on in the car at pickup, no mirror, done."</div>
+      <div class="lbl">Stage-1 Soul prompt</div>
+      <pre>Candid arm's-length iPhone selfie of an ordinary, average-looking, relatable Lebanese-Australian woman with dark wavy hair loosely pulled back, late 30s - a normal everyday mum, pleasant but not glamorous or model-like, not conventionally beautiful, the kind of real woman you'd see at school pickup. Healthy and well, not gaunt or haggard. Sitting on a park bench near the water holding her phone at arm's length, looking at the camera with a warm, friendly, relaxed expression, a soft genuine smile and bright, lively, alert eyes - happy and full of life, never blank, flat, tired or sad. Face and shoulders in frame, not zoomed into her eyes. Casual olive zip-up. Wearing subtle everyday false lashes. Real skin with visible pores and fine lines, not airbrushed or smoothed. A slightly imperfect, unflattering real snapshot: flat overcast outdoor daylight, a natural slightly awkward candid angle, not perfectly sharp and not perfectly lit, with natural phone-camera softness and matte eyes with no glossy plastic sheen. Shot on an iPhone 15 Pro. Candid and unposed, not a model, not a studio.</pre>
+    </div>
+
+    <div class="mum">
+      <h3>Mum of 2 — dead-simple ease</h3>
+      <div class="spec">Mid 40s · East Asian · OUTDOORS, cafe table · relaxed, unhurried energy</div>
+      <div class="lbl">Spoken line</div>
+      <div class="line">"As a mum of two, lashes have always been so complicated for me. But with these, there's genuinely nothing to it - they clip on in seconds and I don't have to deal with all the glue."</div>
+      <div class="lbl">Stage-1 Soul prompt</div>
+      <pre>Candid arm's-length iPhone selfie of an ordinary, average-looking, relatable East Asian woman with straight dark shoulder-length hair, mid 40s - a normal everyday mum, pleasant but not glamorous or model-like, not conventionally beautiful, the kind of real woman you'd see at school pickup. Healthy and well, not gaunt or haggard. Sitting at an outdoor cafe table holding her phone at arm's length, looking at the camera with a warm, friendly, relaxed expression, a soft genuine smile and bright, lively, alert eyes - happy and full of life, never blank, flat, tired or sad. Face and shoulders in frame, not zoomed into her eyes. Casual cream knit. Wearing subtle everyday false lashes. Real skin with visible pores and fine lines, not airbrushed or smoothed. A slightly imperfect, unflattering real snapshot: soft flat outdoor daylight, a natural slightly awkward candid angle, not perfectly sharp and not perfectly lit, with natural phone-camera softness and matte eyes with no glossy plastic sheen. Shot on an iPhone 15 Pro. Candid and unposed, not a model, not a studio.</pre>
+    </div>
+
+    <div class="mum">
+      <h3>Mum of 5 — cost + reuse</h3>
+      <div class="spec">Late 40s · white · OUTDOORS, back garden / patio · settled, practical energy</div>
+      <div class="lbl">Spoken line</div>
+      <div class="line">"As a mum of five, I refuse to pay for new lashes constantly. One of these has lasted me seven months, and I just clip them on and off."</div>
+      <div class="lbl">Stage-1 Soul prompt</div>
+      <pre>Candid arm's-length iPhone selfie of an ordinary, average-looking, relatable woman with mid-length blonde-greying hair, late 40s - a normal everyday mum, pleasant but not glamorous or model-like, not conventionally beautiful, the kind of real woman you'd see at school pickup. Healthy and well, not gaunt or haggard. Standing in a suburban back garden on the patio holding her phone at arm's length, looking at the camera with a warm, friendly, relaxed expression, a soft genuine smile and bright, lively, alert eyes - happy and full of life, never blank, flat, tired or sad. Face and shoulders in frame, not zoomed into her eyes. Casual navy top. Wearing subtle everyday false lashes. Real skin with visible pores and fine lines, not airbrushed or smoothed. A slightly imperfect, unflattering real snapshot: bright flat outdoor daylight, a natural slightly awkward candid angle, not perfectly sharp and not perfectly lit, with natural phone-camera softness and matte eyes with no glossy plastic sheen. Shot on an iPhone 15 Pro. Candid and unposed, not a model, not a studio.</pre>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="h"><span class="n">4</span><span class="t">Pipeline (per mum)</span></div>
+    <div class="step"><span class="s">1</span><span><b>Base image</b> — Higgsfield Soul, the prompt above. Moodboard fully OFF, character empty. Generate several, keep the most relatable/alive still.</span></div>
+    <div class="step"><span class="s">2</span><span><b>Lash transplant</b> — Nano Banana Pro. Image 1 = the mum, Image 2 = the real product lash photo. Bare transplant prompt, no lash adjectives. (Nano Banana CAN put the real lashes on the AI face.)</span></div>
+    <div class="step"><span class="s">3</span><span><b>Animate</b> — Higgsfield base Sora 2, 720p, <code>aspect_ratio "9:16"</code> (never Sora Pro — plastic). Put the spoken line in so her lips move. Lock only the framing ("steady framing"), let HER be fully alive — blinks often, small natural head/shoulder movement. NO shake/tremor language.</span></div>
+    <div class="step"><span class="s">4</span><span><b>Voice</b> — ElevenLabs, one consistent Sydney voice per mum, lip-synced over Sora's thrown-away audio.</span></div>
+    <div class="step"><span class="s">5</span><span><b>Cull + build</b> — run <code>score_realism.py</code> as the garbage-gate, then the founder's eye picks the survivors. Harvest the best 1-2 human seconds from each. Compile split-screen (AI mum top / real clip-on bottom), add the "As a mum of [X]" text tag, degrade to phone quality in CapCut.</span></div>
+    <div class="flag"><b>Hard rules from the skill:</b> never a lash/eye close-up on the AI (keep her at arm's-length selfie distance — real footage carries all lash detail). Never the word "photorealistic" in a prompt (goes plastic). Expect to cull hard — the final is the best bits of many rolls, never whole clips.</div>
+  </div>
+
+  <div class="sec">
+    <div class="h"><span class="n">5</span><span class="t">The Cast Mix (locked)</span></div>
+    <p>Natural mix, not try-hard-diverse: <b>2 white, 1 Lebanese, 1 East Asian.</b> Ages spread across the core band: early-40s, late-30s, mid-40s, late-40s. Locations: <b>1 indoors, 3 outdoors.</b> All real-woman-her-age (not a beauty creator), wearing the lashes subtly, holding the case, candid selfie style. The lashes are the ONE constant; everything else varies.</p>
+  </div>
+
+</div>

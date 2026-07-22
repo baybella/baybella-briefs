@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Round 2 briefs vs the new message engines</title>
+<style>
+  :root{
+    --ink:#241c1c; --muted:#7a6f6c; --line:#ece4e1; --bg:#fbf7f5; --card:#fff;
+    --accent:#b5635f; --accent-soft:#f4e7e4;
+    --yes:#3f7d5a; --yes-soft:#e6f0ea; --partial:#b8862f; --partial-soft:#f6eed9; --no:#a8504c; --no-soft:#f6e5e3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;padding:0 0 80px}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px}
+  header{padding:54px 0 26px;border-bottom:1px solid var(--line)}
+  .kicker{letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent);font-weight:700}
+  h1{font-size:32px;line-height:1.15;margin:14px 0 10px;font-weight:800;letter-spacing:-.01em}
+  .sub{color:var(--muted);max-width:640px}
+  .scoreboard{display:flex;gap:14px;flex-wrap:wrap;margin:28px 0}
+  .score{flex:1 1 150px;border-radius:16px;padding:18px;text-align:center;border:1px solid var(--line);background:#fff}
+  .score .n{font-size:38px;font-weight:800;line-height:1}
+  .score .l{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:6px;font-weight:700}
+  .score.yes .n{color:var(--yes)} .score.partial .n{color:var(--partial)} .score.no .n{color:var(--no)}
+  .headline{background:var(--accent-soft);border-radius:14px;padding:16px 18px;margin:6px 0 30px;font-size:15px;color:#5e4a48}
+  .headline b{color:var(--accent)}
+  h2{font-size:22px;margin:34px 0 14px;font-weight:800;letter-spacing:-.01em}
+  .brief{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:13px 0;display:flex;gap:16px;align-items:flex-start}
+  .verdict{flex:0 0 84px;text-align:center;border-radius:11px;padding:9px 6px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+  .verdict.yes{background:var(--yes-soft);color:var(--yes)}
+  .verdict.partial{background:var(--partial-soft);color:var(--partial)}
+  .verdict.no{background:var(--no-soft);color:var(--no)}
+  .bdy{flex:1}
+  .bdy h3{margin:0 0 2px;font-size:17px;font-weight:700}
+  .bdy .eng{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:7px}
+  .bdy p{margin:5px 0;font-size:14px;color:#3a302e}
+  .bdy .map{font-size:13px;color:var(--muted)}
+  .bdy .map b{color:#5e4a48}
+  table{width:100%;border-collapse:collapse;margin:8px 0 0;font-size:14px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line)}
+  th{background:#faf5f3;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+  .cov{font-weight:800}
+  .cov.zero{color:var(--no)} .cov.some{color:var(--yes)}
+  .note{background:#faf5f3;border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 18px;margin:24px 0;font-size:14px;color:#4a3d3b}
+  footer{color:var(--muted);font-size:13px;text-align:center;margin-top:44px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Baybella · Round 2 audit</div>
+  <h1>Round 2 briefs vs the new message engines</h1>
+  <p class="sub">How much of the built Round 2 slate (8 briefs) actually runs one of the six working-hypothesis engines we developed with Eugene, versus the old proven engines.</p>
+</header>
+
+<div class="scoreboard">
+  <div class="score yes"><div class="n">2</div><div class="l">Align</div></div>
+  <div class="score partial"><div class="n">2</div><div class="l">Partial</div></div>
+  <div class="score no"><div class="n">4</div><div class="l">Don't align</div></div>
+</div>
+
+<div class="headline">
+  <b>The finding:</b> only 2 of 8 cleanly run a new engine, and both run the <b>same one</b> (Quietly Handled). The other 6 run old proven engines (cost-math, speed, proof). Five of the six new engines have <b>zero clean Round 2 coverage</b>. The slate is built almost entirely on the old playbook.
+</div>
+
+<h2>Brief by brief</h2>
+
+<div class="brief">
+  <div class="verdict no">No</div>
+  <div class="bdy">
+    <h3>1. Microwave race <span style="color:#bbb;font-weight:400">· brief 24</span></h3>
+    <div class="eng">Current engine: effortless speed, raced against your lunch</div>
+    <p>Sells fast. The whole hook is "faster than my food heats up."</p>
+    <p class="map"><b>Why no:</b> this is the exact thing engine #4 (Time Bought Back) warns against, selling speed/efficiency. The new lens says don't sell the seconds, sell freedom from the cycle. This runs the opposite.</p>
+  </div>
+</div>
+
+<div class="brief">
+  <div class="verdict yes">Yes</div>
+  <div class="bdy">
+    <h3>2. Job interview before/after <span style="color:#bbb;font-weight:400">· brief 25</span></h3>
+    <div class="eng">Current engine: the calm you get when one thing went right</div>
+    <p>Before: glue disaster, joins the call flustered. After: clips on, composed, quietly sure of herself.</p>
+    <p class="map"><b>Maps to:</b> engine #6 <b>Quietly Handled</b> (composure as status, the calm sorted one). Clean fit.</p>
+  </div>
+</div>
+
+<div class="brief">
+  <div class="verdict yes">Yes</div>
+  <div class="bdy">
+    <h3>3. Lashes Are Never The Problem <span style="color:#bbb;font-weight:400">· brief 26</span></h3>
+    <div class="eng">Current engine: life ambushes you, the lashes are already handled</div>
+    <p>Same girl, three ambushes, calm every time, "one less thing to worry about."</p>
+    <p class="map"><b>Maps to:</b> engine #6 <b>Quietly Handled</b>. This brief basically is the engine, the one thing handled while everything else is chaos.</p>
+  </div>
+</div>
+
+<div class="brief">
+  <div class="verdict no">No</div>
+  <div class="bdy">
+    <h3>4. It Was Never About The Price <span style="color:#bbb;font-weight:400">· brief 27</span></h3>
+    <div class="eng">Current engine: not cheap, it's smart, the overpayers are getting played</div>
+    <p>Four creators flip the buy-cheap insecurity into a smart-shopper flex.</p>
+    <p class="map"><b>Why no:</b> it's a sharpened version of the OLD cost / smart-shopper engine ("cost is the spear, intelligence is the wrapper"). It is not the new #1 Little Treat (affordable indulgence/reward). Climate-aware, but not a new engine. One line ("stopped paying for the same thing twice") grazes underconsumption.</p>
+  </div>
+</div>
+
+<div class="brief">
+  <div class="verdict no">No</div>
+  <div class="bdy">
+    <h3>5. Bucket of Water test <span style="color:#bbb;font-weight:400">· brief 28</span></h3>
+    <div class="eng">Current engine: disbelief, settled by force (legitimacy + durability)</div>
+    <p>Water in the face, real reaction, lashes still on in extreme close-up.</p>
+    <p class="map"><b>Why no:</b> durability as spectacle-proof. The closest new engine, #2 Underconsumption Flex, is durability as identity ("bought once, off the treadmill"). This proves they hold, it doesn't reframe it into the new lens.</p>
+  </div>
+</div>
+
+<div class="brief">
+  <div class="verdict partial">Partial</div>
+  <div class="bdy">
+    <h3>6. Lash Health, "tension not glue" <span style="color:#bbb;font-weight:400">· brief 31</span></h3>
+    <div class="eng">Current engine: it's the tension on the root, not the glue (myth-bust)</div>
+    <p>Corrects the common belief, positions magnetic as zero-tension so lashes recover.</p>
+    <p class="map"><b>Why partial:</b> same angle family as #3 Pressure Lifted (comfort), but the engine is education / myth-correction, not "one less pressure grinding you down." Adjacent, not the same lens.</p>
+  </div>
+</div>
+
+<div class="brief">
+  <div class="verdict partial">Partial</div>
+  <div class="bdy">
+    <h3>7a. The Glue Trap exposé <span style="color:#bbb;font-weight:400">· brief 32</span></h3>
+    <div class="eng">Current engine: the glue is the business model, you're a subscription you didn't sign up for</div>
+    <p>Domino-chain exposé of the recurring-cost trap, magnetic as the escape.</p>
+    <p class="map"><b>Why partial:</b> the underlying nerve (escape the buy-forever cycle) grazes #2 Underconsumption Flex, but it's delivered as an angry exposé / de-vouch, not as a buy-once identity flex. Different delivery engine.</p>
+  </div>
+</div>
+
+<div class="brief">
+  <div class="verdict no">No</div>
+  <div class="bdy">
+    <h3>7b. The Lash Math <span style="color:#bbb;font-weight:400">· brief 33</span></h3>
+    <div class="eng">Current engine: cost-per-wear made undeniable (the math)</div>
+    <p>Compiled cost-per-wear breakdown, the 30c-a-wear proof.</p>
+    <p class="map"><b>Why no:</b> this is the OLD cost-math engine, the exact thing engine #1 Little Treat is meant to replace (old line "30c a wear" to new feeling "everyone's got their little treat"). It runs the line the hypothesis retires.</p>
+  </div>
+</div>
+
+<h2>Coverage of the six new engines in Round 2</h2>
+<table>
+  <tr><th>New engine</th><th>Round 2 briefs running it</th></tr>
+  <tr><td>1. Cost to The Little Treat</td><td class="cov zero">0</td></tr>
+  <tr><td>2. Longevity to Underconsumption Flex</td><td class="cov zero">0 clean (glue trap grazes)</td></tr>
+  <tr><td>3. Comfort to Pressure Lifted</td><td class="cov zero">0 clean (lash health adjacent)</td></tr>
+  <tr><td>4. Ease to Time Bought Back</td><td class="cov zero">0 (microwave runs the opposite)</td></tr>
+  <tr><td>5. Authority to Doing, Not Saying</td><td class="cov zero">0 (the pro brief is Round 1)</td></tr>
+  <tr><td>6. Identity to Quietly Handled</td><td class="cov some">2 (job interview, lashes-are-never)</td></tr>
+</table>
+
+<div class="note">
+  <b>Read this fairly.</b> "Doesn't align" does not mean "bad brief." The old engines are proven, several of these are strong, and cost still works in a squeeze. This audit only measures one thing: how much of Round 2 reflects the new hypothesis. Answer, not much, and what does is all on one engine. So the new direction is currently a small, lopsided slice of the slate, which is the gap to fill if we want to actually test the hypothesis in market.
+</div>
+
+<footer>
+  Baybella · Round 2 (8 built briefs) audited against the 6 working-hypothesis message engines · hypothesis is untested, evolving
+</footer>
+
+</div>
+</body>
+</html>

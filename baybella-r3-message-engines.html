@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Baybella — Round 3 Message Engines</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --line:#e6e6e6;
+    --pink:#c2185b; --pink-soft:#fbe4ee; --pink-line:#f1c2d6;
+    --chip:#f4f4f5; --test:#7b2ff7; --test-soft:#f1e9ff;
+    --eug:#3a55b0; --eug-soft:#eef1fb; --doc:#b25a00; --doc-soft:#fff3e0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:#ffffff; color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55; margin:0; padding:0 20px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:56px 0 90px;}
+  header.top{border-bottom:2px solid var(--pink); padding-bottom:22px; margin-bottom:36px;}
+  .kicker{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--pink); font-weight:700; margin:0 0 8px;}
+  h1{font-size:30px; line-height:1.15; margin:0 0 10px; font-weight:800; letter-spacing:-.01em;}
+  .sub{color:var(--muted); font-size:15px; margin:0; max-width:680px;}
+
+  h2.section{font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:700; margin:48px 0 16px;}
+
+  /* legend / provenance */
+  .legend{border:1px solid var(--line); border-left:4px solid var(--eug); background:#fafbff;
+    border-radius:10px; padding:15px 18px; margin:0 0 18px; font-size:13.5px; color:#3a3a3a;}
+  .legend b{color:var(--eug);}
+  .legendkey{display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; font-size:12px;}
+  .legendkey span{display:inline-flex; align-items:center; gap:6px;}
+  .dot{width:11px; height:11px; border-radius:3px; display:inline-block;}
+  .dot.e{background:var(--eug-soft); border:1px solid var(--eug);}
+  .dot.d{background:var(--doc-soft); border:1px solid var(--doc);}
+
+  /* engine tag */
+  .eng{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.01em;
+    background:var(--eug-soft); color:var(--eug); border-radius:6px; padding:2px 7px; margin-right:6px; white-space:nowrap;}
+  .eng.doc{background:var(--doc-soft); color:var(--doc);}
+
+  /* overview table */
+  .tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px;}
+  table{border-collapse:collapse; width:100%; font-size:13.5px; min-width:820px;}
+  thead th{background:var(--pink-soft); color:var(--pink); text-align:left; font-weight:700;
+    padding:12px 14px; border-bottom:1px solid var(--pink-line); white-space:nowrap;}
+  thead th.eugcol{background:var(--eug-soft); color:var(--eug); border-bottom:1px solid #c9d3f0;}
+  tbody td{padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:#fcfcfd;}
+  td.num{font-weight:700; color:var(--muted); white-space:nowrap;}
+  tr.test td.num{color:var(--test);}
+  td.angle{font-weight:600;}
+  td.regcol{background:#fafbff;}
+  .reg{color:var(--muted);}
+
+  /* cards */
+  .card{border:1px solid var(--line); border-radius:14px; padding:22px 24px; margin:16px 0;
+    box-shadow:0 1px 2px rgba(0,0,0,.03);}
+  .card.test{border-color:var(--test-soft); border-left:4px solid var(--test); background:#fdfcff;}
+  .card .head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px; flex-wrap:wrap;}
+  .card .n{font-size:13px; font-weight:800; color:var(--pink); background:var(--pink-soft);
+    border-radius:7px; padding:3px 9px; white-space:nowrap;}
+  .card.test .n{color:var(--test); background:var(--test-soft);}
+  .card h3{font-size:19px; margin:0; font-weight:750; letter-spacing:-.01em; flex:1; min-width:200px;}
+  .testtag{font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--test); background:var(--test-soft); border-radius:6px; padding:3px 8px; white-space:nowrap;}
+
+  .chips{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:14px;}
+  .chip{font-size:12px; background:var(--chip); border-radius:20px; padding:4px 11px; color:#3a3a3a; white-space:nowrap;}
+  .chip b{color:var(--ink);}
+  .chip.angle{background:var(--pink-soft); color:var(--pink); font-weight:600;}
+  .chip.track{background:#eef6ef; color:#2f7d4f;}
+  .chip.track.depth{background:#eef1fb; color:#3a55b0;}
+
+  .prose{font-size:15px; color:#262626; margin:0 0 14px;}
+  .prose .pain{font-weight:600;}
+
+  .meta{font-size:13px; color:var(--muted); border-top:1px dashed var(--line); padding-top:12px;}
+  .meta .lbl{font-weight:700; color:#3a3a3a; text-transform:uppercase; letter-spacing:.06em; font-size:11px;}
+  .meta .row2{margin-top:7px;}
+
+  /* Eugene lift block */
+  .lift{margin-top:14px; border:1px solid var(--eug-soft); border-radius:10px; background:#fafbff; padding:13px 15px;}
+  .lift .liftlbl{font-size:11px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--eug); display:block; margin-bottom:9px;}
+  .ba{display:flex; flex-direction:column; gap:6px; margin-bottom:9px;}
+  .before,.after{font-size:14px; padding:7px 11px; border-radius:8px;}
+  .before{background:#f3f3f4; color:#8a8a8a;}
+  .after{background:#e9edfb; color:#23306b; font-weight:500;}
+  .before .t,.after .t{font-size:10px; letter-spacing:.07em; font-weight:800; text-transform:uppercase; margin-right:8px;}
+  .before .t{color:#a6a6a6;} .after .t{color:var(--eug);}
+  .why{font-size:13px; color:#555;}
+  .why em{color:var(--eug); font-style:italic;}
+  .lift.flag{border-color:var(--doc-soft); background:#fffaf3;}
+  .lift.flag .liftlbl{color:var(--doc);}
+  .lift.flag .why{color:#6b6b6b;}
+
+  /* spread */
+  .spread{margin-top:40px; border:1px solid var(--line); border-radius:14px; padding:22px 24px; background:#fcfcfd;}
+  .spread h2{margin-top:0;}
+  .bars{display:flex; flex-wrap:wrap; gap:18px; margin-top:6px;}
+  .bar{font-size:14px;}
+  .bar b{display:inline-block; min-width:26px; height:24px; line-height:24px; text-align:center;
+    background:var(--pink); color:#fff; border-radius:6px; font-size:13px; margin-right:8px;}
+  .note{color:var(--muted); font-size:13px; margin-top:16px;}
+  footer{margin-top:48px; color:var(--muted); font-size:12px; border-top:1px solid var(--line); padding-top:18px;}
+  @media(max-width:560px){ h1{font-size:24px;} .wrap{padding:36px 0 70px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <p class="kicker">Baybella · Round 3 · Conversions</p>
+    <h1>The Ten Message Engines</h1>
+    <p class="sub">Shaped by message engine, format-agnostic, built only from what's performed. All ten are winner-backed. 🧪 marks the two carved as tests; everything else is the proven backbone.</p>
+  </header>
+
+  <h2 class="section">Overview</h2>
+
+  <div class="legend">
+    The three left columns — <b style="color:var(--pink)">Foundational angle · Mechanism · Pointed at</b> — are the <b style="color:var(--pink)">Baybella performance playbook</b> (verified winners, losers corpus, founder data). The <b>Climate register</b> column is the <b>2026 overlay developed with Eugene Healey</b>: same proven angle, re-expressed for the current climate. Each card carries a <b>Eugene's lift</b> block showing the line before vs after, and why it converts harder.
+    <div class="legendkey">
+      <span><span class="dot e"></span> Eugene's engine (grounded in his corpus)</span>
+      <span><span class="dot d"></span> 2026 climate-strategy doc (market read, not Eug's corpus)</span>
+    </div>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Foundational angle</th><th>Mechanism</th><th>Pointed at</th><th class="eugcol">Climate register — 2026 layer (Eugene)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="angle">Easy to apply</td><td>Real-or-scam verdict</td><td>Legitimacy</td><td class="regcol"><span class="eng">time-bought-back</span><span class="reg">proof not hype; ease = freedom, not "10 seconds"</span></td></tr>
+        <tr><td class="num">2</td><td class="angle">Lasts for months</td><td>Manufactured consensus</td><td>Legitimacy</td><td class="regcol"><span class="eng">underconsumption</span><span class="reg">"everyone's off the rebuy" (social proof)</span></td></tr>
+        <tr><td class="num">3</td><td class="angle">Cost effective</td><td>Authority's revealed behaviour</td><td>Legitimacy</td><td class="regcol"><span class="eng">doing-not-saying</span><span class="reg">"what I actually wear"</span></td></tr>
+        <tr><td class="num">4</td><td class="angle">Easy to apply</td><td>De-vouch by inversion</td><td>Upkeep / comfort</td><td class="regcol"><span class="eng">pressure-lifted</span><span class="reg">"one less thing on the pile"</span></td></tr>
+        <tr><td class="num">5</td><td class="angle">Cost effective</td><td>De-vouch by inversion</td><td>Cost / salon treadmill</td><td class="regcol"><span class="eng doc">loud-budgeting · 2026 doc</span><span class="reg">honest + defiant (retire girl-math)</span></td></tr>
+        <tr class="test"><td class="num">6 🧪</td><td class="angle">Cost effective</td><td>Buy-permission</td><td>Cost</td><td class="regcol"><span class="eng">little-treat</span><span class="reg">🧪 A/B'd vs the girl-math version</span></td></tr>
+        <tr class="test"><td class="num">7 🧪</td><td class="angle">Lasts for months</td><td>Underconsumption flex</td><td>Durability / reuse</td><td class="regcol"><span class="eng">underconsumption</span><span class="reg">🧪 "haven't repurchased since March - that's the flex"</span></td></tr>
+        <tr><td class="num">8</td><td class="angle">Sensitive eyes</td><td>Cause-reframe ("tension not glue")</td><td>Lash-health</td><td class="regcol"><span class="eng">pressure-lifted</span><span class="reg">experiential, never clinical</span></td></tr>
+        <tr><td class="num">9</td><td class="angle">Sensitive eyes</td><td>Anxiety-dissolve</td><td>Sensitive / comfort</td><td class="regcol"><span class="eng">pressure-lifted</span></td></tr>
+        <tr><td class="num">10</td><td class="angle">Cost effective</td><td>Value-education math</td><td>Price objection</td><td class="regcol"><span class="eng doc">loud-budgeting · 2026 doc</span><span class="reg">honest maths, not a gag</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section">The Ten, In Full</h2>
+
+  <!-- 1 -->
+  <div class="card">
+    <div class="head"><span class="n">01</span><h3>"Let's settle it on camera"</h3></div>
+    <div class="chips"><span class="chip angle">Easy to apply</span><span class="chip"><b>Real-or-scam verdict</b></span><span class="chip">Legitimacy</span><span class="chip track">Surface</span></div>
+    <p class="prose">She already thinks it might be a gimmick. Don't argue - show one clean, uncut demo that answers "real or scam?" <span class="pain">The pain:</span> nobody wants to be the idiot who fell for a viral thing. She wants proof, not a claim. Keep it matter-of-fact; sell freedom, not "10 seconds."</p>
+    <div class="meta"><span class="lbl">Backed by</span> ⑨ and the category's deepest doubt</div>
+    <div class="lift">
+      <span class="liftlbl">Eugene's lift · <span class="eng">time-bought-back</span></span>
+      <div class="ba"><div class="before"><span class="t">Without Eug</span>"they go on in 10 seconds."</div><div class="after"><span class="t">With Eug</span>"no appointments, no fills - you're just off the whole cycle."</div></div>
+      <div class="why">Speed now reads as low-status hustle; the status move is having your time back. <em>"the ability to sit around with friends wasting time has become a status symbol."</em> You stop selling a stopwatch and start selling the freedom she actually envies.</div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="card">
+    <div class="head"><span class="n">02</span><h3>"Not one girl, everyone"</h3></div>
+    <div class="chips"><span class="chip angle">Lasts for months</span><span class="chip"><b>Manufactured consensus</b></span><span class="chip">Legitimacy</span><span class="chip track">Surface</span></div>
+    <p class="prose">A bunch of different women all saying they're off the rebuy makes it the normal choice, not a gamble. <span class="pain">The pain:</span> nobody wants to go first on something unproven. A crowd already doing it is the reassurance.</p>
+    <div class="meta"><span class="lbl">Backed by</span> ① and ⑩</div>
+    <div class="lift">
+      <span class="liftlbl">Eugene's lift · <span class="eng">underconsumption</span></span>
+      <div class="ba"><div class="before"><span class="t">Without Eug</span>"loved by 50,000 women / everyone's switching."</div><div class="after"><span class="t">With Eug</span>"everyone's quietly off the rebuy."</div></div>
+      <div class="why">"Everyone's buying this" is bandwagon and reads salesy now; "everyone stopped needing to rebuy" is the credible direction. <em>"Buying less becomes rebranded as underconsumption-core. Behavior becomes identity."</em> Same social proof, flipped from buy-more to buy-once.</div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="card">
+    <div class="head"><span class="n">03</span><h3>"A pro picked the cheap one for herself"</h3></div>
+    <div class="chips"><span class="chip angle">Cost effective</span><span class="chip"><b>Authority's revealed behaviour</b></span><span class="chip">Legitimacy</span><span class="chip track">Surface</span></div>
+    <p class="prose">Someone who could use anything quietly wears these when no one's paying her. Her private choice is the proof, not her recommendation. <span class="pain">The pain:</span> claims are cheap, who do I trust. Show what she actually wears, don't have her "recommend."</p>
+    <div class="meta"><span class="lbl">Backed by</span> ④ and ⑤</div>
+    <div class="lift">
+      <span class="liftlbl">Eugene's lift · <span class="eng">doing-not-saying</span></span>
+      <div class="ba"><div class="before"><span class="t">Without Eug</span>"as an MUA, I recommend these."</div><div class="after"><span class="t">With Eug</span>"as an MUA, here's what I actually wear myself."</div></div>
+      <div class="why">A recommendation reads paid; revealed private behaviour reads true. <em>"a decade of saying and into a decade of doing... brand as doing, not as saying."</em> Turns an endorsement she discounts into proof she can't.</div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="card">
+    <div class="head"><span class="n">04</span><h3>"I'm not selling these, I'm just done with the fight"</h3></div>
+    <div class="chips"><span class="chip angle">Easy to apply</span><span class="chip"><b>De-vouch by inversion</b></span><span class="chip">Upkeep / comfort</span><span class="chip track">Surface</span></div>
+    <p class="prose">Ironic regret - venting about the daily lash grind, where the relief is the whole point and nothing gets pitched. <span class="pain">The pain:</span> the morning routine is one more thing fighting her. The feeling: one less thing on the pile.</p>
+    <div class="meta"><span class="lbl">Backed by</span> Biggest-Regret</div>
+    <div class="lift">
+      <span class="liftlbl">Eugene's lift · <span class="eng">pressure-lifted</span></span>
+      <div class="ba"><div class="before"><span class="t">Without Eug</span>"no glue, so no irritation."</div><div class="after"><span class="t">With Eug</span>"your morning's already a fight - your lashes shouldn't be one more thing on the pile."</div></div>
+      <div class="why">A feature she has to care about vs a pressure lifted off her. <em>"a growing part of that narrative is what other pressures you can help me resist."</em> Sells relief - what people buy when they're stretched.</div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="card">
+    <div class="head"><span class="n">05</span><h3>"A subscription you never signed up for"</h3></div>
+    <div class="chips"><span class="chip angle">Cost effective</span><span class="chip"><b>De-vouch by inversion</b></span><span class="chip">Cost / salon treadmill</span><span class="chip track">Surface</span></div>
+    <p class="prose">Call out the salon as a trap - refills, rebooking, the cycle that never ends - with real anger, and drop the escape at the end. <span class="pain">The pain:</span> being locked into a spend that won't stop. Aim at the cost and the system, never the women who pay it.</p>
+    <div class="meta"><span class="lbl">Backed by</span> ③ and the glue-trap exposé</div>
+    <div class="lift flag">
+      <span class="liftlbl">The lift · <span class="eng doc">loud-budgeting · 2026 doc</span></span>
+      <div class="ba"><div class="before"><span class="t">Old</span>"girl math: basically 30c a wear." (the clever wink)</div><div class="after"><span class="t">2026</span>honest maths, out loud and a little angry.</div></div>
+      <div class="why">Real improvement - girl-math went cringe (~down 90%), loud-budgeting replaced it. But this one's from the <strong>2026 climate-strategy doc, not Eugene's corpus</strong> - don't credit him for it.</div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="card test">
+    <div class="head"><span class="n">06</span><h3>"Not buying it is the expensive mistake"</h3><span class="testtag">🧪 Test</span></div>
+    <div class="chips"><span class="chip angle">Cost effective</span><span class="chip"><b>Buy-permission</b></span><span class="chip">Cost</span><span class="chip track">Surface</span></div>
+    <p class="prose">Flip the guilt: buying is the smart move, hesitating is what costs you. <span class="pain">The pain:</span> spending guilt freezes the decision; she wants permission to treat herself without feeling reckless. Test the "little treat - lasts longer than a coffee" version against the old girl-math one.</p>
+    <div class="meta"><span class="lbl">Backed by</span> ⑩, your biggest winner</div>
+    <div class="lift">
+      <span class="liftlbl">Eugene's lift · <span class="eng">little-treat</span></span>
+      <div class="ba"><div class="before"><span class="t">Without Eug</span>"treat yourself, you deserve it / basically free."</div><div class="after"><span class="t">With Eug</span>"everyone's got their little treat - mine just lasts longer than a coffee."</div></div>
+      <div class="why">As big purchases go out of reach, small affordable luxuries become emotionally huge. <em>"as the world gets more expensive, it opens up aspirational brand narratives for smaller and smaller categories... a coffee, a pastry."</em> Reframes a guilt-laden splurge into her one reliable small joy.</div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="card test">
+    <div class="head"><span class="n">07</span><h3>"Haven't repurchased since March, that's the flex"</h3><span class="testtag">🧪 Test</span></div>
+    <div class="chips"><span class="chip angle">Lasts for months</span><span class="chip"><b>Underconsumption flex</b></span><span class="chip">Durability / reuse</span><span class="chip track depth">Depth-leaning (identity)</span></div>
+    <p class="prose">Buying once and being off the cycle is an identity, not a spec. The durability becomes the quiet brag. <span class="pain">The pain:</span> she's proud she's not getting churned and sold to on repeat. Keep it dry and real, no virtue-signalling.</p>
+    <div class="meta"><span class="lbl">Backed by</span> ④/⑧ longevity plus the underconsumption read - the one genuinely new engine</div>
+    <div class="lift">
+      <span class="liftlbl">Eugene's lift · <span class="eng">underconsumption</span></span>
+      <div class="ba"><div class="before"><span class="t">Without Eug</span>"one pair lasts up to 8 months."</div><div class="after"><span class="t">With Eug</span>"I haven't repurchased since March - that's the whole flex."</div></div>
+      <div class="why">A dry spec vs an identity brag. <em>"behavior becomes identity."</em> Makes longevity aspirational instead of a footnote.</div>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="card">
+    <div class="head"><span class="n">08</span><h3>"It was never the glue, it's the tension"</h3></div>
+    <div class="chips"><span class="chip angle">Sensitive eyes</span><span class="chip"><b>Cause-reframe ("tension not glue")</b></span><span class="chip">Lash-health</span><span class="chip track">Surface (light self-care depth)</span></div>
+    <p class="prose">Fix the wrong assumption everyone has: it's the pull on the lash root that wrecks them, and magnetic has zero pull, so your own lashes recover. The correction is the hook. <span class="pain">The pain:</span> she's scared of ruining her real lashes.</p>
+    <div class="meta"><span class="lbl">Backed by</span> ⑤ and the lash-health reframe</div>
+    <div class="lift flag">
+      <span class="liftlbl">Eugene's lift · light touch</span>
+      <div class="why">The real engine here is <strong>yours</strong> - the "tension not glue" reframe (founder/team, not Eugene). Eug only adds the <span class="eng">pressure-lifted</span> register on top ("one less thing wrecking your lashes"). Small value-add; flagged honestly.</div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="card">
+    <div class="head"><span class="n">09</span><h3>"The thing you're scared of is already solved"</h3></div>
+    <div class="chips"><span class="chip angle">Sensitive eyes</span><span class="chip"><b>Anxiety-dissolve</b></span><span class="chip">Sensitive / comfort</span><span class="chip track">Surface</span></div>
+    <p class="prose">Take one real worry - sensitive eyes, contacts, will they sting - and answer it straight. <span class="pain">The pain:</span> a small specific fear quietly stops the buy.</p>
+    <div class="meta"><span class="lbl">Backed by</span> ⑦</div>
+    <div class="lift flag">
+      <span class="liftlbl">Eugene's lift · light touch</span>
+      <div class="why">The engine is <strong>yours</strong> - anxiety-dissolve (winner ⑦). Eug only adds the <span class="eng">pressure-lifted</span> register ("that's one worry you can put down"). Light touch; flagged honestly.</div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="card">
+    <div class="head"><span class="n">10</span><h3>"It only looks expensive until you count"</h3></div>
+    <div class="chips"><span class="chip angle">Cost effective</span><span class="chip"><b>Value-education math</b></span><span class="chip">Price objection</span><span class="chip track">Surface</span></div>
+    <p class="prose">Do the honest over-time math out loud - two pairs, lasts months, against $140 a set. <span class="pain">The pain:</span> the "is this a waste of money?" flinch; she wants to feel smart, not ripped off. Honest maths, not a gag, and it leans on durability to hold up.</p>
+    <div class="meta"><span class="lbl">Backed by</span> ⑥</div>
+    <div class="lift flag">
+      <span class="liftlbl">The lift · <span class="eng doc">loud-budgeting · 2026 doc</span></span>
+      <div class="ba"><div class="before"><span class="t">Old</span>"girl math, basically free."</div><div class="after"><span class="t">2026</span>"honest maths, said straight, not a gag."</div></div>
+      <div class="why">Same retire-the-wink improvement as #5 - and same caveat: it's the <strong>2026 climate-strategy doc, not Eugene's corpus</strong>.</div>
+    </div>
+  </div>
+
+  <div class="spread">
+    <h2 class="section" style="margin-top:0;">What Eugene actually added</h2>
+    <p class="note" style="margin-top:0;">He didn't change the angle or the mechanism - those are the Baybella playbook, proven. He changed the <strong>line</strong>: feature / spec / clever-wink → status / identity / relief, the registers that convert in 2026. His one-line frame: <em>keep the function, kill the sentiment, add the ritual.</em></p>
+    <p class="note"><strong>Materially lifted by Eugene (6):</strong> #1, #2, #3, #4, #6, #7 — each a documented reframe with a corpus reason. &nbsp;<strong>2026 climate doc, not him (2):</strong> #5, #10 (loud-budgeting). &nbsp;<strong>Barely his (2):</strong> #8, #9 — your engine, his register on top.</p>
+  </div>
+
+  <div class="spread" style="margin-top:18px;">
+    <h2 class="section" style="margin-top:0;">Foundational angle spread</h2>
+    <div class="bars">
+      <span class="bar"><b>4</b>Cost effective</span>
+      <span class="bar"><b>2</b>Lasts for months</span>
+      <span class="bar"><b>2</b>Easy to apply</span>
+      <span class="bar"><b>2</b>Sensitive eyes</span>
+    </div>
+    <p class="note">Legitimacy gets the most at-bats by "pointed at" (1, 2, 3) - the deepest, most under-run objection. Cost stays the data leader but is spread across three different mechanisms so the at-bats don't cannibalise. Two engines (6, 7) are carved as tests; the other eight are the proven backbone.</p>
+  </div>
+
+  <footer>Baybella — Round 3 message engines · internal strategy reference · noindex</footer>
+
+</div>
+</body>
+</html>

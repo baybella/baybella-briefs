@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baybella · Build Modes</title>
+<style>
+  :root{
+    --ink:#241c1c; --muted:#7a6f6c; --line:#ece4e1; --bg:#fbf7f5; --card:#fff;
+    --accent:#b5635f; --accent-soft:#f4e7e4;
+    --z0:#3f7d5a; --z0s:#e6f0ea; --z1:#b8862f; --z1s:#f6eed9; --z5:#a8504c; --z5s:#f6e5e3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;padding:0 0 80px}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px}
+  header{padding:54px 0 24px;border-bottom:1px solid var(--line)}
+  .kicker{letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent);font-weight:700}
+  h1{font-size:32px;line-height:1.15;margin:14px 0 8px;font-weight:800;letter-spacing:-.01em}
+  .sub{color:var(--muted);max-width:600px}
+
+  .cheat{width:100%;border-collapse:collapse;margin:28px 0 8px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .cheat th,.cheat td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);font-size:15px}
+  .cheat th{background:#faf5f3;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .cheat tr:last-child td{border-bottom:none}
+  .cheat .say{font-weight:700;color:var(--accent)}
+  .stops{display:inline-block;min-width:26px;text-align:center;font-weight:800;border-radius:8px;padding:2px 9px;font-size:14px}
+  .s0{background:var(--z0s);color:var(--z0)} .s1{background:var(--z1s);color:var(--z1)} .s5{background:var(--z5s);color:var(--z5)}
+
+  .mode{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;margin:22px 0;position:relative}
+  .mode .tophead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .mode h2{font-size:21px;margin:0;font-weight:800}
+  .badge{font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+  .b0{background:var(--z0s);color:var(--z0)} .b1{background:var(--z1s);color:var(--z1)} .b5{background:var(--z5s);color:var(--z5)}
+  .forwhat{margin:12px 0 14px;color:#3a302e;font-size:15px}
+  .forwhat b{color:var(--accent)}
+  .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:700;margin:16px 0 7px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:13.5px;padding:6px 13px;border-radius:999px}
+  .chip.main{background:var(--accent);color:#fff}
+  .prompt{margin-top:8px;background:#2a2422;color:#f2eae8;border-radius:12px;padding:15px 17px;font-size:13.5px;line-height:1.6;font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace}
+  .note{background:var(--accent-soft);border-radius:14px;padding:15px 18px;margin:26px 0 0;font-size:14.5px;color:#5e4a48}
+  .note b{color:var(--accent)}
+  footer{color:var(--muted);font-size:13px;text-align:center;margin-top:40px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Baybella · Creator-brief process</div>
+  <h1>The three build modes</h1>
+  <p class="sub">Same machinery every time — every step shown, all gates, validator to PASSED. The only thing that changes is how many times I stop and ask you.</p>
+</header>
+
+<table class="cheat">
+  <tr><th>Say this</th><th>What it's for</th><th>Stops</th></tr>
+  <tr><td class="say">"build it out"</td><td>It's baked, just finish it</td><td><span class="stops s0">0</span></td></tr>
+  <tr><td class="say">"build the brief"</td><td>Approve the direction once, then go</td><td><span class="stops s1">1</span></td></tr>
+  <tr><td class="say">"step by step"</td><td>Shape it piece by piece</td><td><span class="stops s5">5</span></td></tr>
+</table>
+
+<!-- MODE 1 -->
+<div class="mode">
+  <div class="tophead"><h2>1. One-shot</h2><span class="badge b0">0 stops</span></div>
+  <p class="forwhat"><b>For when it's baked.</b> You're done discussing, you just want the finished brief. Saying it <i>is</i> your approval, so I never stop to ask.</p>
+  <div class="lbl">Say (short)</div>
+  <div class="chips"><span class="chip main">"build it out"</span><span class="chip">"send it"</span><span class="chip">"now build it"</span><span class="chip">"run it through"</span></div>
+  <div class="lbl">Full prompt it's equivalent to</div>
+  <div class="prompt">Build this into a full creator brief. Run the entire brief-build sequence end-to-end, steps 1-7, visibly - message engine, format + double-test, variables, hook scoring, script, the pre-doc assembly checklist, the 27 gates (quote the lines), gate 8 loser-check - and finish by running check_brief.py until it prints PASSED. Don't enter mid-pipeline, don't skip any conditional section. Do NOT stop for approvals - I've already approved; deliver the finished validated brief in one pass.</div>
+</div>
+
+<!-- MODE 2 -->
+<div class="mode">
+  <div class="tophead"><h2>2. Default</h2><span class="badge b1">1 stop</span></div>
+  <p class="forwhat"><b>For a normal build.</b> You want to approve the overall direction once - engine + format + hook as a bundle - then let me run to the finish.</p>
+  <div class="lbl">Say (short)</div>
+  <div class="chips"><span class="chip main">"build the [concept] brief"</span><span class="chip">"let's brief this"</span></div>
+  <div class="lbl">Full prompt it's equivalent to</div>
+  <div class="prompt">Run the full visible sequence + all gates + validator, but stop ONCE after locking the engine + format + hook for my yes, then build straight through to the validated brief.</div>
+</div>
+
+<!-- MODE 3 -->
+<div class="mode">
+  <div class="tophead"><h2>3. Step-by-step</h2><span class="badge b5">5 stops</span></div>
+  <p class="forwhat"><b>For when it's half-baked.</b> You want to shape each piece as we go, catching a wrong turn at step 1 instead of after I've built on top of it.</p>
+  <div class="lbl">Say (short)</div>
+  <div class="chips"><span class="chip main">"let's go step by step"</span><span class="chip">"walk me through it"</span><span class="chip">"one step at a time"</span><span class="chip">"start from step one"</span></div>
+  <div class="lbl">Full prompt it's equivalent to</div>
+  <div class="prompt">Build this into a brief, one pipeline step at a time. Run step 1 (message engine), show it, then STOP and wait for my yes/no before step 2. Repeat for every step - format + double-test, variables, hook scoring, script - pausing for my approval each time. Then run the assembly checklist, the 27 gates, gate 8, and check_brief.py to PASSED. Show everything, skip nothing.</div>
+</div>
+
+<div class="note">
+  <b>One steering word for any mode:</b> say <b>plan</b> at any point - mid-build, whenever - and I stop and show you the full checklist with exactly where we are. Your "are you on track?" button, no need to know the steps yourself.
+</div>
+
+<footer>Baybella · build modes · same gates + validator in all three · only the stops change (0 / 1 / 5)</footer>
+
+</div>
+</body>
+</html>

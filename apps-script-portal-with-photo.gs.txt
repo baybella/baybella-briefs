@@ -1,0 +1,156 @@
+/* BAYBELLA CREATOR PORTAL - back end */
+
+const SHEET_SUBS = 'Submissions';
+const SHEET_PROP = 'Proposed';
+const PHOTO_FOLDER = 'Baybella Creator Eye Photos';
+
+// EDIT EACH ROUND
+// Key = the EXACT brief title shown in the portal (curly quotes count).
+//   need = how many creators you want on that brief this round
+//   mua  = true if it's makeup-artists-only (eligibility gate)
+const BRIEF_CONFIG = {
+  '“Would You Rather”':       { need: 3, mua: false },
+  'Broke Girl Luxury':                  { need: 3, mua: false },
+  'Old Lash Habits':                    { need: 3, mua: false },
+  'What a Pro Wears':                   { need: 2, mua: true  },
+  'Different Lives, Same Lashes':       { need: 4, mua: false },
+  'Get Unready With Me':                { need: 3, mua: false },
+  "They Think I'm High-Maintenance":    { need: 3, mua: false },
+};
+
+function ss_(){ return SpreadsheetApp.getActiveSpreadsheet(); }
+
+/* 1) CAPTURE: portal submissions land here */
+function doPost(e){
+  try{
+    const lock = LockService.getScriptLock();
+    lock.waitLock(20000);
+    const d = JSON.parse(e.postData.contents);
+
+    // Save the bare-eye photo (if this submission included one) to Drive, keep the link.
+    let photoUrl = '';
+    if(d.eyePhoto){
+      try{ photoUrl = savePhoto_(d.eyePhoto, d.eyePhotoName, d.handle || d.name); }
+      catch(err){ photoUrl = 'ERROR saving photo: ' + err; }
+    }
+
+    let sh = ss_().getSheetByName(SHEET_SUBS);
+    if(!sh){ sh = ss_().insertSheet(SHEET_SUBS); }
+    if(sh.getLastRow() === 0){
+      sh.appendRow(['Timestamp','Round','Name','Instagram','Email',
+                    'Picks','Capacity','Can film in 7 days','Notes','Address','Eye photo']);
+      sh.getRange('1:1').setFontWeight('bold');
+      sh.setFrozenRows(1);
+    }
+    // Existing sheets predate the Eye photo column - add its header once if missing.
+    if(sh.getRange(1, 11).getValue() === ''){
+      sh.getRange(1, 11).setValue('Eye photo').setFontWeight('bold');
+    }
+
+    sh.appendRow([ new Date(), d.round||'', d.name||'', d.handle||'',
+                   d.email||'', d.picks||'', d.capacity||'',
+                   d.canFilmIn7Days||'', d.notes||'', d.address||'', photoUrl ]);
+    lock.releaseLock();
+    return json_({ok:true});
+  } catch(err){
+    return json_({ok:false, error:String(err)});
+  }
+}
+
+/* Save a base64 data-URL image to a Drive folder, return a viewable link. */
+function savePhoto_(dataUrl, fileName, who){
+  const m = String(dataUrl).match(/^data:([^;]+);base64,(.*)$/);
+  if(!m) return '';
+  const bytes = Utilities.base64Decode(m[2]);
+  const safe = String(who || 'creator').replace(/[^\w@.\-]/g, '_');
+  const blob = Utilities.newBlob(bytes, m[1], (safe + '-eye.jpg'));
+  const folder = getPhotoFolder_();
+  const file = folder.createFile(blob);
+  file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+  return file.getUrl();
+}
+
+function getPhotoFolder_(){
+  const it = DriveApp.getFoldersByName(PHOTO_FOLDER);
+  return it.hasNext() ? it.next() : DriveApp.createFolder(PHOTO_FOLDER);
+}
+
+function json_(o){
+  return ContentService.createTextOutput(JSON.stringify(o))
+                       .setMimeType(ContentService.MimeType.JSON);
+}
+
+/* 2) SORTER: Baybella menu - "Sort this round" */
+function onOpen(){
+  SpreadsheetApp.getUi().createMenu('Baybella')
+    .addItem('Sort this round', 'sortRound')
+    .addToUi();
+}
+
+function sortRound(){
+  const subs = ss_().getSheetByName(SHEET_SUBS);
+  if(!subs || subs.getLastRow() < 2){
+    SpreadsheetApp.getUi().alert('No submissions yet.');
+    return;
+  }
+  const rows = subs.getDataRange().getValues();
+  const head = rows.shift();
+  const col = name => head.indexOf(name);
+
+  const creators = rows.map(r => {
+    const picks = String(r[col('Picks')]).split(',').map(s=>s.trim()).filter(Boolean);
+    const capRaw = parseInt(r[col('Capacity')], 10);
+    return {
+      name:    r[col('Name')],
+      handle:  r[col('Instagram')],
+      picks:   picks,
+      cap:     isNaN(capRaw) ? picks.length : capRaw,
+      assigned: []
+    };
+  });
+
+  const briefs = Object.keys(BRIEF_CONFIG).map(title => {
+    const cfg = BRIEF_CONFIG[title];
+    const interested = creators.filter(c => c.picks.indexOf(title) > -1);
+    return { title, need: cfg.need, mua: cfg.mua, interested: interested.length };
+  }).sort((a,b) => a.interested - b.interested);
+
+  const out = [];
+  briefs.forEach(b => {
+    const cands = creators
+      .filter(c => c.picks.indexOf(b.title) > -1 && c.cap > 0)
+      .sort((x,y) => y.cap - x.cap);
+    const chosen = [];
+    for(const c of cands){
+      if(chosen.length >= b.need) break;
+      c.cap -= 1; c.assigned.push(b.title);
+      chosen.push(c.handle || c.name);
+    }
+    out.push([
+      b.title,
+      b.mua ? 'MUA-only ⚠' : '',
+      b.need,
+      chosen.length,
+      Math.max(0, b.need - chosen.length),
+      chosen.join(', ')
+    ]);
+  });
+
+  const leftover = creators
+    .filter(c => c.cap > 0)
+    .map(c => `${c.handle||c.name} (${c.cap} free)`)
+    .join(', ');
+
+  let p = ss_().getSheetByName(SHEET_PROP);
+  if(p){ p.clear(); } else { p = ss_().insertSheet(SHEET_PROP); }
+  p.appendRow(['Brief','Eligibility','Need','Filled','Shortfall','Assigned (review before sending)']);
+  p.getRange('1:1').setFontWeight('bold');
+  p.setFrozenRows(1);
+  out.forEach(r => p.appendRow(r));
+  p.appendRow([]);
+  p.appendRow(['Creators with spare capacity:', leftover || 'none']);
+  p.autoResizeColumns(1, 6);
+
+  SpreadsheetApp.setActiveSheet(p);
+  SpreadsheetApp.getUi().alert('Done - review the "Proposed" tab. Shortfalls show where you still need creators.');
+}
