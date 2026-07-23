@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Baybella · Send Us Your Content</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+  BAYBELLA CREATOR UPLOAD PORTAL — one drop-zone per brief.
+
+  WHY THIS EXISTS (23 Jul): creators run several briefs at once and reply from one
+  inbox, so a delivery email can never say WHICH brief a video belongs to. Libby
+  had four live briefs, Holly six. The machine correctly refused to guess and
+  flagged it for a human — and Brodie's 16 Jul delivery then sat five days until
+  she wrote again asking if we'd received it.
+
+  THE FIX: the LINK carries the brief id. She clicks the brief-46 uploader, so
+  whatever she sends IS brief 46 — established by which door she walked through,
+  not by anything she has to type correctly. Nothing to parse, nothing she can get
+  wrong. (creator-pipeline SKILL.md rule 0g-3.)
+
+  HOW TO BUILD A ROUND: copy this file to upload-rN.html and edit ONLY the two
+  marked blocks below — ROUND LABEL and the BRIEFS array. Each brief needs its own
+  DriveUploader link; create one per brief in the DriveUploader dashboard, each
+  pointing at that brief's own folder in the creator-uploads Drive.
+
+  ⛔ NEVER overwrite a previous round's upload page. Creators may be mid-filming on
+  that link. Same law as the brief portals (references/portal-build.md).
+-->
+<style>
+:root{
+  --ink:#211C18;--ink2:#463E37;--grey:#8C8279;--pink:#E5147F;--pink-deep:#BE185D;--line-soft:#EAD9E4;
+  --purple:#7C3AED;--serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:#FDF4F8}
+body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160deg,#FCE3F0 0%,#F1E7FB 55%,#E7E7FB 100%);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;position:relative}
+.blooms{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blooms::before{content:"";position:absolute;top:-220px;right:-200px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.6}
+.blooms::after{content:"";position:absolute;bottom:-220px;left:-220px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#C4B5FD 0%,transparent 70%);opacity:.5}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 70px;position:relative;z-index:1}
+
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#F49AC1 0%,#BBA2E8 100%);border:1px solid #E58BB4;border-radius:24px;padding:clamp(30px,5vw,46px) clamp(24px,5vw,40px);margin:26px 0 14px;text-align:center;box-shadow:0 28px 60px -28px rgba(150,40,100,.55),inset 0 1px 0 rgba(255,255,255,.4)}
+.hero::before{content:"";position:absolute;top:-140px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.7}
+.hero>*{position:relative;z-index:1}
+.hero .eyebrow{font-size:.92rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:12px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,5vw,2.3rem);line-height:1.05;letter-spacing:-.02em;color:var(--ink)}
+.hero .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1rem,2.4vw,1.15rem);color:#5a2540;margin-top:13px}
+
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 8px}
+@media(max-width:600px){.how{grid-template-columns:1fr}}
+.how .step{background:#fff;border:1px solid var(--line-soft);border-radius:14px;padding:15px;box-shadow:0 14px 30px -26px rgba(60,30,30,.5)}
+.how .n{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.how .t{font-weight:800;font-size:.95rem;margin-bottom:3px}
+.how .d{font-size:.86rem;color:var(--ink2)}
+
+/* one card per brief — the whole point: her click chooses the brief */
+.brief{background:#fff;border:1px solid var(--line-soft);border-radius:16px;padding:20px 20px 18px;margin:14px 0;box-shadow:0 18px 40px -30px rgba(60,30,30,.55)}
+.brief .tag{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);background:#FCEAF1;border-radius:999px;padding:4px 11px;margin-bottom:9px}
+.brief h2{font-family:var(--serif);font-weight:400;font-size:1.32rem;line-height:1.2;color:var(--ink)}
+.brief .fmt{font-size:.85rem;color:var(--grey);margin-top:5px}
+.brief .done{display:none;margin-top:12px;background:#F2FBF4;border:1px solid #BFE6CB;border-radius:11px;padding:11px 13px;font-size:.9rem;color:#186A34;font-weight:600}
+.brief.sent .done{display:block}
+.brief.sent .drop{display:none}
+.drop{margin-top:13px;border:2px dashed #E9C6D9;border-radius:13px;overflow:hidden;background:#FFF9FC;min-height:186px}
+.drop iframe{display:block;width:100%;height:186px;border:0}
+.brief .mark{margin-top:11px;font-size:.86rem;color:var(--ink2);display:flex;align-items:center;gap:9px}
+.brief .mark input{width:17px;height:17px;accent-color:var(--pink);cursor:pointer}
+.brief .mark label{cursor:pointer;user-select:none}
+
+.note{background:#fff;border:1px solid var(--line-soft);border-left:4px solid var(--pink);border-radius:12px;padding:15px 17px;margin:20px 0 0;font-size:.93rem;line-height:1.55;color:var(--ink2)}
+.note b{color:var(--ink)}
+footer{text-align:center;color:var(--grey);font-size:.82rem;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="blooms"></div>
+<div class="wrap">
+
+  <!-- ══ EDIT 1 of 2: ROUND LABEL (three places, keep the number identical) ══ -->
+  <div class="hero">
+    <div class="eyebrow">Baybella x Creators · Round 6</div>
+    <h1>Send us your content</h1>
+    <div class="sub">One box per brief — drop your video in the right one and you're done.</div>
+  </div>
+
+  <div class="how">
+    <div class="step"><div class="n">1</div><div class="t">Find your brief</div><div class="d">Each brief below has its own upload box.</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Drag your video in</div><div class="d">Any size, any format. No login needed.</div></div>
+    <div class="step"><div class="n">3</div><div class="t">That's it</div><div class="d">We'll see it straight away — no need to email.</div></div>
+  </div>
+
+  <div id="briefs"></div>
+
+  <div class="note">
+    <b>Filmed more than one brief?</b> Please drop each video in its own box —
+    that's how we know which brief it belongs to, and it means we can get back to
+    you faster. If something won't upload, just reply to Linda's email and we'll
+    sort it out.
+  </div>
+
+  <footer>Baybella x Creators · Round 6</footer>
+</div>
+
+<script>
+/* ══ EDIT 2 of 2: THIS ROUND'S BRIEFS ═════════════════════════════════════════
+   One entry per brief. `id` MUST match the brief number the pipeline uses — it is
+   what tells us which brief a video belongs to, so it has to be exact.
+   `uploader` is that brief's own DriveUploader embed URL (create one per brief,
+   each pointing at that brief's folder). Get it from the DriveUploader dashboard:
+   create uploader -> choose the folder -> copy the EMBED (iframe) link.
+   ⛔ Two briefs must never share an uploader link — that reintroduces the exact
+   ambiguity this page exists to remove. */
+const BRIEFS = [
+  { id: 46, title: "Lashes Are Never The Problem", fmt: "One-shot selfie · 45s+",
+    uploader: "" },
+  { id: 47, title: "The Slip-Off Fix", fmt: "One-shot selfie · 45s+",
+    uploader: "" },
+];
+/* ═════════════════════════════════════════════════════════════════════════ */
+
+const wrapEl = document.getElementById('briefs');
+
+BRIEFS.forEach(b => {
+  const card = document.createElement('div');
+  card.className = 'brief';
+  card.id = 'brief-' + b.id;
+
+  // No uploader link yet = say so plainly rather than showing a dead empty box.
+  // A silently broken drop-zone is worse than an honest "not ready" message: she
+  // would think she had sent it.
+  const drop = b.uploader
+    ? `<div class="drop"><iframe src="${b.uploader}" allow="clipboard-write"
+         title="Upload your video for brief ${b.id}"></iframe></div>`
+    : `<div class="drop" style="display:flex;align-items:center;justify-content:center;
+         text-align:center;padding:18px;color:#8C8279;font-size:.9rem">
+         Upload box for this brief isn't live yet — hold tight, or reply to Linda's email.
+       </div>`;
+
+  card.innerHTML = `
+    <div class="tag">Brief #${b.id}</div>
+    <h2>${b.title}</h2>
+    <div class="fmt">${b.fmt}</div>
+    ${drop}
+    <div class="mark">
+      <input type="checkbox" id="sent-${b.id}">
+      <label for="sent-${b.id}">I've uploaded this one</label>
+    </div>
+    <div class="done">Got it — thanks! Nothing else needed for this brief.</div>`;
+  wrapEl.appendChild(card);
+
+  // Her own tick, remembered per browser. Purely for HER — so a creator filming
+  // over several days can see what she has already sent. It is NOT how we detect
+  // a delivery (that comes from the file landing in Drive), so a lost checkbox
+  // never loses a video.
+  const box = card.querySelector('input');
+  const key = 'bb_sent_r6_' + b.id;
+  if (localStorage.getItem(key) === '1') { box.checked = true; card.classList.add('sent'); }
+  box.addEventListener('change', () => {
+    card.classList.toggle('sent', box.checked);
+    localStorage.setItem(key, box.checked ? '1' : '0');
+  });
+});
+</script>
+</body>
+</html>
