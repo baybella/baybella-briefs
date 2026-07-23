@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Baybella · Creator Brief - "First Lash, Anywhere"</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#211C18;--ink2:#463E37;--grey:#8C8279;--pink:#E5147F;--line-soft:#EAD9E4;
+  --serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:#FBEAF1}
+body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160deg,#FCE3F0 0%,#F1E7FB 55%,#E7E7FB 100%);background-attachment:fixed;color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;position:relative}
+.blooms{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blooms::before{content:"";position:absolute;top:-220px;right:-200px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.6}
+.blooms::after{content:"";position:absolute;bottom:-220px;left:-220px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle,#C4B5FD 0%,transparent 70%);opacity:.5}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+.topbar{position:sticky;top:0;z-index:50;background:rgba(252,233,241,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+.topbar .row{max-width:720px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:var(--ink)}
+.brand b{color:var(--pink)}
+.lockbtn{font-family:var(--sans);font-size:11px;letter-spacing:.04em;font-weight:700;background:none;border:1px solid #E3C7D6;color:#9a4a72;padding:7px 13px;border-radius:40px;cursor:pointer;transition:.2s;white-space:nowrap}
+.lockbtn:hover{border-color:var(--pink);color:var(--pink);background:#fff}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#F49AC1 0%,#BBA2E8 100%);border:1px solid #E58BB4;border-radius:24px;padding:clamp(32px,6vw,50px) clamp(26px,5vw,42px);margin:24px 0 30px;box-shadow:0 28px 60px -28px rgba(150,40,100,.55),inset 0 1px 0 rgba(255,255,255,.4)}
+.hero::before{content:"";position:absolute;top:-140px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.7}
+.hero>*{position:relative;z-index:1}
+.hero{text-align:center}
+.hero .logo{display:block;margin:0 auto 22px;width:240px;max-width:74%;height:auto}
+.hero .eyebrow{font-size:.92rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:16px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.4rem,4vw,1.95rem);line-height:1.06;letter-spacing:-.02em;color:var(--ink)}
+.hero .meta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 40px;border-top:1px solid #E9C6D9;padding-top:20px;margin-top:26px}
+.hero .mi{display:flex;flex-direction:column;align-items:center;gap:2px}
+.hero .mi .l{font-size:.62rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--pink)}
+.hero .mi .v{font-family:var(--serif);font-size:1rem;color:var(--ink)}
+
+/* SECTION = its own coloured block */
+.sec{margin-bottom:20px}
+.panel{position:relative;overflow:hidden;background:#fff;background:color-mix(in srgb,var(--c) 7%,#fff);border-radius:16px;padding:0 22px 24px;box-shadow:0 20px 46px -34px color-mix(in srgb,var(--c) 58%,#000),0 0 0 1px color-mix(in srgb,var(--c) 16%,#fff)}
+.phead{background:var(--c);background:linear-gradient(135deg, color-mix(in srgb,var(--c) 86%,#fff) 0%, var(--c) 56%, color-mix(in srgb,var(--c) 86%,#000) 100%);color:#fff;margin:0 -22px 20px;padding:14px 22px;display:flex;align-items:baseline;gap:12px}
+.phead .pnum{font-size:.8rem;font-weight:800;color:rgba(255,255,255,.72)}
+.phead .pname{font-size:.92rem;font-weight:800;color:#fff;letter-spacing:.13em;text-transform:uppercase;line-height:1}
+.phead .pwhat{margin-left:auto;font-family:var(--serif);font-style:italic;font-size:.95rem;color:rgba(255,255,255,.9)}
+@media(max-width:440px){.phead .pwhat{display:none}}
+
+/* prose - BLACK */
+.vision p{font-size:1.02rem;line-height:1.7;margin-bottom:14px;color:var(--ink)}.vision p:last-child{margin-bottom:0}
+.vision strong{color:var(--ink);font-weight:800}.vision em{font-style:italic}
+.vision .feel{font-family:var(--serif);font-style:italic;color:var(--pink);font-size:1.02rem;margin-top:4px}
+.lead{font-size:.98rem;line-height:1.7;margin-bottom:12px;color:var(--ink)}.lead:last-child{margin-bottom:0}
+.lead strong{color:var(--ink);font-weight:800}.muted{color:var(--grey)}
+
+/* notes - white box inside the tinted card */
+.note{background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-left:3px solid var(--c);border-radius:12px;padding:16px 17px;margin:15px 0;font-size:.94rem;line-height:1.6;color:var(--ink)}
+.note .wt{font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--c);font-weight:800;margin-bottom:8px}
+.note ol{margin:8px 0 0 18px}.note li{margin-bottom:5px}.note:last-child{margin-bottom:0}.note strong{color:var(--ink)}
+
+/* transcript block - the mum's setup line, creator-facing */
+.transcript{background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-left:3px solid var(--c);border-radius:12px;padding:16px 18px;margin-top:16px}
+.transcript .tlbl{font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--c);font-weight:800;margin-bottom:9px}
+.transcript .tline{font-family:var(--serif);font-style:italic;font-size:1.08rem;line-height:1.6;color:var(--ink)}
+.transcript .tsub{font-size:.86rem;color:var(--grey);margin-top:10px}
+
+/* inspo */
+.inspo-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:14px}
+@media(max-width:460px){.inspo-grid{grid-template-columns:1fr}}
+.inspo{display:flex;align-items:center;gap:11px;text-decoration:none;background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-radius:12px;padding:13px;transition:.2s}
+.inspo:hover{border-color:var(--c)}
+.inspo .play{width:30px;height:30px;border-radius:50%;background:var(--c);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;flex-shrink:0}
+.inspo .lbl{font-size:12.5px;font-weight:800;color:var(--ink)}
+.inspo .sm{color:var(--grey);font-size:11.5px;font-style:italic;font-family:var(--serif)}
+
+/* legend + vibe */
+.script-legend{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-radius:12px;padding:14px 16px;margin-bottom:15px}
+.script-legend .do-d{font-style:italic;color:var(--grey);font-size:.92rem}
+.script-legend .say-d{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:1.02rem}
+.script-vibe{font-size:.94rem;line-height:1.6;color:var(--ink2);margin-bottom:22px}
+.script-vibe b{font-family:var(--serif);font-weight:500;color:var(--pink);font-style:italic;font-size:1rem}
+
+/* rounds - SAY black serif, hook pivot pink */
+.round{padding:22px 0;border-top:1px solid color-mix(in srgb,var(--c) 18%,#fff)}
+.round:first-of-type{padding-top:6px;border-top:none}.round:last-of-type{padding-bottom:2px}
+.round-top{display:flex;align-items:baseline;gap:11px;margin-bottom:12px}
+.round-n{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--c)}
+.round-k{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);font-weight:800}
+.screen{display:flex;gap:8px;align-items:flex-start;font-size:.82rem;color:var(--grey);margin-bottom:12px;font-style:italic}
+.screen .e{font-style:normal;flex-shrink:0}
+.say{font-family:var(--serif);font-weight:500;font-size:1.26rem;line-height:1.5;color:var(--ink)}
+.say .or{color:var(--pink);font-style:italic}
+.deliv-btn{margin-top:14px;font-family:var(--sans);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;background:none;border:1px solid color-mix(in srgb,var(--c) 30%,#fff);color:var(--c);padding:7px 13px;border-radius:40px;cursor:pointer;transition:.2s;display:inline-flex;gap:6px;align-items:center}
+.deliv-btn:hover{border-color:var(--c);background:#fff}
+
+/* before/after */
+.ba{list-style:none;margin:12px 0 0;display:flex;flex-direction:column;gap:10px}
+.ba li{font-size:.96rem;line-height:1.55;padding:7px 0 7px 14px;border-left:3px solid color-mix(in srgb,var(--c) 22%,#fff);color:var(--ink)}
+.ba li b{font-weight:800}.ba li strong{font-weight:800}
+.ba li.after{border-left-color:var(--c)}
+
+/* lash boxes */
+.lv-box{border-radius:12px;padding:20px;font-size:.93rem;line-height:1.6}
+.lv-yellow{background:#FCF4A6;border:1px solid #E0C94F;color:#3a3418;margin-bottom:12px}
+.lv-yellow .lvh{font-weight:800;color:#241f08;margin-bottom:14px}
+.lv-yellow .q{font-weight:800;color:#241f08;margin:14px 0 8px}
+.lv-yellow ol.lvl{margin:0 0 0 24px;padding:0}.lv-yellow ol.lvl li{margin-bottom:6px;padding-left:6px}
+.lv-yellow .lvlink{font-weight:800;color:#241f08;margin-top:16px}.lv-yellow .lvlink a{color:#1155cc;text-decoration:underline}
+.lv-green{background:#CCEFBE;border:1px solid #87C775;color:#243319}
+.lv-green p{margin-bottom:12px}.lv-green p:last-child{margin-bottom:0}.lv-green strong{color:#15240c}
+
+/* row list */
+.row-list{list-style:none}
+.row-list li{display:flex;gap:12px;padding:13px 0;border-top:1px solid color-mix(in srgb,var(--c) 18%,#fff);font-size:.95rem;line-height:1.55;color:var(--ink)}
+.row-list li:first-child{border-top:none;padding-top:0}.row-list .e{flex-shrink:0}.row-list em{font-style:italic}.row-list strong{font-weight:800}
+
+footer{padding:24px 0 56px;text-align:center}
+footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a098}
+
+/* modal + agency */
+.modal-bg{position:fixed;inset:0;background:rgba(42,8,40,.5);backdrop-filter:blur(7px);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}.modal-bg.show{display:flex}
+.agency{display:none;background:#1f1419;color:#EAD9E4;position:relative;z-index:1}.agency.show{display:block}
+.agency .ahead{padding:36px 0 18px}
+.acard{background:rgba(61,38,50,.4);border:1px solid #3d2632;border-radius:12px;margin-bottom:13px;overflow:hidden}
+.acard .ah{background:rgba(61,38,50,.6);padding:11px 16px;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:#F3A3C6;font-weight:800}
+.acard .ab{padding:16px}
+.acard .ab p,.acard .ab li{color:#D9C4D0;font-size:.9rem;margin-bottom:8px;line-height:1.55}
+.acard .ab p:last-child,.acard .ab li:last-child{margin-bottom:0}
+.acard .ab strong{color:#FCEAF1}
+.ai-flag{border-color:var(--pink)!important}.ai-flag .ah{background:rgba(229,20,127,.2);color:#F7A3C4}
+</style>
+</head>
+<body>
+<!-- baybella-skeleton-v1 · DO NOT REMOVE. check_brief.py requires this signature so every brief is built FROM this skeleton (its design + fixed boilerplate), never custom-styled. -->
+<!-- baybella-no-mirror · no one-handed-on-own-phone application precision required in the founder-locked scenario; the green phone-mirror box is kept anyway as a courtesy for the self-shot car spot. -->
+
+<div class="blooms"></div>
+
+<div class="topbar">
+  <div class="row">
+    <div class="brand"><b>BAYBELLA</b> · CREATOR BRIEF</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Content Brief</div>
+    <h1>&ldquo;First Lash, Anywhere&rdquo;</h1>
+    <div class="meta">
+      <div class="mi"><span class="l">Format</span><span class="v">Reaction stitch</span></div>
+      <div class="mi"><span class="l">Length</span><span class="v">~40 sec</span></div>
+    </div>
+  </div>
+
+  <!-- 01 -->
+  <div class="sec" style="--c:#E5147F">
+    <div class="panel">
+      <div class="phead"><span class="pnum">01</span><span class="pname">What We&rsquo;re Making</span><span class="pwhat">the concept</span></div>
+      <div class="vision">
+        <p><strong>A reaction stitch.</strong> You reply to a short clip of a woman saying she keeps meaning to get back into her lashes and never finds the time. You film your part; we add her clip on the front in the edit.</p>
+        <p><strong>The point:</strong> you don&rsquo;t need to sit down and set aside time for these. No glue, no waiting, they clip on in seconds, so you do them wherever you already are.</p>
+      </div>
+
+      <div class="transcript">
+        <div class="tlbl">Transcript &middot; what she says in the clip</div>
+        <p class="tline">&ldquo;...and like i keep meaning to get back into my lashes, and then it&rsquo;s dropping the kids off, straight into work, and i&rsquo;m always the last one i sort, it just takes a back seat, another week gone and i still haven&rsquo;t-&rdquo;</p>
+        <p class="tsub">This is the clip you&rsquo;re reacting to. It cuts off right there, and your first line picks it straight up.</p>
+      </div>
+
+      <a class="inspo" style="margin-top:14px" href="https://vt.tiktok.com/ZSxULs3Aa/" target="_blank" rel="noopener">
+        <span class="play">&#9654;</span>
+        <span><span class="lbl">Format reference</span><br><span class="sm">what a reaction stitch like this looks like</span></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="sec" style="--c:#9D1FB0">
+    <div class="panel">
+      <div class="phead"><span class="pnum">02</span><span class="pname">The Vibe</span><span class="pwhat">how to play it</span></div>
+      <p class="lead"><strong>Warm and easy, like you&rsquo;re talking to a friend - never smug.</strong> You open with &ldquo;i get it,&rdquo; not with a sell. The whole thing is low-key and offhand: you&rsquo;re just showing how you actually fit these into a full day. Keep it real, not polished.</p>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="sec" style="--c:#7C3AED">
+    <div class="panel">
+      <div class="phead"><span class="pnum">03</span><span class="pname">How To Film It</span><span class="pwhat">setup</span></div>
+      <p class="lead"><strong>The car is home base - start and end there.</strong></p>
+      <ul class="row-list">
+        <li><span class="e">&#128663;</span><span><strong>Car.</strong> Front camera. Clip both lashes on while you talk.</span></li>
+        <li><span class="e">&#9889;</span><span><strong>Blitz - three quick spots.</strong> Pickup bench, gym change room, kitchen bench. Clip a lash on in each.</span></li>
+        <li><span class="e">&#128663;</span><span><strong>Back to the car.</strong> Same setup, talk to camera to finish.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="sec" style="--c:#1D6FE0">
+    <div class="panel">
+      <div class="phead"><span class="pnum">04</span><span class="pname">The Script</span><span class="pwhat">what you say + do</span></div>
+      <div class="script-legend">
+        <span class="do-d">Grey = what you DO.</span>
+        <span class="say-d">Black = what you SAY.</span>
+      </div>
+      <p class="muted" style="font-size:.86rem;margin-bottom:18px">These are the exact words - say them in your own natural voice so it doesn&rsquo;t sound read, but keep the lines as written.</p>
+
+      <div class="round" style="border-top:none;padding-top:4px">
+        <div class="round-top"><span class="round-n">1</span><span class="round-k">In the car</span></div>
+        <div class="screen"><span class="e">&#127909;</span><span>Front camera. You&rsquo;re clipping both lashes on the whole time you say this line - casual, already doing it as you speak.</span></div>
+        <p class="say" style="margin:0">&ldquo;look, i may not be a mum, but i know what it&rsquo;s like to have zero time for yourself. the thing is with these though, you don&rsquo;t need much time at all, no glue, no waiting, they just clip on in seconds. so i do them wherever i actually am. watch.&rdquo;</p>
+      </div>
+
+      <div class="round">
+        <div class="round-top"><span class="round-n">2</span><span class="round-k">The blitz</span></div>
+        <div class="screen"><span class="e">&#127909;</span><span>Quick cuts. In each spot you clip a lash on for real as you say the line.</span></div>
+        <p class="say" style="margin:0 0 6px">&ldquo;on the bench at pickup&rdquo;</p>
+        <div class="screen" style="margin:0 0 16px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">&#127909;</span><span>a bench at school pickup - clip a lash on</span></div>
+        <p class="say" style="margin:0 0 6px">&ldquo;gym change room before a class&rdquo;</p>
+        <div class="screen" style="margin:0 0 16px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">&#127909;</span><span>gym change room - clip a lash on</span></div>
+        <p class="say" style="margin:0 0 6px">&ldquo;at the bench while they have breakfast&rdquo;</p>
+        <div class="screen" style="margin:0 0 0 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">&#127909;</span><span>kitchen bench - clip a lash on</span></div>
+      </div>
+
+      <div class="round">
+        <div class="round-top"><span class="round-n">3</span><span class="round-k">Back in the car</span></div>
+        <div class="screen"><span class="e">&#127909;</span><span>Same setup as the start. Talk to camera.</span></div>
+        <p class="say" style="margin:0 0 16px">&ldquo;with strips, you need to be sat at home at a table with glue to do it properly. with extensions, you need to sit through a 2 hr appointment every few weeks. but with these, i can just clip them on wherever i am.&rdquo;</p>
+        <p class="say" style="margin:0">&ldquo;if you&rsquo;ve been meaning to get back into it, magnetic lashes are the way. they fit around your life instead of you having to fit your life around them.&rdquo;</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="sec" style="--c:#6366F1">
+    <div class="panel">
+      <div class="phead"><span class="pnum">05</span><span class="pname">Lash Visibility</span><span class="pwhat">read this</span></div>
+      <div class="lv-box lv-yellow">
+        <div class="lvh">✨ IMPORTANT - READ THIS</div>
+        <div class="q">When demonstrating the product, always ask yourself this:</div>
+        <ol class="lvl"><li>Can the camera clearly see the lashes when I use them?</li></ol>
+        <div class="q">Secondary questions:</div>
+        <ol class="lvl" start="2">
+          <li>Are my hands blocking my face?</li>
+          <li>Is the applicator covering my eyes?</li>
+          <li>Is my face turned away?</li>
+        </ol>
+        <div class="lvlink">Please click <a href="https://baybella.my.canva.site/guidelines" target="_blank" rel="noopener">here</a> for video examples.</div>
+      </div>
+      <div class="lv-box lv-green">
+        <p>If the script requires you to hold your phone while applying the lashes and you don&rsquo;t have a way to see yourself while recording, please let us know.</p>
+        <p>We know applying lashes while looking through the camera app can be a little tricky, so <strong>we can send you a clip-on phone mirror attachment</strong> which allows you to see yourself properly while recording.</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="lockbtn" onclick="unlockAgency()" style="margin:24px auto;display:block;padding:10px 18px;border:1px solid #ccc;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:.85rem">🔒 Agency notes</button>
+  <div class="agency" id="agency">
+    <div class="sec" style="--c:#333">
+      <div class="panel">
+        <div class="phead"><span class="pnum">★</span><span class="pname">Agency Notes</span><span class="pwhat">internal - not for the creator</span></div>
+        <div class="vision">
+          <p><strong>Format:</strong> reaction stitch. The creator films ONLY her reply (car + 4-spot blitz + car close). We produce the AI-mum setup clip and stitch it on the front in post. Transcript-exception to the standard stitch-source rule: the creator receives the TRANSCRIPT of the mum&rsquo;s line to react to (shown creator-facing in section 01), NOT a clip; we add the clip in the edit.</p>
+          <p><strong>The AI-mum setup clip (we produce + own):</strong> a mid-slice that starts mid-sentence and cuts off mid-word - <em>&ldquo;...and like i keep meaning to get back into my lashes, and then it&rsquo;s dropping the kids off, straight into work, and i&rsquo;m always the last one i sort, it just takes a back seat, another week gone and i still haven&rsquo;t-&rdquo;</em> [hard cut]. This is the exact text of the creator-facing Transcript block above.</p>
+          <p><strong>AI-mum production (agency, gated):</strong> she TALKS ONLY, no lashes on her face (dodges the AI-can&rsquo;t-render-lashes rule). Keep her half-turned / mid-task so the face isn&rsquo;t front-locked (lip-sync warps front-on). Read it like a wider mum GRWM / day-in-life with her own burned-in caption. Cast 35-54. See the <em>baybella-ai-avatar-video</em> skill.</p>
+          <p><strong>Licensing / paid-ad rights:</strong> we generate the AI-mum clip ourselves, so we own it - clear it internally for PAID ads (an organic-only clearance is not enough). Do not swap in a stranger&rsquo;s footage.</p>
+          <p><strong>Audience / callout (AI-4):</strong> targets the wider &ldquo;results, not the process&rdquo; busy woman via the mum&rsquo;s situation as the stitched frame; the creator relates through being busy, not through being a mum. Single-situation frame, not a symptom-list.</p>
+          <p><strong>Villain (compliance):</strong> aimed at the CATEGORY, never the buyer - strips (glue, sat at a table at home) + extensions (2 hr appointment every few weeks). No medical/health claim - time / hassle only. Longevity is not claimed here.</p>
+          <p><strong>Two-trays (AI-3) - skipped:</strong> this is a pure convenience / activation reaction; the spare-set value beat would read as a tacked-on sell, so it is consciously left out.</p>
+          <p><strong>Register is load-bearing (internal):</strong> she plays it WARM, not smug. &ldquo;i get it&rdquo; / &ldquo;i may not be a mum, but i know what it&rsquo;s like&rdquo; is the empathy bridge that keeps it relatable. No switch-story narration.</p>
+          <p><strong>Post:</strong> product end-frame names &ldquo;Baybella Magnetic Lashes.&rdquo; Lowercase captions. Low-key music that reads like a real reaction, not an ad. No hard CTA - the last line lands and cuts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer><div class="fb">Baybella × Creator · &ldquo;First Lash, Anywhere&rdquo;</div></footer>
+
+<script>function unlockAgency(){var p=prompt("Password");if(p==="baybella"){document.getElementById("agency").classList.add("show");}}</script>
+
+</body>
+</html>
