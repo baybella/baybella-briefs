@@ -171,6 +171,14 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
 .hookcall .hc-head{font-family:var(--serif);font-weight:500;font-size:clamp(1.25rem,3.6vw,1.55rem);line-height:1.2;letter-spacing:-.01em;color:var(--ink);margin-bottom:10px}
 .hookcall .hc-body{font-size:.97rem;line-height:1.65;color:var(--ink);max-width:560px;margin:0 auto}
 .hookcall .hc-body strong{font-weight:800}
+
+/* role callout - inside 01, states the character she is playing. Deliberately louder than body copy. */
+.rolecall{background:#FFF4F9;border:2px solid var(--pink);border-left:6px solid var(--pink);border-radius:14px;padding:18px clamp(16px,3vw,22px) 16px;margin:16px 0 18px}
+.rolecall .rc-eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.66rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--pink);border-radius:40px;padding:5px 13px;margin-bottom:12px}
+.rolecall .rc-head{font-family:var(--serif);font-weight:600;font-size:clamp(1.1rem,3.2vw,1.35rem);line-height:1.25;color:var(--ink);margin-bottom:10px}
+.rolecall .rc-body{font-size:.95rem;line-height:1.65;color:var(--ink);margin:0 0 9px}
+.rolecall .rc-body:last-child{margin-bottom:0}
+.rolecall .rc-body strong{font-weight:800;color:#A80F5C}
 </style>
 </head>
 <body>
@@ -203,7 +211,13 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
     <div class="panel">
       <div class="phead"><span class="pnum">01</span><span class="pname">What We're Making</span><span class="pwhat">the concept</span></div>
       <div class="vision">
-        <p><strong>Talking to camera.</strong> Three short clips for us to stitch against later.</p>
+        <p><strong>Talking to camera.</strong> Three short clips, one thought each.</p>
+        <div class="rolecall">
+          <div class="rc-eyebrow">&#127917; The role you are playing</div>
+          <div class="rc-head">You are the sceptic who doesn't buy that magnetic lashes work.</div>
+          <p class="rc-body">You are filming these clips <strong>acting as a woman who has seen the ads and doubts them</strong> - and a second creator will later stitch onto your clip and answer you.</p>
+          <p class="rc-body">So you are <strong>not</strong> selling anything here. You are the doubt. Your job is to say out loud the thing everyone scrolling is already thinking, and leave it hanging.</p>
+        </div>
         <p><strong>They cannot feel too polished.</strong> Don't set anything up for it, don't do anything special.</p>
         <p><strong>The idea:</strong> you were going about your day, had a thought, picked up your phone.</p>
       </div>
