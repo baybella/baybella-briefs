@@ -138,6 +138,8 @@ body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160de
 /* layout diagram */
 .ld-wrap{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:18px}
 .ld-fig{display:flex;flex-direction:column;align-items:center;gap:9px}
+.ld-arrow{align-self:center;font-size:26px;font-weight:800;color:var(--ink);padding-bottom:40px}
+@media(max-width:430px){.ld-arrow{transform:rotate(90deg);padding-bottom:0}}
 .ld-cap{font-size:.78rem;font-weight:800;color:var(--ink);text-align:center;max-width:160px;line-height:1.35}
 .ld-phone{width:126px;height:224px;border:2px solid var(--ink);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;background:#fff;box-shadow:0 10px 24px -14px rgba(0,0,0,.35)}
 .ld-half{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:.58rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:6px}
@@ -246,6 +248,25 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
         <li><span class="e">&#127916;</span><span>Film the glue take first, then ours. Do both properly, start to finish.</span></li>
         <li><span class="e">&#9986;</span><span>We stack them top and bottom in the edit - you just send the two clips.</span></li>
       </ul>
+      <!-- layout diagram - graphic labels, not prose -->
+      <div class="ld-wrap">
+        <div class="ld-fig">
+          <div class="ld-phone">
+            <div class="ld-trim">We trim this</div>
+            <div class="ld-keep"><span class="face">&#128105;</span>Keep your face here</div>
+            <div class="ld-trim">We trim this</div>
+          </div>
+          <div class="ld-cap">&#9312; Each take you film - face in the middle</div>
+        </div>
+        <div class="ld-arrow">&#8594;</div>
+        <div class="ld-fig">
+          <div class="ld-phone">
+            <div class="ld-half ld-top"><span class="fe">&#128105;</span>Baybella take</div>
+            <div class="ld-half ld-bot"><span class="fe">&#128105;</span>Glue strips take</div>
+          </div>
+          <div class="ld-cap">&#9313; The video we make - the middle of each take, stacked</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -319,23 +340,6 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
       <div class="lv-box lv-green">
         <p><strong>Each take ends up on the top or bottom half of the screen, so we trim the top and bottom off each clip.</strong> Film head and shoulders with your whole face in the middle of the frame - not high, not low - so nothing of your face gets cut off.</p>
         <p>Both your hands are busy here, so the phone has to be propped. If you cannot see yourself while recording, tell us and <strong>we can send you a clip-on phone mirror attachment</strong>.</p>
-      </div>
-      <div class="ld-wrap">
-        <div class="ld-fig">
-          <div class="ld-phone">
-            <div class="ld-half ld-top"><span class="fe">&#128149;</span>Baybella take</div>
-            <div class="ld-half ld-bot"><span class="fe">&#8987;</span>Glue strips take</div>
-          </div>
-          <div class="ld-cap">The finished video - your two takes stacked top and bottom</div>
-        </div>
-        <div class="ld-fig">
-          <div class="ld-phone">
-            <div class="ld-trim">We trim this</div>
-            <div class="ld-keep"><span class="face">&#128105;</span>Your face stays in this middle band</div>
-            <div class="ld-trim">We trim this</div>
-          </div>
-          <div class="ld-cap">How to frame yourself in each take</div>
-        </div>
       </div>
     </div>
   </div>
