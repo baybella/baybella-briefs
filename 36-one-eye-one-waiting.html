@@ -149,6 +149,13 @@ body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160de
 .ld-trim{height:26%;background:repeating-linear-gradient(45deg,#ececec,#ececec 6px,#f9f9f9 6px,#f9f9f9 12px);display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:800;color:#9a9a9a;letter-spacing:.05em;text-transform:uppercase}
 .ld-keep{height:48%;background:#FDF0F7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:.58rem;font-weight:800;color:#8F1355;letter-spacing:.05em;text-transform:uppercase;text-align:center;padding:0 8px;border-top:2px dashed #D48AAE;border-bottom:2px dashed #D48AAE}
 .ld-keep .face{font-size:26px}
+.ld-pair{display:flex;gap:12px}
+.ld-mini{width:88px;height:156px;border:2px solid var(--ink);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;background:#fff;box-shadow:0 8px 18px -12px rgba(0,0,0,.35)}
+.ld-mini .ld-trim{font-size:.45rem}
+.ld-band{height:48%;display:flex;align-items:center;justify-content:center;font-size:22px;border-top:2px dashed rgba(0,0,0,.25);border-bottom:2px dashed rgba(0,0,0,.25)}
+.ld-band.pink{background:#FBD3E6}
+.ld-band.purple{background:#E4D7FA}
+.ld-sub{font-size:.62rem;font-weight:800;color:var(--ink2);text-align:center;margin-top:6px}
 
 footer{padding:24px 0 56px;text-align:center}
 footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a098}
@@ -251,12 +258,25 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
       <!-- layout diagram - graphic labels, not prose -->
       <div class="ld-wrap">
         <div class="ld-fig">
-          <div class="ld-phone">
-            <div class="ld-trim">We trim this</div>
-            <div class="ld-keep"><span class="face">&#128105;</span>Keep your face here</div>
-            <div class="ld-trim">We trim this</div>
+          <div class="ld-pair">
+            <div>
+              <div class="ld-mini">
+                <div class="ld-trim">Trim</div>
+                <div class="ld-band pink">&#128105;</div>
+                <div class="ld-trim">Trim</div>
+              </div>
+              <div class="ld-sub">Our take</div>
+            </div>
+            <div>
+              <div class="ld-mini">
+                <div class="ld-trim">Trim</div>
+                <div class="ld-band purple">&#128105;</div>
+                <div class="ld-trim">Trim</div>
+              </div>
+              <div class="ld-sub">Glue take</div>
+            </div>
           </div>
-          <div class="ld-cap">&#9312; Each take you film - face in the middle</div>
+          <div class="ld-cap">&#9312; Film both clips with your face in the middle</div>
         </div>
         <div class="ld-arrow">&#8594;</div>
         <div class="ld-fig">
@@ -264,7 +284,7 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
             <div class="ld-half ld-top"><span class="fe">&#128105;</span>Baybella take</div>
             <div class="ld-half ld-bot"><span class="fe">&#128105;</span>Glue strips take</div>
           </div>
-          <div class="ld-cap">&#9313; The video we make - the middle of each take, stacked</div>
+          <div class="ld-cap">&#9313; The ad - the pink middle and the purple middle, stacked</div>
         </div>
       </div>
     </div>
