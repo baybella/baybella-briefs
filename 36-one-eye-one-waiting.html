@@ -135,6 +135,19 @@ body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160de
 .row-list li{display:flex;gap:12px;padding:13px 0;border-top:1px solid color-mix(in srgb,var(--c) 18%,#fff);font-size:.95rem;line-height:1.55;color:var(--ink)}
 .row-list li:first-child{border-top:none;padding-top:0}.row-list .e{flex-shrink:0}.row-list em{font-style:italic}.row-list strong{font-weight:800}
 
+/* layout diagram */
+.ld-wrap{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.ld-fig{display:flex;flex-direction:column;align-items:center;gap:9px}
+.ld-cap{font-size:.78rem;font-weight:800;color:var(--ink);text-align:center;max-width:160px;line-height:1.35}
+.ld-phone{width:126px;height:224px;border:2px solid var(--ink);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;background:#fff;box-shadow:0 10px 24px -14px rgba(0,0,0,.35)}
+.ld-half{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:.58rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:6px}
+.ld-half .fe{font-size:22px}
+.ld-top{background:#FBD3E6;color:#8F1355;border-bottom:2px dashed var(--ink)}
+.ld-bot{background:#E4D7FA;color:#4C1D95}
+.ld-trim{height:26%;background:repeating-linear-gradient(45deg,#ececec,#ececec 6px,#f9f9f9 6px,#f9f9f9 12px);display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:800;color:#9a9a9a;letter-spacing:.05em;text-transform:uppercase}
+.ld-keep{height:48%;background:#FDF0F7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:.58rem;font-weight:800;color:#8F1355;letter-spacing:.05em;text-transform:uppercase;text-align:center;padding:0 8px;border-top:2px dashed #D48AAE;border-bottom:2px dashed #D48AAE}
+.ld-keep .face{font-size:26px}
+
 footer{padding:24px 0 56px;text-align:center}
 footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a098}
 
@@ -192,7 +205,7 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
     <div class="eyebrow">Content Brief</div>
     <h1>"One eye ready, one eye waiting"</h1>
     <div class="meta">
-      <div class="mi"><span class="l">Format</span><span class="v">Split screen</span></div>
+      <div class="mi"><span class="l">Format</span><span class="v">Split screen, stacked top &amp; bottom</span></div>
       <div class="mi"><span class="l">Length</span><span class="v">~20 sec</span></div>
     </div>
   </div>
@@ -202,8 +215,8 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
     <div class="panel">
       <div class="phead"><span class="pnum">01</span><span class="pname">What We're Making</span><span class="pwhat">the concept</span></div>
       <div class="vision">
-        <p><strong>A split-screen GRWM.</strong> Two takes of the same morning, side by side. One side you do glue strips, the other you do ours. Both start at the same second.</p>
-        <p><strong>The point:</strong> our side finishes a whole face and walks out the door while the glue side is still on the lashes.</p>
+        <p><strong>A split-screen GRWM.</strong> Two takes of the same morning, stacked on top of each other - one take fills the top half of the screen, the other fills the bottom. In one take you do glue strips, in the other you do ours. Both start at the same second.</p>
+        <p><strong>The point:</strong> our half finishes a whole face and walks out the door while the glue half is still on the lashes.</p>
       </div>
     </div>
   </div>
@@ -231,7 +244,7 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
         <li><span class="e">&#128241;</span><span>Prop the phone in the exact same position both times. Mark the floor.</span></li>
         <li><span class="e">&#128087;</span><span>Same outfit, same starting hair, same light. It has to look like one morning.</span></li>
         <li><span class="e">&#127916;</span><span>Film the glue take first, then ours. Do both properly, start to finish.</span></li>
-        <li><span class="e">&#9986;</span><span>We cut them side by side afterwards - you just send us the two clips.</span></li>
+        <li><span class="e">&#9986;</span><span>We stack them top and bottom in the edit - you just send the two clips.</span></li>
       </ul>
     </div>
   </div>
@@ -304,8 +317,25 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
         <div class="lvlink">Please click <a href="https://baybella.my.canva.site/guidelines" target="_blank" rel="noopener">here</a> for video examples.</div>
       </div>
       <div class="lv-box lv-green">
-        <p><strong>This one gets cut side by side, so each take only has half the screen.</strong> Film a bit closer than usual - head and shoulders, not the whole room - or the lashes will be too small to read once we halve it.</p>
+        <p><strong>Each take ends up on the top or bottom half of the screen, so we trim the top and bottom off each clip.</strong> Film head and shoulders with your whole face in the middle of the frame - not high, not low - so nothing of your face gets cut off.</p>
         <p>Both your hands are busy here, so the phone has to be propped. If you cannot see yourself while recording, tell us and <strong>we can send you a clip-on phone mirror attachment</strong>.</p>
+      </div>
+      <div class="ld-wrap">
+        <div class="ld-fig">
+          <div class="ld-phone">
+            <div class="ld-half ld-top"><span class="fe">&#128149;</span>Baybella take</div>
+            <div class="ld-half ld-bot"><span class="fe">&#8987;</span>Glue strips take</div>
+          </div>
+          <div class="ld-cap">The finished video - your two takes stacked top and bottom</div>
+        </div>
+        <div class="ld-fig">
+          <div class="ld-phone">
+            <div class="ld-trim">We trim this</div>
+            <div class="ld-keep"><span class="face">&#128105;</span>Your face stays in this middle band</div>
+            <div class="ld-trim">We trim this</div>
+          </div>
+          <div class="ld-cap">How to frame yourself in each take</div>
+        </div>
       </div>
     </div>
   </div>
@@ -349,7 +379,7 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
       <div class="ah">The engine</div>
       <div class="ab">
         <p><strong>Persona 8, Application-Defeated. Angle <code>cant-apply</code>, non-switch, villain none.</strong> Ledger nerve, quoted: <em>"you believe you physically can't put falsies on"</em>. Ledger requires she has TRIED lashes and failed, which the casting screen enforces.</p>
-        <p><strong>What happens in it:</strong> two takes of the same morning cut side by side. Our side finishes a full routine and walks out of frame; the glue side is still on the lashes. The wave is the setup, the empty chair is the punchline. Nothing is claimed out loud.</p>
+        <p><strong>What happens in it:</strong> two takes of the same morning, stacked top and bottom in one 9:16 frame. Our half finishes a full routine and walks out of frame; the glue half is still on the lashes. The wave is the setup, the empty chair is the punchline. Nothing is claimed out loud.</p>
         <p><strong>Why the time cost lands harder than a timer:</strong> her own routine is the clock. You measure the glue side against everything the other side finished. A number on screen would compete with what the viewer is already reading.</p>
       </div>
     </div>
@@ -363,7 +393,8 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
           <li><span class="e">&#9989;</span><span><strong>ENTRY 01c, wrong-vs-right on one face</strong> (630K views on a 16.1K-follower account, 39&times; following, 28 Jul 2026). Same person, same light, nothing to take on trust.</span></li>
         </ul>
         <p><strong>The merge:</strong> Kulan needs two women, so the loser can always be dismissed as just slower. Running the same woman twice removes that excuse - same hands, same skill, same person, same morning.</p>
-        <p><strong>Two founder corrections produced this version (30 Jul).</strong> First draft had her watching her own hand struggle, which is impossible - she cannot wait for herself. Second draft had both lash types going on one face at once, which is also impossible - nobody applies a glue strip and a magnetic lash simultaneously. Founder: <em>"duh its two separate channels."</em> Hence two takes, cut side by side. The fix improved the ending: the final frame is now an empty chair beside a woman still working, which is stronger than one bare eye.</p>
+        <p><strong>Two founder corrections produced this version (30 Jul).</strong> First draft had her watching her own hand struggle, which is impossible - she cannot wait for herself. Second draft had both lash types going on one face at once, which is also impossible - nobody applies a glue strip and a magnetic lash simultaneously. Founder: <em>"duh its two separate channels."</em> Hence two takes, cut into one split frame. The fix improved the ending: the final frame is now an empty chair beside a woman still working, which is stronger than one bare eye.</p>
+        <p><strong>Third founder correction (5 Aug):</strong> the split is HORIZONTAL - top and bottom halves of the 9:16 frame, never left/right. A left/right split gives each take a skinny vertical sliver and you only see half of each face, one eye per side. Stacking keeps each take at full width so her whole face reads in both halves.</p>
       </div>
     </div>
 
@@ -380,6 +411,17 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
       </div>
     </div>
 
+    <div class="acard">
+      <div class="ah">AD COPY - for the upload, written at brief time</div>
+      <div class="ab">
+        <p><strong>Primary text:</strong> If you've ever spent your whole morning fighting one strip lash - pressing it down, peeling it off, starting again while your eyes water - this is what that morning looks like next to ours. Baybella lashes are magnetic. No glue, no liner - they clip on with an applicator in seconds, and one kit lasts months. If you could never get falsies to work, it was never you. It was the glue.</p>
+        <p><strong>Headline:</strong> Could never get falsies to work? It wasn't you.</p>
+        <p><strong>Description:</strong> Magnetic lashes - no glue, on in seconds.</p>
+        <p><strong>Button + link:</strong> Shop Now &rarr; baybellabeauty.com.au</p>
+        <p class="mono-note">No offer baked in - this row carries no offer flag. Problem-first, matches persona 8 (Application-Defeated) + the cant-apply nerve. The landing page carries the price.</p>
+      </div>
+    </div>
+
     <div class="acard ai-flag">
       <div class="ah">&#9888;&#65039; To verify before this ships</div>
       <div class="ab">
@@ -387,7 +429,7 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
         <ul>
           <li><span class="e">&#9888;&#65039;</span><span><strong>The get-ready middle is where this gets boring.</strong> If it is only makeup steps it reads as a tutorial. It needs a wardrobe change or her leaving the room so time visibly passes.</span></li>
           <li><span class="e">&#9888;&#65039;</span><span><strong>The two takes must match or the whole thing reads as a trick.</strong> Same clothes, same light, same phone position, same starting hair. This is the main post risk - check continuity before cutting, and if the takes do not match, reshoot rather than fix it in the edit.</span></li>
-          <li><span class="e">&#9888;&#65039;</span><span><strong>Split screen halves the resolution of each side.</strong> She needs to film tighter than usual or the lashes will not read once the frame is halved. Check this on the first ten seconds she sends.</span></li>
+          <li><span class="e">&#9888;&#65039;</span><span><strong>The stack crops each clip to a wide half-height panel.</strong> Her face has to sit centre-frame in BOTH takes or the crop takes her forehead or chin. Check framing on the first ten seconds she sends - and check the two takes crop to matching eyelines.</span></li>
         </ul>
         <p><strong>Unproven mechanic.</strong> Both source videos are organic reach on other brands' accounts - 1.2M and 630K views, no sales data behind either. Treat this row as a test, not a double-down.</p>
       </div>
