@@ -12,10 +12,13 @@
   BAYBELLA CREATOR UPLOAD PORTAL — one drop-zone per brief.
 
   WHY THIS EXISTS (23 Jul): creators run several briefs at once and reply from one
-  inbox, so a delivery email can never say WHICH brief a video belongs to. Libby
-  had four live briefs, Holly six. The machine correctly refused to guess and
-  flagged it for a human — and Brodie's 16 Jul delivery then sat five days until
+  inbox, so a delivery email can never say WHICH brief a video belongs to. One
+  creator had four live briefs, another six. The machine correctly refused to
+  guess and flagged it for a human — and one delivery then sat five days until
   she wrote again asking if we'd received it.
+
+  ⛔ NO CREATOR NAMES IN THIS FILE. It is served publicly and creators open it.
+  Named examples belong in creator-pipeline SKILL.md, never in page source.
 
   THE FIX: the LINK carries the brief id. She clicks the brief-46 uploader, so
   whatever she sends IS brief 46 — established by which door she walked through,
@@ -105,7 +108,7 @@ footer{text-align:center;color:var(--grey);font-size:.82rem;margin-top:30px}
   <footer>Baybella x Creators · Round 7</footer>
 </div>
 
-<script>
+<script type="module">
 /* ══ EDIT 2 of 2: THIS ROUND'S BRIEFS ═════════════════════════════════════════
    One entry per brief. `id` MUST match the brief number the pipeline uses — it is
    what tells us which brief a video belongs to, so it has to be exact.
@@ -140,42 +143,102 @@ const BRIEFS = [
 
 const wrapEl = document.getElementById('briefs');
 
-/* ── PER-CREATOR VIEW: ?briefs=slug,slug shows only those boxes ──────────────
-   Why (Arvin, 5 Aug): one shared page meant every creator saw all ten boxes.
-   The brief id is still established by WHICH BOX she drops into — that never
-   changed — but a creator scrolling past nine briefs that aren't hers can drop
-   a file in the wrong one, which recreates the exact "which brief is this?"
-   ambiguity this portal exists to remove. Her link now carries her briefs, so
-   she only sees her own.
+/* ── PER-CREATOR VIEW: ?k=<code> shows ONLY that creator's briefs ────────────
+   Why (Arvin, 5 Aug): one shared page showed every creator all ten boxes. Two
+   problems, and only the second one is about privacy: (a) the brief id is
+   established by WHICH BOX she drops into, so a creator scrolling past nine
+   briefs that are not hers is one mis-drop away from recreating the exact
+   ambiguity this portal exists to remove; (b) she can see the whole round.
 
-   ⚠️ IT FAILS OPEN, ALWAYS. A typo'd or stale slug must NEVER render an empty
-   page: a creator who opens her link, sees no upload box and assumes there is
-   nothing to send is a silent lost delivery — far worse than showing her one
-   brief too many. So: no ?briefs at all → show everything (Arvin's own view).
-   A ?briefs that matches nothing → show everything, plus a plain note telling
-   her to use the brief title from Linda's email. Partial matches are kept, and
-   the unmatched names are ignored rather than blocking the ones that worked.
-   Match is forgiving on purpose — case, spaces, and a missing "r7-" prefix all
-   still match, because the cost of a near-miss is a lost video. */
-const RAW_PICK = new URLSearchParams(location.search).get('briefs');
-const norm = s => String(s).trim().toLowerCase().replace(/^r\d+-/, '');
-let shown = BRIEFS;
-let pickMissed = false;
-if (RAW_PICK !== null && RAW_PICK.trim() !== '') {
-  const want = RAW_PICK.split(',').map(norm).filter(Boolean);
-  const hit = BRIEFS.filter(b => want.includes(norm(b.id)));
-  if (hit.length) { shown = hit; }
-  else { pickMissed = true; }          // matched nothing → fall back to all
+   A plain ?briefs=slug list fixed (a) but not (b) — anyone could edit the URL.
+   So the link carries an unguessable CODE instead, and this page cannot even
+   name the other creators' briefs: KEYS below is keyed by a hash of each code,
+   and each value is that creator's slug list XOR'd with a keystream derived
+   from the same code. Holding one code decrypts exactly one entry. There are
+   no creator names and no readable slugs in this file.
+
+   ⚠️ THE TWO FAILURE MODES ARE DELIBERATELY DIFFERENT — do not "simplify" them:
+     · NO ?k at all  → show every box. This is Arvin's/Xanthe's own view of the
+       round, and the page is unlisted (noindex) and only shared deliberately.
+     · A ?k we don't recognise → show NOTHING but a plain "reply to Linda" note.
+       Never fall back to all boxes here: a wrong-but-present code is exactly
+       what a guessed or edited URL looks like, and falling open would hand the
+       whole round to anyone who typed one character wrong on purpose.
+   The cost is real and accepted (Arvin's call, 5 Aug): if a code is ever typo'd
+   in an email, that creator sees no upload box and has to reply to Linda. That
+   is why the note names Linda and is warm rather than an error page. */
+const KEYS = {
+  "595e2971e32540ed": "hbxiQasgJpuwoHs=",
+  "92084b1297595acd": "8n1txB1wWGRwR5RSDf8=",
+  "9b929314f5ba5017": "vzyx0MMdsIFk8057Z5zqVTtU",
+  "aa592f487186544d": "a2GKiPDIfzD5uWs5hfrOduzWkuc4zTEoGJKYWSToH3u5",
+  "c7ba8ee793de3c0a": "obnqXgfv+p0mb8dAbnVP"
+};   /* ══ EDIT 3 of 3: minted by build_upload_links.py ══ */
+
+// The salt is derived from THIS PAGE'S OWN FILENAME (upload-r7.html -> "r7"), not
+// hand-typed. A copied page with a stale round in the salt would silently mismatch
+// every minted key and show all creators the "reply to Linda" note.
+const RND = (location.pathname.match(/upload-(r\d+)\./) || [,'r0'])[1];
+
+async function sha256hex(s) {
+  const d = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return [...new Uint8Array(d)].map(b => b.toString(16).padStart(2, '0')).join('');
 }
-if (pickMissed) {
+async function slugsForCode(code) {
+  const blob = KEYS[(await sha256hex(RND + '|' + code)).slice(0, 16)];
+  if (!blob) return null;                       // unknown code → caller shows the note
+  const data = Uint8Array.from(atob(blob), c => c.charCodeAt(0));
+  let ks = [];
+  for (let i = 0; ks.length < data.length; i++) {
+    const h = await crypto.subtle.digest('SHA-256',
+      new TextEncoder().encode(RND + '-ks|' + code + '|' + i));
+    ks = ks.concat([...new Uint8Array(h)]);
+  }
+  return new TextDecoder().decode(
+    Uint8Array.from(data, (b, i) => b ^ ks[i])).split(',').filter(Boolean);
+}
+
+/* ⛔ NO VALID CODE = NO BOXES. Once KEYS is populated the page is CLOSED by
+   default: a bare URL, an empty ?k, and the old unsigned ?briefs= links all show
+   the "reply to Linda" note and nothing else. Anything less is not option 2 —
+   leaving a bare visit open means anyone who deletes the query string sees the
+   whole round, which is the exact hole signing exists to close.
+   Arvin's own full view is ?all=<ALL_CODE>, a code like any other, so the
+   public URL never exposes the round. Before KEYS is minted the page still
+   shows everything, so the round can be built and eyeballed as normal. */
+const SIGNED = Object.keys(KEYS).length > 0;
+const params = new URLSearchParams(location.search);
+const CODE = params.get('k');
+const ALL_CODE = '84awk42jfd';   /* ══ minted alongside KEYS — Arvin's see-everything code ══ */
+let shown = SIGNED ? [] : BRIEFS;
+let badCode = false;
+if (SIGNED && ALL_CODE && params.get('all') === ALL_CODE) {
+  shown = BRIEFS;                                  // internal full view
+} else if (SIGNED && (CODE === null || CODE.trim() === '')) {
+  badCode = true;                                  // bare/unsigned visit → closed
+} else if (CODE !== null && CODE.trim() !== '') {
+  const want = await slugsForCode(CODE.trim().toLowerCase());
+  if (want === null) { badCode = true; shown = []; }
+  else {
+    const norm = s => String(s).trim().toLowerCase().replace(/^r\d+-/, '');
+    shown = BRIEFS.filter(b => want.includes(norm(b.id)));
+    // A code that decrypts but matches no card means the round page and the
+    // minted links disagree — that is our bug, not hers, so say so plainly
+    // rather than showing an empty page with no explanation.
+    if (!shown.length) badCode = true;
+  }
+}
+if (badCode) {
   const warn = document.createElement('div');
   warn.className = 'note';
-  warn.innerHTML = "<b>Not sure which brief is yours?</b> Every brief you filmed " +
-    "is below — find the one whose title matches Linda's email and drop your video " +
-    "in that box. If none of them look right, just reply to her and we'll sort it out.";
+  warn.innerHTML = "<b>We couldn't find your brief from this link.</b> It may have " +
+    "been copied incompletely. Just reply to Linda's email and she'll send you a " +
+    "fresh one — your spot is safe, nothing is lost.";
   wrapEl.parentNode.insertBefore(warn, wrapEl);
+  document.querySelector('.hero .sub').textContent =
+    "Reply to Linda's email and she'll send you a fresh link.";
 }
-if (shown.length !== BRIEFS.length) {
+if (shown.length && shown.length !== BRIEFS.length) {
   document.querySelector('.hero .sub').textContent = shown.length === 1
     ? "Your brief is below — drop your video in the box and you're done."
     : "One box per brief — drop each video in its own box and you're done.";
@@ -221,7 +284,18 @@ shown.forEach(b => {
     localStorage.setItem(key, box.checked ? '1' : '0');
   });
 });
+
+// du-embed.js sizes the embedded upload boxes to their content. It scans for
+// iframes when it loads — and this script is a MODULE, so it runs deferred and
+// the cards above did not exist yet at parse time. Load the resizer only now
+// that the boxes are really in the page, or it finds nothing and every box
+// keeps its fixed fallback height.
+if (shown.length) {
+  const du = document.createElement('script');
+  du.src = 'https://driveuploader.com/static/du-embed.js';
+  du.async = true;
+  document.body.appendChild(du);
+}
 </script>
-<script src="https://driveuploader.com/static/du-embed.js" async></script>
 </body>
 </html>
