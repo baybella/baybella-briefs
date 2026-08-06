@@ -82,7 +82,7 @@ footer{text-align:center;color:var(--grey);font-size:.82rem;margin-top:30px}
 
   <!-- ══ EDIT 1 of 2: ROUND LABEL (three places, keep the number identical) ══ -->
   <div class="hero">
-    <div class="eyebrow">Baybella x Creators · Round 6</div>
+    <div class="eyebrow">Baybella x Creators · Round 7</div>
     <h1>Send us your content</h1>
     <div class="sub">One box per brief — drop your video in the right one and you're done.</div>
   </div>
@@ -102,7 +102,7 @@ footer{text-align:center;color:var(--grey);font-size:.82rem;margin-top:30px}
     sort it out.
   </div>
 
-  <footer>Baybella x Creators · Round 6</footer>
+  <footer>Baybella x Creators · Round 7</footer>
 </div>
 
 <script>
@@ -114,12 +114,27 @@ footer{text-align:center;color:var(--grey);font-size:.82rem;margin-top:30px}
    create uploader -> choose the folder -> copy the EMBED (iframe) link.
    ⛔ Two briefs must never share an uploader link — that reintroduces the exact
    ambiguity this page exists to remove. */
-const ROUND = "rN";  // ⛔ set to this round — the sent-tick memory below is keyed on it
 const BRIEFS = [
-  { id: 46, title: "Lashes Are Never The Problem", fmt: "One-shot selfie · 45s+",
-    uploader: "" },
-  { id: 47, title: "The Slip-Off Fix", fmt: "One-shot selfie · 45s+",
-    uploader: "" },
+  { id: "r7-the-chore-ambush", title: "The Chore Ambush", fmt: "Skit · 45s+",
+    uploader: "https://driveuploader.com/upload/vVd1BsCKVU/" },
+  { id: "r7-do-they-work-source", title: "Real-or-scam verdict", fmt: "Stitch · 45s+",
+    uploader: "https://driveuploader.com/upload/Hj82XBhS93/" },
+  { id: "r7-four-questions", title: "Four questions, four answers", fmt: "Demo · 45s+",
+    uploader: "https://driveuploader.com/upload/DVdiYIlXWt/" },
+  { id: "r7-midnight-takeoff", title: "Too tired to take them off", fmt: "Stitch · 45s+",
+    uploader: "https://driveuploader.com/upload/ucTwrfwBap/" },
+  { id: "r7-one-eye-waiting", title: "One eye ready, one eye waiting", fmt: "Split-screen · 45s+",
+    uploader: "https://driveuploader.com/upload/DGHQKM3BXc/" },
+  { id: "r7-prove-my-mum-wrong", title: "Prove my mum wrong", fmt: "Stitch · 45s+",
+    uploader: "https://driveuploader.com/upload/1SqKrp1jZ5/" },
+  { id: "r7-settle-this-debate", title: "I'm settling this debate", fmt: "Stitch · 45s+",
+    uploader: "https://driveuploader.com/upload/PwwOEbXtZE/" },
+  { id: "r7-that-was-me", title: "That was my every morning", fmt: "Green-screen · 45s+",
+    uploader: "https://driveuploader.com/upload/VdcvCjvbU4/" },
+  { id: "r7-without-losing-hers", title: "Without losing hers", fmt: "Stitch · 45s+",
+    uploader: "https://driveuploader.com/upload/8eaD6dUtz4/" },
+  { id: "r7-yep-they-work", title: "Yep. They do work", fmt: "Stitch · 45s+",
+    uploader: "https://driveuploader.com/upload/jFRkTJXUm6/" },
 ];
 /* ═════════════════════════════════════════════════════════════════════════ */
 
@@ -158,7 +173,7 @@ BRIEFS.forEach(b => {
   // a delivery (that comes from the file landing in Drive), so a lost checkbox
   // never loses a video.
   const box = card.querySelector('input');
-  const key = 'bb_sent_' + ROUND + '_' + b.id;
+  const key = 'bb_sent_r7_' + b.id;
   if (localStorage.getItem(key) === '1') { box.checked = true; card.classList.add('sent'); }
   box.addEventListener('change', () => {
     card.classList.toggle('sent', box.checked);
