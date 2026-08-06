@@ -125,7 +125,48 @@ const BRIEFS = [
 
 const wrapEl = document.getElementById('briefs');
 
-BRIEFS.forEach(b => {
+/* ── PER-CREATOR VIEW: ?briefs=slug,slug shows only those boxes ──────────────
+   Why (Arvin, 5 Aug): one shared page meant every creator saw all ten boxes.
+   The brief id is still established by WHICH BOX she drops into — that never
+   changed — but a creator scrolling past nine briefs that aren't hers can drop
+   a file in the wrong one, which recreates the exact "which brief is this?"
+   ambiguity this portal exists to remove. Her link now carries her briefs, so
+   she only sees her own.
+
+   ⚠️ IT FAILS OPEN, ALWAYS. A typo'd or stale slug must NEVER render an empty
+   page: a creator who opens her link, sees no upload box and assumes there is
+   nothing to send is a silent lost delivery — far worse than showing her one
+   brief too many. So: no ?briefs at all → show everything (Arvin's own view).
+   A ?briefs that matches nothing → show everything, plus a plain note telling
+   her to use the brief title from Linda's email. Partial matches are kept, and
+   the unmatched names are ignored rather than blocking the ones that worked.
+   Match is forgiving on purpose — case, spaces, and a missing "r7-" prefix all
+   still match, because the cost of a near-miss is a lost video. */
+const RAW_PICK = new URLSearchParams(location.search).get('briefs');
+const norm = s => String(s).trim().toLowerCase().replace(/^r\d+-/, '');
+let shown = BRIEFS;
+let pickMissed = false;
+if (RAW_PICK !== null && RAW_PICK.trim() !== '') {
+  const want = RAW_PICK.split(',').map(norm).filter(Boolean);
+  const hit = BRIEFS.filter(b => want.includes(norm(b.id)));
+  if (hit.length) { shown = hit; }
+  else { pickMissed = true; }          // matched nothing → fall back to all
+}
+if (pickMissed) {
+  const warn = document.createElement('div');
+  warn.className = 'note';
+  warn.innerHTML = "<b>Not sure which brief is yours?</b> Every brief you filmed " +
+    "is below — find the one whose title matches Linda's email and drop your video " +
+    "in that box. If none of them look right, just reply to her and we'll sort it out.";
+  wrapEl.parentNode.insertBefore(warn, wrapEl);
+}
+if (shown.length !== BRIEFS.length) {
+  document.querySelector('.hero .sub').textContent = shown.length === 1
+    ? "Your brief is below — drop your video in the box and you're done."
+    : "One box per brief — drop each video in its own box and you're done.";
+}
+
+shown.forEach(b => {
   const card = document.createElement('div');
   card.className = 'brief';
   card.id = 'brief-' + b.id;
