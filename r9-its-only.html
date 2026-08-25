@@ -86,6 +86,42 @@ body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160de
 .round-k{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);font-weight:800}
 .screen{display:flex;gap:8px;align-items:flex-start;font-size:.82rem;color:var(--grey);margin-bottom:12px;font-style:italic}
 .screen .e{font-style:normal;flex-shrink:0}
+/* ---- SCRIPT v2: scannable beats (2026-08-25) ----
+   Fixes: every spoken line rendered at identical weight in one flat stack, so
+   there was no rhythm, no way to find your place mid-film, and the two LOCKED
+   lines (hook + closer) looked identical to the freestyle ones. */
+.beats{margin-top:4px}
+.beat{position:relative;padding:0 0 0 46px;margin:0 0 22px}
+.beat .bn{position:absolute;left:0;top:2px;width:29px;height:29px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-size:.82rem;font-weight:800;
+  background:color-mix(in srgb,var(--c) 12%,#fff);
+  color:color-mix(in srgb,var(--c) 78%,#000);
+  border:1px solid color-mix(in srgb,var(--c) 26%,#fff)}
+.beat .spine{position:absolute;left:14px;top:35px;bottom:-22px;width:1px;
+  background:color-mix(in srgb,var(--c) 16%,#fff)}
+.beat:last-child .spine{display:none}
+.beat .say{margin:0}
+.beat .dir{display:inline-flex;align-items:flex-start;gap:7px;margin-top:9px;
+  background:color-mix(in srgb,var(--c) 6%,#fff);
+  border-left:2px solid color-mix(in srgb,var(--c) 30%,#fff);
+  border-radius:0 8px 8px 0;padding:7px 12px 7px 10px;
+  font-size:.83rem;font-style:italic;color:var(--grey);line-height:1.5}
+.beat .dir .e{font-style:normal;flex-shrink:0}
+.beat .dir b{font-style:normal;font-weight:700;color:color-mix(in srgb,var(--c) 70%,#000)}
+.beat.locked .bn{background:var(--c);color:#fff;border-color:var(--c)}
+.beat.locked .say{background:color-mix(in srgb,var(--c) 7%,#fff);
+  border-radius:12px;padding:14px 16px;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 20%,#fff)}
+.locktag{display:inline-block;font-family:var(--sans);font-size:.6rem;font-weight:800;
+  letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--c);
+  border-radius:999px;padding:3px 9px;margin-bottom:8px}
+@media(max-width:480px){
+  .beat{padding-left:38px}
+  .beat .bn{width:25px;height:25px;font-size:.75rem}
+  .beat .spine{left:12px}
+  .beat .say{font-size:1.14rem}
+}
 .say{font-family:var(--serif);font-weight:500;font-size:1.26rem;line-height:1.5;color:var(--ink)}
 .say .or{color:var(--pink);font-style:italic}
 .deliv-btn{margin-top:14px;font-family:var(--sans);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;background:none;border:1px solid color-mix(in srgb,var(--c) 30%,#fff);color:var(--c);padding:7px 13px;border-radius:40px;cursor:pointer;transition:.2s;display:inline-flex;gap:6px;align-items:center}
@@ -219,7 +255,13 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
   <div class="sec" style="--c:#7C3AED">
     <div class="panel">
       <div class="phead"><span class="pnum">03</span><span class="pname">How To Film It</span><span class="pwhat">setup</span></div>
-      <p class="lead">One continuous take on your front camera at arm's length. Nothing added afterwards. No cuts or music or captions. Wherever you actually are - bedroom, kitchen, car - with whatever light's already on. Wear what you've already got on.<br><br><b>The lashes are in your hand from the first second</b> and you put them on while you're talking, not as a demo. Don't stop what you're saying to show us the product.<br><br>There's a bit where you do an impression of someone giving you bad advice, so if that's not your thing this one probably isn't for you. It's also one unbroken take of about 55 seconds, so it needs to be a run you can hold.</p>
+      <p class="lead"><strong>One continuous take on your front camera, held at arm's length.</strong></p>
+      <ul class="ba">
+        <li>Nothing added after - no cuts, music or captions.</li>
+        <li>Wherever you already are, in whatever light and clothes you've got.</li>
+        <li>Lashes in your hand from the first second. They go on <strong>while</strong> you talk - never stop to demo them.</li>
+        <li>About 55 seconds unbroken. There's an impression in it - only take this one if that's your thing.</li>
+      </ul>
       
     </div>
   </div>
@@ -239,27 +281,56 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
     <div class="panel">
       <div class="phead"><span class="pnum">04</span><span class="pname">The Script</span><span class="pwhat">what you say + do</span></div>
       <div class="script-legend">
-        <span class="do-d">Grey = what you DO.</span>
-        <span class="say-d">Black = what you SAY.</span>
+        <span class="say-d">Big text = what you SAY.</span>
+        <span class="do-d">Grey chip underneath = what you DO while saying it.</span><span class="do-d" style="font-style:normal;font-size:.86rem">Numbered beats are the running order. The two coloured ones are locked - say those as written.</span>
       </div>
       <p class="muted" style="font-size:.86rem;margin-bottom:18px">The script is the shape and the jokes, not something to recite. Say it in your own words and your own order. Let it be messy. Talk over yourself. Start a sentence again. Go off and come back. Words in <b>CAPS</b> are where the volume goes up. Keep the hook and the last line as written - everything in between is yours.</p>
-      <div class="round" style="border-top:none;padding-top:4px">
-        <div class="round-top"><span class="round-k">🎬 Hook</span></div>
-        <p class="say" style="margin:0 0 7px">&ldquo;The biggest lie I ever told myself was that lash extensions were only a hundred and twenty dollars.&rdquo;</p>
-        <div class="screen" style="margin:0 0 22px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">🎬</span><span><strong>as you say it:</strong> talking to camera, already mid-energy, no greeting</span></div>
-        <p class="say" style="margin:0 0 7px">&ldquo;It's only a hundred and twenty. Oh it's only a hundred and twenty. It's only every three weeks, babe, it's not that much, it's only a hundred and twenty, it's only every three we-&rdquo;</p>
-        <div class="screen" style="margin:0 0 22px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">🎬</span><span><strong>as you say it:</strong> the voice - lighter, breezier, reassuring. This is an impression, not a quote.</span></div>
-        <p class="say" style="margin:0 0 22px">&ldquo;Shut up. It's two grand a year. That's a holiday. You are wearing a holiday on your face.&rdquo;</p>
-        <p class="say" style="margin:0 0 22px">&ldquo;And don't- no, don't do the thing where you go 'but I get them done as a treat.' A treat. A treat is a thing that ends. You have got a subscription. You've got a subscription and you didn't even get a login.&rdquo;</p>
-        <p class="say" style="margin:0 0 7px">&ldquo;Every three weeks. Two hours. Lying there with your eyes shut like you're in a coffin. And you can't skip one, because if you skip one they look tragic, so you never skip one, so it never ends, so you're just- you're just going to do this until you die?&rdquo;</p>
-        <div class="screen" style="margin:0 0 22px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">🎬</span><span><strong>as you say it:</strong> energy climbing, not calming</span></div>
-        <p class="say" style="margin:0 0 7px">&ldquo;I do mine myself now. Magnetic. Bought them once. Still on the first pair. Ten seconds.&rdquo;</p>
-        <div class="screen" style="margin:0 0 22px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">🎬</span><span><strong>as you say it:</strong> clips one lash on WHILE talking - do not stop to demo it</span></div>
-        <p class="say" style="margin:0 0 22px">&ldquo;And I know, I <strong>KNOW</strong> someone's going to comment 'well mine look better.' Yeah. For two grand a year they'd want to.&rdquo;</p>
-        <p class="say" style="margin:0 0 22px">&ldquo;Nobody's got me booked in. Nobody has me down for three weeks' time. Do you know how good that is? I'm not in anybody's calendar.&rdquo;</p>
-        <p class="say" style="margin:0 0 7px">&ldquo;It was never only anything. It was never only. Stop letting them say only to you.&rdquo;</p>
-        <div class="screen" style="margin:0 0 22px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">🎬</span><span><strong>as you say it:</strong> cut - no wrap-up, no CTA</span></div>
+      <div class="beats">
+        <div class="beat locked">
+          <span class="bn">1</span><span class="spine"></span>
+          <div class="locktag">Hook &middot; say as written</div>
+          <p class="say">&ldquo;The biggest lie I ever told myself was that lash extensions were only a hundred and twenty dollars.&rdquo;</p>
+          <div class="dir"><span class="e">&#127916;</span><span><strong>as you say it:</strong> talking to camera, already mid-energy, no greeting</span></div>
+        </div>
+        <div class="beat">
+          <span class="bn">2</span><span class="spine"></span>
+          <p class="say">&ldquo;It's only a hundred and twenty. Oh it's only a hundred and twenty. It's only every three weeks, babe, it's not that much, it's only a hundred and twenty, it's only every three we-&rdquo;</p>
+          <div class="dir"><span class="e">&#127916;</span><span><strong>as you say it:</strong> the voice - lighter, breezier, reassuring. This is an impression, not a quote.</span></div>
+        </div>
+        <div class="beat">
+          <span class="bn">3</span><span class="spine"></span>
+          <p class="say">&ldquo;Shut up. It's two grand a year. That's a holiday. You are wearing a holiday on your face.&rdquo;</p>
+        </div>
+        <div class="beat">
+          <span class="bn">4</span><span class="spine"></span>
+          <p class="say">&ldquo;And don't- no, don't do the thing where you go 'but I get them done as a treat.' A treat. A treat is a thing that ends. You have got a subscription. You've got a subscription and you didn't even get a login.&rdquo;</p>
+        </div>
+        <div class="beat">
+          <span class="bn">5</span><span class="spine"></span>
+          <p class="say">&ldquo;Every three weeks. Two hours. Lying there with your eyes shut like you're in a coffin. And you can't skip one, because if you skip one they look tragic, so you never skip one, so it never ends, so you're just- you're just going to do this until you die?&rdquo;</p>
+          <div class="dir"><span class="e">&#127916;</span><span><strong>as you say it:</strong> energy climbing, not calming</span></div>
+        </div>
+        <div class="beat">
+          <span class="bn">6</span><span class="spine"></span>
+          <p class="say">&ldquo;I do mine myself now. Magnetic. Bought them once. Still on the first pair. Ten seconds.&rdquo;</p>
+          <div class="dir"><span class="e">&#127916;</span><span><strong>as you say it:</strong> clips one lash on WHILE talking - do not stop to demo it</span></div>
+        </div>
+        <div class="beat">
+          <span class="bn">7</span><span class="spine"></span>
+          <p class="say">&ldquo;And I know, I <strong>KNOW</strong> someone's going to comment 'well mine look better.' Yeah. For two grand a year they'd want to.&rdquo;</p>
+        </div>
+        <div class="beat">
+          <span class="bn">8</span><span class="spine"></span>
+          <p class="say">&ldquo;Nobody's got me booked in. Nobody has me down for three weeks' time. Do you know how good that is? I'm not in anybody's calendar.&rdquo;</p>
+        </div>
+        <div class="beat locked">
+          <span class="bn">9</span><span class="spine"></span>
+          <div class="locktag">Last line &middot; say as written</div>
+          <p class="say">&ldquo;It was never only anything. It was never only. Stop letting them say only to you.&rdquo;</p>
+          <div class="dir"><span class="e">&#127916;</span><span><strong>as you say it:</strong> cut - no wrap-up, no CTA</span></div>
+        </div>
       </div>
+    
     </div>
   </div>
 
