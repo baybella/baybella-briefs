@@ -137,7 +137,17 @@ const BRIEFS = [
 
 const wrapEl = document.getElementById('briefs');
 
-const KEYS = {};   /* ══ EDIT 3 of 3: minted by build_upload_links.py ══ */   /* ══ EDIT 3 of 3: minted by build_upload_links.py ══ */
+const KEYS = {
+  "0583381c6abb7743": "vRlken6ZFbP9dAoAdNtel/Xh",
+  "138c8244fea6f168": "qIr0DsJ1Px1CZMugjuFG",
+  "18ab35f4b2186e48": "jcccvPYZNmZQ7mh24OzYXb8=",
+  "3dc838f071e21dbd": "5cthd9SkGCX9",
+  "5edfea558c80ee54": "5FMiOrfDSXdFFPMdgAoXv80q",
+  "859f5f629349c408": "QO14Hb9XJpgKvPTZQN4ysUtF",
+  "89b35465eb98e3fb": "V4ce6D+T",
+  "afc36e034a7870d4": "XLUAVjNp2LycZF4uMRDBhLSWE1AxM2zZnA==",
+  "e41fc62c38b6c2d3": "g22kLBS7oto="
+};   /* ══ EDIT 3 of 3: minted by build_upload_links.py ══ */   /* ══ EDIT 3 of 3: minted by build_upload_links.py ══ */
 
 // The salt is derived from THIS PAGE'S OWN FILENAME (upload-r7.html -> "r7"), not
 // hand-typed. A copied template with a forgotten placeholder would silently mismatch
@@ -173,7 +183,7 @@ async function slugsForCode(code) {
 const SIGNED = Object.keys(KEYS).length > 0;
 const params = new URLSearchParams(location.search);
 const CODE = params.get('k');
-const ALL_CODE = '';   /* ══ minted alongside KEYS — Arvin's see-everything code ══ */   /* ══ minted alongside KEYS — Arvin's see-everything code ══ */
+const ALL_CODE = 'zqcwrwxxd9';   /* ══ minted alongside KEYS — Arvin's see-everything code ══ */   /* ══ minted alongside KEYS — Arvin's see-everything code ══ */
 let shown = SIGNED ? [] : BRIEFS;
 let badCode = false;
 if (SIGNED && ALL_CODE && params.get('all') === ALL_CODE) {
