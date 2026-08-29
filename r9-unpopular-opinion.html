@@ -74,7 +74,7 @@ body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160de
 /* legend + vibe */
 .script-legend{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-radius:12px;padding:14px 16px;margin-bottom:15px}
 .script-legend .do-d{font-style:italic;color:var(--grey);font-size:.92rem}
-.script-legend .say-d{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:1.02rem}
+.script-legend .say-d{font-family:var(--sans);font-weight:600;color:var(--ink);font-size:1.02rem}
 .script-vibe{font-size:.94rem;line-height:1.6;color:var(--ink2);margin-bottom:22px}
 .script-vibe b{font-family:var(--serif);font-weight:500;color:var(--pink);font-style:italic;font-size:1rem}
 
@@ -84,9 +84,16 @@ body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160de
 .round-top{display:flex;align-items:baseline;gap:11px;margin-bottom:12px}
 .round-n{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--c)}
 .round-k{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);font-weight:800}
-.screen{display:flex;gap:8px;align-items:flex-start;font-size:.82rem;color:var(--grey);margin-bottom:12px;font-style:italic}
+.screen{display:flex;align-items:flex-start;gap:7px;margin:-10px 0 18px;position:relative;background:#fff;border-left:6px solid var(--bc,var(--c));border-radius:0 0 10px 0;padding:9px 18px 14px;box-shadow:0 2px 8px -4px rgba(60,30,60,.25);font-size:.8rem;font-style:italic;color:#9A9189;line-height:1.5}
+.screen::before{content:"";position:absolute;left:18px;right:18px;top:0;border-top:1px dashed #E6DEEA}
+.screen strong{color:inherit;font-weight:600;font-style:italic}
 .screen .e{font-style:normal;flex-shrink:0}
-.say{font-family:var(--serif);font-weight:500;font-size:1.26rem;line-height:1.5;color:var(--ink)}
+.screen .e{font-style:normal;flex-shrink:0}
+/* SCRIPT - locked layout (web-brief-template.md, 2026-08-29). Do not restyle. */
+.say{margin:0;font-family:var(--sans);font-weight:500;font-size:1.02rem;line-height:1.25;color:var(--ink);background:#fff;border-radius:0 10px 0 0;border-left:6px solid var(--bc,var(--c));padding:16px 18px;box-shadow:0 2px 8px -4px rgba(60,30,60,.25)}
+.say .ln{display:block}
+.say .ln + .ln{margin-top:10px}
+.beatnum{width:19px;height:19px;border-radius:5px;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:.63rem;font-weight:800;margin-right:9px;flex-shrink:0}
 .say .or{color:var(--pink);font-style:italic}
 .deliv-btn{margin-top:14px;font-family:var(--sans);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;background:none;border:1px solid color-mix(in srgb,var(--c) 30%,#fff);color:var(--c);padding:7px 13px;border-radius:40px;cursor:pointer;transition:.2s;display:inline-flex;gap:6px;align-items:center}
 .deliv-btn:hover{border-color:var(--c);background:#fff}
@@ -214,7 +221,7 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
   <div class="sec" style="--c:#9D1FB0">
     <div class="panel">
       <div class="phead"><span class="pnum">02</span><span class="pname">The Vibe</span><span class="pwhat">how to play it</span></div>
-      <p class="lead"><strong>Matter of fact, not preachy.</strong></p><ul><li>You're not trying to convert anyone, you're saying what you'd do now.</li><li>You liked extensions once and you're not pretending otherwise.</li></ul>
+      <p class="lead"><strong>Matter of fact, not preachy. You liked extensions once and you&rsquo;re not pretending otherwise.</strong></p>
     </div>
   </div>
 
@@ -228,14 +235,7 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
   </div>
 
   
-  <div class="sec">
-    <div class="hookcall">
-      <div class="hc-eyebrow">⚡ Before you press record</div>
-      <div class="hc-head">The first 3 seconds are yours.</div>
-      <p class="hc-body">They decide whether anyone watches the rest. We&rsquo;ve written the words - <strong>the delivery is all you</strong>, and it doesn&rsquo;t need to be loud or over the top. It just needs to pull us straight into the video: if it&rsquo;s a story, open like you&rsquo;re mid-thought; if it&rsquo;s a demo, already be doing the thing.</p>
-      <p class="hc-body" style="margin-top:10px;font-weight:700">Skip the warm-up and land us in the moment!</p>
-    </div>
-  </div>
+  
 
   
   <div class="sec" style="--c:#1D6FE0">
@@ -246,16 +246,52 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
         <span class="say-d">Black = what you SAY.</span>
       </div>
       <p class="muted" style="font-size:.86rem;margin-bottom:18px">The script below (excluding the hook) is just a guide - keep the structure &amp; core message, but feel free to make the wording sound natural to you.</p>
-      <div class="round" style="border-top:none;padding-top:4px">
-        <div class="round-top"><span class="round-k">🎬 Hook</span></div>
-        <p class="say" style="margin:0 0 7px">&ldquo;Unpopular opinion, from someone who had extensions for four years - I'd pick magnetic lashes over extensions any day of the week.&rdquo;</p>
-        <div class="screen" style="margin:0 0 22px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">🎬</span><span><strong>as you say it:</strong> talking to camera</span></div>
-        <p class="say" style="margin:0 0 22px">&ldquo;And I know how that sounds coming from me, because I was the person defending them.&rdquo;</p>
-        <p class="say" style="margin:0 0 22px">&ldquo;But it's the price, the upkeep, the damage. I was paying over a hundred for a set, then sixty every few weeks to keep them looking good.&rdquo;</p>
-        <p class="say" style="margin:0 0 22px">&ldquo;And your natural lashes underneath just get thinner. Nobody warns you about that part.&rdquo;</p>
-        <p class="say" style="margin:0 0 7px">&ldquo;So now I just press these on in seconds, they stay all day, and I've had the same pair for months.&rdquo;</p>
-        <div class="screen" style="margin:0 0 22px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">🎬</span><span><strong>as you say it:</strong> applies one lash while talking</span></div>
-        <p class="say" style="margin:0">&ldquo;I'd rather have something that costs a fraction of that and doesn't wreck my own lashes.&rdquo;</p>
+      <div style="--bc:#E5147F" class="round" style="border-top:none;padding-top:4px">
+        <div class="round-top"><span class="beatnum" style="background:#E5147F">1</span><span class="round-k">🎬 the hook</span></div>
+        <p class="say">Unpopular opinion, from someone who had extensions for four years - I'd pick magnetic lashes over extensions any day of the week.</p><div class="screen"><span class="e">🎬</span><span><strong>as you say it:</strong> talking to camera</span></div>
+      </div>
+      <div style="--bc:#FF3B30" class="round">
+        <div class="round-top"><span class="beatnum" style="background:#FF3B30">2</span><span class="round-k">the admission</span></div>
+        <p class="say">And I know how that sounds coming from me, because I was the person defending them.</p>
+      </div>
+      <div style="--bc:#F0820A" class="round">
+        <div class="round-top"><span class="beatnum" style="background:#F0820A">3</span><span class="round-k">the cost</span></div>
+        <p class="say"><span class="ln">But it's the price, the upkeep, the damage.</span><span class="ln">I was paying over a hundred for a set, then sixty every few weeks to keep them looking good.</span></p>
+      </div>
+      <div style="--bc:#12A150" class="round">
+        <div class="round-top"><span class="beatnum" style="background:#12A150">4</span><span class="round-k">the damage</span></div>
+        <p class="say"><span class="ln">And your natural lashes underneath just get thinner.</span><span class="ln">Nobody warns you about that part.</span></p>
+      </div>
+      <div style="--bc:#1D6FE0" class="round">
+        <div class="round-top"><span class="beatnum" style="background:#1D6FE0">5</span><span class="round-k">what you do now</span></div>
+        <p class="say">So now I just press these on in seconds, they stay all day, and I've had the same pair for months.</p><div class="screen"><span class="e">🎬</span><span><strong>as you say it:</strong> applies one lash while talking</span></div>
+      </div>
+      <div style="--bc:#7B3FE4" class="round">
+        <div class="round-top"><span class="beatnum" style="background:#7B3FE4">6</span><span class="round-k">the verdict</span></div>
+        <p class="say">I'd rather have something that costs a fraction of that and doesn't wreck my own lashes.</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="sec" style="--c:#6366F1">
+    <div class="panel">
+      <div class="phead"><span class="pnum">05</span><span class="pname">Lash Visibility</span><span class="pwhat">read this</span></div>
+      <div class="lv-box lv-yellow">
+        <div class="lvh">✨ IMPORTANT - READ THIS</div>
+        <div class="q">When demonstrating the product, always ask yourself this:</div>
+        <ol class="lvl"><li>Can the camera clearly see the lashes when I use them?</li></ol>
+        <div class="q">Secondary questions:</div>
+        <ol class="lvl" start="2">
+          <li>Are my hands blocking my face?</li>
+          <li>Is the applicator covering my eyes?</li>
+          <li>Is my face turned away?</li>
+        </ol>
+        <div class="lvlink">Please click <a href="https://baybella.my.canva.site/guidelines" target="_blank" rel="noopener">here</a> for video examples.</div>
+      </div>
+      <div class="lv-box lv-green">
+        <p>If the script requires you to hold your phone while applying the lashes and you don’t have a way to see yourself while recording, please let us know.</p>
+        <p>We know applying lashes while looking through the camera app can be a little tricky, so <strong>we can send you a clip-on phone mirror attachment</strong> which allows you to see yourself properly while recording.</p>
       </div>
     </div>
   </div>
