@@ -74,7 +74,7 @@ body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160de
 /* legend + vibe */
 .script-legend{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-radius:12px;padding:14px 16px;margin-bottom:15px}
 .script-legend .do-d{font-style:italic;color:var(--grey);font-size:.92rem}
-.script-legend .say-d{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:1.02rem}
+.script-legend .say-d{font-family:var(--sans);font-weight:700;color:var(--ink);font-size:.95rem}
 .script-vibe{font-size:.94rem;line-height:1.6;color:var(--ink2);margin-bottom:22px}
 .script-vibe b{font-family:var(--serif);font-weight:500;color:var(--pink);font-style:italic;font-size:1rem}
 
@@ -91,7 +91,7 @@ body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160de
    there was no rhythm, no way to find your place mid-film, and the two LOCKED
    lines (hook + closer) looked identical to the freestyle ones. */
 .beats{margin-top:4px}
-.beat{position:relative;padding:0 0 0 46px;margin:0 0 22px}
+.beat{position:relative;padding:0 0 0 46px;margin:0 0 18px}
 .beat .bn{position:absolute;left:0;top:2px;width:29px;height:29px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   font-family:var(--sans);font-size:.82rem;font-weight:800;
@@ -101,28 +101,33 @@ body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160de
 .beat .spine{position:absolute;left:14px;top:35px;bottom:-22px;width:1px;
   background:color-mix(in srgb,var(--c) 16%,#fff)}
 .beat:last-child .spine{display:none}
-.beat .say{margin:0}
-.beat .dir{display:inline-flex;align-items:flex-start;gap:7px;margin-top:9px;
-  background:color-mix(in srgb,var(--c) 6%,#fff);
-  border-left:2px solid color-mix(in srgb,var(--c) 30%,#fff);
-  border-radius:0 8px 8px 0;padding:7px 12px 7px 10px;
-  font-size:.83rem;font-style:italic;color:var(--grey);line-height:1.5}
+.beat .dir{display:flex;align-items:flex-start;gap:7px;margin:-10px 0 18px;
+  background:#fff;border-left:6px solid var(--bc,var(--c));
+  border-radius:0 0 10px 0;padding:9px 18px 14px;
+  box-shadow:0 2px 8px -4px rgba(60,30,60,.25);
+  font-size:.8rem;font-style:italic;color:#9A9189;line-height:1.5}
+.dir::before{content:"";position:absolute;left:18px;right:18px;margin-top:-9px;border-top:1px dashed #E6DEEA}
+.dir{position:relative}
+.dir strong{color:inherit;font-weight:600;font-style:italic}
 .beat .dir .e{font-style:normal;flex-shrink:0}
-.beat .dir b{font-style:normal;font-weight:700;color:color-mix(in srgb,var(--c) 70%,#000)}
-.beat.locked .bn{background:var(--c);color:#fff;border-color:var(--c)}
-.beat.locked .say{background:color-mix(in srgb,var(--c) 7%,#fff);
-  border-radius:12px;padding:14px 16px;
-  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 20%,#fff)}
+.beat .dir b{font-style:italic;font-weight:600;color:inherit}
+.beat.locked .bn{background:var(--bc,var(--c));color:#fff;border-color:var(--bc,var(--c))}
+.beat.locked .say{background:#fff}
+.say .ln{display:block}
+.say .ln + .ln{margin-top:10px}
 .locktag{display:inline-block;font-family:var(--sans);font-size:.6rem;font-weight:800;
-  letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--c);
+  letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--bc,var(--c));
   border-radius:999px;padding:3px 9px;margin-bottom:8px}
 @media(max-width:480px){
   .beat{padding-left:38px}
   .beat .bn{width:25px;height:25px;font-size:.75rem}
   .beat .spine{left:12px}
-  .beat .say{font-size:1.14rem}
+  .beat 
 }
-.say{font-family:var(--serif);font-weight:500;font-size:1.26rem;line-height:1.5;color:var(--ink)}
+/* SCRIPT - locked layout (web-brief-template.md, 2026-08-29). Sans not serif, white card
+   per spoken block, 6px left rule in the BEAT's colour, one sentence per row, three levels
+   of spacing. Do not restyle. */
+.say{margin:0;font-family:var(--sans);font-weight:500;font-size:1.02rem;line-height:1.25;color:var(--ink);background:#fff;border-radius:0 10px 0 0;border-left:6px solid var(--bc,var(--c));padding:16px 18px;box-shadow:0 2px 8px -4px rgba(60,30,60,.25)}
 .say .or{color:var(--pink);font-style:italic}
 .deliv-btn{margin-top:14px;font-family:var(--sans);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;background:none;border:1px solid color-mix(in srgb,var(--c) 30%,#fff);color:var(--c);padding:7px 13px;border-radius:40px;cursor:pointer;transition:.2s;display:inline-flex;gap:6px;align-items:center}
 .deliv-btn:hover{border-color:var(--c);background:#fff}
@@ -247,7 +252,8 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
   <div class="sec" style="--c:#9D1FB0">
     <div class="panel">
       <div class="phead"><span class="pnum">02</span><span class="pname">The Vibe</span><span class="pwhat">how to play it</span></div>
-        <p>You're telling off a room and you're in that room too, because you gave up on them as well. Exasperated but never superior. The last line turns warm so don't throw it away.</p><p style="margin-top:14px"><b>Have a watch of this before you film</b> - it's the tone we're going for.<br><a href="https://www.instagram.com/p/DVMy9eqAiL-/" target="_blank" rel="noopener">https://www.instagram.com/p/DVMy9eqAiL-/</a><br>He's in his room having a go at something, and he's not presenting to anyone. That's what we're after.</p>
+        <p class="lead"><strong>You&rsquo;re telling off a room and you&rsquo;re in it too, because you gave up on them as well.</strong></p>
+        <p style="margin-top:14px;font-size:.92rem">Have a watch of <a href="https://www.instagram.com/p/DVMy9eqAiL-/" target="_blank" rel="noopener">this reel</a> first.</p>
     </div>
   </div>
 
@@ -255,14 +261,7 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
   
 
   
-  <div class="sec">
-    <div class="hookcall">
-      <div class="hc-eyebrow">⚡ Before you press record</div>
-      <div class="hc-head">The first 3 seconds are yours.</div>
-      <p class="hc-body">They decide whether anyone watches the rest. We&rsquo;ve written the words - <strong>the delivery is all you</strong>, and it doesn&rsquo;t need to be loud or over the top. It just needs to pull us straight into the video: if it&rsquo;s a story, open like you&rsquo;re mid-thought; if it&rsquo;s a demo, already be doing the thing.</p>
-      <p class="hc-body" style="margin-top:10px;font-weight:700">Skip the warm-up and land us in the moment!</p>
-    </div>
-  </div>
+  
 
   
   <div class="sec" style="--c:#1D6FE0">
@@ -273,48 +272,48 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
         <span class="do-d">Grey chip underneath = what you DO while saying it.</span><span class="do-d" style="font-style:normal;font-size:.86rem">Numbered beats are the running order. The two coloured ones are locked - say those as written.</span>
       </div>
       <p class="muted" style="font-size:.86rem;margin-bottom:18px">The script is the shape and the jokes, not something to recite. Say it in your own words and your own order. Let it be messy. Talk over yourself. Start a sentence again. Go off and come back. Words in <b>CAPS</b> are where the volume goes up. Keep the hook and the last line as written - everything in between is yours.</p>
-      <div class="beats">
-        <div class="beat locked">
+      <div style="--bc:#E5147F" class="beats">
+        <div style="--bc:#FF3B30" class="beat locked">
           <span class="bn">1</span><span class="spine"></span>
           <div class="locktag">Hook &middot; say as written</div>
-          <p class="say">&ldquo;No because I've read the comments and you lot need to be so for real right now.&rdquo;</p>
+          <p class="say">No because I've read the comments and you lot need to be so for real right now.</p>
           <div class="dir"><span class="e">&#127916;</span><span><strong>as you say it:</strong> talking to camera, mid-energy, no greeting</span></div>
         </div>
-        <div class="beat">
+        <div style="--bc:#F0820A" class="beat">
           <span class="bn">2</span><span class="spine"></span>
-          <p class="say">&ldquo;You tried it <strong>ONCE</strong>. One go. You gave it one go and you're in the comments saying it doesn't work.&rdquo;</p>
+          <p class="say"><span class="ln">You tried it <strong>ONCE</strong>.</span><span class="ln">One go.</span><span class="ln">You gave it one go and you're in the comments saying it doesn't work.</span></p>
         </div>
-        <div class="beat">
+        <div style="--bc:#12A150" class="beat">
           <span class="bn">3</span><span class="spine"></span>
-          <p class="say">&ldquo;Did you get winged eyeliner right the first time? Did you? I spent a <strong>YEAR</strong> on winged eyeliner. One eye like a comma for twelve months. Not <strong>ONCE</strong> did I go, eyeliner's a scam, eyeliner doesn't work for me.&rdquo;</p>
+          <p class="say"><span class="ln">Did you get winged eyeliner right the first time?</span><span class="ln">Did you?</span><span class="ln">I spent a <strong>YEAR</strong> on winged eyeliner.</span><span class="ln">One eye like a comma for twelve months.</span><span class="ln">Not <strong>ONCE</strong> did I go, eyeliner's a scam, eyeliner doesn't work for me.</span></p>
           <div class="dir"><span class="e">&#127916;</span><span><strong>as you say it:</strong> starts putting one on</span></div>
         </div>
-        <div class="beat">
+        <div style="--bc:#1D6FE0" class="beat">
           <span class="bn">4</span><span class="spine"></span>
-          <p class="say">&ldquo;But a lash. A lash gets one attempt.&rdquo;</p>
+          <p class="say"><span class="ln">But a lash.</span><span class="ln">A lash gets one attempt.</span></p>
         </div>
-        <div class="beat">
+        <div style="--bc:#7B3FE4" class="beat">
           <span class="bn">5</span><span class="spine"></span>
-          <p class="say">&ldquo;One attempt and then it's 'oh I'm just not a lash person.' You're not a lash person? You're a person who tried something once.&rdquo;</p>
+          <p class="say"><span class="ln">One attempt and then it's 'oh I'm just not a lash person.' You're not a lash person?</span><span class="ln">You're a person who tried something once.</span></p>
         </div>
-        <div class="beat">
+        <div style="--bc:#E5147F" class="beat">
           <span class="bn">6</span><span class="spine"></span>
-          <p class="say">&ldquo;These take seconds. Every morning, for the rest of your life. No more glue. No more appointments. No more sat in a chair for two hours while someone does it for you.&rdquo;</p>
+          <p class="say"><span class="ln">These take seconds.</span><span class="ln">Every morning, for the rest of your life.</span><span class="ln">No more glue.</span><span class="ln">No more appointments.</span><span class="ln">No more sat in a chair for two hours while someone does it for you.</span></p>
           <div class="dir"><span class="e">&#127916;</span><span><strong>as you say it:</strong> the lash goes on</span></div>
         </div>
-        <div class="beat">
+        <div style="--bc:#FF3B30" class="beat">
           <span class="bn">7</span><span class="spine"></span>
-          <p class="say">&ldquo;And you gave that up after <strong>ONE</strong> GO?&rdquo;</p>
+          <p class="say">And you gave that up after <strong>ONE</strong> GO?</p>
         </div>
-        <div class="beat">
+        <div style="--bc:#F0820A" class="beat">
           <span class="bn">8</span><span class="spine"></span>
-          <p class="say">&ldquo;I've had this pair since March. I do them in the car park before work. That's how bothered I am about it now.&rdquo;</p>
+          <p class="say"><span class="ln">I've had this pair since March.</span><span class="ln">I do them in the car park before work.</span><span class="ln">That's how bothered I am about it now.</span></p>
           <div class="dir"><span class="e">&#127916;</span><span><strong>as you say it:</strong> film close so we clearly see the lash line, keeping it flattering and natural</span></div>
         </div>
-        <div class="beat locked">
+        <div style="--bc:#E5147F" class="beat locked">
           <span class="bn">9</span><span class="spine"></span>
           <div class="locktag">Last line &middot; say as written</div>
-          <p class="say">&ldquo;So come on. You've gotta at least give it two goes. It's not like you haven't given men more chances than that. You deserve this.&rdquo;</p>
+          <p class="say"><span class="ln">So come on.</span><span class="ln">You've gotta at least give it two goes.</span><span class="ln">It's not like you haven't given men more chances than that.</span><span class="ln">You deserve this.</span></p>
           <div class="dir"><span class="e">&#127916;</span><span><strong>as you say it:</strong> cut - no CTA</span></div>
         </div>
       </div>
