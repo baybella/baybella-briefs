@@ -250,7 +250,6 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
         <span class="say-d">Black = what you SAY. <strong>MUM</strong> and <strong>YOU</strong> mark who&rsquo;s talking.</span>
       </div>
       <p class="muted" style="font-size:.86rem;margin-bottom:18px">Only beat 1 is word for word. Say the rest how you two talk.</p>
-      <div class="note"><strong>On-screen text, from the first frame:</strong><br><span style="font-size:1.05rem">my mum used to say she didn&rsquo;t have time for lashes</span><br><span style="color:#7a6b80;font-size:.88rem">Leave it up for the first few seconds.</span></div>
       <div class="note" style="margin:22px 0 6px"><strong>SCENE 1 &middot; the hallway</strong>  -  back camera</div>
       <div class="round" style="border-top:none;padding-top:4px">
         <div class="round-top"><span class="beatnum" style="background:#E5147F">1</span><span class="round-k">she comes in &middot; say this word for word</span></div>
@@ -323,6 +322,11 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
   <div class="wrap" style="max-width:720px">
     <div class="ahead"><div class="abadge">&#128274; Internal &middot; not visible to creator</div><h2>Agency - back of house</h2></div>
     <div class="acard">
+      <h3>On-screen text - we add this in post</h3>
+      <p><strong>From the first frame:</strong> &ldquo;my mum used to say she didn&rsquo;t have time for lashes&rdquo;</p>
+      <p>Leave it up for the first few seconds. NOT in the creator script - she does not need to know about it.</p>
+    </div>
+    <div class="acard">
       <h3>Dialogue state check</h3>
       <p><strong>MUM starts knowing:</strong> these exist, her daughter wears them, they go on fast. She has never put a pair on herself. What she learns: beat 2 only, how it actually goes on. She changed her mind before the video started, so there is no belief arc to play.</p>
       <p><strong>YOU starts knowing:</strong> mum used to say they looked like they take forever. Learns nothing. She is just right.</p>
@@ -358,5 +362,20 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
   </div>
 </div>
 
+
+<button type="button" id="agency-unlock" style="position:fixed;right:14px;bottom:14px;z-index:200;border:0;border-radius:999px;padding:9px 14px;background:#2a0828;color:#F3A3C6;font:600 11px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;opacity:.55">&#128274;</button>
+<script>
+(function(){
+  var b=document.getElementById('agency-unlock'), a=document.getElementById('agency');
+  if(!b||!a) return;
+  function show(){ a.classList.add('show'); a.style.display='block'; b.textContent='\u2716'; b.style.opacity='.9'; }
+  function hide(){ a.classList.remove('show'); a.style.display='none'; b.textContent='\u{1F512}'; b.style.opacity='.55'; }
+  if(location.hash==='#agency'||location.search.indexOf('agency')>-1) show();
+  b.addEventListener('click',function(){
+    if(a.classList.contains('show')){ hide(); return; }
+    if(prompt('Password')==='baybella') show();
+  });
+})();
+</script>
 </body>
 </html>
