@@ -88,14 +88,14 @@ body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160de
 .screen{display:flex;gap:7px;align-items:flex-start;font-size:.8rem;color:var(--grey);font-style:italic;margin:10px 0 0;padding-top:9px;border-top:1px dashed #E6DEEA}
 .say + .screen{margin-top:-18px;margin-bottom:10px;background:#fff;border-radius:0 0 10px 0;border-left:6px solid var(--bc,#E5147F);padding:9px 17px 13px}
 .screen .e{font-style:normal;flex-shrink:0}
-/* SCRIPT - rebuilt 2026-08-29 for scannability (Arvin: "I can't look at this and just
+/* SCRIPT - rebuilt 2026-08-29 for scannability (content team: "I can't look at this and just
    scan scan scan"). Sans not serif, no quote marks, white card per line, one sentence per
    row, one colour per BEAT. Tested 26 variants with him; the readability came from the
    cards + sans + sentence-rows, NOT the colour. Colour's only job is grouping a beat. */
 .say{font-family:var(--sans);font-weight:500;font-size:1.02rem;line-height:1.25;color:var(--ink);background:#fff;border-radius:0 10px 10px 0;border-left:6px solid var(--bc,#E5147F);padding:16px 18px;margin:0 0 18px;box-shadow:0 2px 8px -4px rgba(60,30,60,.25)}
 .say .ln{display:block}
 .say .ln + .ln{margin-top:10px}
-/* GUIDELINE beats look DIFFERENT to word-for-word beats (founder 2026-09-09: "it almost
+/* GUIDELINE beats look DIFFERENT to word-for-word beats (content team 2026-09-09: "it almost
    kinda looks like that's what she's meant to say, but this is what we're telling her to say").
    Word-for-word = white card, quoted, serif. Guideline = tinted card, bulleted, no quotes. */
 .say.exact{font-family:var(--serif);font-weight:500;font-size:1.06rem;line-height:1.4}
@@ -106,7 +106,7 @@ body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160de
 .saytag{display:inline-flex;align-items:center;gap:5px;font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;font-weight:800;padding:3px 8px;border-radius:5px;margin-bottom:9px}
 .saytag.t-exact{background:#211C18;color:#fff}
 .saytag.t-guide{background:#F3E3EE;color:#8A2E63;border:1px dashed #D9A9C6}
-/* LEGEND as a scannable key, not a paragraph (founder 2026-09-09: "make this text more
+/* LEGEND as a scannable key, not a paragraph (content team 2026-09-09: "make this text more
    visually scannable"). Three rows, each: what it looks like | what it means. */
 .legend-key{display:grid;grid-template-columns:auto 1fr;gap:10px 14px;align-items:center}
 .legend-key .lk-what{display:flex;justify-content:flex-start}
@@ -194,7 +194,7 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
 .gate{display:inline-flex;align-items:center;gap:6px;background:rgba(120,90,110,.2);border:1px solid #5a3d4d;color:#dcb9cb;font-size:.66rem;padding:5px 10px;border-radius:30px;margin:3px 4px 3px 0;font-weight:700}
 .mono-note{font-family:var(--serif);font-style:italic;font-size:.86rem;color:#c79bb0;background:rgba(0,0,0,.22);padding:11px 14px;border-radius:10px;border-left:2px solid var(--pink);margin-top:10px;line-height:1.5}
 
-/* hook callout - REQUIRED on every brief, sits directly above The Script (founder rule 2026-07-28). The one gradient card mid-page, deliberately unlike the white panels. */
+/* hook callout - REQUIRED on every brief, sits directly above The Script (content team rule 2026-07-28). The one gradient card mid-page, deliberately unlike the white panels. */
 .hookcall{position:relative;overflow:hidden;text-align:center;background:linear-gradient(135deg,#F49AC1 0%,#BBA2E8 100%);border:1px solid #E58BB4;border-radius:20px;padding:26px clamp(20px,4vw,34px) 28px;margin-bottom:20px;box-shadow:0 24px 52px -28px rgba(150,40,100,.55),inset 0 1px 0 rgba(255,255,255,.4)}
 .hookcall::before{content:"";position:absolute;top:-120px;right:-100px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.7}
 .hookcall>*{position:relative;z-index:1}
@@ -202,7 +202,7 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
 .hookcall .hc-head{font-family:var(--serif);font-weight:500;font-size:clamp(1.25rem,3.6vw,1.55rem);line-height:1.2;letter-spacing:-.01em;color:var(--ink);margin-bottom:10px}
 .hookcall .hc-body{font-size:.97rem;line-height:1.65;color:var(--ink);max-width:560px;margin:0 auto}
 .hookcall .hc-body strong{font-weight:800}
-/* OPENING FRAME - sits between the hook callout and The Script (founder rule 2026-09-09). */
+/* OPENING FRAME - sits between the hook callout and The Script (content team rule 2026-09-09). */
 .openframe .of-grid{display:grid;grid-template-columns:1fr;gap:16px}
 @media(min-width:620px){.openframe .of-grid{grid-template-columns:minmax(0,1fr) 190px;align-items:start}}
 .openframe .of-line{font-size:1.02rem;line-height:1.7;color:var(--ink);margin-bottom:12px}
@@ -311,7 +311,7 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
         <p class="say exact" style="--bc:#E5147F"><span class="ln">&ldquo;These are magnetic. Not glue.&rdquo;</span></p><div class="screen" style="--bc:#E5147F"><span class="e">&#127916;</span><span>Her face. One eye done, one eye bare. Her other hand up beside her face holding the applicator with the next lash in it.</span></div>
       </div>
       <div class="round">
-        <div class="round-top"><span class="beatnum" style="background:#FF3B30">2</span><span class="round-k">the mechanism</span></div>
+        <div class="round-top"><span class="beatnum" style="background:#FF3B30">2</span><span class="round-k">the mechanism &middot; why this solution</span></div>
         <p class="say exact" style="--bc:#FF3B30"><span class="ln">&ldquo;Top one and bottom one clip to each other.&rdquo;</span></p><div class="screen" style="--bc:#FF3B30"><span class="e">&#127916;</span><span>Close on the two lashes, off the face, snapping together. Fingers in shot for scale.</span></div>
       </div>
       <div class="round">
@@ -319,12 +319,12 @@ footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a
         <p class="say exact" style="--bc:#9D1FB0"><span class="ln">&ldquo;She used to skip lashes. Now she wears them daily.&rdquo;</span></p><div class="screen" style="--bc:#9D1FB0"><span class="e">&#127916;</span><span>A woman out somewhere ordinary with them on, in daylight.</span></div>
       </div>
       <div class="round">
-        <div class="round-top"><span class="beatnum" style="background:#00A87E">4</span><span class="round-k">why ours</span></div>
+        <div class="round-top"><span class="beatnum" style="background:#00A87E">4</span><span class="round-k">why ours &middot; why Baybella</span></div>
         <p class="say exact" style="--bc:#00A87E"><span class="ln">&ldquo;Baybella&rsquo;s come with a spare set. Cheap ones slip.&rdquo;</span></p><div class="screen" style="--bc:#00A87E"><span class="e">&#127916;</span><span>The kit open, both trays visible so you can count two full sets.</span></div>
       </div>
       <div class="round">
-        <div class="round-top"><span class="beatnum" style="background:#1D6FE0">5</span><span class="round-k">what to do</span></div>
-        <p class="say exact" style="--bc:#1D6FE0"><span class="ln">&ldquo;Link below. Cheaper right now.&rdquo;</span></p><div class="screen" style="--bc:#1D6FE0"><span class="e">&#127916;</span><span>Hands holding the pack up to camera.</span></div>
+        <div class="round-top"><span class="beatnum" style="background:#1D6FE0">5</span><span class="round-k">what to do &middot; CTA</span></div>
+        <p class="say exact" style="--bc:#1D6FE0"><span class="ln">&ldquo;Link below. Buy one, second pair half price.&rdquo;</span><span class="ln">&ldquo;Selling out fast and the deal ends soon.&rdquo;</span></p><div class="screen" style="--bc:#1D6FE0"><span class="e">&#127916;</span><span>Hands holding the pack up to camera.</span></div>
       </div>
     </div>
   </div>
