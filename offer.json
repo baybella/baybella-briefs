@@ -1,16 +1,20 @@
 {
-  "_what": "THE OFFER — one file, every brief's beat 7 reads from it. Change it here, push, and every brief on the portal shows the new offer within a minute. Nothing else to edit.",
-  "_why": "Founder, 23 Sep 2026: 'traditionally if I want to change the offer I need to go into every single HTML and apply the changes. Rather, I want the HTMLs wired up to something central. And then when I want to change something, I just change that central thing.'",
-  "_scope": "BEAT 7 ONLY (his call). Other beats keep their own wording.",
+  "_what": "THE OFFER - one file, every brief's beat 7 reads from it. Change it here, push, and every brief shows the new offer within a minute. No brief file gets touched.",
+  "_why": "Founder, 23 Sep 2026: 'traditionally if I want to change the offer I need to go into every single HTML and apply the changes. Rather, I want the HTMLs wired up to something central.'",
+  "_beat_7_has_THREE_parts": {
+    "1_lead_in": "HERS. Lives in her own brief file, not here. The sentence that walks her persona from beat 6 into the offer - Georgia's is 'if you gave up years ago, you've been going without for no reason'. Written once when the brief is written. An offer change does NOT rewrite it.",
+    "2_urgency": "SHARED, below. Why today rather than later. It lives here and not in the brief because it MOVES WITH THE OFFER - 'they're selling out' is wrong once the offer becomes free shipping.",
+    "3_offer": "SHARED, below. The facts. Never reworded per brief - '$29.95' should not be phrased 34 different ways."
+  },
   "_how_to_change_it": [
-    "1. Edit the `lines` below.",
-    "2. git add offer.json && git commit -m 'offer: <what changed>' && git push",
-    "3. GitHub Pages rebuilds in a minute. Every brief is current - no brief files touched."
+    "Open edit-offer.html in this folder, or edit this file directly.",
+    "Replace offer.json, then: push the offer.",
+    "GitHub Pages rebuilds in about a minute. Every brief is current."
   ],
   "updated": "2026-09-23",
+  "urgency": "",
   "lines": [
-    "They&rsquo;re Baybella&rsquo;s, and the link&rsquo;s on this video.",
-    "Say if you gave up years ago, you&rsquo;ve been going without for no reason."
+    "They&rsquo;re Baybella&rsquo;s, and the link&rsquo;s on this video."
   ],
   "action": "hold the kit up to camera"
 }

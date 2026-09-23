@@ -1,3 +1,6 @@
 *.docx
 .DS_Store
 backend.gs
+
+# Local Netlify folder
+.netlify

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Baybella · Creator Brief - "Which Lash Are You"</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#211C18;--ink2:#463E37;--grey:#8C8279;--pink:#E5147F;--line-soft:#EAD9E4;
+  --serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:#FBEAF1}
+body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160deg,#FCE3F0 0%,#F1E7FB 55%,#E7E7FB 100%);background-attachment:fixed;color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;position:relative}
+.blooms{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blooms::before{content:"";position:absolute;top:-220px;right:-200px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.6}
+.blooms::after{content:"";position:absolute;bottom:-220px;left:-220px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle,#C4B5FD 0%,transparent 70%);opacity:.5}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+.topbar{position:sticky;top:0;z-index:50;background:rgba(252,233,241,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+.topbar .row{max-width:720px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:var(--ink)}
+.brand b{color:var(--pink)}
+.lockbtn{font-family:var(--sans);font-size:11px;letter-spacing:.04em;font-weight:700;background:none;border:1px solid #E3C7D6;color:#9a4a72;padding:7px 13px;border-radius:40px;cursor:pointer;transition:.2s;white-space:nowrap}
+.lockbtn:hover{border-color:var(--pink);color:var(--pink);background:#fff}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#F49AC1 0%,#BBA2E8 100%);border:1px solid #E58BB4;border-radius:24px;padding:clamp(32px,6vw,50px) clamp(26px,5vw,42px);margin:24px 0 30px;box-shadow:0 28px 60px -28px rgba(150,40,100,.55),inset 0 1px 0 rgba(255,255,255,.4)}
+.hero::before{content:"";position:absolute;top:-140px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.7}
+.hero>*{position:relative;z-index:1}
+.hero{text-align:center}
+.hero .eyebrow{font-size:.92rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:16px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.4rem,4vw,1.95rem);line-height:1.06;letter-spacing:-.02em;color:var(--ink)}
+.hero .meta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 40px;border-top:1px solid #E9C6D9;padding-top:20px;margin-top:26px}
+.hero .mi{display:flex;flex-direction:column;align-items:center;gap:2px}
+.hero .mi .l{font-size:.62rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--pink)}
+.hero .mi .v{font-family:var(--serif);font-size:1rem;color:var(--ink)}
+
+/* SECTION = its own coloured block */
+.sec{margin-bottom:20px}
+.panel{position:relative;overflow:hidden;background:#fff;background:color-mix(in srgb,var(--c) 7%,#fff);border-radius:16px;padding:0 22px 24px;box-shadow:0 20px 46px -34px color-mix(in srgb,var(--c) 58%,#000),0 0 0 1px color-mix(in srgb,var(--c) 16%,#fff)}
+.phead{background:var(--c);background:linear-gradient(135deg, color-mix(in srgb,var(--c) 86%,#fff) 0%, var(--c) 56%, color-mix(in srgb,var(--c) 86%,#000) 100%);color:#fff;margin:0 -22px 20px;padding:14px 22px;display:flex;align-items:baseline;gap:12px}
+.phead .pnum{font-size:.8rem;font-weight:800;color:rgba(255,255,255,.72)}
+.phead .pname{font-size:.92rem;font-weight:800;color:#fff;letter-spacing:.13em;text-transform:uppercase;line-height:1}
+.phead .pwhat{margin-left:auto;font-family:var(--serif);font-style:italic;font-size:.95rem;color:rgba(255,255,255,.9)}
+@media(max-width:440px){.phead .pwhat{display:none}}
+
+/* prose - BLACK */
+.vision p{font-size:1.02rem;line-height:1.7;margin-bottom:14px;color:var(--ink)}.vision p:last-child{margin-bottom:0}
+.vision strong{color:var(--ink);font-weight:800}.vision em{font-style:italic}
+.vision .feel{font-family:var(--serif);font-style:italic;color:var(--pink);font-size:1.02rem;margin-top:4px}
+.lead{font-size:.98rem;line-height:1.7;margin-bottom:12px;color:var(--ink)}.lead:last-child{margin-bottom:0}
+.lead strong{color:var(--ink);font-weight:800}.muted{color:var(--grey)}
+
+/* notes - white box inside the tinted card */
+.note{background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-left:3px solid var(--c);border-radius:12px;padding:16px 17px;margin:15px 0;font-size:.94rem;line-height:1.6;color:var(--ink)}
+.note .wt{font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--c);font-weight:800;margin-bottom:8px}
+.note ol{margin:8px 0 0 18px}.note li{margin-bottom:5px}.note:last-child{margin-bottom:0}.note strong{color:var(--ink)}
+
+/* inspo */
+.inspo-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:14px}
+@media(max-width:460px){.inspo-grid{grid-template-columns:1fr}}
+.inspo{display:flex;align-items:center;gap:11px;text-decoration:none;background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-radius:12px;padding:13px;transition:.2s}
+.inspo:hover{border-color:var(--c)}
+.inspo .play{width:30px;height:30px;border-radius:50%;background:var(--c);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;flex-shrink:0}
+.inspo .lbl{font-size:12.5px;font-weight:800;color:var(--ink)}
+.inspo .sm{color:var(--grey);font-size:11.5px;font-style:italic;font-family:var(--serif)}
+
+/* legend + vibe */
+.script-legend{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-radius:12px;padding:14px 16px;margin-bottom:15px}
+.script-legend .do-d{font-style:italic;color:var(--grey);font-size:.92rem}
+.script-legend .say-d{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:1.02rem}
+.script-vibe{font-size:.94rem;line-height:1.6;color:var(--ink2);margin-bottom:22px}
+.script-vibe b{font-family:var(--serif);font-weight:500;color:var(--pink);font-style:italic;font-size:1rem}
+
+/* rounds - SAY black serif, hook pivot pink */
+.round{padding:22px 0;border-top:1px solid color-mix(in srgb,var(--c) 18%,#fff)}
+.round:first-of-type{padding-top:6px;border-top:none}.round:last-of-type{padding-bottom:2px}
+.round-top{display:flex;align-items:baseline;gap:11px;margin-bottom:12px}
+.round-n{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--c)}
+.round-k{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);font-weight:800}
+.screen{display:flex;gap:8px;align-items:flex-start;font-size:.82rem;color:var(--grey);margin-bottom:12px;font-style:italic}
+.screen .e{font-style:normal;flex-shrink:0}
+.say{font-family:var(--serif);font-weight:500;font-size:1.26rem;line-height:1.5;color:var(--ink)}
+.say .or{color:var(--pink);font-style:italic}
+
+/* checklist */
+.check{display:flex;gap:13px;align-items:flex-start;padding:15px 0;border-top:1px solid color-mix(in srgb,var(--c) 18%,#fff)}
+.check:first-child{border-top:none;padding-top:4px}
+
+/* clothing */
+.cl-block{margin-bottom:16px}.cl-block:last-child{margin-bottom:0}
+.cl-block .cl-h{font-family:var(--serif);font-weight:600;color:var(--c);font-size:1rem;margin-bottom:5px}
+.cl-block p{font-size:.96rem;line-height:1.65;color:var(--ink)}
+
+/* row list */
+.row-list{list-style:none}
+.row-list li{display:flex;gap:12px;padding:13px 0;border-top:1px solid color-mix(in srgb,var(--c) 18%,#fff);font-size:.95rem;line-height:1.55;color:var(--ink)}
+.row-list li:first-child{border-top:none;padding-top:0}.row-list .e{flex-shrink:0}.row-list em{font-style:italic}.row-list strong{font-weight:800}
+
+/* KEY STAGING */
+.keystage{background:#fff;border:1px solid #F3C6DE;border-left:4px solid var(--pink);border-radius:12px;padding:17px 18px;margin-top:2px}
+.keystage .ks-h{font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--pink);font-weight:800;margin-bottom:9px}
+.keystage p{color:#333333;font-size:.95rem;line-height:1.6;margin-bottom:8px}.keystage p:last-child{margin-bottom:0}.keystage strong{color:#211C18;font-weight:800}
+
+footer{padding:24px 0 56px;text-align:center}
+footer .fb{font-family:var(--serif);font-style:italic;font-size:.9rem;color:#a9a098}
+
+/* modal + agency */
+.modal-bg{position:fixed;inset:0;background:rgba(42,8,40,.5);backdrop-filter:blur(7px);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}.modal-bg.show{display:flex}
+.modal{background:#1f1419;border:1px solid #3d2632;border-radius:18px;padding:32px 28px;max-width:370px;width:100%;text-align:center;position:relative}
+.modal .mlock{font-size:28px;margin-bottom:12px}
+.modal h3{font-family:var(--serif);color:#FCEAF1;font-weight:500;font-size:1.4rem;margin-bottom:6px}
+.modal p{color:#c79bb0;font-size:.85rem;margin-bottom:18px}
+.modal input{width:100%;background:#160d12;border:1px solid #3d2632;border-radius:10px;padding:12px 15px;color:#FCEAF1;font-family:var(--sans);font-size:14px;letter-spacing:.1em;text-align:center;margin-bottom:11px;outline:none}
+.modal input:focus{border-color:var(--pink)}
+.modal button.unlock{width:100%;background:var(--pink);color:#fff;border:none;border-radius:10px;padding:13px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;cursor:pointer}
+.modal .err{color:#f7a3c4;font-size:12px;height:14px;margin-bottom:8px}
+.modal .x{position:absolute;top:14px;right:18px;color:#c79bb0;background:none;border:none;font-size:22px;cursor:pointer}
+.agency{display:none;background:#1f1419;color:#EAD9E4;position:relative;z-index:1}.agency.show{display:block}
+.agency .ahead{padding:36px 0 18px}
+.agency .abadge{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#F3A3C6;margin-bottom:12px;font-weight:800}
+.agency h2{font-family:var(--serif);font-weight:400;font-size:1.7rem;color:#FCEAF1}
+.acard{background:rgba(61,38,50,.4);border:1px solid #3d2632;border-radius:12px;margin-bottom:13px;overflow:hidden}
+.acard .ah{background:rgba(61,38,50,.6);padding:11px 16px;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:#F3A3C6;font-weight:800}
+.acard .ab{padding:16px}
+.acard .ab p,.acard .ab li{color:#D9C4D0;font-size:.9rem;margin-bottom:8px;line-height:1.55}
+.acard .ab p:last-child,.acard .ab li:last-child{margin-bottom:0}
+.acard .ab ul{list-style:none}.acard .ab li{display:flex;gap:9px}.acard .ab li .e{flex-shrink:0;color:#F3A3C6}.acard .ab strong{color:#FCEAF1}
+.ai-flag{border-color:var(--pink)!important}.ai-flag .ah{background:rgba(229,20,127,.2);color:#F7A3C4}
+.mono-note{font-family:var(--serif);font-style:italic;font-size:.86rem;color:#c79bb0;background:rgba(0,0,0,.22);padding:11px 14px;border-radius:10px;border-left:2px solid var(--pink);margin-top:10px;line-height:1.5}
+</style>
+</head>
+<body>
+<!-- baybella-skeleton-v1 · DO NOT REMOVE. check_brief.py requires this signature so every brief is built FROM this skeleton (its design + fixed boilerplate), never custom-styled. -->
+
+<div class="blooms"></div>
+
+<div class="topbar">
+  <div class="row">
+    <div class="brand"><b>BAYBELLA</b> · CREATOR BRIEF</div>
+    <button class="lockbtn" onclick="document.getElementById('mbg').classList.add('show')">Agency ↗</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Content Brief</div>
+    <h1>“Which Lash Are You?”</h1>
+    <div class="meta">
+      <div class="mi"><span class="l">Format</span><span class="v">Solo · which-one-are-you grid</span></div>
+      <div class="mi"><span class="l">Length</span><span class="v">~25-30 sec</span></div>
+      <div class="mi"><span class="l">Scenes</span><span class="v">1 setup</span></div>
+    </div>
+  </div>
+
+  <!-- 01 -->
+  <div class="sec" style="--c:#E5147F">
+    <div class="panel">
+      <div class="phead"><span class="pnum">01</span><span class="pname">What We’re Making</span><span class="pwhat">the concept</span></div>
+      <div class="vision">
+        <p><strong>A “which one are you” grid video.</strong> You talk to camera and match the viewer to a Baybella lash by their vibe, with a grid of the three styles behind you (added in post).</p>
+        <p><strong>The point:</strong> picking a lash isn’t a spec sheet, it’s a personality. One for the natural girl, one for the everyday girl, one for full glam, so one of them is hers.</p>
+      </div>
+      <p class="lead" style="font-size:.9rem;color:var(--grey);margin-top:14px"><strong style="color:var(--ink)">Format reference:</strong> <a href="https://vt.tiktok.com/ZSxUFHYpK/" target="_blank" rel="noopener" style="color:#1155cc;text-decoration:underline">Video 1</a> - just for how the grid + “which one are you” structure looks. Not a wardrobe or camera guide.</p>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="sec" style="--c:#9D1FB0">
+    <div class="panel">
+      <div class="phead"><span class="pnum">02</span><span class="pname">The Vibe</span><span class="pwhat">how to play it</span></div>
+      <p class="lead"><strong>Playful and a little bit “I called it.”</strong> Like you’re reading your friends for filth in the group chat, but sweet. Fast, confident, a knowing smile.</p>
+      <p class="lead">Each style gets a quick, specific little character so the viewer instantly clocks which one is her. Land it light, never a sales pitch.</p>
+      <p class="lead"><em>Delivery: fun and quick, like a personality quiz you already know the answer to. Not slow, not serious.</em></p>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="sec" style="--c:#7C3AED">
+    <div class="panel">
+      <div class="phead"><span class="pnum">03</span><span class="pname">How To Film It</span><span class="pwhat">setup</span></div>
+      <p class="lead"><strong>Seated, centred, talking to camera.</strong></p>
+      <ul class="row-list" style="margin-top:8px">
+        <li><span class="e">📱</span><span>Phone on a stand, front camera, one continuous take.</span></li>
+        <li><span class="e">💡</span><span>Bright and even so your lashes read clearly.</span></li>
+        <li><span class="e">🔲</span><span>Leave clear space above or beside your head for the grid.</span></li>
+        <li><span class="e">✨</span><span>You don’t build the grid - we add it in post. Just talk and gesture like it’s behind you.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="sec" style="--c:#1D6FE0">
+    <div class="panel">
+      <div class="phead"><span class="pnum">04</span><span class="pname">The Script</span><span class="pwhat">what you say + do</span></div>
+      <div class="script-legend">
+        <span class="do-d">Grey = what you DO.</span>
+        <span class="say-d">Black = what you SAY.</span>
+      </div>
+      <p class="muted" style="font-size:.86rem;margin-bottom:18px">The script below (excluding the hook) is just a guide - keep the structure &amp; core message, but feel free to make the wording sound natural to you.</p>
+
+      <div class="round" style="border-top:none;padding-top:4px">
+        <div class="round-top"><span class="round-k">🎬 Hook</span></div>
+        <p class="say" style="margin:0 0 7px">“Tell me your vibe and I’ll tell you exactly which lashes are yours.”</p>
+        <div class="screen" style="margin:0 0 22px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">🎬</span><span><strong>as you say it:</strong> straight to camera, a knowing little smile, gesture to the empty space where the grid will land</span></div>
+      </div>
+
+      <div class="round">
+        <div class="round-top"><span class="round-n">1.</span><span class="round-k">The natural one</span></div>
+        <p class="say" style="margin:0 0 7px">“If your whole thing is ‘I just want to look like me but awake,’ you’re a Simple girl. Barely-there, no one can tell, but you look so much fresher.”</p>
+        <div class="screen" style="margin:0 0 6px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">🎬</span><span><strong>as you say it:</strong> gesture up to the top-left of the grid</span></div>
+      </div>
+
+      <div class="round">
+        <div class="round-top"><span class="round-n">2.</span><span class="round-k">The everyday one</span></div>
+        <p class="say" style="margin:0 0 7px">“If you want a bit more but still your-everyday-self, that’s Blair. The one you’d wear to work, to brunch, to the school run, and still feel put together.”</p>
+        <div class="screen" style="margin:0 0 6px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">🎬</span><span><strong>as you say it:</strong> gesture to the middle of the grid</span></div>
+      </div>
+
+      <div class="round">
+        <div class="round-top"><span class="round-n">3.</span><span class="round-k">The glam one</span></div>
+        <p class="say" style="margin:0 0 7px">“And if you walk in and you want everyone to go ‘okay who did your lashes’.. that’s Fuller. Full glam, the whole set, and people always think you got them done.”</p>
+        <div class="screen" style="margin:0 0 6px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">🎬</span><span><strong>as you say it:</strong> gesture to the last quadrant, a little flourish</span></div>
+      </div>
+
+      <div class="round">
+        <div class="round-top"><span class="round-k">🎬 The reveal + close</span></div>
+        <p class="say" style="margin:0 0 7px">“And here’s the bit no one expects.. they’re all magnetic, so you just clip them on yourself in like ten seconds.”</p>
+        <div class="screen" style="margin:0 0 14px 16px;padding-left:13px;border-left:2px solid color-mix(in srgb,var(--c) 32%,#fff)"><span class="e">🎬</span><span><strong>as you say it:</strong> hold up your rose-gold applicator with a lash on it, place it on and let the magnets connect, then take it off cleanly so they see there’s no glue</span></div>
+        <p class="say" style="margin:0">“So.. which one are you? Because I already know 🤫”</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 · KEY STAGING -->
+  <div class="sec" style="--c:#E5147F">
+    <div class="panel">
+      <div class="phead"><span class="pnum">05</span><span class="pname">Key Staging - Read First</span><span class="pwhat">the one thing</span></div>
+      <div class="keystage">
+        <div class="ks-h">⚠️ Leave grid space + show the clip-on</div>
+        <p><strong>Leave clear empty space</strong> above or beside your head the whole time - the three-style grid goes there in post, so don’t fill the frame or block that spot with your hands.</p>
+        <p><strong>The clip-on has to actually happen on camera.</strong> At the reveal, place one lash on and let the magnets connect, then take it off cleanly and close to the eye so people see there’s no glue. That quick on-and-off is the whole proof it’s real.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 · CLOTHING & LIGHTING -->
+  <div class="sec" style="--c:#7C3AED">
+    <div class="panel">
+      <div class="phead"><span class="pnum">06</span><span class="pname">Wear &amp; Light</span><span class="pwhat">quick notes</span></div>
+      <div class="cl-block">
+        <div class="cl-h">👗 What to wear</div>
+        <p>Cute and current, something you’d film a get-ready in. Nothing too busy near your face so the lashes stay the focus.</p>
+      </div>
+      <div class="cl-block">
+        <div class="cl-h">🔆 Lighting</div>
+        <p>Bright, even front light (ring light or a big window) so all three looks and the clip-on read clearly on camera.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 · LASH VISIBILITY -->
+  <div class="sec" style="--c:#6366F1">
+    <div class="panel">
+      <div class="phead"><span class="pnum">07</span><span class="pname">Lash Visibility</span><span class="pwhat">read this</span></div>
+      <div class="lv-box lv-yellow" style="border-radius:12px;padding:20px;font-size:.93rem;line-height:1.6;background:#FCF4A6;border:1px solid #E0C94F;color:#3a3418;margin-bottom:12px">
+        <div class="lvh" style="font-weight:800;color:#241f08;margin-bottom:14px">✨ IMPORTANT - READ THIS</div>
+        <div class="q" style="font-weight:800;color:#241f08;margin:14px 0 8px">When demonstrating the product, always ask yourself this:</div>
+        <ol class="lvl" style="margin:0 0 0 24px;padding:0"><li style="margin-bottom:6px;padding-left:6px">Can the camera clearly see the lashes when I use them?</li></ol>
+        <div class="q" style="font-weight:800;color:#241f08;margin:14px 0 8px">Secondary questions:</div>
+        <ol class="lvl" start="2" style="margin:0 0 0 24px;padding:0">
+          <li style="margin-bottom:6px;padding-left:6px">Are my hands blocking my face?</li>
+          <li style="margin-bottom:6px;padding-left:6px">Is the applicator covering my eyes?</li>
+          <li style="margin-bottom:6px;padding-left:6px">Is my face turned away?</li>
+        </ol>
+        <div class="lvlink" style="font-weight:800;color:#241f08;margin-top:16px">Please click <a href="https://baybella.my.canva.site/guidelines" target="_blank" rel="noopener" style="color:#1155cc;text-decoration:underline">here</a> for video examples.</div>
+      </div>
+      <div class="lv-box lv-green" style="border-radius:12px;padding:20px;font-size:.93rem;line-height:1.6;background:#CCEFBE;border:1px solid #87C775;color:#243319">
+        <p style="margin-bottom:12px">If the script requires you to hold your phone while applying the lashes and you don’t have a way to see yourself while recording, please let us know.</p>
+        <p style="margin-bottom:0">We know applying lashes while looking through the camera app can be a little tricky, so <strong style="color:#15240c">we can send you a clip-on phone mirror attachment</strong> which allows you to see yourself properly while recording.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== AGENCY (gated, hidden by default) ===== -->
+<div class="agency" id="agency">
+  <div class="wrap">
+    <div class="ahead">
+      <div class="abadge">Internal · Ecom Republic</div>
+      <h2>Agency Notes - Which Lash Are You</h2>
+    </div>
+
+    <div class="acard">
+      <div class="ah">Post / on-screen</div>
+      <div class="ab">
+        <ul>
+          <li><span class="e">▹</span><span>Composite the <strong>three-style grid</strong> behind the creator (Simple / Blair / Fuller). Style names + one-word vibe label per quadrant as native on-screen text. Three real live styles only - do NOT invent a 4th.</span></li>
+          <li><span class="e">▹</span><span>Brand lands on the <strong>compact / grid label</strong>, not a spoken brand name (Rule 27, demo-led → one text overlay). Mechanism “magnetic” is spoken once, at the reveal.</span></li>
+          <li><span class="e">▹</span><span>Caption carries the “which one are you 👀” prompt to drive comments - this is a reach/engagement asset.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acard">
+      <div class="ah">Strategy</div>
+      <div class="ab">
+        <p><strong>Job:</strong> reach / top-funnel by design - style/identity engine, not a closer. Grade it on reach + comments, pair with a cost/legitimacy closer in the round.</p>
+        <p><strong>Engine:</strong> surface - style / looks-like-extensions carried by identity. No villain. Belief served: style-fit / “there’s one for me”.</p>
+      </div>
+    </div>
+
+    <div class="acard ai-flag">
+      <div class="ah">AI-4 · Round 5 audience / callout</div>
+      <div class="ab">
+        <p>Targets the beauty-curious browser deciding a style - cast young per the concept. NOT the wider Avatar-B “results, not the process” woman, and no single specific-callout (it’s a 3-way grid by design). <strong>Founder’s call</strong> whether to also spin an Avatar-B-targeted variant; this asset is the young-enthusiast reach play on purpose.</p>
+        <p class="mono-note">AI-3 two-trays: consciously SKIPPED - pure style/identity reach video; a value beat would read tacked-on here.</p>
+      </div>
+    </div>
+
+    <div class="acard">
+      <div class="ah">Gates</div>
+      <div class="ab">
+        <p>Legitimacy: sidestepped (style video) but a proof beat is present - the clip-on/clip-off reveal at the close (G4). Application shown as a hero beat at the reveal (place on → magnets connect → take off, close to the eye). Ends mid-moment on “which one are you” (no sitcom button). No em-dashes; no aggressive verbs.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="mbg">
+  <div class="modal">
+    <button class="x" onclick="document.getElementById('mbg').classList.remove('show')">&times;</button>
+    <div class="mlock">🔒</div>
+    <h3>Agency Notes</h3>
+    <p>Internal - enter the password to view.</p>
+    <div class="err" id="err"></div>
+    <input id="pw" type="password" placeholder="PASSWORD" onkeydown="if(event.key==='Enter')tryUnlock()">
+    <button class="unlock" onclick="tryUnlock()">Unlock</button>
+  </div>
+</div>
+
+<footer><div class="fb">Baybella × Creator · “Which Lash Are You?”</div></footer>
+
+<script>
+function tryUnlock(){
+  var v=document.getElementById('pw').value.trim().toLowerCase();
+  if(v==='baybella'){
+    document.getElementById('agency').classList.add('show');
+    document.getElementById('mbg').classList.remove('show');
+    document.getElementById('agency').scrollIntoView({behavior:'smooth'});
+  } else {
+    document.getElementById('err').textContent='Incorrect password.';
+  }
+}
+</script>
+</body>
+</html>

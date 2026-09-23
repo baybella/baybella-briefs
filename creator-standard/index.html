@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Baybella · What great looks like</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#211C18;--ink2:#463E37;--grey:#8C8279;
+  --pink:#E5147F;--pink-deep:#BE185D;--line-soft:#EAD9E4;--purple:#7C3AED;
+  --serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#FDF4F8}
+body{
+  margin:0;font-family:var(--sans);color:var(--ink);line-height:1.62;
+  background:#FDF4F8;background:linear-gradient(160deg,#FCE3F0 0%,#F1E7FB 55%,#E7E7FB 100%);
+  background-attachment:fixed;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 90px}
+
+/* hero */
+.hero{
+  position:relative;overflow:hidden;text-align:center;
+  background:linear-gradient(135deg,#F49AC1 0%,#BBA2E8 100%);
+  border:1px solid #E58BB4;border-radius:24px;
+  padding:clamp(36px,6vw,58px) clamp(22px,5vw,44px);margin:26px 0 0;
+  box-shadow:0 28px 60px -28px rgba(150,40,100,.55),inset 0 1px 0 rgba(255,255,255,.4);
+}
+.hero::before{content:"";position:absolute;top:-140px;right:-120px;width:340px;height:340px;
+  border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.7}
+.hero::after{content:"";position:absolute;bottom:-160px;left:-140px;width:360px;height:360px;
+  border-radius:50%;background:radial-gradient(circle,#C4B5FD 0%,transparent 70%);opacity:.55}
+.hero>*{position:relative}
+.eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#fff;opacity:.9}
+.hero h1{font-family:var(--serif);font-weight:600;color:#fff;margin:12px 0 0;
+  font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.08;letter-spacing:-.015em}
+
+/* the ask — this is the whole page */
+.ask{background:#fff;border:1px solid var(--line-soft);border-radius:20px;
+  padding:clamp(26px,5vw,44px);margin:18px 0 40px;
+  box-shadow:0 22px 48px -30px rgba(60,30,30,.55)}
+.ask p{margin:0 0 16px;font-size:clamp(1.02rem,2.2vw,1.14rem)}
+.ask p:last-child{margin:0}
+.ask .lead{font-family:var(--serif);font-size:clamp(1.24rem,3vw,1.6rem);line-height:1.36;
+  color:var(--ink);margin-bottom:20px}
+.ask strong{color:var(--pink-deep);font-weight:600}
+.ask .watch{list-style:none;margin:18px 0 20px;padding:0;display:grid;gap:10px}
+.ask .watch li{display:flex;gap:11px;align-items:flex-start;font-size:clamp(1rem,2.1vw,1.09rem)}
+.ask .watch .tick{flex:none;font-size:1rem;line-height:1.5}
+.ask .rule{height:1px;background:linear-gradient(90deg,var(--line-soft),transparent);
+  margin:24px 0;border:0}
+.ask .kick{font-family:var(--serif);font-size:clamp(1.1rem,2.6vw,1.34rem);
+  color:var(--pink-deep);line-height:1.4;margin:0}
+
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));
+  gap:clamp(14px,2.4vw,22px);margin:0 0 44px}
+.cell{background:#fff;border:1px solid var(--line-soft);border-radius:16px;
+  padding:9px;box-shadow:0 16px 36px -28px rgba(60,30,30,.55)}
+.cell video{width:100%;border-radius:11px;background:#000;display:block;
+  aspect-ratio:9/16;object-fit:cover}
+
+footer{text-align:center;color:var(--grey);font-size:.85rem;margin-top:40px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Baybella x Creators</div>
+    <h1>What great looks like</h1>
+  </header>
+
+  <section class="ask">
+    <p class="lead">This page is a set of videos we think are great, and a standard we want
+       our content to hit.</p>
+
+    <p>It's not about what they're saying or how they're edited. It's about how they
+       <strong>show up on camera</strong>. Watch for:</p>
+
+    <ul class="watch">
+      <li><span class="tick">✅</span>Their tone — how they actually say things</li>
+      <li><span class="tick">✅</span>Their pacing — the speed they move at</li>
+      <li><span class="tick">✅</span>How they hold themselves</li>
+      <li><span class="tick">✅</span>Their facial expressions</li>
+      <li><span class="tick">✅</span>Where the camera sits</li>
+      <li><span class="tick">✅</span>How quickly they get going</li>
+    </ul>
+
+    <p>Watch them the way you'd watch anything on your feed, and notice what keeps you
+       watching instead of scrolling. Every one of them sounds like a real person talking
+       to you — that's the whole thing.</p>
+
+    <hr class="rule">
+
+    <p class="kick">Then watch your own clip back and ask the same question:
+       would I keep watching this?</p>
+  </section>
+  <div class="grid">
+    <div class="cell"><video src="clips/clip1.mp4" controls preload="metadata" playsinline></video></div>
+    <div class="cell"><video src="clips/clip2.mp4" controls preload="metadata" playsinline></video></div>
+    <div class="cell"><video src="clips/clip3.mp4" controls preload="metadata" playsinline></video></div>
+    <div class="cell"><video src="clips/clip4.mp4" controls preload="metadata" playsinline></video></div>
+    <div class="cell"><video src="clips/clip6.mp4" controls preload="metadata" playsinline></video></div>
+    <div class="cell"><video src="clips/clip5.mp4" controls preload="metadata" playsinline></video></div>
+    <div class="cell"><video src="clips/clip7.mp4" controls preload="metadata" playsinline></video></div>
+  </div>
+
+
+  <footer>Baybella x Creators</footer>
+</div>
+</body>
+</html>
