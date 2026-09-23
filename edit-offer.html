@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Edit the offer</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Manrope',system-ui,sans-serif;background:linear-gradient(160deg,#FCE3F0,#F1E7FB 55%,#E7E7FB);min-height:100vh;color:#211C18;padding:28px 18px 60px}
+.wrap{max-width:640px;margin:0 auto}
+h1{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:1.9rem;margin-bottom:6px}
+.sub{color:#8C8279;font-size:.95rem;margin-bottom:26px;line-height:1.6}
+.card{background:#fff;border-radius:18px;padding:24px;box-shadow:0 20px 46px -34px rgba(120,40,90,.5)}
+label{display:block;font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#9A1257;margin:20px 0 8px}
+label:first-of-type{margin-top:0}
+.hint{font-size:.85rem;color:#8C8279;font-weight:400;text-transform:none;letter-spacing:0;margin-top:3px}
+textarea,input{width:100%;font-family:inherit;font-size:1rem;line-height:1.6;padding:13px 15px;border:1.5px solid #EAD9E4;border-radius:11px;background:#FDF8FB;resize:vertical}
+textarea:focus,input:focus{outline:none;border-color:#E5147F;background:#fff}
+textarea{min-height:120px}
+.btn{width:100%;margin-top:26px;padding:16px;border:none;border-radius:12px;background:#E5147F;color:#fff;font-family:inherit;font-size:1rem;font-weight:800;letter-spacing:.02em;cursor:pointer}
+.btn:hover{background:#c41069}
+.preview{margin-top:26px;background:#FBF6FA;border-left:6px solid #5856D6;border-radius:0 11px 11px 0;padding:16px 18px}
+.preview .t{font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#8C8279;margin-bottom:10px}
+.preview .ln{display:block;position:relative;padding-left:20px;line-height:1.5}
+.preview .ln+.ln{margin-top:9px}
+.preview .ln::before{content:"";position:absolute;left:4px;top:.6em;width:6px;height:6px;border-radius:50%;background:#5856D6;opacity:.55}
+.preview .act{margin-top:12px;padding-top:11px;border-top:1px dashed #E6DEEA;font-size:.85rem;font-style:italic;color:#8C8279}
+.done{display:none;margin-top:22px;background:#EAF7EE;border:1px solid #BFE5CB;border-radius:12px;padding:18px}
+.done b{display:block;margin-bottom:8px}
+.done ol{margin:0 0 0 18px;font-size:.93rem;line-height:1.75}
+code{background:#F4EFF3;padding:2px 6px;border-radius:5px;font-size:.88em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Edit the offer</h1>
+  <p class="sub">This is beat 7 in every brief. Change it here and every brief shows the new version &mdash; you never open a brief file.</p>
+
+  <div class="card">
+    <label>The lines she says
+      <div class="hint">One per line. Start with &ldquo;Say&hellip;&rdquo; if the line could otherwise read as something to do rather than say.</div>
+    </label>
+    <textarea id="lines"></textarea>
+
+    <label>What she does on camera
+      <div class="hint">One short instruction.</div>
+    </label>
+    <input id="action" type="text">
+
+    <div class="preview">
+      <div class="t">How it looks in the brief</div>
+      <div id="pv"></div>
+      <div class="act" id="pva"></div>
+    </div>
+
+    <button class="btn" onclick="save()">Save the offer file</button>
+
+    <div class="done" id="done">
+      <b>Saved to your Downloads.</b>
+      <ol>
+        <li>Move <code>offer.json</code> into this folder, replacing the old one.</li>
+        <li>Tell Claude <b>&ldquo;push the offer&rdquo;</b>.</li>
+        <li>Every brief shows it about a minute later.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<script>
+var current = {};
+
+fetch('offer.json', {cache:'no-store'}).then(function(r){return r.json()}).then(function(o){
+  current = o;
+  document.getElementById('lines').value = (o.lines||[]).map(dec).join('\n');
+  document.getElementById('action').value = o.action || '';
+  draw();
+}).catch(function(){ draw(); });
+
+function dec(s){ var t=document.createElement('textarea'); t.innerHTML=s; return t.value; }
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/'/g,'&rsquo;').replace(/"/g,'&rdquo;'); }
+
+function draw(){
+  var ls = document.getElementById('lines').value.split('\n').filter(function(l){return l.trim()});
+  document.getElementById('pv').innerHTML = ls.map(function(l){
+    return '<span class="ln">'+l.replace(/</g,'&lt;')+'</span>';
+  }).join('') || '<span class="ln" style="color:#C3B7BF">nothing yet</span>';
+  document.getElementById('pva').textContent = '🎬 ' + (document.getElementById('action').value || '…');
+}
+document.getElementById('lines').addEventListener('input', draw);
+document.getElementById('action').addEventListener('input', draw);
+
+function save(){
+  draw();
+  var ls = document.getElementById('lines').value.split('\n')
+             .map(function(l){return l.trim()}).filter(Boolean).map(esc);
+  if (!ls.length) { alert('Add at least one line.'); return; }
+
+  var out = Object.assign({}, current, {
+    updated: new Date().toISOString().slice(0,10),
+    lines: ls,
+    action: document.getElementById('action').value.trim()
+  });
+
+  var blob = new Blob([JSON.stringify(out, null, 2)], {type:'application/json'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'offer.json';
+  a.click();
+  document.getElementById('done').style.display = 'block';
+}
+</script>
+</body>
+</html>
