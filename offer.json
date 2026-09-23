@@ -1,0 +1,16 @@
+{
+  "_what": "THE OFFER — one file, every brief's beat 7 reads from it. Change it here, push, and every brief on the portal shows the new offer within a minute. Nothing else to edit.",
+  "_why": "Founder, 23 Sep 2026: 'traditionally if I want to change the offer I need to go into every single HTML and apply the changes. Rather, I want the HTMLs wired up to something central. And then when I want to change something, I just change that central thing.'",
+  "_scope": "BEAT 7 ONLY (his call). Other beats keep their own wording.",
+  "_how_to_change_it": [
+    "1. Edit the `lines` below.",
+    "2. git add offer.json && git commit -m 'offer: <what changed>' && git push",
+    "3. GitHub Pages rebuilds in a minute. Every brief is current - no brief files touched."
+  ],
+  "updated": "2026-09-23",
+  "lines": [
+    "They&rsquo;re Baybella&rsquo;s, and the link&rsquo;s on this video.",
+    "Say if you gave up years ago, you&rsquo;ve been going without for no reason."
+  ],
+  "action": "hold the kit up to camera"
+}
