@@ -177,7 +177,25 @@ const BRIEFS = [
 
 const wrapEl = document.getElementById('briefs');
 
-const KEYS = {};   /* ══ EDIT 3 of 3: minted by build_upload_links.py ══ */   /* ══ EDIT 3 of 3: minted by build_upload_links.py ══ */
+const KEYS = {
+  "08c93a9657e47e43": "m21TK0QApU2zHbnCT60YlR37y5eljcL6p2khPVuh47K2K8XUDNPcYVcoLk8JPEZZF3k=",
+  "0e7b4cd773c02713": "o9gbdvTumvB6ex5xX0De19usMXIWQ8aL/ifz2JAxCUf+a3Q=",
+  "1903511aa6a00d44": "VIdNgI6uag5z9UEYZw==",
+  "45727e5761adf5ec": "zLdpZCT0X9U15HZ3DNb/48993LIsNTagxSJUpvM43OQOxmiDKneilv0ja1gfoNzL7dc=",
+  "61d1b1f05272cfa5": "H2MHV4AQo2XOSnc1ibmw4fpV",
+  "62f0a2bcd1d1ed5c": "2S9lza9ckunsL+1kXLwhe38=",
+  "63a4dc65d82bcaa2": "S2Or8m9m2RredXoaa9sFBA==",
+  "75f88bfa11319d86": "1YqcTt3y2egSqWclkGHtQJIS",
+  "7942d0dfa388b365": "YabbFxAPoTYfMfdtYwqKqg==",
+  "7e7d1a11429d5941": "uWKwvk8hxqbzVikIrsadxjlXS1+2QhHRU+cg9cmEHAG7ANZPxg==",
+  "8336f627eb1e92c4": "UB1kN1n/Ni4COEQ67Ga195CqjA==",
+  "8af645574c334c7e": "1iLx1XyJXXJm7smjtkyiF+TBGpLXBhs8oF6sgEVDZXvMI2Lu",
+  "ab821d49f94bb5b3": "V5ev32AfRDuFkX/VfauOSc1/7QtjtUvbxA==",
+  "bf556b977e0c1bea": "rFh5MNpNe/YT+CCgyMQ0Z4pK+NzPRWrT6f/VMX9BpaZvOxQGupTJ3e1DHJMhbqnq6Eo=",
+  "d5301b63854b620b": "DEtK575ZaRk72g==",
+  "d55ee94fd26fb588": "iM7+jpUQ2PHi7SXJ/nDspoSxFgKyKM5s+sUJF3NYToc1yDpmrbqaSfbwGuIzXXE7cAY8bwJGMxaSVMtFDEIrXT+ghLUbnP9WryvIG3e/r5vs4uLIm+3uZ9fABVHScprWFKn0hrKwBNgZ",
+  "f22764640aebaaa0": "87A7fIW49bnewzxlN76uzpctdAJD7iihPzcYXu0j3NdIS+DXewSFIBQQi/KQxA=="
+};   /* ══ EDIT 3 of 3: minted by build_upload_links.py ══ */   /* ══ EDIT 3 of 3: minted by build_upload_links.py ══ */
 
 // The salt is derived from THIS PAGE'S OWN FILENAME (upload-r7.html -> "r7"), not
 // hand-typed. A copied template with a forgotten placeholder would silently mismatch
@@ -213,7 +231,7 @@ async function slugsForCode(code) {
 const SIGNED = Object.keys(KEYS).length > 0;
 const params = new URLSearchParams(location.search);
 const CODE = params.get('k');
-const ALL_CODE = '';   /* ══ minted alongside KEYS — Arvin's see-everything code ══ */   /* ══ minted alongside KEYS — Arvin's see-everything code ══ */
+const ALL_CODE = '9cqu83rdhh';   /* ══ minted alongside KEYS — Arvin's see-everything code ══ */   /* ══ minted alongside KEYS — Arvin's see-everything code ══ */
 let shown = SIGNED ? [] : BRIEFS;
 let badCode = false;
 if (SIGNED && ALL_CODE && params.get('all') === ALL_CODE) {
