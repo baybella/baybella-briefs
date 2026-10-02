@@ -1,20 +1,51 @@
 {
-  "_what": "THE OFFER - one file, every brief's beat 7 reads from it. Change it here, push, and every brief shows the new offer within a minute. No brief file gets touched.",
-  "_why": "Founder, 23 Sep 2026: 'traditionally if I want to change the offer I need to go into every single HTML and apply the changes. Rather, I want the HTMLs wired up to something central.'",
-  "_beat_7_has_THREE_parts": {
-    "1_lead_in": "HERS. Lives in her own brief file, not here. The sentence that walks her persona from beat 6 into the offer - Georgia's is 'if you gave up years ago, you've been going without for no reason'. Written once when the brief is written. An offer change does NOT rewrite it.",
-    "2_urgency": "SHARED, below. Why today rather than later. It lives here and not in the brief because it MOVES WITH THE OFFER - 'they're selling out' is wrong once the offer becomes free shipping.",
-    "3_offer": "SHARED, below. The facts. Never reworded per brief - '$29.95' should not be phrased 34 different ways."
+  "_what_this_is": "Beat 7's two takes, read live by every round-12 brief. Edit this file and all 34 briefs show the new wording - no brief file is touched. The lines already in each brief's HTML are the FALLBACK for when the fetch fails (creator saved the page to her phone, offline, slow host). Keep them in sync: scripts/set_offer.py writes BOTH.",
+  "_updated": "2026-09-29",
+  "_why_two_takes": "Arvin, 29 Sep 2026: creators film beat 7 twice in the same shoot. Take 1 is the live store offer and is usable immediately. Take 2 is the decided-but-not-built offer, and its footage is BANKED until the Kaching tiers are re-pinned to $79 single / $99 two kits. Per batch-review rule 53 the creator is never told this is a split test, and the takes are two labelled blocks - never stacked lines with 'pick one'.",
+
+  "note": {
+    "title": "Film the ending twice",
+    "body": "Everything up to beat 6 is filmed once. For the last beat, do two takes &mdash; same energy, same spot, just the different wording. Stop and restart between them so they are easy to pull apart."
   },
-  "_how_to_change_it": [
-    "Open edit-offer.html in this folder, or edit this file directly.",
-    "Replace offer.json, then: push the offer.",
-    "GitHub Pages rebuilds in about a minute. Every brief is current."
+
+  "shared": {
+    "trial": "Say thousands of girls wear these every day now, and unlike most lash brands, you can trial them for thirty days. If you don&rsquo;t love them, you get your money back.",
+    "scarcity": "Say these have already sold out a few times this year, so if your style is in stock, get it now.",
+    "link": "They&rsquo;re Baybella&rsquo;s, and the link&rsquo;s on this video."
+  },
+
+  "takes": [
+    {
+      "label": "TAKE 1",
+      "status": "LIVE - matches the store today: $69 single, badged 50% off the $138 compare-at.",
+      "lines": [
+        { "ref": "trial", "key_point": true },
+        { "text": "Say they&rsquo;re fifty percent off right now." },
+        { "ref": "scarcity" },
+        { "ref": "link" }
+      ],
+      "action": "Hold the kit up to the camera"
+    },
+    {
+      "label": "TAKE 2",
+      "status": "BANKED - NOT usable until Kaching is re-pinned to $79 single / $99 two kits. Running it before then makes the ad wrong at checkout.",
+      "lines": [
+        { "ref": "trial", "key_point": true },
+        { "text": "Say right now you buy one kit and get a second kit for twenty bucks." },
+        { "text": "Say since a kit holds two sets, the second kit works out at ten bucks a set." },
+        { "ref": "scarcity" },
+        { "ref": "link" }
+      ],
+      "action": "Hold two kits up to the camera"
+    }
   ],
-  "updated": "2026-09-23",
-  "urgency": "",
-  "lines": [
-    "They&rsquo;re Baybella&rsquo;s, and the link&rsquo;s on this video."
-  ],
-  "action": "hold the kit up to camera"
+
+  "_rules": {
+    "set_not_pair": "The unit is SET, matching beat 6's 'most brands give you one set - ours comes with a spare'. Founder, 29 Sept: a set and a pair are the same thing in this product, so 'set' is used throughout and the beat-6 word clash disappears.",
+    "never_headline_the_total": "The $99 total is never spoken. Founder: '$99 ain't cheap... it can't be the headline.' The line shouts the small number; the total belongs at checkout where she has already decided.",
+    "guarantee_stays_and_leads": "Founder, 29 Sept: keep the guarantee AND the offer, guarantee first, and it carries the KEY POINT badge. The category's core doubt is 'is this a scam?', so the trust beat does real work and the offer does not replace it.",
+    "trial_not_try": "'trial them for thirty days', never 'try'. Founder, 29 Sept.",
+    "scarcity_must_stay_true": "'Already sold out a few times this year' is founder-confirmed (29 Sept). It is the GoHaus structure - a past sell-out as evidence, then a conditional ('if your style is in stock'), never a threat. ⛔ If it stops being true, this line comes out: playbook C-3 bans inflated claims because one of them makes her discount everything else, and the store already carries the $138-anchor exposure.",
+    "no_bare_percentage_on_the_new_offer": "Take 1's 'fifty percent off' is the EXISTING live store claim, unchanged - it carries the store's own exposure, not a new one. Take 2 uses dollar figures only. Never invent a percentage off the $138 anchor: nine months of Shopify orders show the highest price ever charged was $72.19, so that anchor has never been a real selling price."
+  }
 }
