@@ -1,0 +1,78 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chrome Ad Prompt</title>
+<style>:root{--bg:#fbf9f7;--ink:#1a1614;--line:#e6ded8;--accent:#b5827a}@media (prefers-color-scheme:dark){:root{--bg:#141110;--ink:#f2ece8;--line:#2f2926;--accent:#d8a49a}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,system-ui,sans-serif;padding:24px 16px}.w{max-width:860px;margin:0 auto}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:12px 18px;font-size:16px;cursor:pointer}
+pre{white-space:pre-wrap;border:1px solid var(--line);border-radius:10px;padding:16px;font:14px/1.5 ui-monospace,monospace}</style></head><body><div class="w">
+<h1>Prompt for Claude in Chrome</h1><p>Press the button, then paste into Claude in Chrome with Ads Manager open.</p>
+<button onclick="navigator.clipboard.writeText(document.getElementById('p').innerText).then(()=>this.textContent='Copied')">Copy the whole prompt</button>
+<pre id="p">You are building ads in Meta Ads Manager for Baybella. Work carefully and exactly. Ask me before anything you&#x27;re unsure of.
+
+THE SOURCE OF TRUTH
+Open this upload sheet and keep it open the whole time:
+https://baybella.github.io/baybella-briefs/upload-sheet-r12-remix-50off.html
+It has one card per video. Every ad name, video ID and every word of ad copy comes from that sheet, copied EXACTLY with its Copy buttons. Never retype, shorten, improve or rewrite anything.
+
+WHICH CARDS
+Only build the 27 REMIX cards. Those are every card whose ad name is NOT v1 for concepts 088-103, plus every card for 104 and 105. In short:
+- 088 YouveGotItAllWrong: v2, v3, v4, v5
+- 089 ThisEntireTime: v2, v3, v4, v5, v6
+- 092 TheOnlyThingThatsEverWorked: v2, v3, v4, v5, v6
+- 101 ThePickiestPersonIKnow: v2, v3, v4, v5
+- 104 RunningLateAgain: v1, v2, v3, v4
+- 105 ITimedIt: v1, v2, v3, v4, v5
+Skip every other card (they are the older Round 12 ads).
+
+AD ACCOUNT
+Baybella - Annie Pineda (act_1798371600552352).
+
+STEP 1 - THE CAMPAIGN
+Create ONE new campaign:
+- Name: ABO Test - R12 Remixes (10 Oct)
+- Objective: Sales
+- Advantage+ campaign budget (campaign budget optimisation): OFF. Budgets go on each ad set.
+
+STEP 2 - SIX AD SETS (one per angle)
+The easiest exact way: in the campaign &quot;ABO Test - Underserved Ads (22 Aug)&quot;, duplicate the ad set &quot;11th Sep&quot; into the new campaign six times, then delete the ads that come with each copy. If duplicating isn&#x27;t possible, copy these settings by hand:
+- Conversion: website, pixel 3747865808779224, event Purchase
+- Location: Australia (people living in or recently in)
+- Age 18-65, all genders
+- Exclude the custom audiences &quot;180Day Purchasers&quot; and &quot;Klaviyo All Purchasers&quot;
+- Advantage+ audience: OFF
+- Attribution: 7-day click
+- Bid strategy: highest volume / lowest cost (no cap)
+Name the six ad sets, each with a daily budget of $50:
+- 088 - Gina - You&#x27;ve Got It All Wrong
+- 089 - Georgia - This Entire Time
+- 092 - Georgia - Made For You
+- 101 - Paige - The Pickiest Person I Know
+- 104 - Carmen - Running Late Again
+- 105 - Alice - I Timed It
+Each ad goes into the ad set with the same 3-digit number as its ad name.
+
+STEP 3 - THE ADS (27 in total)
+For each remix card:
+- Ad name: the card&#x27;s &quot;Copy ad name&quot; text, exactly.
+- Identity: Facebook page &quot;Baybella Lashes&quot;. Instagram: the Baybella account already used by the ads in &quot;ABO Test - Underserved Ads (22 Aug)&quot;.
+- Format: single video. Choose the video from the account&#x27;s media library by the card&#x27;s video ID (the library name matches the ad name).
+- Primary text, Headline, Description: paste each from the card&#x27;s Copy buttons, exactly.
+- Call to action: Shop Now.
+- Website URL: https://baybellabeauty.com.au/products/bella-magnetic-eyelashes7863
+
+STEP 4 - NO META ENHANCEMENTS. NONE. THIS IS NON-NEGOTIABLE.
+On every single ad, turn OFF every creative enhancement and every AI or automatic change Meta offers. We want the video and the text exactly as supplied, with zero alterations. That includes, but is not limited to:
+- Advantage+ creative / standard enhancements (all of them)
+- Music, AI-generated music, or adding music
+- Translation, language changes, auto-dubbing
+- Text improvements, AI-generated or rewritten text, headline or text variations
+- Visual touch-ups, brightness or contrast, video filters, cropping or reframing, aspect-ratio expansion, image animation, 3D
+- AI avatars or generated people, voice-overs
+- Templates, overlays, stickers, frames
+- Adding comments, site links, product extensions, catalog items, info labels, &quot;highlights&quot;
+- Any &quot;Meta suggests&quot; or &quot;Recommended&quot; option
+If a toggle is ON by default, switch it OFF. Check the &quot;Advantage+ creative&quot; panel AND the &quot;Optimise creative for each person&quot; panel, and scroll the whole ad level for anything else. If you find an enhancement you cannot turn off, STOP and tell me what it is before going on.
+
+STEP 5 - LEAVE IT ALL PAUSED, THEN REPORT
+- Do NOT publish anything live. Leave the campaign, ad sets and ads paused (or as unpublished drafts), so I can check them first.
+- When you&#x27;re done, give me a table: ad set name, budget, and every ad name inside it, plus confirmation that every enhancement is off on all 27 ads.
+- If anything on the sheet doesn&#x27;t match what you see in Ads Manager (a missing video, a name mismatch, copy that won&#x27;t paste), stop and tell me. Don&#x27;t guess.
+</pre></div></body></html>
