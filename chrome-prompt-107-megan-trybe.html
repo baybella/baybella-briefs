@@ -1,0 +1,99 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chrome Ad Prompt</title>
+<style>:root{--bg:#fbf9f7;--ink:#1a1614;--line:#e6ded8;--accent:#b5827a}@media (prefers-color-scheme:dark){:root{--bg:#141110;--ink:#f2ece8;--line:#2f2926;--accent:#d8a49a}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,system-ui,sans-serif;padding:24px 16px}.w{max-width:860px;margin:0 auto}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:12px 18px;font-size:16px;cursor:pointer}
+pre{white-space:pre-wrap;border:1px solid var(--line);border-radius:10px;padding:16px;font:14px/1.5 ui-monospace,monospace}</style></head><body><div class="w">
+<h1>Prompt for Claude in Chrome</h1><p>Press the button, then paste into Claude in Chrome with Ads Manager open.</p>
+<button onclick="navigator.clipboard.writeText(document.getElementById('p').innerText).then(()=>this.textContent='Copied')">Copy the whole prompt</button>
+<pre id="p">You are building ads in Meta Ads Manager for Baybella. Ad account: Baybella - Annie Pineda (act_1798371600552352). Business 1210531597223225.
+
+FIRST: SAVE THIS PROMPT
+This prompt is also published at https://baybella.github.io/baybella-briefs/chrome-prompt-107-megan-trybe.html. Before every stop-and-ask decision, re-open it and re-read the rules below. Don&#x27;t work from your memory of it - long runs get compacted and the exact wording is lost.
+
+WHY THIS RUN IS DIFFERENT - THE AD NAMES ARE THE WHOLE POINT
+These 3 ads are a test of whether Trybe (our creator platform) can track ads we build ourselves. Trybe matches an ad to its creator by the end of the ad name: &quot;trybe=b2d94796&quot;. So every ad name must be pasted EXACTLY as it is on the sheet, ending in &quot;_trybe=b2d94796&quot;, with nothing added, removed or changed after it. Do not let Meta auto-name, rename, or append &quot;- Copy&quot; to any of the 3 ads. Check each ad&#x27;s name a second time before publishing.
+
+APPROVAL - GIVEN ONCE, HERE. Do not ask me again mid-run for any of these:
+create the ad set and the 3 ads, add videos, remove and re-add videos where needed, turn every enhancement off, publish the clean ads, then switch on the new ad set.
+
+IGNORE AND PUBLISH - never stop for these:
+1. &quot;WhatsApp number required&quot; (#2446880) once Product browsing is off. It&#x27;s a known false error. Tick &quot;Try to publish items with errors&quot; and publish.
+2. The YELLOW aspect-ratio warning on 4:5 videos.
+3. &quot;Won&#x27;t deliver to Facebook right column&quot;.
+A YELLOW warning is publishable. Only a RED error blocks.
+
+STOP AND ASK ONLY IF: billing is declined, an enhancement won&#x27;t turn off, a RED error that is NOT on the list above is still there after one fix attempt, an ad name won&#x27;t save exactly as written, or something on the sheet doesn&#x27;t match Ads Manager. If a known fix exists, do it yourself.
+
+THE SOURCE OF TRUTH
+Open this upload sheet and keep it open the whole time:
+https://baybella.github.io/baybella-briefs/upload-sheet-107-megan-trybe.html
+Every ad name, video and every word of copy comes from that sheet, pasted with its Copy buttons. Never retype, shorten or rewrite anything.
+
+WHICH CARDS
+Build exactly these 3 ads (all 3 cards on the sheet):
+1. ML_V_v1_r12_107-ByHourEightLongDays_50OFF_trybe=b2d94796  (9:16 video id 2275459906644613, 4:5 video id 1784744596096542)
+2. ML_V_v2_r12_107-ByHourEightLongDays_50OFF_trybe=b2d94796  (9:16 video id 1639408947716739, 4:5 video id 2721615018241530)
+3. ML_V_v3_r12_107-ByHourEightLongDays_50OFF_trybe=b2d94796  (9:16 video id 28613053478354589, 4:5 video id 1598031229005337)
+Same video, three different on-screen hooks. All 3 go in ONE ad set.
+
+DO NOT TOUCH
+Every existing ad set in the campaign stays exactly as it is, on or off: R12 Originals - 10 Oct, R12 Remixes A - 10 Oct, R12 Remixes B - 10 Oct, 089 - Georgia - This Entire Time, 105 - Alice - I Timed It, 106 - Georgia - Made For You, 088 - Gina - You&#x27;ve Got It All Wrong, 104 - Carmen - Running Late Again, 101 - Paige - The Pickiest Person I Know, 11th Sep, ABO S3 - Starved Winners (6 Sep), 4th Sep, ABO S2 - Early Signal - Copy, ABO S2 - Early Signal, ABO S1 - Proven Underfed. Don&#x27;t touch any other campaign.
+
+STEP 0 - BEFORE ANYTHING
+- Open Billing and confirm the payment method isn&#x27;t declined. If it is, stop and tell me.
+- If an Australian tax (ABN/GST) prompt appears at any point, skip it.
+
+STEP 1 - THE CAMPAIGN (do NOT create a new one)
+Use &quot;ABO Test - Underserved Ads (22 Aug)&quot; (ID 120251817541230116). Don&#x27;t change its settings.
+
+STEP 2 - THE AD SET
+Duplicate the ad set &quot;11th Sep&quot; (ID 120252097923650116) inside the same campaign, ONCE, then delete the old ads inside the NEW copy only. Duplicating pre-ticks a &quot;Show products&quot; suggestion: untick it.
+If you can&#x27;t duplicate, build by hand: website conversion, pixel 3747865808779224, Purchase; Australia; 18-65 all genders; exclude &quot;180Day Purchasers&quot; and &quot;Klaviyo All Purchasers&quot;; Advantage+ audience OFF; 7-day click; highest volume, no cap.
+Name the new ad set exactly: 107 - Megan - By Hour Eight Long Days (Trybe test)
+Budget: $50/day.
+
+STEP 3 - EACH AD (one at a time - bulk edit can&#x27;t change media, text or enhancements when ads differ)
+- Before editing, check the breadcrumb shows the right ad name AND the ad set &quot;107 - Megan - By Hour Eight Long Days (Trybe test)&quot;.
+- Ad name: the card&#x27;s ad name, exactly, pasted with the Copy button. It must end in &quot;_trybe=b2d94796&quot;.
+- Identity: Facebook page &quot;Baybella Lashes&quot;. Instagram: choose &quot;Use Facebook Page&quot;. No Instagram account is connected, so don&#x27;t try to pick one.
+- Media - PAIR FIRST, 4:5 ONLY AS THE FALLBACK. If the wizard opens on &quot;Creative setup&quot;, click Next once to reach Media. Add media -&gt; Add video, click the search box, type the ad name. Select the 9:16 original FIRST (the name WITHOUT &quot;_4x5&quot;), then the one ending &quot;_4x5&quot;. Wait about 8 seconds (the &quot;Aspect ratios&quot; box is greyed out while videos process). One click can jump the count by two, so re-check it.
+  - CHECK THE PLACEMENTS: open the placement / aspect-ratio view. Stories and Reels must show the 9:16 video. Feed must show the 4:5. If they&#x27;re the wrong way round, reassign them by hand. (On 10-11 Oct the pair failed on 23 of 23 ads with &quot;Story media aspect ratio has to be smaller than or equal to 9:16&quot;. That error means Meta put the 4:5 into Stories.)
+  - FALLBACK, no need to ask me: if that aspect-ratio error is still RED after the placements are right, remove the 9:16 and keep the &quot;_4x5&quot; only. Check &quot;Aspect ratios&quot; reads &quot;(1 included)&quot;. Note the ad name for the end report.
+- FIRST AD OF THE RUN: after its media is set, tell me in one line whether the pair held. That one line is the test; don&#x27;t stop for an answer, carry on.
+- Primary text, Headline, Description: paste from the card&#x27;s Copy buttons. (All 3 cards carry the same copy.)
+- Call to action: Shop Now. Website URL: https://baybellabeauty.com.au/ (the homepage, never a product page).
+
+STEP 4 - TURN OFF EVERYTHING META SWITCHES ON. Redo this after ANY media change, including a fix. These come back every time:
+- Creative setup: Website summaries (untick Product descriptions AND Selling points), Website highlights, Site links, Promotions, Products. Must read 0/4 or 0/5.
+- Format display options: under Carousel AND under Collection, untick &quot;Show products&quot;. Only Single media stays on.
+- Personalized destinations -&gt; Product browsing: OFF. If the toggle is locked: Show products -&gt; Shopify Product Catalog -&gt; Save, then switch Product browsing off.
+- Advantage+ enhancements, essential enhancements, AI images, translation, music, text variations, touch-ups, subtitles: 0 selected.
+- &quot;Review defaults&quot; must show no settings on by default.
+
+STEP 5 - CLOSING THE EDITOR (an ad went live by accident here last time)
+- Closing the editor pops up &quot;Publish draft items?&quot;. Always click Close on it.
+- Never use &quot;Preview to publish&quot; - it publishes the open ad.
+- Only ever publish from the main &quot;Review and publish (N)&quot; button, in Step 7.
+
+STEP 6 - CHECK EVERY AD BEFORE PUBLISHING
+- Filter the ads table by the ad set &quot;107 - Megan - By Hour Eight Long Days (Trybe test)&quot;. The table, the ad tree and the Review dialog only load what&#x27;s on screen, so scroll them in steps. Pick ads by scrolling the tree, not its search box.
+- Each ad&#x27;s NAME (ending &quot;_trybe=b2d94796&quot;), primary text, headline and description must match its card on the sheet.
+- Hover over any error to read it (clicking only opens the editor). Fix anything RED that isn&#x27;t on the ignore list.
+
+STEP 7 - PUBLISH ONLY THE CLEAN ADS
+- &quot;Review and publish&quot; publishes EVERY ticked draft. Untick anything with a RED error not on the ignore list, and anything not in this run. Scroll the dialog in steps, take a screenshot of the ticks, and check it before you click Publish.
+- If Publish is greyed out only because of ignore-list items, tick &quot;Try to publish items with errors&quot;.
+- After publishing, a pop-up offers to raise budgets. Click Cancel.
+
+STEP 8 - SWITCH ON
+Switch on the ad set &quot;107 - Megan - By Hour Eight Long Days (Trybe test)&quot; and confirm the toggle took. It starts spending $50/day. Don&#x27;t switch on anything else.
+
+HOW TO WORK
+- Keep each batch to 5-8 actions - long batches and long scripts time out.
+- If navigating fails, set location.href with JavaScript instead.
+- Page reloads wipe helper scripts - re-define them after each reload.
+
+HOW TO TALK TO ME
+- 1-3 lines per reply: what&#x27;s done, what&#x27;s blocked. At most one yes/no question.
+- Don&#x27;t stop for anything this prompt already answers.
+- At the end: a table of ad set, budget, on/off, every ad name inside it (copied from Ads Manager, so I can see the trybe= tail survived), plus &quot;enhancements off on all 3&quot;, plus which ads kept the 9:16 + 4:5 pair and which fell back to 4:5 only.</pre></div></body></html>
