@@ -1,0 +1,117 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chrome Ad Prompt</title>
+<style>:root{--bg:#fbf9f7;--ink:#1a1614;--line:#e6ded8;--accent:#b5827a}@media (prefers-color-scheme:dark){:root{--bg:#141110;--ink:#f2ece8;--line:#2f2926;--accent:#d8a49a}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,system-ui,sans-serif;padding:24px 16px}.w{max-width:860px;margin:0 auto}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:12px 18px;font-size:16px;cursor:pointer}
+pre{white-space:pre-wrap;border:1px solid var(--line);border-radius:10px;padding:16px;font:14px/1.5 ui-monospace,monospace}</style></head><body><div class="w">
+<h1>Prompt for Claude in Chrome</h1><p>Round 12 originals + reorganise into 3 ad sets. Press the button, then paste into Claude in Chrome with Ads Manager open.</p>
+<button onclick="navigator.clipboard.writeText(document.getElementById('p').innerText).then(()=>this.textContent='Copied')">Copy the whole prompt</button>
+<pre id="p">You are building ads in Meta Ads Manager for Baybella. Ad account: Baybella - Annie Pineda (act_1798371600552352). Business 1210531597223225.
+
+WHAT THIS RUN DOES
+1. Creates 3 new ad sets at $50/day each.
+2. Builds 16 NEW ads (the Round 12 full videos) into the first one.
+3. Duplicates 22 EXISTING remix ads into the other two.
+4. Publishes only clean ads, then switches the 3 new ad sets on.
+
+APPROVAL - GIVEN ONCE, HERE. Do not ask me again mid-run for any of these:
+create the 3 ad sets, create the 16 ads, duplicate the 22 ads, add videos, remove and re-add videos where needed, turn every enhancement off, publish the clean ads, switch on the 3 new ad sets one at a time.
+Stop and ask ONLY if: billing is declined, an enhancement won&#x27;t turn off, an ad still shows an error after one fix attempt, or something on the sheet doesn&#x27;t match Ads Manager.
+
+DO NOT TOUCH - EVER, IN THIS RUN
+- Ad set &quot;106 - Georgia - Made For You&quot;. It is LIVE and has made a sale. Don&#x27;t edit it, pause it, duplicate it, or change its ads or budget.
+- The 5 PAUSED ad sets &quot;088 - Gina - You&#x27;ve Got It All Wrong&quot;, &quot;089 - Georgia - This Entire Time&quot;, &quot;101 - Paige - The Pickiest Person I Know&quot;, &quot;104 - Carmen - Running Late Again&quot;, &quot;105 - Alice - I Timed It&quot;. You will DUPLICATE ads out of them (Part B), but leave them and their ads exactly as they are: paused.
+- The older paused ad sets: 11th Sep, ABO S3 - Starved Winners (6 Sep), 4th Sep, ABO S2 - Early Signal, ABO S2 - Early Signal - Copy, ABO S1 - Proven Underfed.
+- The campaign&#x27;s own settings.
+
+THE SOURCE OF TRUTH (for Part A)
+Open this upload sheet and keep it open the whole time:
+https://baybella.github.io/baybella-briefs/upload-sheet-r12-originals.html
+16 cards. Every ad name, video and every word of copy for the 16 new ads comes from that sheet, pasted with its Copy buttons. Never retype, shorten or rewrite anything. Each card&#x27;s grey line shows its 4:5 video name and ID.
+
+STEP 0 - BEFORE ANYTHING
+- Open Billing and confirm the payment method isn&#x27;t declined. If it is, stop and tell me.
+- If an Australian tax (ABN/GST) prompt appears at any point, skip it.
+
+STEP 1 - THE CAMPAIGN (do NOT create a new one)
+Use &quot;ABO Test - Underserved Ads (22 Aug)&quot; (campaign ID 120251817541230116).
+
+STEP 2 - THREE NEW AD SETS
+Duplicate the ad set &quot;11th Sep&quot; inside the same campaign 3 times, then delete the old ads inside each NEW copy only (never in &quot;11th Sep&quot; itself). Duplicating pre-ticks a &quot;Show products&quot; suggestion: untick it.
+If you can&#x27;t duplicate, build by hand: website conversion, pixel 3747865808779224, Purchase; Australia; 18-65 all genders; exclude &quot;180Day Purchasers&quot; and &quot;Klaviyo All Purchasers&quot;; Advantage+ audience OFF; 7-day click; highest volume, no cap.
+Name them, each $50/day:
+- R12 Originals - 10 Oct
+- R12 Remixes A - 10 Oct
+- R12 Remixes B - 10 Oct
+
+PART A - 16 NEW ADS into &quot;R12 Originals - 10 Oct&quot; (one at a time - bulk edit can&#x27;t change media, text or enhancements when ads differ)
+The 16 ads are every card on the sheet: ML_V_v1_r12_088 through ML_V_v1_r12_103.
+For each card:
+- Ad name: the card&#x27;s ad name, exactly.
+- Identity: Facebook page &quot;Baybella Lashes&quot;. Instagram: choose &quot;Use Facebook Page&quot;. No Instagram account is connected, so don&#x27;t try to pick one.
+- Media: Add media -&gt; Add video. Search the ad name. Select the 9:16 original FIRST (the name with no &quot;_4x5&quot;), then the &quot;_4x5&quot; version. They should pair as ONE item with a &quot;2&quot; badge. Open &quot;Aspect ratios&quot; and confirm Portrait = 4:5 and Vertical = 9:16. If the &quot;2&quot; badge is missing, go back, search again and reselect. Don&#x27;t use &quot;Customize media&quot; to crop - it often doesn&#x27;t appear.
+- Primary text, Headline, Description: paste from the card&#x27;s Copy buttons.
+- Call to action: Shop Now. Website URL: https://baybellabeauty.com.au/ (the homepage, never a product page).
+- Then do STEP 4 on the ad.
+
+PART B - DUPLICATE 22 EXISTING ADS
+Meta can&#x27;t move an ad, so duplicate each one into its new ad set (Duplicate -&gt; choose &quot;Existing ad set&quot;).
+Into &quot;R12 Remixes A - 10 Oct&quot; (9 ads), from the paused 088 and 089 ad sets:
+- ML_V_v2_r12_088-YouveGotItAllWrong_50OFF
+- ML_V_v3_r12_088-YouveGotItAllWrong_50OFF
+- ML_V_v4_r12_088-YouveGotItAllWrong_50OFF
+- ML_V_v5_r12_088-YouveGotItAllWrong_50OFF
+- ML_V_v2_r12_089-ThisEntireTime_50OFF
+- ML_V_v3_r12_089-ThisEntireTime_50OFF
+- ML_V_v4_r12_089-ThisEntireTime_50OFF
+- ML_V_v5_r12_089-ThisEntireTime_50OFF
+- ML_V_v6_r12_089-ThisEntireTime_50OFF
+Into &quot;R12 Remixes B - 10 Oct&quot; (13 ads), from the paused 101, 104 and 105 ad sets:
+- ML_V_v2_r12_101-ThePickiestPersonIKnow_50OFF
+- ML_V_v3_r12_101-ThePickiestPersonIKnow_50OFF
+- ML_V_v4_r12_101-ThePickiestPersonIKnow_50OFF
+- ML_V_v5_r12_101-ThePickiestPersonIKnow_50OFF
+- ML_V_v1_r12_104-RunningLateAgain_50OFF
+- ML_V_v2_r12_104-RunningLateAgain_50OFF
+- ML_V_v3_r12_104-RunningLateAgain_50OFF
+- ML_V_v4_r12_104-RunningLateAgain_50OFF
+- ML_V_v1_r12_105-ITimedIt_50OFF
+- ML_V_v2_r12_105-ITimedIt_50OFF
+- ML_V_v3_r12_105-ITimedIt_50OFF
+- ML_V_v4_r12_105-ITimedIt_50OFF
+- ML_V_v5_r12_105-ITimedIt_50OFF
+For every duplicate:
+- Remove &quot; - Copy&quot; (or any suffix Meta adds) so the name is exactly the original name above.
+- Keep the video, primary text, headline, description and link exactly as they came over. Check the link is https://baybellabeauty.com.au/.
+- Check the media still shows Portrait 4:5 and Vertical 9:16 under &quot;Aspect ratios&quot;. If the 4:5 is missing, add the &quot;_4x5&quot; video with the same name from the library if one exists; if none exists, tell me which ad.
+- Untick any pre-ticked &quot;Show products&quot; suggestion, then do STEP 4 on the ad.
+
+STEP 4 - TURN OFF EVERYTHING META SWITCHES ON (on every new and duplicated ad). These come back EVERY time media is added, so do this AFTER the media is in:
+- Creative setup: Website summaries (untick Product descriptions AND Selling points), Website highlights, Site links, Promotions, Products. Must read 0/4 or 0/5.
+- Format display options: under Carousel AND under Collection, untick &quot;Show products&quot;. Only Single media stays on.
+- Personalized destinations -&gt; Product browsing: OFF. (Left on, it throws a false &quot;WhatsApp number required&quot; error.) If the toggle is locked: Show products -&gt; Shopify Product Catalog -&gt; Save, then switch Product browsing off.
+- Advantage+ enhancements, essential enhancements, AI images, translation, music, text variations, touch-ups: 0 selected.
+- &quot;Review defaults&quot; must show no settings on by default.
+If any enhancement won&#x27;t turn off, stop and tell me.
+
+STEP 5 - CHECK EVERY AD BEFORE PUBLISHING
+- Filter the ads table by ad set (it only shows about 9 rows) so every ad is visible. Expect 16 in Originals, 9 in Remixes A, 13 in Remixes B = 38.
+- Part A ads: primary text, headline and description match their card on the sheet.
+- The only acceptable warning is &quot;won&#x27;t deliver to Facebook right column&quot;. Any &quot;Fix error&quot;: hover over it to read the message (clicking only opens the editor), fix it, and recheck.
+
+STEP 6 - PUBLISH ONLY THE CLEAN ADS
+- &quot;Review and publish&quot; publishes EVERY ticked draft. Untick any ad still showing &quot;Fix error&quot;, and anything that isn&#x27;t one of the 38 ads above. Take a screenshot of the ticks and check it before you click Publish.
+- After publishing, a pop-up offers to raise budgets. Click Cancel.
+
+STEP 7 - SWITCH ON
+Switch on ONLY the 3 new ad sets, one at a time, and confirm each toggle took: R12 Originals - 10 Oct, R12 Remixes A - 10 Oct, R12 Remixes B - 10 Oct. Each one starts spending $50/day. Leave the 5 paused ad sets paused and leave 106 exactly as it is.
+
+HOW TO WORK
+- Keep each batch of actions short - long ones time out.
+- If navigating fails, set location.href with JavaScript instead.
+- Page reloads wipe helper scripts - re-define them after each reload.
+
+HOW TO TALK TO ME
+- Short, plain replies: what&#x27;s done, what&#x27;s blocked, one clear question.
+- A progress line every few ads, e.g. &quot;5 of 38 done&quot;.
+- At the end, a table: ad set, budget, on/off, every ad name inside it. Plus &quot;enhancements off on all 38&quot;, &quot;4:5 + 9:16 paired on all 38&quot;, and &quot;106 untouched, 5 old ad sets still paused&quot;.
+</pre></div></body></html>
