@@ -431,6 +431,19 @@ html,body{overflow-x:hidden}
 .ic-free{font-size:15.5px;line-height:1.55;margin:12px auto 0;max-width:600px;color:var(--muted,#4C1D7E)}
 .ic-banner{margin:16px auto 18px;max-width:600px;background:#3B0764;color:#fff;border-radius:12px;padding:11px 16px;font-weight:700;font-size:16px}
 @media(max-width:560px){.ic-strip{grid-template-columns:1fr}.ic-strip div+div{border-left:0;border-top:1.5px solid #F3D3E3}}
+.msg-q{max-width:600px;margin:0 auto 22px;background:#FFFBEF;border:1.5px dashed #F3A6C8;border-radius:14px;padding:12px 16px;text-align:center;box-shadow:0 3px 0 rgba(190,24,93,.06)}
+.msg-q h3{margin:0 0 8px;font:italic 500 17px/1.35 'Fraunces',Georgia,serif;color:var(--muted,#4C1D7E)}
+.msg-btns{display:flex;gap:8px;justify-content:center}
+.msg-btns button{font:700 13.5px Manrope,sans-serif;border-radius:100px;padding:6px 20px;cursor:pointer;border:1.5px solid #F3A6C8;background:#fff;color:#BE185D}
+.msg-btns button.on{background:#EC4899;border-color:#EC4899;color:#fff}
+.msg-ans{display:none;margin-top:12px;text-align:left}
+.msg-ans.show{display:block}
+.msg-ans p{margin:0 0 8px;font-size:14.5px;line-height:1.5;color:var(--muted,#4C1D7E)}
+.msg-step{margin:10px 0 0}
+.msg-step b{display:block;font-size:14.5px;margin-bottom:6px}
+.msg-step b span{display:inline-flex;width:22px;height:22px;border-radius:50%;background:#EC4899;color:#fff;font-size:12px;align-items:center;justify-content:center;margin-right:6px}
+.msg-step img{width:100%;border-radius:10px;border:1px solid #E9D5EF;display:block}
+.msg-yes{text-align:center !important}
 </style>
 </head>
 <body><div class="wrap">
@@ -439,6 +452,25 @@ html,body{overflow-x:hidden}
 <section class="band band-1" style="--next:#F1E9FB"><h1 class="top-h">Creator Playbook</h1>
 <p class="lede top-l">The proven process behind our highest-performing creator ads.</p>
 <p class="bmk"><span>🔖 <b>Bookmark this page.</b> You'll come back to it every round.</span></p>
+<div class="msg-q" id="msgq">
+<h3>💬 Have you seen our message on Trybe?</h3>
+<div class="msg-btns"><button type="button" data-a="yes">Yes</button><button type="button" data-a="no">No</button></div>
+<div class="msg-ans msg-yes" id="msgYes"><p>Great. That chat is where we'll keep in touch, and where you can message us any time.</p></div>
+<div class="msg-ans" id="msgNo">
+<p>No stress, it's easy to miss. Here's where to find it:</p>
+<div class="msg-step"><b><span>1</span>Open our brand page in Trybe and tap the three dots, top right</b><img src="kit-media/trybe-chat-step1.jpg" alt="The three dots button at the top right of the Baybella brand page in Trybe" loading="lazy"></div>
+<div class="msg-step"><b><span>2</span>Tap "Chat with Brand"</b><img src="kit-media/trybe-chat-step2.jpg" alt="The Chat with Brand option in the Trybe menu" loading="lazy"></div>
+<p style="margin-top:12px">That's where our message is waiting, and where you can message us any time.</p>
+</div>
+</div>
+<script>
+document.querySelectorAll('#msgq .msg-btns button').forEach(function(b){b.addEventListener('click',function(){
+var yes=b.dataset.a==='yes';
+document.querySelectorAll('#msgq .msg-btns button').forEach(function(x){x.classList.toggle('on',x===b)});
+document.getElementById('msgYes').classList.toggle('show',yes);
+document.getElementById('msgNo').classList.toggle('show',!yes);
+})});
+</script>
 <div class="card intro-card">
 <p class="ic-eyebrow">Welcome to the</p>
 <h2 class="ic-h">Baybella Creator Program</h2>
