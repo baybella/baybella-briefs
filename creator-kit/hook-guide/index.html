@@ -160,11 +160,43 @@ figcaption{margin-top:6px;font-size:13px;color:var(--ink-faint)}
 .bstep q{display:block;font-style:italic;font-weight:600;margin:4px 0 2px;color:#2A0844}.bstep q::before{content:"“"}.bstep q::after{content:"”"}
 .bstep small{display:block;color:#4C1D7E;font-size:14px}
 .bdone{background:#FFF0F7;border:1.5px solid #EC4899;border-radius:12px;padding:10px 12px;font-size:15.5px}
+.sub{display:flex;align-items:center;gap:10px;margin:22px 0 8px;padding-top:16px;border-top:1px dashed #E9D5EF}
+.sub:first-of-type{margin-top:4px;padding-top:0;border-top:0}
+.sub-l{flex:none;width:28px;height:28px;border-radius:8px;background:#EC4899;color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
+.sub-h{margin:0;font:600 21px/1.2 'Fraunces',Georgia,serif;color:#3B0764}
+.four{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0 4px}
+.four div{background:#fff;border:1px solid #E9D5EF;border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.four span{font-size:20px}.four b{font-size:15.5px}.four small{font-size:13.5px;color:#4C1D7E;line-height:1.35}
+.ladder{display:grid;gap:0;margin:6px 0 10px;border-left:3px solid #FBC4DC;padding-left:14px}
+.lstep{position:relative;padding:8px 0 10px}
+.lstep::before{content:"";position:absolute;left:-21px;top:13px;width:11px;height:11px;border-radius:50%;background:#EC4899;border:2px solid #fff}
+.ltag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#BE185D;background:#FFF0F7;border-radius:100px;padding:2px 10px}
+.lstep q{display:block;font-weight:600;font-size:16px;margin:5px 0 2px;color:#2A0844;quotes:"“" "”"}
+.lstep q mark{background:#FBC4DC;color:#2A0844;border-radius:4px;padding:0 3px}
+.lstep small{display:block;font-size:13.5px;color:#8B7AAB}
+.hw-note{background:#F3EBFA;border-radius:12px;padding:9px 12px;font-size:14.5px;margin:10px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px}
+.chips span{background:#fff;border:1px solid #E9D5EF;border-radius:100px;padding:5px 12px;font-size:13.5px}
+.hcard{background:#fff;border:1.5px solid #E9D5EF;border-radius:14px;padding:10px 12px}
+.htop{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.hnum{width:26px;height:26px;border-radius:50%;background:#EDE9FE;color:#6B21A8;font-weight:800;font-size:13px;display:grid;place-items:center}
+.hw .hstar{display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:#4C1D7E;cursor:pointer;border:1px solid #E9D5EF;border-radius:100px;padding:3px 10px}
+.hw .hstar input{accent-color:#EC4899}
+.hcard:has(input:checked){border-color:#EC4899;background:#FFF7FB}
+.hcard textarea{width:100%;border:0;background:transparent;padding:2px 0;font:inherit;font-size:16px;resize:vertical;outline:none}
+@media(max-width:560px){.four{grid-template-columns:1fr}}
+.sharpen{background:#fff;border:1.5px solid #E9D5EF;border-radius:14px;padding:12px 14px;margin:12px 0}
+.sh-h{margin:0 0 8px;font-weight:800;color:#BE185D}
+.sharpen label{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid #F3EBFA;cursor:pointer;font-size:15px;line-height:1.4}
+.sharpen label:first-of-type{border-top:0}
+.sharpen input{width:18px;height:18px;accent-color:#EC4899;flex:none;margin-top:2px}
+.sh-e{font-size:18px;line-height:1.2}
+.sharpen label:has(input:checked) span:last-child{color:#8B7AAB;text-decoration:line-through}
 </style>
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="../index.html#hooks">← Back to the cheat sheet</a>
+<a class="back" href="../index.html#hooks">← Back to the playbook</a>
 <span class="eyebrow">Baybella x Creators</span>
 <h1>Hook guide</h1>
 <p class="lede">You already know your first three seconds make or break a video. For our product, how it looks matters just as much as what you say.</p>
@@ -212,34 +244,38 @@ figcaption{margin-top:6px;font-size:13px;color:var(--ink-faint)}
 <section class="band" id="s6">
 <div class="band-h"><span>4</span><h2>Write your hooks</h2></div>
 <div class="rule">
-<p class="hw-h">What a great hook has</p>
-<p class="hw-lead">Based on our ad performance data, our best-performing hooks generally contain these four things:</p>
-<div class="rows">
-<div class="row"><b>1. Simple</b><small>Easy to follow the first time you hear it. No explaining needed.</small></div>
-<div class="row"><b>2. Attention-grabbing</b><small>Something she doesn't expect to hear: a bold opinion, a confession, or a problem she knows too well.</small></div>
-<div class="row"><b>3. A loop</b><small>Tease what's coming, then hold back the why.</small></div>
-<div class="row"><b>4. Hopeful</b><small>She should feel this might finally be the one.</small></div>
+<div class="sub"><span class="sub-l">A</span><h3 class="sub-h">What a great hook has</h3></div>
+<p class="hw-lead">Our best-performing hooks usually have all four:</p>
+<div class="four">
+<div><span>🧩</span><b>Simple</b><small>Easy to follow first time. No explaining.</small></div>
+<div><span>👀</span><b>Attention-grabbing</b><small>A bold opinion, a confession, or a problem she knows too well.</small></div>
+<div><span>🔁</span><b>A loop</b><small>Tease what's coming. Hold back the why.</small></div>
+<div><span>✨</span><b>Hopeful</b><small>She feels this might finally be the one.</small></div>
 </div>
-<p class="hw-h">Watch a hook come together</p>
-<div class="build">
-<div class="bstep"><span class="bn">1</span><div><b>Simple.</b> Start with the plain point.<q>Magnetic lashes are easy to put on.</q><small>Clear, but she scrolls straight past it.</small></div></div>
-<div class="bstep"><span class="bn">2</span><div><b>+ Attention-grabbing.</b> Make it a bold opinion.<q>The hill I will die on: magnetic lashes are easy.</q><small>Now it sounds like a take, not an ad.</small></div></div>
-<div class="bstep"><span class="bn">3</span><div><b>+ A loop.</b> Tease the why, don't explain it.<q>The hill I will die on is that if you can use a lash curler, you can do magnetic lashes…</q><small>She wants to know what a lash curler has to do with it.</small></div></div>
-<div class="bstep"><span class="bn">4</span><div><b>+ Hopeful.</b> Make her feel she can do it.<small>That's already there: "you can do magnetic lashes" tells her this one is for her.</small></div></div>
-<div class="bdone">✅ <b>The finished hook:</b> "The hill I will die on is that if you can use a lash curler, you can do magnetic lashes…"</div>
+
+<div class="sub"><span class="sub-l">B</span><h3 class="sub-h">Watch a hook come together</h3></div>
+<div class="ladder">
+<div class="lstep"><span class="ltag">🧩 Simple</span><q>Magnetic lashes are easy to put on.</q><small>Clear, but she scrolls past.</small></div>
+<div class="lstep"><span class="ltag">+ 👀 Attention</span><q><mark>The hill I will die on:</mark> magnetic lashes are easy.</q><small>Now it's a take, not an ad.</small></div>
+<div class="lstep"><span class="ltag">+ 🔁 Loop</span><q>The hill I will die on is that <mark>if you can use a lash curler,</mark> you can do magnetic lashes…</q><small>What's a lash curler got to do with it?</small></div>
+<div class="lstep"><span class="ltag">+ ✨ Hope</span><q>The hill I will die on is that if you can use a lash curler, <mark>you can do magnetic lashes</mark>…</q><small>"You can do it" tells her this one is for her.</small></div>
 </div>
-<p>Your on-screen text is a different job from what you say. See <a href="../editing-guide/index.html#s2" target="_blank" rel="noopener">the editing guide</a>.</p>
-<h3>Write three different hooks, then pick your best one to film.</h3>
-<p class="hw-h">Quick check on each one</p>
-<div class="hw-rows">
-<div><span>✂️</span><b>Short?</b><small>Could you cut a word?</small></div>
-<div><span>💬</span><b>Sounds like you?</b><small>Would you say it to a friend?</small></div>
-<div><span>👀</span><b>Shows something?</b><small>Can they see it with the sound off?</small></div>
-</div>
+<div class="bdone">✅ <b>Finished hook:</b> "The hill I will die on is that if you can use a lash curler, you can do magnetic lashes…"</div>
+<p class="hw-note">💡 Your on-screen text is a separate job from what you say. See <a href="../editing-guide/index.html#s2" target="_blank" rel="noopener">the editing guide</a>.</p>
+
+<div class="sub"><span class="sub-l">C</span><h3 class="sub-h">Write yours</h3></div>
+<p class="hw-lead">Write three different hooks, then pick your best one to film.</p>
 <div class="hw">
-<label>Hook 1<textarea class="hw-in" data-i="0" rows="2" placeholder="Write hook 1 in your own words..."></textarea><span class="hw-pick"><input type="radio" name="hwbest" value="0"> ⭐ This is my best one</span></label>
-<label>Hook 2<textarea class="hw-in" data-i="1" rows="2" placeholder="Write hook 2 in your own words..."></textarea><span class="hw-pick"><input type="radio" name="hwbest" value="1"> ⭐ This is my best one</span></label>
-<label>Hook 3<textarea class="hw-in" data-i="2" rows="2" placeholder="Write hook 3 in your own words..."></textarea><span class="hw-pick"><input type="radio" name="hwbest" value="2"> ⭐ This is my best one</span></label>
+<div class="hcard"><div class="htop"><span class="hnum">1</span><label class="hstar"><input type="radio" name="hwbest" value="0"> ⭐ My best</label></div><textarea class="hw-in" data-i="0" rows="2" placeholder="Write hook 1 in your own words..."></textarea></div>
+<div class="hcard"><div class="htop"><span class="hnum">2</span><label class="hstar"><input type="radio" name="hwbest" value="1"> ⭐ My best</label></div><textarea class="hw-in" data-i="1" rows="2" placeholder="Write hook 2 in your own words..."></textarea></div>
+<div class="hcard"><div class="htop"><span class="hnum">3</span><label class="hstar"><input type="radio" name="hwbest" value="2"> ⭐ My best</label></div><textarea class="hw-in" data-i="2" rows="2" placeholder="Write hook 3 in your own words..."></textarea></div>
+</div>
+<div class="sharpen">
+<p class="sh-h">Before you pick your best, ask yourself:</p>
+<label><input type="checkbox"><span class="sh-e">✂️</span><span><b>Machete.</b> Can I cut a sentence, a word, even a syllable?</span></label>
+<label><input type="checkbox"><span class="sh-e">👁️</span><span><b>Visual verbs.</b> Can you see or feel my verbs? "Melted", "peeled", not "fix" or "get".</span></label>
+<label><input type="checkbox"><span class="sh-e">🕶️</span><span><b>3D glasses.</b> Can you see the exact moment she feels it, not just the benefit?</span></label>
+<label><input type="checkbox"><span class="sh-e">😅</span><span><b>Personality.</b> Does it sound like a person? A bit imperfect, a bit funny.</span></label>
 </div>
 <button class="hw-copy" type="button">📋 Copy my best hook</button> <span class="hw-ok" hidden>Copied. Paste it into the Script Maker.</span>
 <p class="hw-save">Saved on this device as you type.</p>
