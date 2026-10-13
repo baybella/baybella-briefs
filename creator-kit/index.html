@@ -410,6 +410,14 @@ html,body{overflow-x:hidden}
 .fw-card{text-align:center;background:linear-gradient(135deg,#FFF0F7,#F3EBFA) !important;border:2px solid var(--pink,#EC4899) !important}.fw-h{font:500 24px/1.25 'Fraunces',Georgia,serif;color:var(--purple-deep,#3B0764);margin:2px 0 8px}.fw-b{max-width:680px;margin:0 auto;font-size:16.5px;line-height:1.55}
 .ic-fw{max-width:680px;margin:0 auto 16px;font-size:16.5px;line-height:1.55;font-weight:600;background:#FFF0F7;border-radius:12px;padding:10px 16px;color:var(--ink)}
 .ic-mk{background:linear-gradient(transparent 55%,#F9A8C9 55%);color:inherit;padding:0 2px;font-weight:700}
+.ic-built{font-size:14px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-deep,#BE185D);margin:6px 0 10px}
+.ic-strip{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1.5px solid #F3D3E3;border-radius:16px;overflow:hidden}
+.ic-strip div{padding:14px 8px}.ic-strip div+div{border-left:1.5px solid #F3D3E3}
+.ic-strip b{display:block;font:600 24px/1.1 'Fraunces',Georgia,serif;color:var(--purple-deep,#3B0764)}
+.ic-strip small{display:block;font-size:14.5px;font-weight:600;color:var(--muted,#4C1D7E);margin-top:5px}
+.ic-free{font-size:15.5px;line-height:1.55;margin:12px auto 0;max-width:600px;color:var(--muted,#4C1D7E)}
+.ic-banner{margin:16px auto 18px;max-width:600px;background:#3B0764;color:#fff;border-radius:12px;padding:11px 16px;font-weight:700;font-size:16px}
+@media(max-width:560px){.ic-strip{grid-template-columns:1fr}.ic-strip div+div{border-left:0;border-top:1.5px solid #F3D3E3}}
 </style>
 </head>
 <body><div class="wrap">
@@ -421,8 +429,11 @@ html,body{overflow-x:hidden}
 <div class="card intro-card">
 <p class="ic-eyebrow">Welcome to the</p>
 <h2 class="ic-h">Baybella Creator Program</h2>
-<p class="ic-lede">This is your official guide to creating high-performing ads with us. <mark class="ic-mk">Everything you need to craft your first winning ad is here</mark>, laid out step by step from angles and hooks to scripting and editing. <mark class="ic-mk">All you need to do is follow the process.</mark></p>
-<p class="ic-fw">The frameworks combine proven industry principles, so they work for any brand. The angles and examples come from our own ad data. <mark class="ic-mk">Master them and you'll create high-performing content for any brand.</mark></p>
+<p class="ic-lede">This is your official guide to creating high-performing ads with us. Everything you need is here, laid out step by step from angles and hooks to scripting and editing. <mark class="ic-mk">All you need to do is follow the process.</mark></p>
+<p class="ic-built">Built from</p>
+<div class="ic-strip"><div><b>Almost $2M</b><small>AUD of our own ad spend</small></div><div><b>Proven</b><small>industry principles</small></div><div><b>Years</b><small>of trial and error</small></div></div>
+<p class="ic-free">Access to resources like this is usually something you'd have to pay for, or spend years learning the hard way. We've organised it all into one playbook for you, for free, because we understand the value of investing in you as our creator.</p>
+<p class="ic-banner">Master it and you'll create high-performing content for any brand.</p>
 <p class="ic-how">How to use it</p>
 <div class="ic-steps">
 <div><span class="ic-n">📖</span><b>Read it in full</b><small>before your first round</small></div>
