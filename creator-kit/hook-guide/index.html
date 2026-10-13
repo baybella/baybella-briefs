@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Baybella Hook Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg-pink:#FCE9F1;--pink:#EC4899;--pink-deep:#BE185D;--pink-light:#FBC4DC;--purple-deep:#3B0764;--purple:#6B21A8;--purple-pale:#EDE9FE;--ink:#2A0844;--ink-soft:#4C1D7E;--ink-faint:#8B7AAB;--cream:#FFFAF5;--line:#E9D5EF}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-pink);color:var(--ink);font:17px/1.55 'Manrope',-apple-system,Helvetica,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 16px 70px}
+.back{font-weight:700;font-size:15px;color:var(--pink-deep);text-decoration:none}
+.eyebrow{display:block;margin:22px 0 6px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-deep)}
+h1{font:500 42px/1.1 'Fraunces',Georgia,serif;color:var(--purple-deep);margin:0 0 10px}
+.lede{font:400 20px/1.45 'Fraunces',Georgia,serif;color:var(--ink-soft);margin:0 0 30px}
+.band{background:var(--cream);border:1px solid var(--line);border-radius:22px;padding:24px 22px;margin:0 0 18px}
+.band-h{display:flex;align-items:center;gap:12px;margin:0 0 14px}
+.band-h span{flex:none;width:34px;height:34px;border-radius:50%;background:var(--purple-pale);color:var(--purple);font-weight:800;display:grid;place-items:center}
+.band-h h2{font:500 26px/1.2 'Fraunces',Georgia,serif;color:var(--purple-deep);margin:0}
+.rule{border-top:1px solid var(--line);padding:16px 0 4px}
+.rule:first-of-type{border-top:0;padding-top:0}
+.rule h3{margin:0 0 4px;font-size:19px;font-weight:800;color:var(--ink)}
+.rule p{margin:0 0 12px;color:var(--ink-soft)}
+.clips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:4px 0 6px}
+.clips.one{grid-template-columns:minmax(0,1fr);max-width:calc(50% - 6px)}
+figure{margin:0}
+video,figure img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px;background:#000;display:block}
+figcaption{margin-top:6px;font-size:13px;color:var(--ink-faint)}
+.good{display:inline-block;background:#E7F6EC;color:#1F7A44;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:100px;margin-right:6px}
+.note{background:var(--purple-pale);border-radius:14px;padding:12px 14px;margin:8px 0 6px;font-size:15px;color:var(--ink-soft)}
+.raw{border:2px solid var(--pink);background:#FFF0F7}
+.raw p{margin:0 0 8px}
+.check{list-style:none;padding:0;margin:0}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line)}
+.check li:first-child{border-top:0}
+.check li::before{content:'';flex:none;width:20px;height:20px;border:2px solid var(--pink-light);border-radius:6px;margin-top:2px}
+.foot{margin-top:26px;text-align:center;color:var(--ink-faint);font-size:14px}
+@media(max-width:520px){h1{font-size:34px}.clips.one{max-width:100%}}
+.pts{list-style:none;padding:0;margin:2px 0 14px}.pts li{position:relative;padding:5px 0 5px 22px;color:var(--ink-soft)}.pts li::before{content:"";position:absolute;left:4px;top:13px;width:8px;height:8px;border-radius:50%;background:var(--pink)}.pts b{color:var(--ink)}
+.phone{position:relative;max-width:330px;margin:6px auto 4px;border-radius:26px;overflow:hidden;border:6px solid #111;background:#000;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.phone img{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;border-radius:0}
+.ui-top{position:absolute;top:4%;left:0;right:0;text-align:center;color:#fff;font-size:14px;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.ui-top span{opacity:.75;margin-right:14px}.ui-top b{border-bottom:2px solid #fff;padding-bottom:2px}
+.ui-rail{position:absolute;right:2.5%;bottom:24%;display:flex;flex-direction:column;align-items:center;gap:12px}
+.ri{display:flex;flex-direction:column;align-items:center;color:#fff;font-size:11px;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.ri svg{width:30px;height:30px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
+.ri.av{position:relative;margin-bottom:6px}.ri.av span{width:38px;height:38px;border-radius:50%;background:#ddd;border:2px solid #fff}
+.ri.av i{position:absolute;bottom:-8px;width:18px;height:18px;border-radius:50%;background:#FE2C55;color:#fff;font-style:normal;font-size:14px;line-height:17px;text-align:center}
+.ri.disc{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle,#666 25%,#222 27%,#111 70%);border:4px solid #333;margin-top:4px}
+.ui-bottom{position:absolute;left:4%;right:20%;bottom:5%;color:#fff;font-size:12.5px;line-height:1.35;text-shadow:0 1px 3px rgba(0,0,0,.7)}
+.ui-bottom b{font-size:14px}.ui-bottom p{margin:3px 0 0;color:#fff}.ui-bottom .snd{opacity:.9}
+.safe{position:absolute;left:5%;width:77%;top:14%;height:62%;border:3px dashed #22c55e;border-radius:6px}
+.phone-cap{text-align:center;font-size:13px;color:var(--ink-faint);margin:6px 0 0}
+.tabs{display:flex;justify-content:center;gap:6px;margin:4px 0 10px}
+.tabs button{border:1.5px solid var(--pink);background:#fff;color:var(--pink-deep);font:700 13px Manrope,sans-serif;padding:6px 14px;border-radius:100px;cursor:pointer}
+.tabs button.on{background:var(--pink);color:#fff}
+.phone .tt,.phone .ig{display:none}.phone[data-show=tt] .tt,.phone[data-show=ig] .ig{display:block}
+.ig-top{position:absolute;top:4%;left:5%;right:5%;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:20px;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.ig-top svg{width:26px;height:26px}
+.ig-rail{bottom:6%}.ri.dots{font-size:22px;line-height:1}.ri.sq{width:26px;height:26px;border-radius:6px;border:2px solid #fff;background:#999}
+.ig-bottom{bottom:4%}.ig-user{display:flex;align-items:center;gap:7px}.ig-user span{width:26px;height:26px;border-radius:50%;background:#ddd}
+.ig-user em{font-style:normal;font-size:12px;font-weight:700;border:1px solid #fff;border-radius:6px;padding:1px 8px}
+.toc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:0 0 26px}
+.toc a{display:flex;align-items:center;gap:8px;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:8px 10px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14.5px}
+.toc b{flex:none;width:24px;height:24px;border-radius:50%;background:var(--purple-pale);color:var(--purple);display:grid;place-items:center;font-size:12.5px}
+.grp{margin:26px 0 10px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-deep)}
+.band{scroll-margin-top:12px}
+.clips.one.center{margin-left:auto;margin-right:auto}
+.ps{display:inline-block;background:var(--purple);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:2px 8px;border-radius:100px;margin-right:8px;vertical-align:1px}
+.opt{border:1.5px solid var(--line);border-radius:18px;padding:10px;background:#fff}
+.opt-h{display:flex;flex-direction:column;gap:4px;margin:0 0 10px}
+.opt-h b{font-size:15px;color:var(--ink)}
+.opt-tag{align-self:flex-start;background:var(--purple-pale);color:var(--purple);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:100px}
+.opt-tag.def{background:var(--pink);color:#fff}
+.news{list-style:none;padding:0;margin:4px 0 14px}
+.news li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}
+.news li:first-child{border-top:0}
+.news li>span{flex:none;font-size:22px;line-height:1.2}
+.news b{color:var(--ink)}.news div{color:var(--ink-soft)}
+.news em{display:block;margin-top:4px;font-style:italic;color:var(--pink-deep);font-size:15px}
+.eyebrow,h1,.lede{text-align:center}
+
+
+.jobs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}
+.job{background:#fff;border:1px solid var(--line,#E9D5EF);border-radius:14px;padding:12px 13px}
+.job .e{font-size:24px;display:block}.job b{display:block;font-size:16px}.job small{display:block;font-size:14px;color:var(--ink-soft);line-height:1.4}
+.rows{display:grid;gap:7px;margin:8px 0}
+.row{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;background:#fff;border:1px solid var(--line,#E9D5EF);border-radius:12px;padding:9px 13px}
+.row b{font-size:16px}.row small{font-size:14.5px;color:var(--ink-soft)}
+.ticks{list-style:none;padding:0;margin:8px 0;display:grid;gap:6px}
+.ticks li{position:relative;padding-left:26px}.ticks li::before{content:"✓";position:absolute;left:4px;color:var(--pink);font-weight:800}
+.shape-note{background:#FFF0F7;border:1.5px solid var(--pink);border-radius:14px;padding:12px 15px;margin:10px 0 4px;font-size:16px}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+.filters button{font:inherit;font-size:13.5px;border:1px solid var(--line,#E9D5EF);background:#fff;border-radius:100px;padding:5px 11px;cursor:pointer;color:var(--ink)}
+.filters button.on{background:var(--pink);border-color:var(--pink);color:#fff}
+.hk{background:#fff;border:1px solid var(--line,#E9D5EF);border-radius:14px;padding:12px 14px;margin:8px 0}
+.hk q{display:block;font:500 18px/1.4 'Fraunces',Georgia,serif;color:var(--purple-deep);quotes:"\201C" "\201D"}
+.hk .os{display:inline-block;margin-top:6px;background:#111;color:#fff;font-weight:700;font-size:13px;padding:3px 8px;border-radius:4px}
+.hk .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.hk .meta span{font-size:12px;font-weight:700;background:var(--purple-pale);color:var(--purple);border-radius:100px;padding:2px 9px}
+.hk .meta span.ang{background:#FFF0F7;color:var(--pink-deep)}
+.hk .why{margin:6px 0 0;font-size:14.5px;color:var(--ink-soft)}
+.empty{color:var(--ink-faint);font-style:italic}
+@media(max-width:560px){.jobs{grid-template-columns:1fr 1fr}}
+.vis{display:grid;grid-template-columns:1fr;gap:22px;margin:12px auto;max-width:400px}
+.vis figure{margin:0}.vis video{width:100%;border-radius:12px;display:block;background:#000;aspect-ratio:9/16;object-fit:cover}
+.vis figcaption{text-align:left;font-size:15px;color:var(--ink-soft);margin-top:5px;line-height:1.35}.vis figcaption a{color:var(--pink-deep);font-weight:700}
+.notice{list-style:none;padding:0;margin:10px 0;display:grid;gap:8px}
+.notice li{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line,#E9D5EF);border-radius:12px;padding:10px 13px}
+.notice li span{font-size:20px;line-height:1.2}.notice li b{display:block}.notice li small{font-size:14.5px;color:var(--ink-soft)}
+
+.vframe{border:3px solid var(--pink);border-radius:18px;padding:6px;background:#fff;box-shadow:0 14px 30px -18px rgba(190,24,93,.45)}
+.vframe video{border-radius:12px}
+.vis figcaption b{display:block;font-size:17px;color:var(--purple-deep);margin:10px 0 4px}
+.vis figcaption ul{margin:0;padding-left:20px}.vis figcaption li{margin:4px 0;color:var(--ink)}
+.whys{display:grid;gap:6px;margin-top:4px}
+.why1{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line,#E9D5EF);border-radius:12px;padding:8px 12px}
+.why1 span{font-size:20px;line-height:1.2}.why1 b{display:block!important;font-size:15.5px!important;margin:0!important;color:var(--ink)!important}.why1 small{display:block;font-size:14px;color:var(--ink-soft);line-height:1.35}
+.vis{gap:34px!important}
+.vis figcaption .wh{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-deep);margin:12px 0 0}
+.vis figcaption > b{margin-top:2px!important}
+.bd{list-style:none;padding:0;margin:6px 0 0;border-left:2px solid var(--pink-light,#FBC4DC);}
+.bd li{display:flex;gap:10px;align-items:baseline;padding:6px 0 6px 12px;position:relative}
+.bd li::before{content:"";position:absolute;left:-6px;top:13px;width:10px;height:10px;border-radius:50%;background:var(--pink)}
+.bd .ts{flex:none;font-size:12px;font-weight:800;color:var(--pink-deep);background:#FFF0F7;border-radius:100px;padding:2px 8px;min-width:46px;text-align:center}
+.bd p{margin:0;font-size:15px;line-height:1.45;color:var(--ink)}
+.qc{background:#FFF0F7;border-radius:12px;padding:9px 13px;margin:10px 0;font-size:15.5px}
+.vis figcaption .ang{display:inline-block;margin-top:12px;background:#FFF0F7;border:1px solid var(--pink);color:var(--pink-deep);font-weight:800;font-size:13px;border-radius:100px;padding:4px 11px}
+.vis figcaption q.hq{display:block;font:500 17px/1.4 'Fraunces',Georgia,serif;color:var(--purple-deep);margin:6px 0 2px;quotes:"\201C" "\201D"}
+.amenu-l{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--pink-deep);margin:10px 0 6px}
+.amenu{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0 0 16px}
+.amenu button{font:inherit;font-size:13.5px;text-align:left;border:1px solid var(--line,#E9D5EF);background:#fff;border-radius:10px;padding:7px 10px;cursor:pointer;color:var(--ink);line-height:1.3}
+.amenu button.on{background:var(--pink);border-color:var(--pink);color:#fff;font-weight:700}
+.amenu button:disabled{opacity:.38;cursor:default}
+.amenu button:first-child{grid-column:1/-1;text-align:center}
+@media(max-width:420px){.amenu{grid-template-columns:1fr}}
+.hw{display:grid;gap:10px;margin:8px 0}
+.hw label{display:grid;gap:4px;font-weight:800;font-size:14.5px}
+.hw textarea{font:inherit;font-weight:500;font-size:16px;border:1.5px solid var(--line,#E9D5EF);border-radius:12px;padding:10px 12px;resize:vertical;background:#fff}
+.hw-copy,.more-btn{font:inherit;font-weight:800;border:0;border-radius:100px;padding:10px 20px;cursor:pointer;background:#EC4899;color:#fff;margin-top:6px}
+.more-btn{display:block;margin:12px auto 0;background:#fff;color:#BE185D;border:1.5px solid #EC4899}
+.hw-ok{font-weight:700;color:#BE185D;font-size:14px}.hw-save{font-size:13px;color:#8B7AAB;margin:6px 0 0}
+.hw-tips{margin:6px 0 12px}.hw-h{font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#BE185D;margin:12px 0 6px}
+.hw-rows{display:grid;gap:6px}.hw-rows div{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;background:#fff;border:1px solid var(--line,#E9D5EF);border-radius:10px;padding:7px 11px}
+.hw-rows b{font-size:15px}.hw-rows small{font-size:13.5px;color:#4C1D7E}
+.hw-ticks{list-style:none;padding:0;margin:0;display:grid;gap:4px}.hw-ticks li{position:relative;padding-left:22px;font-size:15px}.hw-ticks li::before{content:"✓";position:absolute;left:2px;color:#EC4899;font-weight:800}
+.callgate{background:#FFF0F7;border:1.5px solid #EC4899;border-radius:16px;padding:16px 18px;margin:18px 0}
+.cg-h{font-weight:800;font-size:18px;color:#BE185D;margin:0 0 4px}.cg-sub{margin:0 0 12px;font-size:15.5px}
+.cg-check{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1.5px solid #E9D5EF;border-radius:12px;padding:10px 12px;cursor:pointer;font-weight:700;font-size:15px;margin-bottom:12px}
+.cg-check input{width:20px;height:20px;accent-color:#EC4899;flex:none;margin-top:1px}
+.cg-btn{display:block;text-align:center;background:#EC4899;color:#fff;font-weight:800;text-decoration:none;border-radius:100px;padding:12px 18px;box-shadow:0 8px 24px rgba(214,8,107,.18);transition:.15s}
+.cg-btn:hover{transform:translateY(-1px)}
+.cg-btn.locked{background:#E9D5EF;color:#8B7AAB;box-shadow:none;cursor:not-allowed}.cg-btn.locked:hover{transform:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../index.html#hooks">← Back to the cheat sheet</a>
+<span class="eyebrow">Baybella x Creators</span>
+<h1>Hook guide</h1>
+<p class="lede">You already know your first three seconds make or break a video. For our product, how it looks matters just as much as what you say.</p>
+<nav class="toc">
+<a href="#s0"><b>1</b>What they see</a><a href="#s1"><b>2</b>What you say</a>
+<a href="#s4"><b>3</b>Hooks we love</a><a href="#s5"><b>4</b>Hooks from other brands</a>
+</nav>
+
+<p class="grp">What they see</p>
+<section class="band" id="s0">
+<div class="band-h"><span>1</span><h2>Your hook is what they see, too</h2></div>
+<div class="rule">
+<h3>The first second is a picture before it's a sentence</h3>
+<div class="vis"><figure><div class="vframe"><video src="media/visual-1-v2.mp4" poster="media/visual-1-v2.jpg" muted loop autoplay playsinline controls></video></div><figcaption><div class="wh">Why this hook works</div><b>Both lashes on at once</b><ol class="bd"><li><span class="ts">0:00</span><p>Her face fills the frame and she's looking straight down the lens.</p></li><li><span class="ts">0:01</span><p>Both applicators go up to both eyes at once. Hard to scroll past.</p></li><li><span class="ts">0:05</span><p>Both lashes are on. Bare to done, inside the hook.</p></li><li><span class="ts">All the way</span><p>Bright window light, even skin, no shadows, so the lashes read clearly.</p></li></ol></figcaption></figure><figure><div class="vframe"><video src="media/visual-2-v2.mp4" poster="media/visual-2-v2.jpg" muted loop autoplay playsinline controls></video></div><figcaption><div class="wh">Why this hook works</div><b>Four reasons why</b><ol class="bd"><li><span class="ts">0:00</span><p>No setup. The applicator is already on her eye.</p></li><li><span class="ts">0:00</span><p>"Four reasons why I gave up waterproof mascara." A list makes you stay for all four.</p></li><li><span class="ts">0:02</span><p>Her face is angled so you see the clip close right on her lash line.</p></li><li><span class="ts">0:08</span><p>"Did you see how fast that was?" Reason one is proven while you watch.</p></li></ol></figcaption></figure><figure><div class="vframe"><video src="media/visual-3-v2.mp4" poster="media/visual-3-v2.jpg" muted loop autoplay playsinline controls></video></div><figcaption><div class="wh">Why this hook works</div><b>Close-up, then the reveal</b><ol class="bd"><li><span class="ts">0:00</span><p>Her eye fills the screen. You can see every lash and the clip closing.</p></li><li><span class="ts">0:03</span><p>She pulls back to a wide-eyed look with the lashes on. That's the reveal.</p></li><li><span class="ts">0:16</span><p>"I'm going to be returning this. It's not because…" Now you need the rest.</p></li><li><span class="ts">All the way</span><p>Her face does the selling. The reaction is half the hook.</p></li></ol></figcaption></figure></div>
+<h3>Notice</h3>
+<ul class="notice">
+<li><span>🔍</span><div><b>How close they get</b><small>Face or eye fills the screen. No wide shots of the room.</small></div></li>
+<li><span>👁️</span><div><b>The lashes are on from second one</b><small>Applicator at the eye in the first frame, not halfway through.</small></div></li>
+<li><span>☀️</span><div><b>Soft, bright light</b><small>Facing a window or a soft lamp. No shadows on the face.</small></div></li>
+<li><span>📱</span><div><b>A sharp camera</b><small>Back camera if you can, clean lens, highest quality setting.</small></div></li>
+<li><span>🧼</span><div><b>A clean background</b><small>Nothing behind you pulling focus off your eyes.</small></div></li>
+</ul>
+</div>
+</section>
+
+<p class="grp">What you say</p>
+<section class="band" id="s1">
+<div class="band-h"><span>2</span><h2>What you say</h2></div>
+<div class="rule">
+<h3>Based on our ad performance data, our best-performing hooks generally contain these four things:</h3>
+<div class="rows">
+<div class="row"><b>1. Simple</b><small>Easy to follow the first time you hear it. No explaining needed.</small></div>
+<div class="row"><b>2. Attention-grabbing</b><small>Something she doesn't expect to hear: a bold opinion, a confession, or a problem she knows too well.</small></div>
+<div class="row"><b>3. A loop</b><small>Tease what's coming, then hold back the why.</small></div>
+<div class="row"><b>4. Hopeful</b><small>She should feel this might finally be the one.</small></div>
+</div>
+<p class="qc"><b>Quick checks:</b> one point only · end on a statement, not a question</p>
+<p>Your on-screen text is a different job from what you say. See <a href="../editing-guide/index.html#s2" target="_blank" rel="noopener">the editing guide</a>.</p>
+</div>
+</section>
+
+<p class="grp">The hook library</p>
+<div class="shape-note">💡 <b>Copy the shape, not the words.</b> If ten of us open on the same line, it's one ad filmed ten times. Take the idea and say it your way.</div>
+
+<section class="band" id="s4">
+<div class="band-h"><span>3</span><h2>Hooks we love</h2></div>
+<div class="rule">
+<h3>From our own creators. Each one is tagged with the angle it runs on.</h3>
+<p class="amenu-l">Our angles. Tap one to see its hooks:</p><div class="amenu"><button class="on" data-a="">✨ All angles</button><button data-a="Lashes have no age limit">🙋‍♀️ Lashes have no age limit</button><button data-a="She thinks magnetic lashes are a gimmick">🤨 She thinks magnetic lashes are a gimmick</button><button data-a="She only wants lashes for nights out">🎉 She only wants lashes for nights out</button><button data-a="She sleeps face-down">😴 She sleeps face-down</button><button data-a="Her mascara smudges by lunch">🌀 Her mascara smudges by lunch</button><button data-a="Salons are shut when she&#x27;s free" disabled>🌙 Salons are shut when she&#x27;s free</button><button data-a="She stopped doing herself after kids">💛 She stopped doing herself after kids</button><button data-a="Lashes done in one nap">🍼 Lashes done in one nap</button><button data-a="She&#x27;d never spend that on skincare">🧴 She&#x27;d never spend that on skincare</button><button data-a="She&#x27;s still doing it the old way">🕰️ She&#x27;s still doing it the old way</button><button data-a="She paid for lashes instead of the things she wanted">🏝️ She paid for lashes instead of the things she wanted</button><button data-a="She won&#x27;t plan her week around water">🏊‍♀️ She won&#x27;t plan her week around water</button><button data-a="Strip lashes are fast fashion">👗 Strip lashes are fast fashion</button><button data-a="Extensions barely look better">⚖️ Extensions barely look better</button><button data-a="Lashes made for hooded eyes">👀 Lashes made for hooded eyes</button></div><div class="vis"><figure data-angle="Extensions barely look better"><div class="vframe"><video src="media/ours-1.mp4" poster="media/ours-1.jpg" muted loop autoplay playsinline controls></video></div><figcaption><div class="ang">Angle: ⚖️ Extensions barely look better</div><b>The $150 confession</b><q class="hq">Tell me why I was spending over $150 to get my eyelash extensions done every month when I could have just done that for a quarter of the price…</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>Straight down the lens, close and centred, in soft even light.</p></li><li><span class="ts">0:00</span><p>A real number. "$150 every month" makes the pain concrete.</p></li><li><span class="ts">0:01</span><p>The on-screen headline says it too, so it lands with the sound off.</p></li><li><span class="ts">0:06</span><p>The applicator comes up to her eye while she's still talking.</p></li></ol></figcaption></figure><figure data-angle="Her mascara smudges by lunch"><div class="vframe"><video src="media/ours-2.mp4" poster="media/ours-2.jpg" muted loop autoplay playsinline controls></video></div><figcaption><div class="ang">Angle: 🌀 Her mascara smudges by lunch</div><b>The confession</b><q class="hq">Nobody has seen me without mascara since high school, and I mean nobody, because without it I look like a naked mole rat…</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>The applicator is already at her eye in the first frame.</p></li><li><span class="ts">0:00</span><p>A funny, honest confession. You warm to her straight away.</p></li><li><span class="ts">All the way</span><p>The headline "why I FINALLY converted from mascara to magnetic lashes" tells you where it's going.</p></li><li><span class="ts">0:09</span><p>"Then I tried the last thing I ever expected to work." The loop.</p></li></ol></figcaption></figure><figure data-angle="She thinks magnetic lashes are a gimmick"><div class="vframe"><video src="media/ours-3.mp4" poster="media/ours-3.jpg" muted loop autoplay playsinline controls></video></div><figcaption><div class="ang">Angle: 🤨 She thinks magnetic lashes are a gimmick</div><b>The hill I will die on</b><q class="hq">The hill I will die on is that if you can use a lash curler, you can do magnetic lashes…</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>A bold opinion with the applicator in her hand, held up by her eye.</p></li><li><span class="ts">0:00</span><p>It kills the "too hard" doubt using a tool she already owns.</p></li><li><span class="ts">0:06</span><p>A side-by-side of the applicator and a lash curler. You see the point, you don't just hear it.</p></li><li><span class="ts">0:08</span><p>"Let me show you how." You stay for the demo.</p></li></ol></figcaption></figure><figure data-angle="Lashes have no age limit"><div class="vframe"><video src="media/more-ours-1.mp4" poster="media/more-ours-1.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 🙋‍♀️ Lashes have no age limit</div><b>The challenge</b><q class="hq">If you think women, my mum&#x27;s age, can&#x27;t pull off lashes, watch her face and tell me I&#x27;m wrong.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>A challenge you want to see answered.</p></li><li><span class="ts">0:00</span><p>Mum is right there in shot, so you're already looking at her face.</p></li><li><span class="ts">0:03</span><p>"Tell me I'm wrong." You stay to judge for yourself.</p></li></ol></figcaption></figure><figure data-angle="She only wants lashes for nights out"><div class="vframe"><video src="media/more-ours-2.mp4" poster="media/more-ours-2.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 🎉 She only wants lashes for nights out</div><b>"Big complicated thing"</b><q class="hq">Everyone thinks these are some big complicated thing, but they&#x27;re really not, like watch.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>She names the doubt everyone has, then flips it.</p></li><li><span class="ts">0:00</span><p>Tight, straight down the lens, in daylight.</p></li><li><span class="ts">0:03</span><p>"Like watch." Tells you the proof is coming.</p></li></ol></figcaption></figure><figure data-angle="She sleeps face-down"><div class="vframe"><video src="media/more-ours-3.mp4" poster="media/more-ours-3.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 😴 She sleeps face-down</div><b>The pillow problem</b><q class="hq">This is what happens every time I put on the lashes that you do yourself at home.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>"Sleeping with DIY lashes" and "stitch incoming" on screen. You know a comparison is coming.</p></li><li><span class="ts">0:01</span><p>In bed, face on the pillow. The exact moment she dreads.</p></li><li><span class="ts">0:02</span><p>She rubs her eye and the lash lifts. The problem, on screen.</p></li></ol></figcaption></figure><figure data-angle="She stopped doing herself after kids"><div class="vframe"><video src="media/more-ours-4.mp4" poster="media/more-ours-4.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 💛 She stopped doing herself after kids</div><b>"As a mum of two"</b><q class="hq">As a mum of two, lashes have always been so complicated for me, but with these there&#x27;s genuinely nothing to it.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>"As a mum of two." Says who it's for in four words.</p></li><li><span class="ts">0:00</span><p>Split screen: her face on top, the clip going on below.</p></li><li><span class="ts">0:03</span><p>"Genuinely nothing to it." That's the hope.</p></li></ol></figcaption></figure><figure data-angle="Lashes done in one nap"><div class="vframe"><video src="media/more-ours-5.mp4" poster="media/more-ours-5.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 🍼 Lashes done in one nap</div><b>The chore ambush</b><q class="hq">Mom, give me five seconds, I wanna show you something. - What, I&#x27;m busy.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>Mum at the sink, mid-chore. Every busy mum knows this.</p></li><li><span class="ts">0:01</span><p>"Five seconds." / "I'm busy." A real, funny exchange.</p></li><li><span class="ts">0:03</span><p>The lashes go on while she keeps washing up. Proof it fits a busy day.</p></li></ol></figcaption></figure><figure data-angle="She&#x27;d never spend that on skincare"><div class="vframe"><video src="media/more-ours-6.mp4" poster="media/more-ours-6.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 🧴 She&#x27;d never spend that on skincare</div><b>The irony</b><q class="hq">Does no one else see the irony of dropping $200 every three weeks on your lashes? That&#x27;s to ruin them, but $40 on skincare feels too expensive.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>A question that makes her think about her own spending.</p></li><li><span class="ts">0:01</span><p>The applicator goes straight to her eye.</p></li><li><span class="ts">0:03</span><p>$200 every three weeks vs $40 on skincare. The contrast is the hook.</p></li></ol></figcaption></figure><figure data-angle="She&#x27;s still doing it the old way"><div class="vframe"><video src="media/more-ours-7.mp4" poster="media/more-ours-7.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 🕰️ She&#x27;s still doing it the old way</div><b>"Still gluing in 2025"</b><q class="hq">I think it&#x27;s wild that some people are still gluing on their lashes in 2025.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>The applicator is at her eye from frame one.</p></li><li><span class="ts">0:00</span><p>A bold opinion. Glue sounds outdated the moment she says it.</p></li><li><span class="ts">All the way</span><p>The on-screen headline says the same thing, so it works with the sound off.</p></li></ol></figcaption></figure><figure data-angle="She paid for lashes instead of the things she wanted"><div class="vframe"><video src="media/more-ours-8.mp4" poster="media/more-ours-8.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 🏝️ She paid for lashes instead of the things she wanted</div><b>Lashes over Bali</b><q class="hq">Can someone tell me why I was out here spending more money on lashes than an actual vacation?</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>Extreme close-up, the clip already going on.</p></li><li><span class="ts">0:00</span><p>Lashes vs a holiday. A money pain she feels straight away.</p></li><li><span class="ts">0:04</span><p>She pulls back with the lashes on and smiles. The reveal.</p></li></ol></figcaption></figure><figure data-angle="She won&#x27;t plan her week around water"><div class="vframe"><video src="media/more-ours-9.mp4" poster="media/more-ours-9.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 🏊‍♀️ She won&#x27;t plan her week around water</div><b>At the beach</b><q class="hq">I genuinely don&#x27;t know how girls are still dealing with glue lashes in 2026. If I want to swim, I just, when I&#x27;m back, I literally just put them back on.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>She's on the beach. The setting makes the point before she does.</p></li><li><span class="ts">0:00</span><p>Replying to a comment ("putting on lashes for the beach??") makes it a real conversation.</p></li><li><span class="ts">0:06</span><p>"I literally just put them back on." The fix for water.</p></li></ol></figcaption></figure><figure data-angle="Strip lashes are fast fashion"><div class="vframe"><video src="media/more-ours-10.mp4" poster="media/more-ours-10.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 👗 Strip lashes are fast fashion</div><b>Fast fashion</b><q class="hq">Can we officially admit that strip lashes are basically the same as fast fashion?</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>The applicator is at her eye with the case in her hand.</p></li><li><span class="ts">0:00</span><p>"Can we officially admit…" invites her to agree.</p></li><li><span class="ts">0:02</span><p>Fast fashion is a comparison she gets instantly.</p></li></ol></figcaption></figure><figure data-angle="Lashes made for hooded eyes"><div class="vframe"><video src="media/more-ours-11.mp4" poster="media/more-ours-11.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 👀 Lashes made for hooded eyes</div><b>"Lashes hate you"</b><q class="hq">If you have hooded eyes, lashes probably hate you, until now.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>Hooded eyes up close. She sees her own eyes on screen.</p></li><li><span class="ts">0:01</span><p>Big bold text says the hook, so it lands with the sound off.</p></li><li><span class="ts">0:04</span><p>"Until now." Hope and a loop in two words.</p></li></ol></figcaption></figure></div>
+</div>
+</section>
+
+<section class="band" id="s5">
+<div class="band-h"><span>4</span><h2>Hooks from other brands</h2></div>
+<div class="rule">
+<h3>Openers other lash brands kept running for months.</h3>
+<p class="amenu-l">Our angles. Tap one to see its hooks:</p><div class="amenu"><button class="on" data-a="">✨ All angles</button><button data-a="Lashes have no age limit">🙋‍♀️ Lashes have no age limit</button><button data-a="She thinks magnetic lashes are a gimmick">🤨 She thinks magnetic lashes are a gimmick</button><button data-a="She only wants lashes for nights out" disabled>🎉 She only wants lashes for nights out</button><button data-a="She sleeps face-down" disabled>😴 She sleeps face-down</button><button data-a="Her mascara smudges by lunch">🌀 Her mascara smudges by lunch</button><button data-a="Salons are shut when she&#x27;s free" disabled>🌙 Salons are shut when she&#x27;s free</button><button data-a="She stopped doing herself after kids">💛 She stopped doing herself after kids</button><button data-a="Lashes done in one nap" disabled>🍼 Lashes done in one nap</button><button data-a="She&#x27;d never spend that on skincare" disabled>🧴 She&#x27;d never spend that on skincare</button><button data-a="She&#x27;s still doing it the old way">🕰️ She&#x27;s still doing it the old way</button><button data-a="She paid for lashes instead of the things she wanted">🏝️ She paid for lashes instead of the things she wanted</button><button data-a="She won&#x27;t plan her week around water" disabled>🏊‍♀️ She won&#x27;t plan her week around water</button><button data-a="Strip lashes are fast fashion">👗 Strip lashes are fast fashion</button><button data-a="Extensions barely look better">⚖️ Extensions barely look better</button><button data-a="Lashes made for hooded eyes">👀 Lashes made for hooded eyes</button></div><div class="vis"><figure data-angle="She thinks magnetic lashes are a gimmick"><div class="vframe"><video src="media/brand-1.mp4" poster="media/brand-1.jpg" muted loop autoplay playsinline controls></video></div><figcaption><div class="ang">Angle: 🤨 She thinks magnetic lashes are a gimmick</div><b>The wind test</b><q class="hq">A lot of people want to know how strong these magnetic lashes are. We're gonna do a leaf blower wind test.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>Replying to a comment ("Now this is an ad you can trust") makes it feel like a real conversation.</p></li><li><span class="ts">0:00</span><p>The lash goes on in the first second.</p></li><li><span class="ts">0:08</span><p>A leaf blower straight at her face. Proof you can see, not a claim.</p></li><li><span class="ts">0:15</span><p>A close-up of the lashes still on. The payoff.</p></li></ol></figcaption></figure><figure data-angle="She thinks magnetic lashes are a gimmick"><div class="vframe"><video src="media/brand-2.mp4" poster="media/brand-2.jpg" muted loop autoplay playsinline controls></video></div><figcaption><div class="ang">Angle: 🤨 She thinks magnetic lashes are a gimmick</div><b>"These lashes are a scam"</b><q class="hq">Girls keep saying that these lashes are a scam, but if they are a scam, how the heck am I even applying them?</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>She names the doubt out loud. Anyone who thinks "scam" stops scrolling.</p></li><li><span class="ts">0:01</span><p>The applicator comes right up to the lens, then onto her eye.</p></li><li><span class="ts">0:02</span><p>Extreme close-up. You watch the clip close on her lashes.</p></li><li><span class="ts">0:05</span><p>"How am I doing that?" She answers the doubt by doing it.</p></li></ol></figcaption></figure><figure data-angle="Lashes made for hooded eyes"><div class="vframe"><video src="media/brand-3.mp4" poster="media/brand-3.jpg" muted loop autoplay playsinline controls></video></div><figcaption><div class="ang">Angle: 👀 Lashes made for hooded eyes</div><b>The inner corner peel</b><q class="hq">Is there anything worse than being out in public and suddenly feeling the inner corner of your false lash peel off and start stabbing your eyelid?</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>A moment every lash wearer knows. You feel it as she says it.</p></li><li><span class="ts">0:00</span><p>She talks over clips of it happening, so you see the problem while you hear it.</p></li><li><span class="ts">0:04</span><p>A simple drawing of the eye shows why it happens.</p></li><li><span class="ts">0:12</span><p>"But here's what nobody is telling you…" The loop.</p></li></ol></figcaption></figure><figure data-angle="Lashes have no age limit"><div class="vframe"><video src="media/more-brand-1.mp4" poster="media/more-brand-1.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 🙋‍♀️ Lashes have no age limit</div><b>"After 40"</b><q class="hq">At some point after 40, our lashes just stop looking the same.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>Extreme close-up, a lash going on.</p></li><li><span class="ts">0:00</span><p>"After 40" says exactly who it's for.</p></li><li><span class="ts">0:03</span><p>Close-ups of thinning lashes. She sees the problem she has.</p></li></ol></figcaption></figure><figure data-angle="Her mascara smudges by lunch"><div class="vframe"><video src="media/more-brand-2.mp4" poster="media/more-brand-2.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 🌀 Her mascara smudges by lunch</div><b>"Glasses girls"</b><q class="hq">Glasses girls, your mascara prints onto your lenses by noon, and long falsies just bend against the glass.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>"Glasses girls." Calls out one exact person.</p></li><li><span class="ts">0:00</span><p>Macro shot of a lash behind the lens.</p></li><li><span class="ts">0:02</span><p>Mascara prints on the lenses. A problem you can see.</p></li><li><span class="ts">0:05</span><p>"There's a fix." The loop.</p></li></ol></figcaption></figure><figure data-angle="She stopped doing herself after kids"><div class="vframe"><video src="media/more-brand-3.mp4" poster="media/more-brand-3.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 💛 She stopped doing herself after kids</div><b>Baby on her lap</b><q class="hq">Baby wearing while doing my lashes was not on my bucket list for today, but this made self-care possible again.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>A baby on her lap while she does her lashes. Instant mum moment.</p></li><li><span class="ts">0:00</span><p>A funny, honest line.</p></li><li><span class="ts">0:04</span><p>Close-up of the finished lashes: "self-care possible again." The hope.</p></li></ol></figcaption></figure><figure data-angle="She&#x27;s still doing it the old way"><div class="vframe"><video src="media/more-brand-4.mp4" poster="media/more-brand-4.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 🕰️ She&#x27;s still doing it the old way</div><b>"Shut up"</b><q class="hq">Shut up. You&#x27;re telling me I&#x27;ve gone all these years stressing about putting strip lashes on and I could literally just apply them with one little squeeze.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>Applicator at her eye, replying to a comment.</p></li><li><span class="ts">0:01</span><p>"Shut up." Real surprise. You want to know why.</p></li><li><span class="ts">0:06</span><p>"I'm the absolute worst at strip lashes." A confession she relates to.</p></li></ol></figcaption></figure><figure data-angle="She paid for lashes instead of the things she wanted"><div class="vframe"><video src="media/more-brand-5.mp4" poster="media/more-brand-5.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 🏝️ She paid for lashes instead of the things she wanted</div><b>"More than my rent"</b><q class="hq">I added up a full year of lash extensions once. It cost more than my rent, never again.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>Extreme close-up of the eye.</p></li><li><span class="ts">0:00</span><p>Big bold captions, word by word, so it lands muted.</p></li><li><span class="ts">0:02</span><p>"More than my rent." A money shock in four words.</p></li></ol></figcaption></figure><figure data-angle="Strip lashes are fast fashion"><div class="vframe"><video src="media/more-brand-6.mp4" poster="media/more-brand-6.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: 👗 Strip lashes are fast fashion</div><b>In the shop aisle</b><q class="hq">Girl, if I bought one of these lash strips, I would literally have to buy a new pair, probably every week. You get maybe two, three wears out of them, and then you have to throw them away.</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>Standing in a shop aisle, holding strip lashes. A real setting.</p></li><li><span class="ts">0:00</span><p>Talking to a friend ("Girl…"), not selling.</p></li><li><span class="ts">0:04</span><p>"Two, three wears and you throw them away." Waste she knows.</p></li></ol></figcaption></figure><figure data-angle="Extensions barely look better"><div class="vframe"><video src="media/more-brand-7.mp4" poster="media/more-brand-7.jpg" muted loop playsinline controls preload="metadata"></video></div><figcaption><div class="ang">Angle: ⚖️ Extensions barely look better</div><b>"It is 2026"</b><q class="hq">It is 2026. Why are we still out here paying for lash extensions when we have magnetic lashes?</q><div class="wh">Why this hook works</div><ol class="bd"><li><span class="ts">0:00</span><p>Applicator on her eye, replying to "What lashes?"</p></li><li><span class="ts">0:00</span><p>"It is 2026." Makes extensions feel outdated.</p></li><li><span class="ts">0:03</span><p>She pulls back with the lashes on. The reveal.</p></li></ol></figcaption></figure></div>
+</div>
+</section>
+
+<section class="band" id="s6">
+<div class="band-h"><span>5</span><h2>Write your hooks</h2></div>
+<div class="rule">
+<h3>Now write yours. Three hooks that are genuinely different, not one idea three ways. You'll film each one as its own take.</h3>
+
+<div class="hw-tips">
+<p class="hw-h">Then sharpen it</p>
+<div class="hw-rows">
+<div><span>✂️</span><b>Cut it down</b><small>Fewest words, most punch.</small></div>
+<div><span>👁️</span><b>Verbs you can see</b><small>melted, peeled, smudged</small></div>
+<div><span>💬</span><b>Your words</b><small>Not a brand's.</small></div>
+<div><span>🎬</span><b>Paint the moment</b><small>Not the benefit.</small></div>
+<div><span>😅</span><b>Sound like a person</b><small>A bit imperfect, a bit funny.</small></div>
+</div>
+<p class="hw-h">Rules</p>
+<ul class="hw-ticks"><li>Show it while you say it (one eye vs the other)</li><li>One number at most</li><li>One point only</li><li>End on a statement, not a question</li><li>Stressed word in CAPITALS</li></ul>
+</div>
+<div class="hw">
+<label>Hook 1<textarea class="hw-in" data-i="0" rows="2" placeholder="Write hook 1 in your own words..."></textarea></label>
+<label>Hook 2<textarea class="hw-in" data-i="1" rows="2" placeholder="Write hook 2 in your own words..."></textarea></label>
+<label>Hook 3<textarea class="hw-in" data-i="2" rows="2" placeholder="Write hook 3 in your own words..."></textarea></label>
+</div>
+<button class="hw-copy" type="button">📋 Copy my hooks</button> <span class="hw-ok" hidden>Copied. Paste them into the Script Maker.</span>
+<p class="hw-save">Saved on this device as you type.</p>
+</div>
+</section>
+
+<div class="callgate">
+<p class="cg-h">💬 Need help with your hooks?</p>
+<p class="cg-sub">Book a free 1:1 with our creative strategist. It's for our Insiders, creators filming 3 or more videos a round.</p>
+<label class="cg-check"><input type="checkbox" id="cgBox"> <span>Yes, I'm an Insider. I'm filming 3 or more videos this round.</span></label>
+<a class="cg-btn locked" id="cgBtn" href="https://calendly.com/arvinjayya/creative-strategy-call" target="_blank" rel="noopener" aria-disabled="true">🔒 Tick the box to unlock</a>
+</div>
+</div>
+<script>
+document.querySelectorAll('.amenu').forEach(menu=>{
+  const vis=menu.nextElementSibling;
+  menu.addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b||b.disabled) return;
+    menu.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+    const a=b.dataset.a;
+    show(vis,a,false);
+  });
+  show(vis,'',false);
+});
+/* founder 13 Oct 2026: show a 2-video preview, the rest behind a "Show more" button */
+function show(vis,a,all){
+  const figs=[...vis.querySelectorAll('figure')].filter(f=>!a||f.dataset.angle===a);
+  vis.querySelectorAll('figure').forEach(f=>f.hidden=true);
+  figs.forEach((f,i)=>f.hidden=!all&&i>=2);
+  let more=vis.nextElementSibling&&vis.nextElementSibling.classList.contains('more-btn')?vis.nextElementSibling:null;
+  if(!more){more=document.createElement('button');more.type='button';more.className='more-btn';vis.after(more);}
+  more.hidden=all||figs.length<=2;
+  more.textContent='Show '+(figs.length-2)+' more ↓';
+  more.onclick=()=>show(vis,a,true);
+}
+/* hook writer: saved per device */
+const HW='bb-hookguide-hooks-v1';
+let saved=[];try{saved=JSON.parse(localStorage.getItem(HW)||'[]')}catch(e){}
+document.querySelectorAll('.hw-in').forEach(t=>{t.value=saved[+t.dataset.i]||'';
+  t.addEventListener('input',()=>{saved[+t.dataset.i]=t.value;try{localStorage.setItem(HW,JSON.stringify(saved))}catch(e){}});});
+const cb=document.querySelector('.hw-copy');
+if(cb)cb.onclick=()=>{const txt=[...document.querySelectorAll('.hw-in')].map((t,i)=>'Hook '+(i+1)+': '+t.value.trim()).join('\n');
+  (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>{document.querySelector('.hw-ok').hidden=false}).catch(()=>{});};
+/* strategist call unlocks only after the Insider box is ticked (founder, 13 Oct 2026) */
+(function(){const b=document.getElementById('cgBox'),a=document.getElementById('cgBtn');if(!b||!a)return;
+const set=()=>{a.classList.toggle('locked',!b.checked);a.setAttribute('aria-disabled',String(!b.checked));a.textContent=b.checked?'📅 Book your free strategy call →':'🔒 Tick the box to unlock';};
+a.addEventListener('click',e=>{if(!b.checked){e.preventDefault();b.focus();}});b.addEventListener('change',set);set();})();
+</script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Baybella Editing Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg-pink:#FCE9F1;--pink:#EC4899;--pink-deep:#BE185D;--pink-light:#FBC4DC;--purple-deep:#3B0764;--purple:#6B21A8;--purple-pale:#EDE9FE;--ink:#2A0844;--ink-soft:#4C1D7E;--ink-faint:#8B7AAB;--cream:#FFFAF5;--line:#E9D5EF}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-pink);color:var(--ink);font:17px/1.55 'Manrope',-apple-system,Helvetica,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 16px 70px}
+.back{font-weight:700;font-size:15px;color:var(--pink-deep);text-decoration:none}
+.eyebrow{display:block;margin:22px 0 6px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-deep)}
+h1{font:500 42px/1.1 'Fraunces',Georgia,serif;color:var(--purple-deep);margin:0 0 10px}
+.lede{font:400 20px/1.45 'Fraunces',Georgia,serif;color:var(--ink-soft);margin:0 0 30px}
+.band{background:var(--cream);border:1px solid var(--line);border-radius:22px;padding:24px 22px;margin:0 0 18px}
+.band-h{display:flex;align-items:center;gap:12px;margin:0 0 14px}
+.band-h span{flex:none;width:34px;height:34px;border-radius:50%;background:var(--purple-pale);color:var(--purple);font-weight:800;display:grid;place-items:center}
+.band-h h2{font:500 26px/1.2 'Fraunces',Georgia,serif;color:var(--purple-deep);margin:0}
+.rule{border-top:1px solid var(--line);padding:16px 0 4px}
+.rule:first-of-type{border-top:0;padding-top:0}
+.rule h3{margin:0 0 4px;font-size:19px;font-weight:800;color:var(--ink)}
+.rule p{margin:0 0 12px;color:var(--ink-soft)}
+.clips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:4px 0 6px}
+.clips.one{grid-template-columns:minmax(0,1fr);max-width:calc(50% - 6px)}
+figure{margin:0}
+video,figure img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px;background:#000;display:block}
+figcaption{margin-top:6px;font-size:13px;color:var(--ink-faint)}
+.good{display:inline-block;background:#E7F6EC;color:#1F7A44;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:100px;margin-right:6px}
+.note{background:var(--purple-pale);border-radius:14px;padding:12px 14px;margin:8px 0 6px;font-size:15px;color:var(--ink-soft)}
+.raw{border:2px solid var(--pink);background:#FFF0F7}
+.raw p{margin:0 0 8px}
+.check{list-style:none;padding:0;margin:0}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line)}
+.check li:first-child{border-top:0}
+.check li::before{content:'';flex:none;width:20px;height:20px;border:2px solid var(--pink-light);border-radius:6px;margin-top:2px}
+.foot{margin-top:26px;text-align:center;color:var(--ink-faint);font-size:14px}
+@media(max-width:520px){h1{font-size:34px}.clips.one{max-width:100%}}
+.pts{list-style:none;padding:0;margin:2px 0 14px}.pts li{position:relative;padding:5px 0 5px 22px;color:var(--ink-soft)}.pts li::before{content:"";position:absolute;left:4px;top:13px;width:8px;height:8px;border-radius:50%;background:var(--pink)}.pts b{color:var(--ink)}
+.phone{position:relative;max-width:330px;margin:6px auto 4px;border-radius:26px;overflow:hidden;border:6px solid #111;background:#000;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.phone img{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;border-radius:0}
+.ui-top{position:absolute;top:4%;left:0;right:0;text-align:center;color:#fff;font-size:14px;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.ui-top span{opacity:.75;margin-right:14px}.ui-top b{border-bottom:2px solid #fff;padding-bottom:2px}
+.ui-rail{position:absolute;right:2.5%;bottom:24%;display:flex;flex-direction:column;align-items:center;gap:12px}
+.ri{display:flex;flex-direction:column;align-items:center;color:#fff;font-size:11px;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.ri svg{width:30px;height:30px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
+.ri.av{position:relative;margin-bottom:6px}.ri.av span{width:38px;height:38px;border-radius:50%;background:#ddd;border:2px solid #fff}
+.ri.av i{position:absolute;bottom:-8px;width:18px;height:18px;border-radius:50%;background:#FE2C55;color:#fff;font-style:normal;font-size:14px;line-height:17px;text-align:center}
+.ri.disc{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle,#666 25%,#222 27%,#111 70%);border:4px solid #333;margin-top:4px}
+.ui-bottom{position:absolute;left:4%;right:20%;bottom:5%;color:#fff;font-size:12.5px;line-height:1.35;text-shadow:0 1px 3px rgba(0,0,0,.7)}
+.ui-bottom b{font-size:14px}.ui-bottom p{margin:3px 0 0;color:#fff}.ui-bottom .snd{opacity:.9}
+.safe{position:absolute;left:5%;width:77%;top:14%;height:62%;border:3px dashed #22c55e;border-radius:6px}
+.phone-cap{text-align:center;font-size:13px;color:var(--ink-faint);margin:6px 0 0}
+.tabs{display:flex;justify-content:center;gap:6px;margin:4px 0 10px}
+.tabs button{border:1.5px solid var(--pink);background:#fff;color:var(--pink-deep);font:700 13px Manrope,sans-serif;padding:6px 14px;border-radius:100px;cursor:pointer}
+.tabs button.on{background:var(--pink);color:#fff}
+.phone .tt,.phone .ig{display:none}.phone[data-show=tt] .tt,.phone[data-show=ig] .ig{display:block}
+.ig-top{position:absolute;top:4%;left:5%;right:5%;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:20px;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.ig-top svg{width:26px;height:26px}
+.ig-rail{bottom:6%}.ri.dots{font-size:22px;line-height:1}.ri.sq{width:26px;height:26px;border-radius:6px;border:2px solid #fff;background:#999}
+.ig-bottom{bottom:4%}.ig-user{display:flex;align-items:center;gap:7px}.ig-user span{width:26px;height:26px;border-radius:50%;background:#ddd}
+.ig-user em{font-style:normal;font-size:12px;font-weight:700;border:1px solid #fff;border-radius:6px;padding:1px 8px}
+.toc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:0 0 26px}
+.toc a{display:flex;align-items:center;gap:8px;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:8px 10px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14.5px}
+.toc b{flex:none;width:24px;height:24px;border-radius:50%;background:var(--purple-pale);color:var(--purple);display:grid;place-items:center;font-size:12.5px}
+.grp{margin:26px 0 10px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-deep)}
+.band{scroll-margin-top:12px}
+.clips.one.center{margin-left:auto;margin-right:auto}
+.ps{display:inline-block;background:var(--purple);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:2px 8px;border-radius:100px;margin-right:8px;vertical-align:1px}
+.opt{border:1.5px solid var(--line);border-radius:18px;padding:10px;background:#fff}
+.opt-h{display:flex;flex-direction:column;gap:4px;margin:0 0 10px}
+.opt-h b{font-size:15px;color:var(--ink)}
+.opt-tag{align-self:flex-start;background:var(--purple-pale);color:var(--purple);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:100px}
+.opt-tag.def{background:var(--pink);color:#fff}
+.news{list-style:none;padding:0;margin:4px 0 14px}
+.news li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}
+.news li:first-child{border-top:0}
+.news li>span{flex:none;font-size:22px;line-height:1.2}
+.news b{color:var(--ink)}.news div{color:var(--ink-soft)}
+.news em{display:block;margin-top:4px;font-style:italic;color:var(--pink-deep);font-size:15px}
+.eyebrow,h1,.lede{text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../index.html#edit">← Back to the cheat sheet</a>
+<span class="eyebrow">Baybella x Creators</span>
+<h1>Editing guide</h1>
+<p class="lede">Send us a finished video, ready to post. Follow these steps and your edit will match the standard we run as ads.</p>
+<nav class="toc">
+<a href="#s1"><b>1</b>Trim the start</a><a href="#s2"><b>2</b>Add your on-screen text hook</a><a href="#s3"><b>3</b>Put the hook in a box</a><a href="#s4"><b>4</b>Keep it in the safe zone</a>
+<a href="#s5"><b>5</b>Cut out every pause</a><a href="#s6"><b>6</b>Style your captions</a><a href="#s7"><b>7</b>Keep the sound clean</a><a href="#s8"><b>8</b>Send your raw clips</a>
+</nav>
+
+<p class="grp">The opening</p>
+<section class="band" id="s1">
+<div class="band-h"><span>1</span><h2>Trim the start</h2></div>
+<div class="rule">
+<h3>Your hook starts on the very first frame</h3>
+<p>Cut everything before your first word. No gap, no awkward pause, no settling in. Press play and you're already talking.</p>
+<div class="clips">
+<figure><video src="media/hot-start-ours.mp4" poster="media/hot-start-ours.jpg" controls playsinline preload="none"></video><figcaption><span class="good">Good</span>Talking from 0:00</figcaption></figure>
+<figure><video src="media/hot-start-2.mp4" poster="media/hot-start-2.jpg" controls playsinline preload="none"></video><figcaption><span class="good">Good</span>Straight into it</figcaption></figure>
+</div>
+</div>
+</section>
+
+<section class="band" id="s2">
+<div class="band-h"><span>2</span><h2>Add your on-screen text hook</h2></div>
+<div class="rule">
+<h3>Think of it like a newspaper</h3>
+<ul class="news">
+<li><span>📰</span><div><b>Your on-screen text is the headline.</b> It tells them what the video is about.<em>"HOT TAKE: magnetic lashes 11/10, strip lashes 2/10"</em></div></li>
+<li><span>🗣️</span><div><b>What you say is the first line of the story.</b> It pulls them in to keep reading.<em>"I know I'm not the only girl who thought she was the worst at putting on strip lashes..."</em></div></li>
+<li><span>✋</span><div><b>Don't just read your headline out loud.</b> They do different jobs, so they say different things.</div></li>
+<li><span>📌</span><div><b>Keep the headline on screen through the opening.</b></div></li>
+</ul>
+<div class="clips one center">
+<figure><video src="media/two-layer-hook.mp4" poster="media/two-layer-hook.jpg" controls playsinline preload="none"></video></figure>
+</div>
+</div>
+</section>
+
+<section class="band" id="s3">
+<div class="band-h"><span>3</span><h2>Put the hook in a box</h2></div>
+<div class="rule">
+<h3>Put your hook text in a box</h3>
+<ul class="pts">
+<li><b>White or black box,</b> with the text wrapped inside it.</li>
+<li><b>Get the size right:</b> big enough that it's obvious straight away, but not so big it pulls attention off you. Notice the size in these two.</li>
+<li><b>Above or below your face,</b> never over it.</li>
+</ul>
+<p class="note"><span class="ps">PS</span>We know not every video we share has this. It's what's working for us right now so we want it in every new video.</p>
+<div class="clips">
+<figure><video src="media/hook-box-1.mp4" poster="media/hook-box-1.jpg" controls playsinline preload="none"></video><figcaption><span class="good">Good</span>"Clusters are a TRAP. Magnetic lashes aren't. Heres why"</figcaption></figure>
+<figure><video src="media/hook-box-2.mp4" poster="media/hook-box-2.jpg" controls playsinline preload="none"></video><figcaption><span class="good">Good</span>"ive trashed EVERY lash ive ever worn, except for these..."</figcaption></figure>
+</div>
+</div>
+</section>
+
+<section class="band" id="s4">
+<div class="band-h"><span>4</span><h2>Keep it in the safe zone</h2></div>
+<div class="rule">
+<h3>Keep text away from the app's buttons</h3>
+<p>TikTok and Instagram put their own buttons and captions over the top, the bottom and the right side of your video. Anything you put there gets hidden. Keep all your text inside the green box.</p>
+<div class="tabs"><button type="button" class="on" data-ui="tt">TikTok</button><button type="button" data-ui="ig">Instagram Reels</button></div>
+<div class="phone" data-show="tt">
+<img src="media/zones-base.jpg" alt="">
+<div class="tt"><div class="ui-top"><span>Following</span><b>For You</b></div>
+<div class="ui-rail"><div class="ri av"><span></span><i>+</i></div><div class="ri"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.5.7-1.3 2.2-2.5 4.3-2.5 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#fff"/></svg><small>24.1K</small></div><div class="ri"><svg viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.8 2 11.5c0 2.6 1.4 4.9 3.6 6.5L5 21.5l4.1-2.1c.9.2 1.9.3 2.9.3 5.5 0 10-3.8 10-8.5S17.5 3 12 3z" fill="#fff"/></svg><small>812</small></div><div class="ri"><svg viewBox="0 0 24 24"><path d="M6 2.5h12a1 1 0 0 1 1 1V21l-7-4.5L5 21V3.5a1 1 0 0 1 1-1z" fill="#fff"/></svg><small>3,204</small></div><div class="ri"><svg viewBox="0 0 24 24"><path d="M13 4l9 7.5-9 7.5v-4.5C7 14.5 3.5 16.5 2 20c.5-6 4-10.5 11-11.3V4z" fill="#fff"/></svg><small>1,150</small></div><div class="ri disc"></div></div>
+<div class="ui-bottom"><b>@yourname</b><p>this is where your caption shows up #magneticlashes</p><p class="snd">&#9835; original sound - yourname</p></div></div>
+<div class="ig">
+<div class="ig-top"><b>Reels</b><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="#fff" stroke-width="2"/><path d="M8 6l1.5-2h5L16 6" fill="none" stroke="#fff" stroke-width="2"/></svg></div>
+<div class="ui-rail ig-rail"><div class="ri"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.5 5 6.8 5c2 0 3.4 1.1 4.2 2.4C11.8 6.1 13.2 5 15.2 5c3.3 0 5.2 3.2 3.8 6.4C19 15.7 12 20 12 20z" fill="none" stroke="#fff" stroke-width="2"/></svg><small>24.1K</small></div><div class="ri"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 21l1.9-5.4A8.5 8.5 0 1 1 21 11.5z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg><small>812</small></div><div class="ri"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg><small>1,150</small></div><div class="ri dots">&#8943;</div><div class="ri sq"></div></div>
+<div class="ui-bottom ig-bottom"><div class="ig-user"><span></span><b>yourname</b><em>Follow</em></div><p>this is where your caption shows up...</p><p class="snd">&#9835; yourname &middot; Original audio</p></div>
+</div>
+<div class="safe"></div>
+</div>
+<p class="phone-cap">The green box is the safe area. Everything outside it sits under the app's buttons and captions.</p>
+</div>
+</section>
+
+<p class="grp">The middle</p>
+<section class="band" id="s5">
+<div class="band-h"><span>5</span><h2>Cut out every pause</h2></div>
+<div class="rule">
+<h3>Never leave a moment to scroll away</h3>
+<ul class="pts">
+<li><b>Be really picky.</b> Cut every pause, breath and "um", and any background noise.</li>
+<li><b>Cut as soon as you finish your words.</b> Not before. Never cut off the end of a word.</li>
+<li><b>Every 0.1 or 0.2 seconds counts.</b> Tiny trims add up to a faster rhythm, and people keep watching a video that moves.</li>
+<li><b>No empty moments.</b> If you're not showing the product, you're talking.</li>
+</ul>
+<div class="clips">
+<figure><video src="media/tight-cuts-1.mp4" poster="media/tight-cuts-1.jpg" controls playsinline preload="none"></video><figcaption><span class="good">Good</span>Full video: a cut every second or two, never a gap</figcaption></figure>
+<figure><video src="media/tight-cuts-2.mp4" poster="media/tight-cuts-2.jpg" controls playsinline preload="none"></video><figcaption><span class="good">Good</span>Full video: talking the whole way, every pause cut out</figcaption></figure>
+</div>
+</div>
+</section>
+
+<p class="grp">The finish</p>
+<section class="band" id="s6">
+<div class="band-h"><span>6</span><h2>Style your captions</h2></div>
+<div class="rule">
+<h3>Captions: TikTok Sans, white with a black outline</h3>
+<p>Use TikTok's own font for your captions, in one of these two styles.</p>
+<p class="note"><b>Get the size right.</b> Big enough to read without trying, but not so big it takes over the video. Notice the size in these two.</p>
+<div class="clips opts">
+<figure class="opt"><div class="opt-h"><span class="opt-tag def">Default</span><b>A few words at a time</b></div><video src="media/captions-groups.mp4" poster="media/captions-groups.jpg" controls playsinline preload="none"></video></figure>
+<figure class="opt"><div class="opt-h"><span class="opt-tag">Option 2</span><b>One word at a time</b></div><video src="media/captions-words.mp4" poster="media/captions-words.jpg" controls playsinline preload="none"></video></figure>
+</div>
+</div>
+</section>
+
+<section class="band" id="s7">
+<div class="band-h"><span>7</span><h2>Keep the sound clean</h2></div>
+<div class="rule">
+<h3>No music, no added sound</h3>
+<p>Just your voice. No background music, trending sounds or sound effects.</p>
+</div>
+</section>
+
+<section class="band raw" id="s8">
+<div class="band-h"><span>8</span><h2>Send your raw clips too</h2></div>
+<p class="note"><b>What we mean by raw clips:</b> your video already cut and trimmed, just with <b>no text, captions or hook box</b> on it.</p>
+<p>Send your raw clips with your edit. If we think there's a stronger way to edit your video, we'll re-edit it and run that version too. You earn your 10% on every version that runs, so one video gets more than one shot.</p>
+</section>
+
+<p class="foot">When you're ready to send, tick everything off on <a href="../index.html#submit" style="color:var(--pink-deep);font-weight:700">your cheat sheet</a>.</p>
+</div>
+<script>
+document.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click',function(){var ph=document.querySelector('.phone');ph.setAttribute('data-show',b.dataset.ui);document.querySelectorAll('.tabs button').forEach(function(x){x.classList.toggle('on',x===b)})})});
+</script>
+</body>
+</html>

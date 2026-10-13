@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Creator Cheat Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* matches baybellabeauty.com.au/pages/how-to (pulled live 12 Oct 2026) */
+:root{--ink:#1A1A1A;--muted:#555;--accent:#B044D4;--pale:#F3EBFA;--tint:#FAF8FC;--line:#E5DDF0;--ok:#2F7D4F;--bad:#C0392B}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font:19px/1.55 'Manrope',-apple-system,Helvetica,Arial,sans-serif}
+.wrap{max-width:680px;margin:0 auto;padding:28px 16px 60px}
+.mock{background:#FEF3C7;border:1px dashed #D97706;color:#92400E;font-size:14px;padding:8px 12px;border-radius:12px;margin-bottom:18px}
+h1{font:800 32px/1.15 'Manrope',sans-serif;letter-spacing:-.3px;margin:0 0 10px}
+.lede{font:400 22px/1.5 'Fraunces',Georgia,serif;margin:0 0 6px}
+.sub{color:var(--muted);font-size:15px;margin:0 0 14px}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.jump a{font-size:16px;text-decoration:none;color:var(--ink);background:var(--pale);padding:10px 14px;border-radius:14px}
+.card{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:20px 20px 16px;margin-bottom:14px}
+.head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--pale);color:var(--accent);font-weight:800;font-size:16px;display:grid;place-items:center}
+h2{font:500 26px/1.25 'Fraunces',Georgia,serif;margin:0}
+p{margin:6px 0 10px}
+ul{margin:4px 0 8px;padding-left:22px}
+li{margin:4px 0}
+.more{display:inline-block;font-size:17px;font-weight:700;color:var(--accent);text-decoration:none;margin-top:2px}
+.hook{background:var(--tint);border:1.5px solid var(--line);border-radius:14px;padding:11px 14px;margin:8px 0;font-weight:700}
+.hook small{display:block;font-weight:400;color:var(--muted);font-size:15px;margin-top:2px}
+.why{background:var(--pale);border-radius:14px;padding:12px 14px;margin:6px 0 12px}
+.why .lbl{display:block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
+ol.beats{margin:4px 0 8px;padding-left:24px}
+ol.beats li{margin:6px 0}
+.objection{background:#fff;border:1.5px solid var(--line);border-left:5px solid var(--accent);border-radius:14px;padding:12px 14px;margin:14px 0;font-size:17px}
+.objection .q{display:block;font-weight:800;font-style:italic;margin-bottom:4px}
+.ticks{list-style:none;padding:0;margin:6px 0}.ticks li{position:relative;padding-left:28px;margin:10px 0;font-size:17px;line-height:1.45}
+.ticks li::before{content:'✓';position:absolute;left:0;top:0;color:var(--ok);font-weight:800}
+.price{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0 12px;align-items:stretch}
+.pcol{position:relative;border:1.5px solid var(--line);border-radius:16px;padding:14px 8px 10px;text-align:center;background:#fff}
+.pcol.best{border:2.5px solid var(--ok);background:#F1F8F3;transform:scale(1.03)}
+.ribbon{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--ok);color:#fff;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;border-radius:100px;padding:3px 10px;white-space:nowrap}
+.pname{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.pcol.best .pname{color:var(--ok)}
+.pnum2{font:800 34px/1 'Manrope',sans-serif;margin:6px 0 10px}.pnum2 small{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-top:2px}
+.pline{font-size:14px;line-height:1.4;margin:6px 2px 2px;border-top:1px solid var(--line);padding-top:10px}
+.pcol.best .pline{font-weight:700}
+.prow{border-top:1px solid var(--line);padding:7px 2px;font-size:12.5px;line-height:1.25}
+.prow span{display:block;color:var(--muted)}.prow b{display:block;font-size:15px;margin-top:2px}
+.prow .ss{display:block;font-size:11.5px;color:var(--ok);font-weight:700}
+.tbd{font-style:normal;color:#B45309;font-size:12px}
+.prow b.up{color:var(--ok);font-size:18px}
+.payoff{background:var(--ok);color:#fff;border-radius:16px;padding:14px 16px;margin:6px 0 14px;font-size:17px;line-height:1.45}
+.payoff .lbl{display:block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;opacity:.85;margin-bottom:4px}
+.payoff b{color:#fff}
+.def{font-size:17px;color:var(--ink);background:var(--tint);border-left:4px solid var(--accent);border-radius:10px;padding:10px 14px;margin:6px 0 14px}
+.def .dt{display:block;font-size:18px;margin-bottom:2px}.def .one{margin:0 0 6px;font-size:17px}
+.dl{list-style:none;padding:0;margin:0}.dl li{display:flex;gap:10px;align-items:baseline;margin:6px 0;font-size:16px;line-height:1.35}.dl li span{flex:none;width:22px}.dl li em{font-style:normal}
+.winbox{background:var(--accent);color:#fff;border-radius:20px;padding:16px 18px;margin:4px 0 18px}
+.winbox .lbl{display:block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;opacity:.85;margin-bottom:4px}
+.winbox p{margin:0 0 6px;font-size:18px}.winbox b{color:#fff}
+.ticks.lite li{color:#fff;font-size:16px}.ticks.lite li::before{color:#fff}
+.bignum{background:rgba(255,255,255,.14);border-radius:14px;padding:10px 14px;margin-top:10px;font:800 34px/1.1 'Manrope',sans-serif}
+.bignum small{display:block;font-size:13px;font-weight:500;opacity:.9;margin-top:4px}
+.tag2{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;border-radius:100px;padding:2px 8px;margin:4px 0 0}
+.tag2.meh{background:#F3F3F3;color:#777}.tag2.ok2{background:var(--pale);color:var(--accent)}.tag2.rec{background:var(--ok);color:#fff}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 8px}
+.tier{border:1.5px solid var(--line);border-radius:16px;padding:10px 8px;text-align:center}
+.tier.best{border:2px solid var(--ok);background:#F1F8F3}.tier.best .lbl2{color:var(--ok)}
+.tier ul{list-style:none;padding:0;margin:4px 0 0;text-align:left}
+.tier li{font-size:13.5px;line-height:1.35;margin:6px 0;padding-left:14px;position:relative}
+.tier li::before{content:'•';position:absolute;left:2px;color:var(--accent);font-weight:800}
+.tier .egg-row{font-size:26px}
+.small{font-size:15px;color:var(--muted);text-align:center;margin:4px 0 12px}
+.eggs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 18px}
+.egg-col{border:1.5px solid var(--line);border-radius:16px;padding:12px;text-align:center}
+.egg-col.best{border:2px solid var(--ok);background:#F1F8F3}
+.lbl2{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.egg-col.best .lbl2{color:var(--ok)}
+.egg-row{font-size:36px;line-height:1.3;margin:4px 0}
+.egg-col p{font-size:15px;margin:0;line-height:1.35}
+.sub3{font:800 19px/1.3 'Manrope',sans-serif;margin:14px 0 8px}
+.adset{border:2px dashed var(--accent);border-radius:16px;padding:12px;background:var(--tint)}
+.as-title{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.as-vids{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.as-vids .v{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center;font-weight:700;font-size:15px}
+.as-vids .v small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.as-vids .v em{display:block;font-style:normal;font-size:12px;color:var(--ok);font-weight:800}
+.as-vids .v.win{border:2px solid var(--ok)}
+.as-bar{display:flex;height:30px;border-radius:100px;overflow:hidden;margin:10px 0 6px;background:var(--line)}
+.as-bar span{background:#D9D0E6}.as-bar span.win{background:var(--ok);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center;white-space:nowrap}
+.as-cap{font-size:15px;color:var(--muted);margin:4px 0 0}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:10px 0 12px}
+.flow span{background:var(--pale);border-radius:12px;padding:7px 10px;font-size:15px;font-weight:700}
+.flow i{color:var(--accent);font-style:normal;font-weight:800}
+ol.beats i{color:var(--accent);font-style:normal;font-weight:700;font-size:15px}
+.check{list-style:none;padding-left:0}
+.check li::before{content:"☐ ";color:var(--ok);font-weight:700}
+.btn{display:block;text-align:center;background:var(--ok);color:#fff;text-decoration:none;font-weight:700;font-size:17px;padding:13px;border-radius:100px;margin-top:8px}
+.btn.alt{background:#fff;color:var(--accent);border:1.5px solid var(--accent)}
+@media(max-width:520px){h1{font-size:28px}h2{font-size:23px}}
+.tiles3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0 4px}
+.tiles3 a{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;text-decoration:none;color:var(--ink);border:2px solid var(--accent);border-radius:16px;padding:12px 6px;font-size:15px;line-height:1.2}
+.pnum{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:16px;display:grid;place-items:center}
+.pnum.big{flex:none;width:48px;height:48px;font-size:22px}
+.banner{display:flex;gap:14px;align-items:center;background:var(--pale);border-radius:20px;padding:14px 16px;margin:30px 0 12px;scroll-margin-top:10px}
+.banner .of{display:block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent)}
+.banner .part{font:500 26px/1.2 'Fraunces',Georgia,serif;margin:0}
+.steps{padding:6px 18px}
+.step{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.si{flex:none;font-size:26px;line-height:1}
+.step b{font-size:18px}.step p{margin:2px 0 4px;font-size:16px;color:var(--muted)}
+.mini{display:inline-block;font-weight:800;font-size:15px;color:var(--ok);text-decoration:none}
+.prow{font-size:14px !important}.prow b{font-size:15.5px !important}.pnum2{font-size:38px !important}
+.book{border:2px solid var(--accent);border-radius:16px;padding:14px 16px;margin:12px 0}
+.book p{margin:2px 0 8px;font-size:16px;color:var(--muted)}
+.book b{font-size:18px}
+.book-btn{background:var(--accent) !important}
+.pay{border:1.5px solid var(--line);border-radius:16px;padding:12px 12px 10px;margin:0 0 14px}
+.plbl{display:block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.ladder div{text-align:center;border-radius:12px;padding:8px 4px;background:var(--tint)}
+.ladder small{display:block;font-size:11.5px;color:var(--muted);line-height:1.2;min-height:28px}
+.ladder b{display:block;font:800 22px/1.1 'Manrope',sans-serif;margin:2px 0}
+.ladder em{display:block;font-style:normal;font-size:11.5px;color:var(--muted)}
+.ladder .top{background:#F1F8F3;border:1.5px solid var(--ok)}.ladder .top b{color:var(--ok)}
+
+/* creator-page look (trybecreators.baybellabeauty.com.au), applied 12 Oct 2026 */
+:root{--bg-pink:#FCE9F1;--pink:#EC4899;--pink-soft:#F9A8C9;--pink-light:#FBC4DC;--pink-deep:#BE185D;--purple-deep:#3B0764;--purple:#6B21A8;--purple-mid:#8B5CF6;--purple-soft:#C4B5FD;--purple-pale:#EDE9FE;--ink-soft:#4C1D7E;--ink-faint:#8B7AAB;--cream:#FFFAF5;
+--ink:#2A0844;--muted:#4C1D7E;--accent:#6B21A8;--pale:#EDE9FE;--tint:#FFFAF5;--line:#E9D5EF;--ok:#EC4899}
+body{background:#FCE9F1;color:#2A0844;font-family:'Manrope',sans-serif}
+h1,h2,.lede,.banner .part{font-family:'Fraunces',serif !important}
+h1{font-weight:500 !important;color:var(--purple-deep)}
+.card{background:var(--cream)}
+.btn{background:var(--pink) !important;box-shadow:0 8px 24px rgba(214,8,107,.18)}
+.mini{color:var(--pink-deep) !important}
+.pcol.best{background:#FFF0F7 !important;border-color:var(--pink) !important}
+.ribbon{background:var(--pink) !important}.pcol.best .pname{color:var(--pink-deep) !important}
+.mock{display:block}
+  .calc{background:var(--cream);border:1px solid var(--line);border-radius:22px;padding:38px 36px 34px;margin:48px 0 0;max-width:820px}
+  .calc-label{font-size:.66rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--pink-deep);margin-bottom:8px}
+  .calc-q{font-family:'Fraunces',serif;font-size:1.45rem;color:var(--purple-deep);margin-bottom:28px;line-height:1.3}
+  .slider-row{margin-bottom:12px}
+  .slider-val{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:300;color:var(--pink);line-height:1;margin-bottom:18px;letter-spacing:-.02em}
+  input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:6px;
+    background:linear-gradient(90deg,var(--pink-light),var(--purple-soft));outline:none;margin:6px 0 4px}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;
+    border-radius:50%;background:var(--pink);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 10px rgba(190,24,93,.4)}
+  input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--pink);
+    cursor:pointer;border:3px solid #fff;box-shadow:0 2px 10px rgba(190,24,93,.4)}
+  .slider-ends{display:flex;justify-content:space-between;font-size:.76rem;color:var(--ink-faint);margin-bottom:30px}
+  .calc-out{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+  .calc-cell{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 16px;text-align:center;transition:all .18s}
+  .calc-cell.best{border-color:var(--pink);background:linear-gradient(160deg,#fff,#FEF2F8);box-shadow:0 8px 24px -12px rgba(236,72,153,.5)}
+  .calc-cell-name{font-size:.64rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px}
+  .calc-cell.best .calc-cell-name{color:var(--pink-deep)}
+  .calc-cell-val{font-family:'Fraunces',serif;font-size:1.85rem;font-weight:300;color:var(--purple-deep);line-height:1}
+  .calc-cell.best .calc-cell-val{color:var(--pink)}
+  .calc-note{margin-top:22px;font-size:.92rem;color:var(--ink-faint);line-height:1.6}
+  .calc-note b{color:var(--purple-deep)}
+  .calc-out{grid-template-columns:1fr}
+  @media (max-width:560px){.calc-out{grid-template-columns:1fr;gap:10px}.calc{padding:28px 22px}}
+.calc{margin:0 0 16px !important;padding:26px 22px 22px !important}
+.winflow{margin:6px 0 10px}
+.wf-h{font:500 24px/1.2 'Fraunces',serif;margin:0 0 2px;color:var(--purple-deep)}
+.wf-sub{margin:0 0 12px;font-size:16px}
+.wf{display:flex;align-items:stretch;gap:4px}
+.wfs{flex:1;background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:10px 6px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px}
+.wfs b{font-size:14px;line-height:1.2}.wfs small{font-size:11.5px;color:var(--ink-faint);line-height:1.25}
+.wfi{font-size:24px}
+.wfs.hot{background:#FFF0F7;border:1.5px solid var(--pink)}.wfs.hot b{color:var(--pink-deep)}
+.wfa{align-self:center;font-style:normal;color:var(--pink);font-weight:800}
+.wf-note{font-size:15px;margin:12px 0 4px}
+.wf-cta{font-size:13px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--pink-deep);margin:10px 0 6px}
+.wrap>h1,.wrap>.lede{text-align:center}
+.wrap>.lede{margin-bottom:26px !important}
+.winflow{text-align:center;margin:0 0 14px !important}
+.wf-sub{margin:0 0 14px !important}
+.wfs{padding:12px 6px !important;gap:6px !important}.wfs b{font-size:14.5px !important}
+.wf-note{margin:14px 0 18px !important;font-size:16px !important}
+.calc{text-align:center}.slider-ends{text-align:initial}
+.prow span{font-size:11px !important;font-weight:700 !important;letter-spacing:.8px;text-transform:uppercase;color:var(--ink-faint) !important}
+.prow b{font-weight:500 !important;font-size:14.5px !important;line-height:1.35 !important;color:var(--ink) !important}
+.pcol.best .prow b{font-weight:600 !important}
+.pname{font-weight:700 !important}
+.pnum2{font-weight:600 !important}
+.analogy-in{font:500 19px/1.3 'Fraunces',serif;color:var(--purple-deep);margin:4px 0 10px}
+.analogy{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 14px}
+.analogy div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 8px;text-align:center}
+.analogy span{display:block;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--pink-deep);margin-bottom:4px}
+.analogy b{display:block;font-weight:600;font-size:15px;line-height:1.25}
+.analogy small{display:block;font-size:12px;color:var(--ink-faint);line-height:1.3;margin-top:4px}
+.defline{font-size:16px;margin:2px 0 12px}
+.calc{padding:18px 18px 14px !important;border-radius:18px !important;margin:0 0 16px !important}
+.calc .calc-label{margin-bottom:4px !important}
+.calc .calc-q{font-size:17px !important;margin-bottom:12px !important}
+.calc-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.calc-pair>div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 8px}
+.calc-pair>div.earn{border-color:var(--pink);background:#FFF0F7}
+.calc-pair small{display:block;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:2px}
+.calc-pair .earn small{color:var(--pink-deep)}
+.calc .slider-val{font-size:28px !important;margin:0 !important;color:var(--purple-deep) !important}
+.calc .calc-cell-val{font-family:'Fraunces',serif;font-size:28px !important;margin:0;color:var(--pink) !important;line-height:1}
+.calc .slider-ends{margin-bottom:0 !important}
+.wfs{padding:10px 6px !important}.wfi{font-size:20px !important}
+.wf-h{font-size:22px !important}
+.winflow{background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:18px 14px 6px !important;margin:0 0 18px !important}
+.calc{margin-top:0 !important;margin-bottom:22px !important}
+.windef{background:#fff;border:1.5px solid var(--pink);border-radius:14px;padding:12px 14px;margin:6px 0 14px;font-size:17px;line-height:1.4}
+.windef span{display:block;font-size:14px;color:var(--ink-faint);margin-top:4px}
+.wfs small{display:block !important;font-size:11.5px;color:var(--ink-faint);line-height:1.2}
+.bar{display:block;width:60%;margin:6px auto 0;height:6px;border-radius:6px;background:var(--line)}
+.bar.b0{width:10%}.bar.b1{width:25%;background:var(--pink-light)}.bar.b2{width:60%;background:var(--pink-soft)}.bar.b3{width:95%;background:var(--pink)}
+.card#hooks{text-align:center}
+.an-h{font:500 19px/1.3 'Fraunces',serif;color:var(--purple-deep);margin:4px 0 10px}
+.an-goal{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:100px;padding:6px 14px;font-size:15px;margin-bottom:10px}
+.an-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.an{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 6px}
+.an span{display:block;font-size:24px}.an b{font-weight:600;font-size:14.5px}
+.an-cap{font-size:15.5px;margin:10px 0 14px}
+.an-map{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 12px;margin-bottom:12px}
+.an-map>div{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)}
+.an-map>div:first-child{grid-template-columns:1fr 1fr;padding:4px 0}
+.an-map>div:last-child{border-bottom:0}
+.an-map small{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--ink-faint)}
+.an-map b{font-weight:600;font-size:15px}.an-map b:last-child{color:var(--pink-deep)}
+.an-map i{font-style:normal;color:var(--pink);font-weight:800}
+.card#structure{text-align:center}
+.q3{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 0 14px}
+.q3 span{background:#fff;border:1px solid var(--line);border-radius:100px;padding:6px 12px;font-size:14px;font-weight:600}
+.beats2{background:#fff;border:1px solid var(--line);border-radius:14px;padding:4px 12px;margin-bottom:12px;text-align:left}
+.bt{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+.bt:last-child{border-bottom:0}
+.bt em{flex:none;width:26px;height:26px;border-radius:50%;background:var(--purple-pale);color:var(--purple);font-style:normal;font-weight:800;font-size:13px;display:grid;place-items:center}
+.bt>div{flex:1}.bt b{display:block;font-weight:600;font-size:15px}.bt small{display:block;font-size:13px;color:var(--ink-faint)}
+.bt i{flex:none;font-style:normal;font-size:11.5px;font-weight:700;color:var(--pink-deep);background:#FFF0F7;border-radius:100px;padding:3px 8px}
+.cklist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.ck{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 12px;cursor:pointer;font-size:16px}
+.ck input{appearance:none;-webkit-appearance:none;flex:none;width:22px;height:22px;border:2px solid var(--pink-soft);border-radius:6px;display:grid;place-items:center;margin:0;cursor:pointer}
+.ck input:checked{background:var(--pink);border-color:var(--pink)}
+.ck input:checked::after{content:'✓';color:#fff;font-weight:800;font-size:14px}
+.ck:has(input:checked) span{color:var(--ink-faint);text-decoration:line-through}
+.ckdone{font-size:16px;margin:6px 0}
+.ckdone.ready{background:#FFF0F7;border:1.5px solid var(--pink);border-radius:12px;padding:10px 12px;color:var(--pink-deep);font-weight:700;text-align:center}
+.ckreset{background:none;border:0;color:var(--ink-faint);font:inherit;font-size:13px;text-decoration:underline;cursor:pointer;padding:0}
+.band{position:relative;box-shadow:0 0 0 100vmax var(--band);clip-path:inset(0 -100vmax);background:var(--band) !important;padding:30px 0 22px}
+.band-1{--band:#FCE7F1}.band-2{--band:#F1E9FB}.band-3{--band:#FFF4EA}.band-4{--band:#FBE3EE}.band-5{--band:#ECEEFC}.band-6{--band:#FFF4EA}
+body{background:#FFF4EA !important}
+.band .banner{margin-top:0 !important}
+.band>.card:last-child{margin-bottom:0}
+.wrap{padding-top:0 !important;padding-bottom:0 !important}
+.band .card,.band .winflow,.band .calc{background:#fff !important}
+.band{padding:34px 0 28px !important}
+/* blend each band into the next (12 Oct 2026) */
+.band{box-shadow:none !important;clip-path:none !important;background:transparent !important;isolation:isolate}
+.band::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:-1;
+  background:linear-gradient(180deg,var(--band) 0%,var(--band) 55%,var(--next) 100%)}
+html,body{overflow-x:hidden}
+.card#film{text-align:center}
+.mirror{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin:4px 0 10px}
+.mi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 8px}
+.mi span,.mi-you span{display:block;font-size:28px}.mi b{display:block;font-weight:600;font-size:15px}
+.mi small{display:block;font-size:12.5px;color:var(--ink-faint);line-height:1.35;margin-top:2px}
+.mi-you small{font-size:12px;color:var(--ink-faint)}
+.exvid{margin:12px auto 0;max-width:260px}.exvid video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px;border:3px solid var(--pink);background:#000;display:block}
+.exvid figcaption{font-size:14px;margin-top:8px;color:var(--ink)}
+.look2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 10px}
+.lk{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 8px}
+.lk>span{display:block;font-size:26px}.lk b{display:block;font-weight:600;font-size:15px}.lk small{display:block;font-size:12.5px;color:var(--ink-faint);margin:2px 0 8px}
+.lk video,.lkvid{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000;display:block}
+.lkvid{background:var(--purple-pale);color:var(--ink-faint);display:grid;place-items:center;font-size:12px}
+.setup{display:flex;align-items:stretch;gap:6px;padding:16px 12px !important;text-align:center}
+.su{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 2px}
+.si2{font-size:28px}.su b{font-weight:600;font-size:15.5px;line-height:1.25}
+.su small{font-size:12.5px;color:var(--ink-faint);line-height:1.3}
+.chips{display:flex;gap:4px;flex-wrap:wrap;justify-content:center;margin:2px 0}
+.chips span{background:#FFF0F7;color:var(--pink-deep);border-radius:100px;padding:2px 8px;font-size:12px;font-weight:700}
+.setup .wfa{align-self:center}
+.nails{text-align:center;font-size:14px;color:var(--ink-faint);margin:10px 0 0}
+@media(max-width:520px){.setup{flex-direction:column}.setup .wfa{transform:rotate(90deg)}}
+.card.setup{background:transparent !important;border:0 !important;padding:0 !important;box-shadow:none !important;gap:6px}
+.su{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 8px !important;justify-content:flex-start}
+.si2{font-size:22px !important}
+.su b{font-size:14.5px !important}
+.su small{font-size:12px !important}
+.chips span{font-size:11px !important;padding:2px 7px !important}
+.su .mini{font-size:13px !important;margin-top:2px}
+.nails{display:block;max-width:520px;margin:12px auto 0 !important;background:#FFF0F7;border:1.5px solid var(--pink);border-radius:12px;padding:10px 14px;font-size:14.5px !important;color:var(--ink) !important;text-align:center}
+.nails b{color:var(--pink-deep)}
+.eyesline{text-align:center;font-size:16px;margin:12px 0 2px}
+.nails{background:none !important;border:0 !important;padding:4px 0 !important}
+.su.feat{flex:1.2;border:1.5px solid #F2A9C9 !important}
+.su.feat b{font-size:15.5px !important}
+.tut-btn{display:inline-block !important;background:#fff !important;color:var(--pink-deep) !important;border:1.5px solid var(--pink);box-shadow:none !important;margin-top:6px !important;font-size:14px !important;padding:7px 18px !important}
+.card.setup{flex-direction:column !important;gap:4px !important}
+.setup .wfa{transform:rotate(90deg) !important;line-height:1;align-self:flex-start;margin-left:28px}
+.su{display:grid !important;grid-template-columns:44px 1fr auto;column-gap:14px;row-gap:3px;align-items:center;justify-items:start;text-align:left;padding:14px 18px !important}
+.su>.si2{grid-column:1;grid-row:1/span 3;justify-self:center}
+.su>b,.su>small,.su>.chips{grid-column:2}
+.su>.chips{justify-content:flex-start}
+.su>.tut-btn{grid-column:3;grid-row:1/span 3;margin-top:0 !important}
+@media(max-width:520px){.su{grid-template-columns:36px 1fr}.su>.tut-btn{grid-column:2;grid-row:auto;margin-top:6px !important}}
+.si2.lt{width:36px;height:36px;border-radius:50%;background:#EDE7FB;color:#5B2BA6;font-weight:800;font-size:16px !important;display:flex;align-items:center;justify-content:center}
+.book-tag{display:inline-block;background:#F3EBFA;color:#6B21A8;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-bottom:6px}
+.book b{display:block}
+.book-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.book-price{white-space:nowrap;font-weight:800}
+.book-price s{color:#9a8aa8;font-weight:600;margin-right:4px}
+.book-price em{font-style:normal;color:#D6086B;font-size:1.15em}
+.book-list{list-style:none;margin:4px 0 12px;padding:0;display:grid;gap:8px}.book-list li{display:flex;gap:10px;align-items:flex-start;background:#FBF7FE;border-radius:12px;padding:9px 12px}.book-list .bi{font-size:20px;line-height:1.3}.book-list b.bl{display:block;font-size:16px;color:var(--ink)}.book-list li span:not(.bi){display:block;font-size:14.5px;color:var(--muted);line-height:1.4}
+.book-alt{text-align:center;font-size:13.5px;color:var(--ink-faint);margin:8px 0 0}
+.topvids{text-align:center}
+.tv-h{font:500 22px/1.25 'Fraunces',Georgia,serif;margin:4px 0 14px;color:var(--ink)}
+.tv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;text-align:left}
+.tv{margin:0}.tv video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px;background:#000;display:block}
+.tv figcaption{margin-top:8px;display:flex;flex-direction:column;gap:2px}
+.tv figcaption b{font:500 16px/1.25 'Fraunces',Georgia,serif;color:var(--ink)}
+.tv figcaption span{font-size:12.5px;color:var(--ink-faint)}
+.tv figcaption em{font-style:normal;font-weight:800;color:var(--pink-deep);font-size:15px;margin-top:2px}
+.fq{border-top:1px solid var(--line);padding:12px 2px}
+.fq summary{cursor:pointer;font-weight:700;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.fq summary::-webkit-details-marker{display:none}
+.fq summary::after{content:'+';color:var(--pink-deep);font-weight:800}
+.fq[open] summary::after{content:'–'}
+.fq p,.fq ul{font-size:15px;margin:8px 0 4px}
+.fq ul{padding-left:20px}.fq li{margin:4px 0}
+.fq a{color:var(--pink-deep);font-weight:700}
+.fqn{color:var(--pink-deep);font-weight:800;margin-right:4px}
+.fq summary{justify-content:flex-start}.fq summary::after{margin-left:auto}
+.ckgrp{margin:14px 0 6px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-deep)}.ckgrp:first-child{margin-top:0}
+.ckn{font-style:normal;color:var(--ink-faint);font-size:.9em}
+.excl{display:inline-block;font-style:normal;font-size:12px;font-weight:800;color:#fff;background:var(--pink-deep,#BE185D);padding:2px 9px;border-radius:100px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.excl-tag{background:#BE185D !important;color:#fff !important}
+.top-h{text-align:center;font-size:46px !important;line-height:1.1}
+.top-l{text-align:center}
+@media(max-width:520px){.top-h{font-size:36px !important}}
+.windef2{text-align:center;font-size:18px;margin:4px 0 22px;color:var(--ink)}
+.tl{list-style:none;padding:0;margin:0 0 18px;display:grid;grid-template-columns:repeat(5,1fr);position:relative;counter-reset:t}
+.tl::before{content:'';position:absolute;top:13px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--line),var(--pink))}
+.tl li{position:relative;text-align:center;padding-top:36px;counter-increment:t}
+.tl li::before{content:counter(t);position:absolute;top:0;left:50%;transform:translateX(-50%);width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid var(--line);color:var(--purple);font-weight:800;font-size:13px;display:grid;place-items:center}
+.tl li.hot::before{content:'$';background:var(--pink);border-color:var(--pink);color:#fff}
+.tl b{display:block;font-size:15.5px;color:var(--ink)}.tl small{display:block;font-size:13px;color:var(--ink-faint);margin-top:2px}
+.tl li.hot b{color:var(--pink-deep)}
+@media(max-width:520px){.tl b{font-size:14px}.tl small{font-size:12px}}
+.tl li.loop::before{content:'↻';font-size:15px}
+@media(max-width:520px){.tl b{font-size:12.5px}.tl small{font-size:11px}}
+.fq{padding:14px 2px !important}
+.fq summary{font-size:16.5px !important;align-items:center}
+.fa{background:var(--purple-pale,#EDE9FE);border-radius:14px;padding:12px 16px;margin:10px 0 2px}
+.fa p{margin:6px 0 !important;font-size:15px}
+.fa-lead{font-weight:800;color:var(--ink);font-size:16px !important}
+.tl.tl3{grid-template-columns:repeat(3,1fr);margin:12px 0 10px}
+.tl.tl3::before{left:16.6%;right:16.6%}
+.tl.tl3 li::before{content:'';width:16px;height:16px;top:6px}
+.tl.tl3 li.hot::before{content:''}
+.tl.tl3 li{padding-top:30px}
+.pcol.dim{opacity:.62;background:#FAF8FB !important}
+.pnote{font-size:11.5px;font-weight:700;color:var(--ink-faint);margin:8px 0 0}
+.send2{margin:14px 0 6px;border-top:1px solid var(--line);padding-top:12px}
+.send-row{display:flex;gap:12px;align-items:flex-start;padding:8px 0}
+.send-row b{font-size:16px;color:var(--ink)}.send-row p{margin:2px 0 0;font-size:15px;color:var(--muted)}
+.send-n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--pink);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
+.send-btn{margin-top:8px !important;display:inline-block !important;padding:10px 20px !important;font-size:15px !important}
+.si.sil{width:28px;height:28px;border-radius:50%;background:var(--purple-pale,#EDE9FE);color:#6B21A8;font-weight:800;font-size:14px;display:grid;place-items:center;margin-top:1px}
+.book{position:relative;margin-top:22px !important;border:2px solid var(--pink) !important;background:#FFF0F7 !important}
+.book:before{content:"";position:absolute;top:-11px;left:50%;width:18px;height:18px;background:#FFF0F7;border-left:2px solid var(--pink);border-top:2px solid var(--pink);transform:translateX(-50%) rotate(45deg)}
+.book .book-list li{background:#fff}
+.book p b.bl{display:inline;font-size:inherit;color:var(--ink)}
+.book p.book-lead{margin-top:12px}
+.whyfree{background:#fff;border:1.5px dashed var(--pink);border-radius:16px;padding:12px 16px;margin:12px 0 4px}.whyfree b{display:block;font-size:16px;color:var(--pink-deep)}.whyfree p{margin:4px 0 0;font-size:15.5px;line-height:1.5}
+.book p.whyfree2{display:flex;gap:8px;align-items:flex-start;margin:6px 0 14px;padding:9px 12px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--pink);border-radius:12px;font-size:14px;line-height:1.45;color:var(--ink)}.book p.whyfree2 .wf-ic{font-size:18px;line-height:1.2}.book p.whyfree2 b{display:inline;font-size:inherit;color:var(--pink-deep)}
+.book p.whyfree2 b.wf-b{color:var(--ink)}
+.ck .ckn{flex:none;width:24px;height:24px;border-radius:50%;background:var(--pale);color:var(--accent);font-weight:800;font-size:13px;display:inline-grid;place-items:center;margin-right:2px}.ck a.ckl{color:var(--pink-deep);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.fa-lead.due{font-size:20px}.fa-lead.due b{color:var(--pink-deep)}
+.nx-lede{margin:2px 0 12px}
+.nx{list-style:none;padding:0;margin:0;position:relative}
+.nx:before{content:"";position:absolute;left:19px;top:20px;bottom:20px;width:2px;background:linear-gradient(var(--pink-light,#FBC4DC),var(--pink,#EC4899))}
+.nx li{position:relative;display:flex;gap:14px;align-items:flex-start;padding:0 0 16px}
+.nx-dot{flex:none;width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid var(--pink,#EC4899);display:grid;place-items:center;font-size:19px;position:relative;z-index:1}
+.nx li>div{padding-top:1px}
+.nx-when{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--pink-deep,#BE185D);background:#FFF0F7;border-radius:100px;padding:2px 9px;margin-bottom:2px}
+.nx b{display:block;font-size:17px}
+.nx p{margin:1px 0 0;font-size:15.5px;line-height:1.45}
+.nx-loop{margin:2px 0 0;text-align:center;font-weight:700;color:var(--pink-deep,#BE185D)}
+.bmk{text-align:center;margin:6px 0 26px}.bmk span{display:inline-block;background:#fff;border:1.5px dashed var(--pink,#EC4899);border-radius:100px;padding:7px 16px;font-size:15px}.bmk b{color:var(--pink-deep,#BE185D)}
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 10px}
+@media(max-width:560px){.fit{grid-template-columns:1fr}}
+.fit-c{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px}
+.fit-c b{display:block;font-size:16px;margin:4px 0 4px}.fit-c p{margin:0;font-size:15px}
+.fit-hot{border-color:var(--pink,#EC4899);background:#FFF7FB}
+.fit-tag{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint,#8B7AAB);background:#F3EBFA;border-radius:100px;padding:2px 9px}
+.fit-hot .fit-tag{color:#fff;background:var(--pink,#EC4899)}
+.fit-c ul{list-style:none;padding:0;margin:4px 0 0}.fit-c li{margin:5px 0;font-size:15px}
+.fit-foot{margin:0;font-weight:600}
+.fit-c>b{font:500 20px/1.25 'Fraunces',Georgia,serif !important;color:var(--purple-deep,#3B0764);margin:0 0 10px !important;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.nx-more{text-align:center;margin:14px 0 2px}.faq-more{margin:0 0 10px;font-size:15.5px}.faq-more a{color:var(--pink-deep,#BE185D);font-weight:700}
+.earn-p{margin:0 0 10px}.earn-p a{font-size:18px;color:var(--pink-deep);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+</style>
+</head>
+<body><div class="wrap">
+
+
+<section class="band band-1" style="--next:#F1E9FB"><h1 class="top-h">Creator Cheat Sheet</h1>
+<p class="lede top-l">Everything you need to create your first winning ad.</p>
+<p class="bmk"><span>🔖 <b>Bookmark this page.</b> You'll come back to it every round.</span></p>
+</section>
+<section class="band band-2" style="--next:#FFF4EA"><div class="winflow">
+<h2 class="wf-h">What's a winning ad?</h2>
+<p class="windef2"><b>It's the ad version of a video going viral.</b></p>
+<ol class="tl">
+<li><b>You film</b><small>Your video</small></li>
+<li><b>We test it</b><small>Small budget</small></li>
+<li><b>It sells</b><small>We spend more</small></li>
+<li class="loop"><b>It keeps selling</b><small>We keep spending more</small></li>
+<li class="hot"><b>You earn 10%</b><small>As long as it runs</small></li>
+</ol>
+<p class="wf-note"><b>The better the video, the further it goes.</b> Not every video gets there, so more shots = better chances.</p>
+</div>
+
+
+<div class="card topvids">
+<p class="calc-label">What a winning video looks like</p>
+<h3 class="tv-h">Two creator videos that kept selling</h3>
+<div class="tv-grid">
+<figure class="tv"><video src="kit-media/how-i-save-money.mp4" poster="kit-media/how-i-save-money.jpg" controls playsinline preload="none"></video>
+<figcaption><b>How I save money</b><span>$88,776 AUD ad spend · hook rate 27%</span><em>She'd earn $8,878 AUD</em></figcaption></figure>
+<figure class="tv"><video src="kit-media/pro-makeup.mp4" poster="kit-media/pro-makeup.jpg" controls playsinline preload="none"></video>
+<figcaption><b>I've been pro makeup</b><span>$78,680 AUD ad spend · hook rate 32%</span><em>She'd earn $7,868 AUD</em></figcaption></figure>
+</div>
+</div>
+
+<div class="calc">
+    <p class="calc-label">Slide to see what you could earn</p>
+    <p class="calc-q" id="calcLabel">A video that gets tested and switched off</p>
+    <div class="calc-pair">
+      <div><small>Ad spend behind your video</small><p class="slider-val" id="spendVal">$200 AUD</p></div>
+      <div class="earn"><small>You'd earn · 10%</small><p class="calc-cell-val" id="valC">$20 AUD</p></div>
+    </div>
+    <input type="range" id="spendSlider" min="0" max="100" value="12" step="1">
+    <div class="slider-ends"><span>$0</span><span>$88,776 · our best</span></div>
+  </div>
+<div class="tiles3"><a href="#p1"><span class="pnum">1</span><b>Get set up</b></a><a href="#p2"><span class="pnum">2</span><b>Know the standard</b></a><a href="#p3"><span class="pnum">3</span><b>Make your videos</b></a></div>
+
+</section>
+<section class="band band-3" style="--next:#FBE3EE"><div class="banner" id="p1"><span class="pnum big">1</span><div><span class="of">Part 1 of 3</span><h2 class="part">Get set up</h2></div></div>
+<div class="card steps">
+<div class="step"><span class="si sil">A</span><div><b>Open your packages</b><p>Fuller, Simple and Blair, plus carry pouches and applicators.</p></div></div>
+<div class="step"><span class="si sil">B</span><div><b>Watch the tutorials</b><p>Loading, applying and taking them off.</p><a class="mini" href="https://baybellabeauty.com.au/pages/how-to" target="_blank" rel="noopener">Watch now →</a></div></div>
+<div class="step"><span class="si sil">C</span><div><b>Practice for a few days</b><p>Until putting them on feels easy.</p></div></div>
+</div>
+<div class="nails">💅 <b>Got our press-on nails too?</b> They're a bonus. Focus on the lashes for now.</div>
+
+</section>
+<section class="band band-4" style="--next:#ECEEFC"><div class="banner" id="p2"><span class="pnum big">2</span><div><span class="of">Part 2 of 3</span><h2 class="part">Know the standard</h2></div></div>
+<div class="card steps">
+<div class="step"><span class="si">✅</span><div><b>How to film yourself with the lashes</b><p>What we approve and what we send back when you put them on and take them off on camera, with real examples.</p><a class="mini" href="https://baybella-creator-guidelines.netlify.app" target="_blank" rel="noopener">Open the guidelines →</a></div></div>
+</div>
+</section>
+<section class="band band-5" style="--next:#FFF4EA"><div class="banner" id="p3"><span class="pnum big">3</span><div><span class="of">Part 3 of 3</span><h2 class="part">Make your videos</h2></div></div>
+<div class="card" id="hooks">
+<div class="head"><span class="n">1</span><h2>Choosing your angle</h2></div>
+<div class="windef">An <b>angle</b> is the approach your video takes to win her over.<span>In performance marketing, it's the reason your video gives her to buy.</span></div>
+<p class="an-h">Think of it like getting someone's number</p>
+<div class="an-goal">🎯 <b>The goal:</b> get their number</div>
+<div class="an-row">
+<div class="an"><span>😂</span><b>Make them laugh</b></div>
+<div class="an"><span>🙌</span><b>Be honest</b></div>
+<div class="an"><span>🤝</span><b>Find common ground</b></div>
+</div>
+<p class="an-cap">Three different approaches, same goal. <b>Each one is an angle.</b></p>
+<div class="an-map">
+<div><small>On a date</small><small>In your video</small></div>
+<div><b>Getting the number</b><i>→</i><b>She buys</b></div>
+<div><b>Your approach</b><i>→</i><b>Your angle</b></div>
+<div><b>Your opening line</b><i>→</i><b>Your hook</b></div>
+</div>
+<a class="mini" href="angles.html" target="_blank" rel="noopener">See our angles →</a>
+</div>
+
+
+</section>
+<section class="band band-3" style="--next:#FCE7F1"><div class="card" id="structure">
+<div class="head"><span class="n">2</span><h2>The Winning TikTok Shop Ad Script Formula</h2></div>
+<div class="windef">Every ad that sells answers <b>three questions</b> before she scrolls away.<span>This formula gives each one a place, in the order she asks them.</span></div>
+<div class="q3"><span>🧲 Why magnetic lashes?</span><span>💜 Why Baybella?</span><span>⏰ Why right now?</span></div>
+<div class="beats2">
+<div class="bt"><em>1</em><div><b>Hook</b><small>Open a question she needs answered</small></div></div>
+<div class="bt"><em>2</em><div><b>Problem</b><small>What was annoying you before</small></div></div>
+<div class="bt"><em>3</em><div><b>What they are</b><small>Magnetic lashes, no glue</small></div><i>🧲 Why magnetic</i></div>
+<div class="bt"><em>4</em><div><b>Show it</b><small>Put them on, on camera</small></div></div>
+<div class="bt"><em>5</em><div><b>What's changed</b><small>Life since you switched</small></div></div>
+<div class="bt"><em>6</em><div><b>The doubt</b><small>"But will they work for me?"</small></div><i>💜 Why Baybella</i></div>
+<div class="bt"><em>7</em><div><b>Call to action</b><small>Where to get them, and why not wait</small></div><i>⏰ Why now</i></div>
+</div>
+</div>
+
+
+</section>
+<section class="band band-1" style="--next:#F1E9FB"><div class="card" id="script">
+<div class="head"><span class="n">3</span><h2>Write your script</h2></div>
+<p>Once you've picked your angle, open our Script Maker. Tell it your angle and it'll help you with your hook and script.</p><p><a class="more" href="hook-guide/index.html" target="_blank" rel="noopener">See real hooks that worked in the Hook Guide →</a></p>
+<a class="btn" href="https://baybella-script-maker.netlify.app" target="_blank" rel="noopener">Open the Script Maker</a>
+</div>
+
+
+</section>
+<section class="band band-2" style="--next:#FFF4EA"><div class="card" id="film">
+<div class="head"><span class="n">4</span><h2>Filming tips</h2></div>
+<div class="windef">Before you film, <b>decide where you'll look</b> while you put them on.</div>
+<div class="look2">
+<div class="lk"><span>📱</span><b>Look at your phone</b><small>Use the screen like a mirror. Get close.</small><video src="kit-media/look-at-phone.mp4" controls playsinline muted loop preload="metadata"></video></div>
+<div class="lk"><span>🪞</span><b>Look in a mirror</b><small>Hold it beside your phone at about 45°.</small><video src="kit-media/look-in-mirror.mp4" controls playsinline muted loop preload="metadata"></video></div>
+</div>
+<p class="eyesline">Either way is fine, as long as <b>your eyes are clearly visible</b> while you demonstrate the product.</p>
+</div>
+
+
+</section>
+<section class="band band-6" style="--next:#FBE3EE"><div class="card" id="test">
+<div class="head"><span class="n">5</span><h2>Plan your round</h2></div>
+<p><b>If you're serious about earning, we suggest 3 to 5 videos per round.</b> Creators filming one or two per round might find themselves waiting so long for a winner that they give up, and they earn the least while they wait.</p>
+
+<div class="price">
+<div class="pcol dim"><div class="pname">Casual</div><div class="pnum2">1–2<small>videos</small></div>
+<div class="prow"><span>Best for</span><b>Just seeing what happens</b></div>
+<div class="prow"><span>Your ideas</span><b>On your own</b></div>
+<div class="prow"><span>Support</span><b>This cheat sheet</b></div></div>
+<div class="pcol best"><div class="ribbon">Recommended</div><div class="pname">Insider</div><div class="pnum2">3–5<small>videos</small></div>
+<div class="prow"><span>Best for</span><b>Finding your first winner faster</b></div>
+<div class="prow"><span>Your ideas</span><b>Crafted with our creative strategist</b></div>
+<div class="prow"><span>Support</span><b>Our creative strategist helps craft your content</b></div></div>
+<div class="pcol"><div class="pname">Proven creator</div><div class="pnum2">6+<small>videos</small></div>
+<div class="prow"><span>Best for</span><b>Doubling down on a hit</b></div>
+<div class="prow"><span>Your ideas</span><b>More of your best one</b></div>
+<div class="prow"><span>Support</span><b>Ongoing strategist support to scale your winners</b></div><div class="pnote">🔒 Unlocked after your first winner</div></div>
+</div>
+
+<div class="book"><div><span class="book-tag excl-tag">🔒 Included with Insider · 3+ videos</span><div class="book-head"><b>30-minute 1:1 with our creative strategist</b><span class="book-price"><s>$110</s> <em>FREE</em></span></div><p class="whyfree2"><span class="wf-ic">💡</span><span><b>Why free?</b> The better you understand winning ads the way a creative strategist does, the better your content will sell. <b class="wf-b">You earn more, we sell more.</b></span></p><p>Our strategist is the mind behind the ad strategy that took Baybella from zero to <b class="bl">50,000+ customers</b>, and knows the creator side from filming content too.</p><p class="book-lead">In just 30 minutes, you'll walk away with:</p><ul class="book-list"><li><span class="bi">🔍</span><div><b class="bl">FREE content audit</b><span>We go through your past videos one by one: what's working, where you're losing viewers, and exactly what to change in your hooks, pacing and delivery</span></div></li><li><span class="bi">🧪</span><div><b class="bl">Ideas pressure-tested</b><span>Before you spend a day filming them</span></div></li><li><span class="bi">📖</span><div><b class="bl">Your story, your angles</b><span>Got one? We'll turn it into angles only you could film</span></div></li><li><span class="bi">📊</span><div><b class="bl">Performance marketing basics</b><span>Brands rebook creators who hit their numbers. Learn ROAS, CPA, CTR, CPM and CPC, and how to use that data strategically to improve your content</span></div></li><li><span class="bi">🧠</span><div><b class="bl">Think like a strategist</b><span>Learn how we decide what a video should say before anyone films it. Bring that to every brand you work with, and stand out from creators who just film what they're told</span></div></li></ul></div>
+<a class="btn book-btn" href="https://calendly.com/arvinjayya/creative-strategy-call" target="_blank" rel="noopener">📅 Book your FREE strategy call</a><p class="book-alt">No time that works? Message us in Trybe chat.</p></div>
+</div>
+
+
+</section>
+<section class="band band-4" style="--next:#FBE3EE"><div class="card" id="edit">
+<div class="head"><span class="n">6</span><h2>Edit your video</h2></div>
+<p>Turn your footage into a finished ad, ready to post: your hook text, tight cuts, captions and sound, plus sending your raw clips.</p>
+<a class="btn" href="editing-guide/index.html" target="_blank" rel="noopener">Open the editing guide</a>
+</div>
+<div class="card" id="submit">
+<div class="head"><span class="n">7</span><h2>Before you submit</h2></div>
+<div class="cklist">
+<label class="ck"><span class="ckn">1</span><input type="checkbox" data-k="s0"><span>Watched the <a class="ckl" href="https://baybellabeauty.com.au/pages/how-to" target="_blank" rel="noopener">tutorials</a> and practised putting them on</span></label>
+<label class="ck"><span class="ckn">2</span><input type="checkbox" data-k="s1"><span>Read the <a class="ckl" href="https://baybella-creator-guidelines.netlify.app" target="_blank" rel="noopener">filming guidelines</a></span></label>
+<label class="ck"><span class="ckn">3</span><input type="checkbox" data-k="s2"><span>Picked my <a class="ckl" href="angles.html" target="_blank" rel="noopener">angle</a></span></label>
+<label class="ck"><span class="ckn">4</span><input type="checkbox" data-k="s3"><span>Wrote my <a class="ckl" href="hook-guide/index.html" target="_blank" rel="noopener">hook</a> and script with the <a class="ckl" href="https://baybella-script-maker.netlify.app" target="_blank" rel="noopener">Script Maker</a></span></label>
+<label class="ck"><span class="ckn">5</span><input type="checkbox" data-k="s4"><span>Had my call with our <a class="ckl" href="https://calendly.com/arvinjayya/creative-strategy-call" target="_blank" rel="noopener">strategist</a> <em class="excl">🔒 Only for creators filming 3 or more</em></span></label>
+<label class="ck"><span class="ckn">6</span><input type="checkbox" data-k="s5"><span>Filmed my videos</span></label>
+<label class="ck"><span class="ckn">7</span><input type="checkbox" data-k="s6"><span>Edited them with the <a class="ckl" href="editing-guide/index.html" target="_blank" rel="noopener">editing guide</a></span></label>
+<label class="ck"><span class="ckn">8</span><input type="checkbox" data-k="s7"><span>Raw clips ready to send with my edits</span></label>
+</div>
+<p class="ckdone" id="ckDone">All ticked? Send it through.</p>
+<div class="send2">
+<div class="send-row"><span class="send-n">1</span><div><b>Your edited video</b><p>Submit it in Trybe, like normal.</p><a class="btn send-btn" href="https://jointrybe.com/" target="_blank" rel="noopener">Submit in Trybe</a></div></div>
+<div class="send-row"><span class="send-n">2</span><div><b>Your raw clips</b><p>Your cut video with <b>no text or captions</b> on it. Upload them using the link below.</p><a class="btn send-btn" href="upload.html" target="_blank" rel="noopener">Upload your raw clips</a></div></div>
+</div>
+<button type="button" class="ckreset" id="ckReset">Clear ticks</button>
+</div>
+
+<div class="card" id="next">
+<div class="head"><span class="n">8</span><h2>What happens next</h2></div>
+<p class="nx-lede">Every video you send starts a loop. Here's how it runs.</p>
+<ol class="nx"><li><span class="nx-dot">📤</span><div><span class="nx-when">Day 0</span><b>You upload</b><p>Edited video in Trybe. Raw clips in the drop box.</p></div></li><li><span class="nx-dot">👀</span><div><span class="nx-when">Within 2 days</span><b>We review it</b><p>Within 2 business days. Your feedback comes through Trybe.</p></div></li><li><span class="nx-dot">🚀</span><div><span class="nx-when">1 day later</span><b>It goes live as an ad</b><p>Within a day of being approved.</p></div></li><li><span class="nx-dot">🧪</span><div><span class="nx-when">1 to 2 weeks</span><b>We test it</b><p>For 1 to 2 weeks. Keep track of the spend on your video in Trybe.</p></div></li><li><span class="nx-dot">💸</span><div><span class="nx-when">Every week</span><b>You get paid</b><p>Every week through Trybe, for as long as your ad runs.</p></div></li><li><span class="nx-dot">📈</span><div><span class="nx-when">Then repeat</span><b>Next round</b><p>We look at your results and the numbers behind them, then you film your next videos better off the data.</p></div></li></ol>
+<p class="nx-loop">↻ Each round you learn what sells, and each video gets better.</p>
+<p class="nx-more"><a class="btn" href="earnings.html" target="_blank" rel="noopener">💸 How earnings work →</a></p>
+
+</div>
+<div class="card" id="faq">
+<div class="head"><span class="n">9</span><h2>FAQs</h2></div>
+<p class="faq-more">Want the honest numbers? <a href="earnings.html" target="_blank" rel="noopener">See how earnings work →</a></p>
+<details class="fq" open><summary><span class="fqn">1.</span> When is my content due?</summary>
+<div class="fa">
+<p class="fa-lead due">Within <b>7 to 14 days</b> of your lashes arriving.</p>
+<ol class="tl tl3">
+<li><b>Day 0</b><small>Your lashes arrive</small></li>
+<li><b>Day 7</b><small>Content due from here</small></li>
+<li class="hot"><b>Day 14</b><small>Last day to send it</small></li>
+</ol>
+<p>Trybe also shows its own timer, which can look different. We explain it in the next question 👇</p>
+</div></details>
+<details class="fq"><summary><span class="fqn">2.</span> Trybe says my sample is overdue, but I thought I had 7 to 14 days?</summary>
+<div class="fa">
+<p class="fa-lead">You're all good, your 7 to 14 days still stands. Trybe runs its own timer and unfortunately we can't change it on our end.</p>
+<ol class="tl tl3">
+<li><b>Day 0</b><small>Sample approved</small></li>
+<li><b>Day 14</b><small>Marked "overdue". Just a marker</small></li>
+<li class="hot"><b>Day 180</b><small>Trybe's final cutoff</small></li>
+</ol>
+<p>Trybe's timer starts when your sample is approved, not when your lashes arrive, so it can say "overdue" before you've even had them long. It's only a marker, and your Trybe score updates the day after you post.</p>
+</div></details>
+<details class="fq"><summary><span class="fqn">3.</span> How do I send my video in?</summary>
+<div class="fa"><p class="fa-lead">Upload your finished video in Trybe, and send your raw clips with it.</p><p>If we think there's a stronger way to edit your video, we'll re-edit it and run that version too. You earn your 10% on every version that runs, so one video gets more than one shot.</p></div></details>
+<details class="fq"><summary><span class="fqn">4.</span> When and how do I get paid?</summary>
+<div class="fa"><p class="fa-lead">You're paid through Trybe every week, based on the ad spend behind your videos that week.</p></div></details>
+<details class="fq"><summary><span class="fqn">5.</span> How will I know if my video is being tested?</summary>
+<div class="fa"><p class="fa-lead">Trybe tracks it for you.</p><p>When we run your video as an ad, Trybe links that ad to your video and tracks the spend behind it, so you can see it in Trybe.</p></div></details>
+<details class="fq"><summary><span class="fqn">6.</span> Do I have to post the videos on my own page?</summary>
+<div class="fa"><p class="fa-lead">No.</p><p>Your videos only run on our channels, so there's no posting on your own page.</p></div></details>
+<details class="fq"><summary><span class="fqn">7.</span> What if my video isn't approved?</summary>
+<div class="fa"><p class="fa-lead">We'll tell you exactly what to change, and you can refilm it and send it back.</p></div></details>
+<details class="fq"><summary><span class="fqn">8.</span> I'm stuck putting the lashes on. Where do I get help?</summary>
+<div class="fa"><p class="fa-lead">Start with our <a href="https://baybellabeauty.com.au/pages/how-to" target="_blank" rel="noopener">tutorials</a>.</p><p>Still stuck? Message us in Trybe chat.</p></div></details>
+<details class="fq"><summary><span class="fqn">9.</span> Is this program right for me?</summary>
+<div class="fa"><p class="fa-lead">It depends on what you want from it.</p><div class="fit"><div class="fit-c"><b>☕ 1 to 2 videos a round</b><ul><li>🧩 Fits more easily around your other content work</li><li>💸 Same 10% on every video we run</li></ul></div><div class="fit-c"><b>🚀 3 to 5 videos a round</b><ul><li>🎯 More shots at a winner every round</li><li>⚡ Faster feedback on what's working for you</li><li>💬 Regular catch-ups with our creative strategist</li><li>🏆 A quicker path to Proven creator</li></ul></div></div><p class="fit-foot">Either way works. It's only a few videos' difference, and you can change it any round.</p></div></details>
+</div>
+
+</section>
+
+</div><script>
+(function(){
+  var MAX = 88776;
+  var slider = document.getElementById('spendSlider');
+  var spendVal = document.getElementById('spendVal');
+  var label = document.getElementById('calcLabel');
+  var valC = document.getElementById('valC');
+
+  function money(n){ return '$' + Math.round(n).toLocaleString('en-AU') + ' AUD'; }
+
+  function spendFor(pos){
+    // exponential so the low end (where most videos live) is easy to land on
+    if (pos === 0) return 0;
+    var t = pos / 100;
+    return Math.round(Math.pow(t, 3.2) * MAX / 10) * 10;
+  }
+
+  function describe(s){
+    if (s === 0)      return "A video we never ran";
+    if (s < 400)      return "A video that gets tested and switched off";
+    if (s < 1200)     return "A video that showed promise";
+    if (s < 5000)     return "A video that's working";
+    if (s < 20000)    return "A strong performer";
+    if (s < 50000)    return "One of our best ever";
+    return "Right at the top of what we've seen";
+  }
+
+  function update(){
+    var s = spendFor(+slider.value);
+    spendVal.textContent = money(s);
+    label.textContent = describe(s);
+    valC.textContent = money(s * 0.10);
+  }
+
+  slider.addEventListener('input', update);
+  update();
+})();
+</script>
+<script>
+(function(){
+  var KEY='bb-submit-checklist-v7', boxes=[].slice.call(document.querySelectorAll('.ck input')), done=document.getElementById('ckDone');
+  var saved={}; try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){}
+  function refresh(){
+    var all=boxes.every(function(b){return b.checked});
+    done.classList.toggle('ready',all);
+    done.textContent = all ? '✓ All ticked. Send it through!' : 'All ticked? Send it through.';
+  }
+  boxes.forEach(function(b){
+    b.checked=!!saved[b.dataset.k];
+    b.addEventListener('change',function(){ saved[b.dataset.k]=b.checked; try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){} refresh(); });
+  });
+  document.getElementById('ckReset').addEventListener('click',function(){ boxes.forEach(function(b){b.checked=false}); saved={}; try{ localStorage.removeItem(KEY); }catch(e){} refresh(); });
+  refresh();
+})();
+</script>
+</body></html>
