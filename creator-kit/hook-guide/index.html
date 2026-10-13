@@ -154,6 +154,25 @@ figcaption{margin-top:6px;font-size:13px;color:var(--ink-faint)}
 .cg-btn.locked{background:#E9D5EF;color:#8B7AAB;box-shadow:none;cursor:not-allowed}.cg-btn.locked:hover{transform:none}
 .hw-pick{display:flex;align-items:center;gap:6px;font-weight:600;font-size:14px;color:#4C1D7E}.hw-pick input{accent-color:#EC4899;width:17px;height:17px}
 .hw-lead{margin:0 0 8px;font-weight:600}
+.ltag.tip{white-space:nowrap;font:inherit;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;position:relative;border:0;background:#FFF0F7;color:#BE185D;padding:2px 4px 2px 10px;display:inline-flex;align-items:center;gap:5px;transition:background .15s}
+.tip i{font-style:normal;flex:none;width:15px;height:15px;border-radius:50%;background:#EC4899;color:#fff;font-size:10px;font-weight:800;display:grid;place-items:center;letter-spacing:0}
+.tip::after{content:attr(data-tip);white-space:normal;position:absolute;left:0;top:calc(100% + 8px);z-index:20;width:max-content;max-width:min(270px,70vw);background:#3B0764;color:#fff;font-size:13.5px;font-weight:600;letter-spacing:0;text-transform:none;line-height:1.4;text-align:left;border-radius:10px;padding:8px 11px;box-shadow:0 8px 24px rgba(59,7,100,.25);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s,visibility .15s;pointer-events:none}
+.tip::before{content:"";position:absolute;left:16px;top:calc(100% + 2px);z-index:21;border:6px solid transparent;border-bottom-color:#3B0764;opacity:0;visibility:hidden;transition:opacity .15s,visibility .15s}
+.tip.on::after,.tip.on::before{opacity:1;visibility:visible;transform:none}.tip.on{background:#FBC4DC}
+.on-hover{display:none}
+@media (hover:hover){.tip:hover::after,.tip:hover::before,.tip:focus-visible::after,.tip:focus-visible::before{opacity:1;visibility:visible;transform:none}.tip:hover{background:#FBC4DC}.on-hover{display:inline}.on-touch{display:none}}
+.keyh{margin:2px 0 8px;font-size:14px;color:#8B7AAB}
+.ai-box{background:#FDF2F8;border:1.5px solid #FBCFE8;border-radius:14px;padding:12px 14px;margin:0 0 12px}
+.ai-h{margin:0 0 8px;font-weight:700;font-size:15px;color:#4C1D7E}
+.ai-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ai-angle{font:inherit;font-size:15px;flex:1 1 200px;min-width:0;max-width:100%;padding:9px 12px;border:1.5px solid #E9D5EF;border-radius:12px;background:#fff;color:#2A0844}
+.ai-go{font:inherit;font-weight:800;font-size:15px;border:0;border-radius:100px;padding:9px 18px;cursor:pointer;background:#EC4899;color:#fff}.ai-go:disabled{opacity:.6}
+.ai-out{display:grid;gap:8px;margin:10px 0 0}.ai-out div{background:#fff;border:1.5px dashed #F9A8D4;border-radius:12px;padding:9px 12px;font-size:15.5px}
+.ai-out div small{display:block;font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#BE185D;margin-bottom:2px}
+.ai-warn{font-size:13.5px;color:#4C1D7E;margin:8px 0 0}
+.ai-err{color:#BE185D;font-weight:700;font-size:14.5px;margin:8px 0 0}
+details.sharpen summary{cursor:pointer;list-style:none}details.sharpen summary::-webkit-details-marker{display:none}
+details.sharpen summary::after{content:" ▾";color:#BE185D}details.sharpen[open] summary::after{content:" ▴"}
 .build{display:grid;gap:8px;margin:4px 0 14px}
 .bstep{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line,#E9D5EF);border-radius:12px;padding:10px 12px}
 .bn{flex:none;width:26px;height:26px;border-radius:50%;background:#EDE9FE;color:#6B21A8;font-weight:800;font-size:13px;display:grid;place-items:center}
@@ -253,39 +272,41 @@ figcaption{margin-top:6px;font-size:13px;color:var(--ink-faint)}
 <section class="band" id="s6">
 <div class="band-h"><span>4</span><h2>Write your hooks</h2></div>
 <div class="rule">
-<div class="sub"><span class="sub-l">A</span><h3 class="sub-h">What a great hook has</h3></div>
-<p class="hw-lead">Our best-performing hooks usually have all four:</p>
-<div class="four">
-<div><span>🧩</span><b>Simple</b><small>Easy to follow first time. No explaining.</small></div>
-<div><span>👀</span><b>Attention-grabbing</b><small>A bold opinion, a confession, or a problem she knows too well.</small></div>
-<div><span>🔁</span><b>A loop</b><small>Tease what's coming. Hold back the why.</small></div>
-<div><span>✨</span><b>Hopeful</b><small>She feels this might finally be the one.</small></div>
-</div>
-
-<div class="sub"><span class="sub-l">B</span><h3 class="sub-h">Watch a hook come together</h3></div>
-<div class="ladder">
-<div class="lstep"><span class="ltag">🧩 Simple</span><q>Magnetic lashes are easy to put on.</q><small>Clear, but she scrolls past.</small></div>
-<div class="lstep"><span class="ltag">+ 👀 Attention</span><q><mark>The hill I will die on:</mark> magnetic lashes are easy.</q><small>Now it's a take, not an ad.</small></div>
-<div class="lstep"><span class="ltag">+ 🔁 Loop</span><q>The hill I will die on is that <mark>if you can use a lash curler,</mark> you can do magnetic lashes…</q><small>What's a lash curler got to do with it?</small></div>
-<div class="lstep"><span class="ltag">+ ✨ Hope</span><q>The hill I will die on is that if you can use a lash curler, <mark>you can do magnetic lashes</mark>…</q><small>"You can do it" tells her this one is for her.</small></div>
+<div class="sub"><span class="sub-l">A</span><h3 class="sub-h">See a hook come together</h3></div>
+<p class="keyh"><span class="on-touch">Tap</span><span class="on-hover">Hover over</span> a tag to see what it means.</p>
+<div class="ladder tips-new">
+<div class="lstep"><button type="button" class="ltag tip" data-tip="Easy to follow first time. No explaining.">🧩 Keep it simple <i>?</i></button><q>Magnetic lashes are easy to put on.</q><small>Clear, but she scrolls past.</small></div>
+<div class="lstep"><button type="button" class="ltag tip" data-tip="A bold opinion, a confession, or a problem she knows too well.">+ 👀 Generate attention <i>?</i></button><q><mark>The hill I will die on:</mark> magnetic lashes are easy.</q><small>Now it's a take, not an ad.</small></div>
+<div class="lstep"><button type="button" class="ltag tip" data-tip="Tease what's coming. Hold back the why.">+ 🔁 Open a loop <i>?</i></button><q>The hill I will die on is that <mark>if you can use a lash curler,</mark> you can do magnetic lashes…</q><small>What's a lash curler got to do with it?</small></div>
+<div class="lstep"><button type="button" class="ltag tip" data-tip="She feels this might finally be the one.">+ ✨ Give hope <i>?</i></button><q>The hill I will die on is that if you can use a lash curler, <mark>you can do magnetic lashes</mark>…</q><small>"You can do it" tells her this one is for her.</small></div>
 </div>
 <div class="bdone">✅ <b>Finished hook:</b> "The hill I will die on is that if you can use a lash curler, you can do magnetic lashes…"</div>
 <p class="hw-note">💡 Your on-screen text is a separate job from what you say. See <a href="../editing-guide/index.html#s2" target="_blank" rel="noopener">the editing guide</a>.</p>
 
-<div class="sub"><span class="sub-l">C</span><h3 class="sub-h">Write yours</h3></div>
+<div class="sub"><span class="sub-l">B</span><h3 class="sub-h">Write yours</h3></div>
 <p class="hw-lead">Write three different hooks, then pick your best one to film.</p>
+<!-- AI example hooks (founder, 13 Oct 2026): a nudge for creators stuck on a blank box.
+     Examples only - she still writes her own three below. Served by the Script Maker's
+     hooks function (creator-script-maker/netlify/functions/hooks.mjs). -->
+<div class="ai-box">
+<p class="ai-h">Stuck? Pick your angle and get 3 example hooks.</p>
+<div class="ai-row"><select class="ai-angle" aria-label="Your angle"><option value="">Your angle ▾</option></select><button class="ai-go" type="button">✨ Give me 3 hooks</button></div>
+<p class="ai-err" hidden></p>
+<div class="ai-res" hidden><div class="ai-out"></div>
+<p class="ai-warn">⚠️ These AI hooks are only here to get your brain going. They're the floor not the finish, so take one and improve it with your own human touch.</p></div>
+</div>
 <div class="hw">
 <div class="hcard"><div class="htop"><span class="hnum">1</span><label class="hstar"><input type="radio" name="hwbest" value="0"> ⭐ My best</label></div><textarea class="hw-in" data-i="0" rows="2" placeholder="Write hook 1 in your own words..."></textarea></div>
 <div class="hcard"><div class="htop"><span class="hnum">2</span><label class="hstar"><input type="radio" name="hwbest" value="1"> ⭐ My best</label></div><textarea class="hw-in" data-i="1" rows="2" placeholder="Write hook 2 in your own words..."></textarea></div>
 <div class="hcard"><div class="htop"><span class="hnum">3</span><label class="hstar"><input type="radio" name="hwbest" value="2"> ⭐ My best</label></div><textarea class="hw-in" data-i="2" rows="2" placeholder="Write hook 3 in your own words..."></textarea></div>
 </div>
-<div class="sharpen">
-<p class="sh-h">Before you pick your best, ask yourself:</p>
+<details class="sharpen">
+<summary class="sh-h">Before you pick your best, ask yourself 4 things</summary>
 <label><input type="checkbox"><span class="sh-e">✂️</span><span><b>Machete.</b> Can I cut a sentence, a word, even a syllable?</span></label>
 <label><input type="checkbox"><span class="sh-e">👁️</span><span><b>Visual verbs.</b> Can you see or feel my verbs? "Melted", "peeled", not "fix" or "get".</span></label>
 <label><input type="checkbox"><span class="sh-e">🕶️</span><span><b>3D glasses.</b> Can you see the exact moment she feels it, not just the benefit?</span></label>
 <label><input type="checkbox"><span class="sh-e">😅</span><span><b>Personality.</b> Does it sound like a person? A bit imperfect, a bit funny.</span></label>
-</div>
+</details>
 <button class="hw-copy" type="button">📋 Copy my best hook</button> <span class="hw-ok" hidden>Copied. Paste it into the Script Maker.</span>
 <p class="hw-save">Saved on this device as you type.</p>
 </div>
@@ -336,6 +357,28 @@ if(cb)cb.onclick=()=>{const r=document.querySelector('input[name=hwbest]:checked
 (function(){const b=document.getElementById('cgBox'),a=document.getElementById('cgBtn');if(!b||!a)return;
 const set=()=>{a.classList.toggle('locked',!b.checked);a.setAttribute('aria-disabled',String(!b.checked));a.textContent=b.checked?'📅 Book your free strategy call →':'🔒 Tick the box to unlock';};
 a.addEventListener('click',e=>{if(!b.checked){e.preventDefault();b.focus();}});b.addEventListener('change',set);set();})();
+</script>
+<script>
+/* AI example hooks: local preview talks to `netlify dev`, everywhere else to the live Script Maker. */
+(()=>{const loc=/^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+const API='https://baybella-script-maker.netlify.app'+'/.netlify/functions/hooks';
+const sel=document.querySelector('.ai-angle'),go=document.querySelector('.ai-go'),out=document.querySelector('.ai-out'),res=document.querySelector('.ai-res'),err=document.querySelector('.ai-err');
+if(!sel)return;const seen=[];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+fetch(API).then(r=>r.json()).then(d=>{(d.angles||[]).forEach(a=>{const o=document.createElement('option');o.value=a.name;o.textContent=a.emoji+' '+a.name;sel.appendChild(o);});}).catch(()=>{err.textContent="Couldn't load the angles. Refresh and try again.";err.hidden=false;});
+go.onclick=async()=>{err.hidden=true;if(!sel.value){err.textContent='Pick your angle first.';err.hidden=false;return;}
+  go.disabled=true;go.textContent='✨ Thinking...';
+  try{const r=await fetch(API,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({angle:sel.value,seen})});
+    const d=await r.json();if(!r.ok||!d.hooks)throw new Error(d.error||'x');
+    seen.push(...d.hooks);out.innerHTML=d.hooks.map((h,i)=>'<div><small>AI example '+(i+1)+'</small>'+esc(h)+'</div>').join('');res.hidden=false;
+  }catch(e){err.textContent=(e.message&&e.message!=='x'&&e.message!=='Failed to fetch')?e.message:"Couldn't come up with any just then. Try again.";err.hidden=false;}
+  go.disabled=false;go.textContent=res.hidden?'✨ Give me 3 hooks':'✨ Give me 3 more';};
+})();
+</script>
+<script>
+/* Hook-quality tags: hover on desktop (CSS), tap on touch screens. One open at a time; tap elsewhere closes. */
+const ldr=document.querySelector('.tips-new');document.querySelectorAll('.tip').forEach(t=>t.addEventListener('mouseenter',()=>ldr&&ldr.classList.remove('tips-new')));
+document.addEventListener('click',e=>{const t=e.target.closest('.tip');if(t&&ldr)ldr.classList.remove('tips-new');document.querySelectorAll('.tip.on').forEach(x=>{if(x!==t)x.classList.remove('on')});if(t)t.classList.toggle('on');});
 </script>
 </body>
 </html>
