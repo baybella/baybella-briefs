@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Baybella · Upload Your Lash Clip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+  RAW CLIPS DROP BOX for the Trybe creator program (12 Oct 2026).
+  Styled like the Round 12 upload portal (baybella-briefs/upload-r12.html), one box.
+  Uploader: DriveUploader "Drop your videos here" -> Creator Uploads / Trybe Raw Clips.
+  The iframe needs the /embed/ URL (the plain share URL renders their branded page) and
+  embedding switched ON in the uploader's Embed tab (off by default).
+-->
+<style>
+:root{
+  --ink:#211C18;--ink2:#463E37;--grey:#8C8279;--pink:#E5147F;--pink-deep:#BE185D;--line-soft:#EAD9E4;
+  --purple:#7C3AED;--serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#FDF4F8}
+body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160deg,#FCE3F0 0%,#F1E7FB 55%,#E7E7FB 100%);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;position:relative;min-height:100vh}
+.blooms{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blooms::before{content:"";position:absolute;top:-220px;right:-200px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.6}
+.blooms::after{content:"";position:absolute;bottom:-220px;left:-220px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#C4B5FD 0%,transparent 70%);opacity:.5}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 70px;position:relative;z-index:1}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#F49AC1 0%,#BBA2E8 100%);border:1px solid #E58BB4;border-radius:24px;padding:clamp(30px,5vw,46px) clamp(22px,5vw,40px);margin:26px 0 14px;text-align:center;box-shadow:0 28px 60px -28px rgba(150,40,100,.55),inset 0 1px 0 rgba(255,255,255,.4)}
+.hero::before{content:"";position:absolute;top:-140px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.7}
+.hero>*{position:relative;z-index:1}
+.hero .eyebrow{font-size:.92rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:12px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,5vw,2.3rem);line-height:1.05;letter-spacing:-.02em;color:var(--ink)}
+.hero .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1rem,2.4vw,1.15rem);color:#5a2540;margin-top:13px}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 8px}
+@media(max-width:600px){.how{grid-template-columns:1fr}}
+.how .step{background:#fff;border:1px solid var(--line-soft);border-radius:14px;padding:15px;box-shadow:0 14px 30px -26px rgba(60,30,30,.5)}
+.how .n{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.how .t{font-weight:800;font-size:.95rem;margin-bottom:3px}
+.how .d{font-size:.86rem;color:var(--ink2)}
+.how .d a{color:var(--pink-deep);font-weight:700}
+.brief{background:#fff;border:1px solid var(--line-soft);border-radius:16px;padding:20px 20px 18px;margin:14px 0;box-shadow:0 18px 40px -30px rgba(60,30,30,.55)}
+.brief .tag{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);background:#FCEAF1;border-radius:999px;padding:4px 11px;margin-bottom:9px}
+.brief h2{font-family:var(--serif);font-weight:400;font-size:1.32rem;line-height:1.2;color:var(--ink)}
+.brief .fmt{font-size:.9rem;color:var(--ink2);margin-top:5px}
+.drop{margin-top:13px;border:2px dashed #E9C6D9;border-radius:13px;overflow:hidden;background:#FFF9FC;min-height:186px}
+.drop iframe{display:block;width:100%;height:360px;border:0}
+.note{background:#fff;border:1px solid var(--line-soft);border-left:4px solid var(--pink);border-radius:12px;padding:15px 17px;margin:20px 0 0;font-size:.93rem;line-height:1.55;color:var(--ink2)}
+.note b{color:var(--ink)}
+footer{text-align:center;color:var(--grey);font-size:.82rem;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="blooms"></div>
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Baybella x Creators</div>
+    <h1>Upload your lash clip</h1>
+    <div class="sub">One quick step before your strategy call.</div>
+  </div>
+
+  <div class="how">
+    <div class="step"><div class="n">1</div><div class="t">Film a short clip</div><div class="d">You applying our lashes, start to finish. No editing needed.</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Add your name</div><div class="d">Your full name, same as on Trybe:<br><b>Sarah Jones</b></div></div>
+    <div class="step"><div class="n">3</div><div class="t">Drag it in below</div><div class="d">Any size, no login. Then tick the box on the booking form.</div></div>
+  </div>
+
+  <div class="brief">
+    <span class="tag">Lash clip</span>
+    <h2>Your lash clip</h2>
+    <p class="fmt">Viewers can tell straight away when lashes don't look right, so we check this before we plan anything together. Bookings without a clip will be cancelled.</p>
+    <div class="drop"><iframe src="https://driveuploader.com/upload/uzS4Yn0bNV/embed/" data-driveuploader allow="clipboard-write" title="Upload your lash clip"></iframe></div>
+  </div>
+
+  <div class="note">
+    <b>Something won't upload?</b> Message us in Trybe chat and we'll sort it out.
+  </div>
+
+  <footer>Baybella x Creators</footer>
+</div>
+<script src="https://driveuploader.com/static/du-embed.js" async></script>
+</body>
+</html>
