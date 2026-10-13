@@ -316,6 +316,19 @@ html,body{overflow-x:hidden}
 .tv figcaption{margin-top:8px;display:flex;flex-direction:column;gap:2px}
 .tv figcaption b{font:500 16px/1.25 'Fraunces',Georgia,serif;color:var(--ink)}
 .tv figcaption span{font-size:12.5px;color:var(--ink-faint)}
+.vs2{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.vs2>div{border-radius:12px;padding:8px 10px;text-align:center}
+.vs2 small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;line-height:1.25}
+.vs2 .was{background:#F6F2F9;border:1px solid #E9D5EF}
+.vs2 .was small{color:#8B7AAB}
+.vs2 .was s{display:block;font:600 22px/1.2 'Fraunces',Georgia,serif;color:#8B7AAB;text-decoration-color:#EC4899;text-decoration-thickness:2px}
+.vs2 .now{background:#FFF0F7;border:2px solid #EC4899}
+.vs2 .now small{color:#BE185D}
+.vs2 .now b{display:block;font:600 22px/1.2 'Fraunces',Georgia,serif;color:#BE185D}
+.tv-sum{margin:16px auto 0;max-width:560px;background:#3B0764;color:#fff;border-radius:14px;padding:12px 16px;font-weight:700;font-size:16px;line-height:1.45}
+.tv-sum b{color:#F9A8C9}
+.tv-ps{margin:12px auto 0;max-width:560px;font-size:13.5px;color:var(--muted,#4C1D7E)}
+.tv figcaption .ff{font-size:13px;font-weight:700;color:var(--muted,#4C1D7E);margin-top:4px}
 .tv figcaption em{font-style:normal;font-weight:800;color:var(--pink-deep);font-size:15px;margin-top:2px}
 .fq{border-top:1px solid var(--line);padding:12px 2px}
 .fq summary{cursor:pointer;font-weight:700;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:10px}
@@ -444,7 +457,7 @@ html,body{overflow-x:hidden}
 </section>
 <section class="band band-2" style="--next:#FFF4EA"><div class="winflow">
 <h2 class="wf-h">What's a winning ad?</h2>
-<p class="windef2"><b>It's the ad version of a video going viral.</b></p>
+<p class="windef2"><b>Think of an organic video going viral. A winning ad is the ad version of that.</b></p>
 <ol class="tl">
 <li><b>You film</b><small>Your video</small></li>
 <li><b>We test it</b><small>Small budget</small></li>
@@ -458,13 +471,15 @@ html,body{overflow-x:hidden}
 
 <div class="card topvids">
 <p class="calc-label">What a winning video looks like</p>
-<h3 class="tv-h">Two creator videos that kept selling</h3><p class="old-note">ℹ️ These two were made before our current framework, so they won't match everything in this guide. We're sharing them to show how far a winning video can go.</p>
+<h3 class="tv-h">Two creator videos that kept selling</h3>
 <div class="tv-grid">
 <figure class="tv"><video src="kit-media/how-i-save-money.mp4" poster="kit-media/how-i-save-money.jpg" controls playsinline preload="none"></video>
-<figcaption><b>How I save money</b><span>$88,776 AUD ad spend · hook rate 27%</span><em>She'd earn $8,878 AUD</em></figcaption></figure>
+<figcaption><b>How I save money</b><span>$88,776 AUD ad spend · hook rate 27%</span><div class="vs2"><div class="was"><small>Flat fee she was paid</small><s>$250</s></div><div class="now"><small>On 10% commission</small><b>$8,878</b></div></div></figcaption></figure>
 <figure class="tv"><video src="kit-media/pro-makeup.mp4" poster="kit-media/pro-makeup.jpg" controls playsinline preload="none"></video>
-<figcaption><b>I've been pro makeup</b><span>$78,680 AUD ad spend · hook rate 32%</span><em>She'd earn $7,868 AUD</em></figcaption></figure>
+<figcaption><b>I've been pro makeup</b><span>$78,680 AUD ad spend · hook rate 32%</span><div class="vs2"><div class="was"><small>Flat fee she was paid</small><s>$250</s></div><div class="now"><small>On 10% commission</small><b>$7,868</b></div></div></figcaption></figure>
 </div>
+<p class="tv-sum">A flat fee pays you once. <b>Commission pays you for as long as your video keeps selling.</b></p>
+<p class="tv-ps">PS: These two were made before our current framework, so they may not match everything in this guide.</p>
 </div>
 
 <div class="calc">
