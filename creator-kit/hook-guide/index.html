@@ -152,6 +152,7 @@ figcaption{margin-top:6px;font-size:13px;color:var(--ink-faint)}
 .cg-btn{display:block;text-align:center;background:#EC4899;color:#fff;font-weight:800;text-decoration:none;border-radius:100px;padding:12px 18px;box-shadow:0 8px 24px rgba(214,8,107,.18);transition:.15s}
 .cg-btn:hover{transform:translateY(-1px)}
 .cg-btn.locked{background:#E9D5EF;color:#8B7AAB;box-shadow:none;cursor:not-allowed}.cg-btn.locked:hover{transform:none}
+.hw-pick{display:flex;align-items:center;gap:6px;font-weight:600;font-size:14px;color:#4C1D7E}.hw-pick input{accent-color:#EC4899;width:17px;height:17px}
 </style>
 </head>
 <body>
@@ -220,26 +221,19 @@ figcaption{margin-top:6px;font-size:13px;color:var(--ink-faint)}
 <section class="band" id="s6">
 <div class="band-h"><span>5</span><h2>Write your hooks</h2></div>
 <div class="rule">
-<h3>Now write yours. Three hooks that are genuinely different, not one idea three ways. You'll film each one as its own take.</h3>
-
-<div class="hw-tips">
-<p class="hw-h">Then sharpen it</p>
+<h3>Write three different hooks, then pick your best one to film.</h3>
+<p class="hw-h">Quick check on each one</p>
 <div class="hw-rows">
-<div><span>✂️</span><b>Cut it down</b><small>Fewest words, most punch.</small></div>
-<div><span>👁️</span><b>Verbs you can see</b><small>melted, peeled, smudged</small></div>
-<div><span>💬</span><b>Your words</b><small>Not a brand's.</small></div>
-<div><span>🎬</span><b>Paint the moment</b><small>Not the benefit.</small></div>
-<div><span>😅</span><b>Sound like a person</b><small>A bit imperfect, a bit funny.</small></div>
-</div>
-<p class="hw-h">Rules</p>
-<ul class="hw-ticks"><li>Show it while you say it (one eye vs the other)</li><li>One number at most</li><li>One point only</li><li>End on a statement, not a question</li><li>Stressed word in CAPITALS</li></ul>
+<div><span>✂️</span><b>Short?</b><small>Could you cut a word?</small></div>
+<div><span>💬</span><b>Sounds like you?</b><small>Would you say it to a friend?</small></div>
+<div><span>👀</span><b>Shows something?</b><small>Can they see it with the sound off?</small></div>
 </div>
 <div class="hw">
-<label>Hook 1<textarea class="hw-in" data-i="0" rows="2" placeholder="Write hook 1 in your own words..."></textarea></label>
-<label>Hook 2<textarea class="hw-in" data-i="1" rows="2" placeholder="Write hook 2 in your own words..."></textarea></label>
-<label>Hook 3<textarea class="hw-in" data-i="2" rows="2" placeholder="Write hook 3 in your own words..."></textarea></label>
+<label>Hook 1<textarea class="hw-in" data-i="0" rows="2" placeholder="Write hook 1 in your own words..."></textarea><span class="hw-pick"><input type="radio" name="hwbest" value="0"> ⭐ This is my best one</span></label>
+<label>Hook 2<textarea class="hw-in" data-i="1" rows="2" placeholder="Write hook 2 in your own words..."></textarea><span class="hw-pick"><input type="radio" name="hwbest" value="1"> ⭐ This is my best one</span></label>
+<label>Hook 3<textarea class="hw-in" data-i="2" rows="2" placeholder="Write hook 3 in your own words..."></textarea><span class="hw-pick"><input type="radio" name="hwbest" value="2"> ⭐ This is my best one</span></label>
 </div>
-<button class="hw-copy" type="button">📋 Copy my hooks</button> <span class="hw-ok" hidden>Copied. Paste them into the Script Maker.</span>
+<button class="hw-copy" type="button">📋 Copy my best hook</button> <span class="hw-ok" hidden>Copied. Paste it into the Script Maker.</span>
 <p class="hw-save">Saved on this device as you type.</p>
 </div>
 </section>
@@ -279,8 +273,12 @@ let saved=[];try{saved=JSON.parse(localStorage.getItem(HW)||'[]')}catch(e){}
 document.querySelectorAll('.hw-in').forEach(t=>{t.value=saved[+t.dataset.i]||'';
   t.addEventListener('input',()=>{saved[+t.dataset.i]=t.value;try{localStorage.setItem(HW,JSON.stringify(saved))}catch(e){}});});
 const cb=document.querySelector('.hw-copy');
-if(cb)cb.onclick=()=>{const txt=[...document.querySelectorAll('.hw-in')].map((t,i)=>'Hook '+(i+1)+': '+t.value.trim()).join('\n');
-  (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>{document.querySelector('.hw-ok').hidden=false}).catch(()=>{});};
+const BK='bb-hookguide-best-v1';let best=null;try{best=localStorage.getItem(BK)}catch(e){}
+document.querySelectorAll('input[name=hwbest]').forEach(r=>{if(r.value===best)r.checked=true;r.addEventListener('change',()=>{try{localStorage.setItem(BK,r.value)}catch(e){}})});
+if(cb)cb.onclick=()=>{const r=document.querySelector('input[name=hwbest]:checked');const ok=document.querySelector('.hw-ok');
+  if(!r){ok.textContent='Pick your best one first ⭐';ok.hidden=false;return;}
+  const txt=document.querySelectorAll('.hw-in')[+r.value].value.trim();
+  (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>{ok.textContent='Copied. Paste it into the Script Maker.';ok.hidden=false}).catch(()=>{});};
 /* strategist call unlocks only after the Insider box is ticked (founder, 13 Oct 2026) */
 (function(){const b=document.getElementById('cgBox'),a=document.getElementById('cgBtn');if(!b||!a)return;
 const set=()=>{a.classList.toggle('locked',!b.checked);a.setAttribute('aria-disabled',String(!b.checked));a.textContent=b.checked?'📅 Book your free strategy call →':'🔒 Tick the box to unlock';};
