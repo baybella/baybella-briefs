@@ -25,6 +25,17 @@ h1{font:600 38px/1.15 'Fraunces',Georgia,serif;margin:14px 0 8px}
 .foot b{font-size:18px}
 .foot p{margin:6px 0 0;color:var(--muted);font-size:15.5px}
 @media(max-width:600px){.grid{grid-template-columns:1fr}h1{font-size:31px}}
+.pickhint{margin:0 0 22px;color:var(--pink-deep);font-weight:700;font-size:15px}
+.a{cursor:pointer;transition:.12s;position:relative}
+.a:hover{border-color:var(--pink)}
+.a.sel{border:2px solid var(--pink);background:#FFF0F7}
+.a.sel::after{content:"✓";position:absolute;top:12px;right:14px;width:24px;height:24px;border-radius:50%;background:var(--pink);color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center}
+.pickbar{position:sticky;bottom:12px;margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#fff;border:1.5px solid var(--pink);border-radius:100px;padding:8px 8px 8px 18px;box-shadow:0 10px 30px rgba(107,33,168,.15);font-weight:700}
+#pickcopy{font:inherit;font-weight:800;border:0;border-radius:100px;padding:10px 18px;background:var(--pink);color:#fff;cursor:pointer}
+#pickcopy:disabled{background:#E9D5EF;color:#8B7AAB;cursor:not-allowed}
+#pickok{color:var(--pink-deep)}
+.a.hot{}.badge{display:inline-block;margin:0 0 8px;font-size:12px;font-weight:800;color:#B45309;background:#FEF3C7;border-radius:100px;padding:3px 10px}
+.hot-note{margin:-14px 0 18px;font-size:15px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -32,16 +43,18 @@ h1{font:600 38px/1.15 'Fraunces',Georgia,serif;margin:14px 0 8px}
 <a class="back" href="index.html#hooks">← Back to the playbook</a>
 <h1>Our angles</h1>
 <p class="lede">Each angle is a different reason for her to buy. <b>Pick one per video.</b></p>
+<p class="hot-note">🔥 marks the angles we're putting extra ad spend behind this round. Every angle here can produce a winner.</p>
+<p class="pickhint">👆 Tap the angles you're filming this round to select them, then copy them below.</p>
 
 <div class="grid">
-<div class="a"><div class="top"><span class="e">🙋‍♀️</span><h2>Lashes have no age limit</h2></div><p><b>This argues</b> that lashes aren't only for younger women. These look natural, not overdone, and go on at home with nobody watching, so she can wear them at any age.</p></div>
+<div class="a hot"><span class="badge">🔥 Extra demand this round</span><div class="top"><span class="e">🙋‍♀️</span><h2>Lashes have no age limit</h2></div><p><b>This argues</b> that lashes aren't only for younger women. These look natural, not overdone, and go on at home with nobody watching, so she can wear them at any age.</p></div>
+<div class="a hot"><span class="badge">🔥 Extra demand this round</span><div class="top"><span class="e">🌙</span><h2>Salons are shut when she's free</h2></div><p><b>This argues</b> that she's only free once the kids are in bed and every salon is shut, but these go on at home in minutes, so she can do her lashes at 10pm on the couch.</p></div>
+<div class="a hot"><span class="badge">🔥 Extra demand this round</span><div class="top"><span class="e">💛</span><h2>She stopped doing herself after kids</h2></div><p><b>This argues</b> that since having kids she has no time for lash appointments, but these go on at home in minutes, so she gets one thing back that's just for her.</p></div>
+<div class="a hot"><span class="badge">🔥 Extra demand this round</span><div class="top"><span class="e">🍼</span><h2>Lashes done in one nap</h2></div><p><b>This argues</b> that a salon needs an hour and a babysitter, but these go on in minutes with no glue to dry, so she's done before the baby wakes.</p></div>
 <div class="a"><div class="top"><span class="e">🤨</span><h2>She thinks magnetic lashes are a gimmick</h2></div><p><b>This argues</b> that magnetic lashes sound too good to be true, but you show them clicking on and holding, so she sees they really work.</p></div>
 <div class="a"><div class="top"><span class="e">🎉</span><h2>She only wants lashes for nights out</h2></div><p><b>This argues</b> that extensions and strips are made for women who wear lashes every day, but one pair of these lasts months in the case, so she can wear them just for nights out.</p></div>
 <div class="a"><div class="top"><span class="e">😴</span><h2>She sleeps face-down</h2></div><p><b>This argues</b> that extensions mean sleeping on your back every night, but these come off in seconds at bedtime, so she sleeps however she likes.</p></div>
 <div class="a"><div class="top"><span class="e">🌀</span><h2>Her mascara smudges by lunch</h2></div><p><b>This argues</b> that mascara is wet, so it ends up under her eyes by the afternoon, but these are dry lashes that can't run, so she looks the same at 5pm as at 8am.</p></div>
-<div class="a"><div class="top"><span class="e">🌙</span><h2>Salons are shut when she's free</h2></div><p><b>This argues</b> that she's only free once the kids are in bed and every salon is shut, but these go on at home in minutes, so she can do her lashes at 10pm on the couch.</p></div>
-<div class="a"><div class="top"><span class="e">💛</span><h2>She stopped doing herself after kids</h2></div><p><b>This argues</b> that since having kids she has no time for lash appointments, but these go on at home in minutes, so she gets one thing back that's just for her.</p></div>
-<div class="a"><div class="top"><span class="e">🍼</span><h2>Lashes done in one nap</h2></div><p><b>This argues</b> that a salon needs an hour and a babysitter, but these go on in minutes with no glue to dry, so she's done before the baby wakes.</p></div>
 <div class="a"><div class="top"><span class="e">🧴</span><h2>She'd never spend that on skincare</h2></div><p><b>This argues</b> that she pays $200 every few weeks for extensions that thin her lashes but won't spend $40 on skincare, but ours last months without the damage, so her money goes where it pays off.</p></div>
 <div class="a"><div class="top"><span class="e">🕰️</span><h2>She's still doing it the old way</h2></div><p><b>This argues</b> that she's still gluing lashes on like it's 2013, but ours click on with no glue and last months, so she gets to do it the modern way.</p></div>
 <div class="a"><div class="top"><span class="e">🏝️</span><h2>She paid for lashes instead of the things she wanted</h2></div><p><b>This argues</b> that years of fills add up to a holiday she never took, but one kit of ours lasts months, so she keeps the lashes and gets the trip.</p></div>
@@ -52,6 +65,22 @@ h1{font:600 38px/1.15 'Fraunces',Georgia,serif;margin:14px 0 8px}
 </div>
 
 <div class="foot"><b>Got your angle?</b><p>Take it to the Script Maker and it'll write your script around it.</p></div>
+<div class="pickbar" id="pickbar"><span id="pickcount">No angles selected yet</span><button type="button" id="pickcopy" disabled>📋 Copy my angles</button><span id="pickok" hidden>Copied ✓</span></div>
 </div>
+<script>
+/* founder 13 Oct 2026: tap angles to select, copy them to paste into the strategy call booking.
+   Lives OUTSIDE the generated grid so sync_angles.py never overwrites it. */
+(function(){const KEY='bb-angles-picked-v1';let picked=[];try{picked=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}
+const cards=[...document.querySelectorAll('.grid .a')];
+const name=c=>c.querySelector('h2').textContent.trim();
+function paint(){cards.forEach(c=>c.classList.toggle('sel',picked.includes(name(c))));
+  const n=picked.length;document.getElementById('pickcount').textContent=n?n+' angle'+(n>1?'s':'')+' selected':'No angles selected yet';
+  document.getElementById('pickcopy').disabled=!n;document.getElementById('pickok').hidden=true;
+  try{localStorage.setItem(KEY,JSON.stringify(picked))}catch(e){}}
+cards.forEach(c=>c.addEventListener('click',()=>{const nm=name(c);picked=picked.includes(nm)?picked.filter(x=>x!==nm):picked.concat(nm);paint();}));
+document.getElementById('pickcopy').addEventListener('click',()=>{const txt=cards.map(name).filter(n=>picked.includes(n)).map((n,i)=>(i+1)+'. '+n).join('\n');
+  (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>{document.getElementById('pickok').hidden=false}).catch(()=>{});});
+paint();})();
+</script>
 </body>
 </html>
