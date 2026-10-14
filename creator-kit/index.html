@@ -803,7 +803,6 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
     if(!count||!when){ copy.disabled=true; msg.textContent='Pick how many and when, and your message shows up here'; return; }
     var n=count==='6+'?'6 or more':count, v=count==='1'?'video':'videos';
     var t='hey! I\'m planning '+n+' '+v+' this round\nI\'ll have them filmed by '+fmt(when);
-    if(count!=='1'&&count!=='2') t+='\nkeen to book the strategy call too';
     msg.textContent=t; copy.disabled=false;
   }
   cBtns.forEach(function(b){ b.addEventListener('click',function(){ cBtns.forEach(function(x){x.classList.remove('on')}); b.classList.add('on'); count=b.textContent; render(); }); });
