@@ -128,7 +128,13 @@ ol.beats i{color:var(--accent);font-style:normal;font-weight:700;font-size:15px}
 .pmsg-l{display:block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
 .pcopy{width:100%;border:0;cursor:pointer;font-family:inherit}
 .pcopy:disabled{opacity:.45;cursor:default}
-.phow{font-size:14px;color:var(--muted);text-align:center;margin:8px 0 0}
+.pstep{display:flex;gap:10px;align-items:flex-start;margin:14px 0 0}
+.pstep .sn{flex:none;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:15px;display:grid;place-items:center;margin-top:2px}
+.pstep .sb{flex:1}
+.pstep .st{display:block;font-weight:800;font-size:17px;margin-bottom:6px}
+.pnext{border:2px solid var(--line);border-radius:14px;padding:12px 14px;background:#fff;font-size:16px;line-height:1.45;transition:all .25s}
+.pnext.go{border-color:var(--ok);background:#F1F8F3;box-shadow:0 6px 18px -10px rgba(0,0,0,.35)}
+.pnext b{font-size:16px}
 .book{border:2px solid var(--accent);border-radius:16px;padding:14px 16px;margin:12px 0}
 .book p{margin:2px 0 8px;font-size:16px;color:var(--muted)}
 .book b{font-size:18px}
@@ -655,8 +661,8 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 <div class="pdates" id="pDates"><button type="button" data-d="3">This week</button><button type="button" data-d="7">Within a week</button><button type="button" data-d="14">Within 2 weeks</button><button type="button" data-d="pick">Pick a date</button></div>
 <input type="date" class="pdate-in" id="pDateIn">
 <div class="pmsg"><span class="pmsg-l">Your message</span><span id="pMsg">Pick how many and when, and your message shows up here</span></div>
-<button type="button" class="btn pcopy" id="pCopy" disabled>📋 Copy my plan</button>
-<p class="phow">Then open Trybe, go to your chat with Baybella and paste it in</p>
+<div class="pstep"><span class="sn">1</span><div class="sb"><span class="st">Copy your plan</span><button type="button" class="btn pcopy" id="pCopy" disabled>📋 Copy my plan</button></div></div>
+<div class="pstep"><span class="sn">2</span><div class="sb"><span class="st">Paste it in our Trybe chat</span><div class="pnext" id="pNext">Open the <b>Trybe app</b>, go to your <b>chat with Baybella</b>, and paste it in. That's it, we'll take it from there.</div></div></div>
 </div>
 
 
@@ -802,7 +808,7 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
     nudge.style.display=(count && count!=='1' && count!=='2')?'block':'none';
     if(!count||!when){ copy.disabled=true; msg.textContent='Pick how many and when, and your message shows up here'; return; }
     var n=count==='6+'?'6 or more':count, v=count==='1'?'video':'videos';
-    var t='hey! I\'m planning '+n+' '+v+' this round\nI\'ll have them filmed by '+fmt(when);
+    var t='hey linda! I\'m planning '+n+' '+v+' this round\nI\'ll have '+(count==='1'?'it':'them')+' filmed by '+fmt(when);
     msg.textContent=t; copy.disabled=false;
   }
   cBtns.forEach(function(b){ b.addEventListener('click',function(){ cBtns.forEach(function(x){x.classList.remove('on')}); b.classList.add('on'); count=b.textContent; render(); }); });
@@ -814,7 +820,7 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
   dIn.addEventListener('change',function(){ when=dIn.value?new Date(dIn.value+'T12:00'):null; render(); });
   copy.addEventListener('click',function(){
     var t=msg.textContent;
-    function done(){ copy.textContent='✓ Copied, now paste it in Trybe'; setTimeout(function(){copy.textContent='📋 Copy my plan'},3000); }
+    function done(){ copy.textContent='✓ Copied'; var nx=document.getElementById('pNext'); nx.classList.add('go'); nx.scrollIntoView({behavior:'smooth',block:'center'}); setTimeout(function(){copy.textContent='📋 Copy my plan'},3000); }
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done,fallback); } else fallback();
     function fallback(){ var a=document.createElement('textarea'); a.value=t; document.body.appendChild(a); a.select(); try{document.execCommand('copy')}catch(e){} a.remove(); done(); }
   });
