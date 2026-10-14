@@ -112,6 +112,23 @@ ol.beats i{color:var(--accent);font-style:normal;font-weight:700;font-size:15px}
 .step b{font-size:18px}.step p{margin:2px 0 4px;font-size:16px;color:var(--muted)}
 .mini{display:inline-block;font-weight:800;font-size:15px;color:var(--ok);text-decoration:none}
 .prow{font-size:14px !important}.prow b{font-size:15.5px !important}.pnum2{font-size:38px !important}
+.plan{background:var(--tint);border:2px solid var(--ok);border-radius:18px;padding:16px 16px 14px;margin:16px 0 6px}
+.plan h3{font:800 20px/1.25 'Manrope',sans-serif;margin:0 0 4px}
+.plan .ps{font-size:15px;color:var(--muted);margin:0 0 12px}
+.plan .pq{display:block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin:12px 0 6px}
+.pcount{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.pcount button{font:800 18px/1 'Manrope',sans-serif;padding:12px 0;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.pcount button.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.pdates{display:flex;flex-wrap:wrap;gap:6px}
+.pdates button{font:700 15px/1 'Manrope',sans-serif;padding:11px 13px;border-radius:100px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.pdates button.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.pdate-in{margin-top:8px;font:600 16px 'Manrope',sans-serif;padding:10px 12px;border-radius:12px;border:1.5px solid var(--line);width:100%;max-width:240px;display:none}
+.pnudge{font-size:15px;margin:10px 0 0;padding:9px 12px;border-radius:12px;background:#F1F8F3;color:var(--ok);font-weight:700;display:none}
+.pmsg{background:#fff;border:1.5px dashed var(--line);border-radius:14px;padding:12px 14px;margin:14px 0 0;font-size:17px;line-height:1.45;white-space:pre-line}
+.pmsg-l{display:block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.pcopy{width:100%;border:0;cursor:pointer;font-family:inherit}
+.pcopy:disabled{opacity:.45;cursor:default}
+.phow{font-size:14px;color:var(--muted);text-align:center;margin:8px 0 0}
 .book{border:2px solid var(--accent);border-radius:16px;padding:14px 16px;margin:12px 0}
 .book p{margin:2px 0 8px;font-size:16px;color:var(--muted)}
 .book b{font-size:18px}
@@ -628,6 +645,20 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 <a class="btn book-btn" href="https://calendly.com/arvinjayya" target="_blank" rel="noopener">📅 Book your FREE strategy call</a><p class="book-alt">No time that works? Message us in Trybe chat.</p></div>
 </div>
 
+<div class="plan" id="planner">
+<h3>Lock in your plan</h3>
+<p class="ps">Two quick picks, then paste it in our Trybe chat so we know what's coming.</p>
+<span class="pq">How many videos this round?</span>
+<div class="pcount" id="pCount"><button type="button">1</button><button type="button">2</button><button type="button">3</button><button type="button">4</button><button type="button">5</button><button type="button">6+</button></div>
+<p class="pnudge" id="pNudge">That's Insider. Your free strategy call above is unlocked 👆</p>
+<span class="pq">Filming by when?</span>
+<div class="pdates" id="pDates"><button type="button" data-d="3">This week</button><button type="button" data-d="7">Within a week</button><button type="button" data-d="14">Within 2 weeks</button><button type="button" data-d="pick">Pick a date</button></div>
+<input type="date" class="pdate-in" id="pDateIn">
+<div class="pmsg"><span class="pmsg-l">Your message</span><span id="pMsg">Pick how many and when, and your message shows up here</span></div>
+<button type="button" class="btn pcopy" id="pCopy" disabled>📋 Copy my plan</button>
+<p class="phow">Then open Trybe, go to your chat with Baybella and paste it in</p>
+</div>
+
 
 </section>
 <section class="band band-4" style="--next:#FBE3EE"><div class="card" id="edit">
@@ -755,6 +786,39 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
   });
   document.getElementById('ckReset').addEventListener('click',function(){ boxes.forEach(function(b){b.checked=false}); saved={}; try{ localStorage.removeItem(KEY); }catch(e){} refresh(); });
   refresh();
+})();
+</script>
+<script>
+(function(){
+  var count=null, when=null;
+  var cBtns=[].slice.call(document.querySelectorAll('#pCount button'));
+  var dBtns=[].slice.call(document.querySelectorAll('#pDates button'));
+  var dIn=document.getElementById('pDateIn'), msg=document.getElementById('pMsg'), copy=document.getElementById('pCopy'), nudge=document.getElementById('pNudge');
+  var days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], mons=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function fmt(d){ return days[d.getDay()]+' '+d.getDate()+' '+mons[d.getMonth()]; }
+  function plus(n){ var d=new Date(); d.setDate(d.getDate()+n); return d; }
+  dIn.min=new Date().toISOString().slice(0,10);
+  function render(){
+    nudge.style.display=(count && count!=='1' && count!=='2')?'block':'none';
+    if(!count||!when){ copy.disabled=true; msg.textContent='Pick how many and when, and your message shows up here'; return; }
+    var n=count==='6+'?'6 or more':count, v=count==='1'?'video':'videos';
+    var t='hey! I\'m planning '+n+' '+v+' this round\nI\'ll have them filmed by '+fmt(when);
+    if(count!=='1'&&count!=='2') t+='\nkeen to book the strategy call too';
+    msg.textContent=t; copy.disabled=false;
+  }
+  cBtns.forEach(function(b){ b.addEventListener('click',function(){ cBtns.forEach(function(x){x.classList.remove('on')}); b.classList.add('on'); count=b.textContent; render(); }); });
+  dBtns.forEach(function(b){ b.addEventListener('click',function(){
+    dBtns.forEach(function(x){x.classList.remove('on')}); b.classList.add('on');
+    if(b.dataset.d==='pick'){ dIn.style.display='block'; when=dIn.value?new Date(dIn.value+'T12:00'):null; }
+    else { dIn.style.display='none'; var n=+b.dataset.d; if(n===3){ var d=new Date(); var k=(7-d.getDay())%7; when=plus(k===0?0:k); } else when=plus(n); }
+    render(); }); });
+  dIn.addEventListener('change',function(){ when=dIn.value?new Date(dIn.value+'T12:00'):null; render(); });
+  copy.addEventListener('click',function(){
+    var t=msg.textContent;
+    function done(){ copy.textContent='✓ Copied, now paste it in Trybe'; setTimeout(function(){copy.textContent='📋 Copy my plan'},3000); }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done,fallback); } else fallback();
+    function fallback(){ var a=document.createElement('textarea'); a.value=t; document.body.appendChild(a); a.select(); try{document.execCommand('copy')}catch(e){} a.remove(); done(); }
+  });
 })();
 </script>
 </body></html>
