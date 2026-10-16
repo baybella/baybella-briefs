@@ -605,6 +605,14 @@ body.stepmode section.band.enter-r{animation:inR .22s ease-out}body.stepmode sec
 .qa-r{padding:10px 0;border-bottom:1px solid #FBE3EE}.qa-r:last-of-type{border-bottom:0}
 .qa-r b{display:block;font-size:15px}.qa-r span{display:block;font-size:14.5px;color:#4C1D7E}
 .qa-more{display:block;text-align:center;padding:10px 0 6px;font-size:14px;font-weight:700;color:#BE185D;text-decoration:none}
+
+.toc-lead{color:#4C1D7E;margin:0 0 12px}
+.toc-list{background:#fff;border:1px solid #E9D5EF;border-radius:14px;overflow:hidden}
+.toc-list a{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #F1E9FB;text-decoration:none;color:#2A0844}
+.toc-list a:last-child{border-bottom:0}.toc-list a:active{background:#FFF0F7}
+.toc-list .tn{flex:none;width:26px;height:26px;border-radius:50%;background:#EDE9FE;color:#6B21A8;font-weight:800;font-size:13px;display:grid;place-items:center}
+.toc-list .tt{flex:1;min-width:0}.toc-list .tt b{display:block;font-size:15.5px}.toc-list .tt small{display:block;font-size:13px;color:#8B7AAB;line-height:1.35}
+.toc-list .ta{flex:none;color:#BE185D;font-weight:800}
 </style>
 <link rel="manifest" href="playbook.webmanifest">
 <meta name="theme-color" content="#EC4899">
@@ -655,7 +663,7 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 </div>
 </div>
 </section>
-<section class="band band-2" style="--next:#FBE3EE"><div class="winflow">
+<section class="band band-2" style="--next:#FCE7F1"><div class="winflow">
 <h2 class="wf-h">What's a winning ad?</h2>
 <p class="windef2"><b>Think of an organic video going viral. A winning ad is the ad version of that.</b></p>
 <ol class="tl">
@@ -693,6 +701,12 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
   </div>
 <div class="tiles3"><a href="#p1"><span class="pnum">1</span><b>Get set up</b></a><a href="#p2"><span class="pnum">2</span><b>Know the standard</b></a><a href="#p3"><span class="pnum">3</span><b>Make your videos</b></a></div>
 
+</section>
+<section class="band band-1" style="--next:#FBE3EE" id="tocSec"><div class="card" id="toc">
+<div class="head"><span class="n">📖</span><h2>What's inside</h2></div>
+<p class="toc-lead">Everything in this playbook, in order. Tap any section to jump straight to it.</p>
+<div id="tocList" class="toc-list"></div>
+</div>
 </section>
 <section class="band band-4" style="--next:#FFF4EA" id="infoSec">
 <div class="card" id="next">
@@ -990,6 +1004,7 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
   function fmt(d){ return days[d.getDay()]+' '+d.getDate()+' '+mons[d.getMonth()]; }
   function plus(n){ var d=new Date(); d.setDate(d.getDate()+n); return d; }
   dIn.min=new Date().toISOString().slice(0,10);
+  (function(){ var mx=new Date(); mx.setDate(mx.getDate()+14); dIn.max=mx.toISOString().slice(0,10); dIn.addEventListener('change',function(){ if(dIn.value&&dIn.value>dIn.max) dIn.value=dIn.max; if(dIn.value&&dIn.value<dIn.min) dIn.value=dIn.min; }, true); })();
   function render(){
     nudge.style.display=(count && count!=='1' && count!=='2')?'block':'none';
     if(!count||!when){ copy.disabled=true; msg.textContent='Pick how many and when, and your message shows up here'; return; }
@@ -1043,10 +1058,24 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
   function secOf(q){ var el=document.querySelector(q); return el?el.closest('section.band'):null; }
   function card(q){ var el=document.querySelector(q); return el?{sec:el.closest('section.band'),only:el}:null; }
   /* APP ORDER (Arvin 16 Oct): everything she must see comes BEFORE the script, because the script is when she films */
-  var steps=[ {sec:secOf('h1.top-h')},{sec:secOf('.winflow')},card('#next'),{sec:secOf('#p1')},{sec:secOf('#p2')},{sec:secOf('#hooks')},{sec:secOf('#pickangle')},{sec:secOf('#format')},{sec:secOf('#structure')},{sec:secOf('#film')},{sec:secOf('#test')},{sec:secOf('#script')},{sec:document.getElementById('checkoutSec')},card('#edit'),card('#submit') ].filter(function(x){return x&&x.sec}).map(function(x){ x.only=x.only||null; return x; });
+  var steps=[ {sec:secOf('h1.top-h')},{sec:secOf('.winflow')},{sec:secOf('#toc')},card('#next'),{sec:secOf('#p1')},{sec:secOf('#p2')},{sec:secOf('#hooks')},{sec:secOf('#pickangle')},{sec:secOf('#format')},{sec:secOf('#structure')},{sec:secOf('#film')},{sec:secOf('#test')},{sec:secOf('#script')},{sec:document.getElementById('checkoutSec')},card('#edit'),card('#submit') ].filter(function(x){return x&&x.sec}).map(function(x){ x.only=x.only||null; return x; });
   var extras={next:card('#next'),faq:card('#faq')};
   function title(st){ var el=st.only||st.sec; var h=el.querySelector('.card .head h2')||el.querySelector('h2.part,h2.wf-h,h2.ic-h,h1.top-h'); return h?h.textContent.trim():''; }
   var segs=document.getElementById('appSegs'); steps.forEach(function(){ segs.appendChild(document.createElement('i')); });
+
+  /* WHAT'S INSIDE: built from the step list, so it can never drift from the real order */
+  var TOC_DESC={next:'The whole loop, from upload to getting paid',p1:'Open your kit, watch the tutorials, practise',p2:'What we approve and what we send back',hooks:'What an angle is, in one minute',pickangle:'Choose the reason your video gives her to buy',format:'How your video is built on screen',structure:'What every ad that sells has to cover',film:'Where to look while you put them on',test:'How many videos, plus your free strategy call',script:'Our Script Maker writes it with you',checkoutSec:'When you\'ll film, then send your plan to Linda',edit:'Turn your footage into a finished ad',submit:'Your final checklist before you send'};
+  function keyOf(st){ var el=st.only||st.sec; if(el.id&&TOC_DESC[el.id]) return el.id; for(var k in TOC_DESC){ if(el.querySelector('#'+k)) return k; } return ''; }
+  var tocList=document.getElementById('tocList'), tocStart=-1;
+  steps.forEach(function(st,i){ if((st.only||st.sec).querySelector('#toc')) tocStart=i; });
+  steps.forEach(function(st,i){
+    if(i<=tocStart) return; var k=keyOf(st); if(!k) return;
+    var a=document.createElement('a'); a.href='#'+(k==='checkoutSec'?'checkout':k);
+    a.innerHTML='<span class="tn">'+(i-tocStart)+'</span><span class="tt"><b></b><small></small></span><span class="ta">›</span>';
+    a.querySelector('b').textContent=title(st); a.querySelector('small').textContent=TOC_DESC[k];
+    tocList.appendChild(a);
+  });
+  var faqA=document.createElement('a'); faqA.href='#faq'; faqA.innerHTML='<span class="tn">?</span><span class="tt"><b>FAQs</b><small>Quick answers to common questions</small></span><span class="ta">›</span>'; tocList.appendChild(faqA);
   var cur=0, mode='step';
   /* --- picks --- */
   function anglesPicked(){ return [].slice.call(document.querySelectorAll('#angHost .grid .a.sel h2')).map(function(h){return h.textContent.trim().replace(/^\d+\.\s*/,'')}); }
