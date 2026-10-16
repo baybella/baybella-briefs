@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Creator Playbook</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -471,11 +471,147 @@ html,body{overflow-x:hidden}
 .msg-step b span{display:inline-flex;width:22px;height:22px;border-radius:50%;background:#EC4899;color:#fff;font-size:12px;align-items:center;justify-content:center;margin-right:6px}
 .msg-step img{width:100%;border-radius:10px;border:1px solid #E9D5EF;display:block}
 .msg-yes{text-align:center !important}
+
+/* green screen (phase 3) */
+.gs-pitch{background:#fff;border:1.5px solid var(--pink);border-radius:14px;padding:12px 14px;margin:6px 0 10px;font-size:17px;line-height:1.4}
+.gs-pitch span{display:block;font-size:14px;color:var(--ink-faint);margin-top:6px}
+.gs-what{font-size:16px;margin:0 0 10px}
+.bt .gs-tag{display:inline-block;margin-top:5px;flex:none;font-size:11.5px;font-weight:700;border-radius:100px;padding:3px 8px;white-space:nowrap}
+.gs-tag.on{color:var(--pink-deep);background:#FFF0F7}.gs-tag.off{color:var(--purple);background:var(--purple-pale)}.gs-tag.either{color:var(--ink-faint);background:#F3F1F4}
+.gs-tip{font-size:15px;margin:12px 0 2px;color:var(--ink)}
+.fmt-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 10px}
+.fmt{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+.fmt>span{display:block;font-size:26px}.fmt b{display:block;font-weight:700;font-size:16px}.fmt small{display:block;font-size:13.5px;color:var(--ink-faint);margin-top:2px}
+.fmt .fmt-tag{display:inline-block;margin-top:7px;font-size:11.5px;font-weight:700;color:var(--pink-deep);background:#FFF0F7;border-radius:100px;padding:3px 8px}
+.fmt.wide{grid-column:1/-1}
+.fmt details{margin-top:8px}.fmt summary{cursor:pointer;font-weight:700;font-size:15px;color:var(--accent)}
+@media(max-width:520px){.fmt-grid{grid-template-columns:1fr}}
+.gs-closed{display:none;text-align:center;font-size:16px;padding:10px 4px;color:var(--ink-faint)}
+#greenscreen[data-open="false"] .gs-body{display:none}#greenscreen[data-open="false"] .gs-closed{display:block}
+
+.fmt-grid{grid-template-columns:1fr 1fr}
+@media(max-width:520px){.fmt-grid{grid-template-columns:1fr 1fr}.fmt{padding:10px}.fmt b{font-size:15px}.fmt small{font-size:12.5px}}
+.fmt .inc{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
+.fmt .inc i{font-style:normal;font-size:11px;font-weight:600;color:var(--ink-faint);background:#F3F1F4;border-radius:100px;padding:2px 7px}
+.fmt .fmt-tag.green{color:#2E7D32;background:#E8F5E9}
+.fit-h{font-weight:800;font-size:17px;margin:16px 0 8px}
+.fit{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:8px}
+.fit>span{flex:1;font-size:15px;line-height:1.35}.fit>span small{display:block;font-size:12.5px;color:var(--ink-faint);margin-top:2px}
+.fit>b{flex:none;font-size:13px;font-weight:700;color:var(--purple);background:var(--purple-pale);border-radius:100px;padding:5px 10px;white-space:nowrap}
+.fit .arr{flex:none;color:var(--ink-faint);font-weight:700}
+@media(max-width:520px){.fit{flex-wrap:wrap;gap:6px}.fit>span{flex-basis:100%}.fit .arr{margin-left:2px}}
+.both{background:#fff;border:1.5px solid var(--pink);border-radius:14px;padding:12px 14px;margin:14px 0 4px;text-align:center}
+.both .eq{font-size:15px;font-weight:700;margin:6px 0}.both .eq em{font-style:normal;color:var(--pink-deep)}
+.both p{font-size:13.5px;color:var(--ink-faint);margin:0}
+
+.fmt[hidden],.fit[hidden],.gs-backup[hidden]{display:none}
+.gs-backup{border:1.5px dashed #B9B4BF;border-radius:16px;padding:14px;margin:14px 0 6px;background:#FAFAFB}
+.gs-backup .gb-top{font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint)}
+.gs-backup h3{font-size:18px;margin:4px 0 2px}
+.gs-backup>p{font-size:14.5px;margin:4px 0 8px;line-height:1.4}
+.gs-backup details{margin-top:6px}.gs-backup summary{cursor:pointer;font-weight:700;font-size:15px;color:var(--accent)}
+.gb-tag{display:inline-block;font-size:11.5px;font-weight:800;border-radius:100px;padding:3px 9px;margin-bottom:6px}.gb-tag.extra{color:var(--pink-deep);background:#FFF0F7}.gb-tag.backup{color:#2E7D32;background:#E8F5E9}
+.gb-lane>span.gb-tag{display:inline-block;font-size:11.5px;line-height:1.3}
+.gb-lanes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 4px}
+.gb-lane{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px}
+.gb-lane>b{display:block;font-size:14.5px;margin-bottom:3px}.gb-lane>span{display:block;font-size:13.5px;line-height:1.4;color:var(--ink)}
+.gb-lane.only{border-color:#A5D6A7}
+@media(max-width:520px){.gb-lanes{grid-template-columns:1fr}}
+.gs-how .bt small b{display:inline;font-size:inherit;color:var(--ink)}.gs-lib{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:var(--ink-faint);background:#F3F1F4;border-radius:100px;padding:3px 9px}
+.gb-pros{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 6px}
+.gb-pros span{font-size:12px;font-weight:700;border-radius:100px;padding:4px 9px}
+.gb-pros .up{color:#2E7D32;background:#E8F5E9}.gb-pros .down{color:#8A5A00;background:#FFF4DC}
+
+/* step-by-step mode (phase 3) */
+.vmode{position:sticky;top:0;z-index:30;display:flex;justify-content:center;gap:6px;padding:8px 10px;background:rgba(255,250,245,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.vmode button{border:1.5px solid var(--pink);background:#fff;color:var(--pink-deep);font:700 13px Manrope,sans-serif;padding:6px 14px;border-radius:100px;cursor:pointer}
+.vmode button.on{background:var(--pink);color:#fff}
+body.stepmode .st-hide{display:none!important}
+.stepnav{display:none}
+body.stepmode{padding-bottom:84px}
+body.stepmode .stepnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;align-items:center;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,250,245,.96);backdrop-filter:blur(6px);border-top:1px solid var(--line)}
+.stepnav button{border:0;border-radius:100px;font:700 15px Manrope,sans-serif;padding:11px 16px;cursor:pointer}
+.stepnav .sb-back{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.stepnav .sb-next{background:var(--pink);color:#fff;margin-left:auto;max-width:62%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stepnav .sb-mid{flex:1;min-width:0;text-align:center;font-size:12px;color:var(--ink-faint);font-weight:700}
+.stepnav .sb-bar{height:4px;background:var(--line);border-radius:4px;margin-top:4px;overflow:hidden}.stepnav .sb-bar i{display:block;height:100%;background:var(--pink);border-radius:4px}
+.stepnav button[disabled]{opacity:.35;cursor:default}
+@media(max-width:520px){.stepnav .sb-mid span{display:none}}
+
+.full-only{display:none!important}
+
+body.stepmode #angHost .pickbar{bottom:92px}
+
+/* step mode: one smooth background, no band edges */
+body.stepmode{background:linear-gradient(180deg,#FCE7F1 0%,#F1E9FB 45%,#FFF4EA 100%) fixed !important}
+body.stepmode section.band{background:transparent !important;box-shadow:none !important;clip-path:none !important;min-height:calc(100vh - 150px)}
+body.stepmode section.band::before,body.stepmode section.band::after{display:none !important}
+body.stepmode .vmode{background:transparent;border-bottom:0;backdrop-filter:none}
+body.stepmode .stepnav{background:rgba(255,250,245,.72);border-top:0;box-shadow:0 -8px 24px rgba(107,33,168,.06)}
+
+/* ===== APP MODE (step mode, 16 Oct 2026) ===== */
+body.stepmode .mock,body.stepmode .banner,body.stepmode .card > .head,body.stepmode .appbot .hint,body.stepmode #coSend,body.stepmode #vmode,body.stepmode .tiles3{display:none !important}
+body.stepmode{padding-top:74px;padding-bottom:96px}
+.apptop,.appbot,.sheet,.sheet-bg,.appmenu{display:none}
+body.stepmode .apptop{display:block;position:fixed;top:0;left:0;right:0;z-index:40;background:rgba(252,231,241,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:calc(8px + env(safe-area-inset-top)) 10px 8px}
+.apptop .row{display:flex;align-items:center;gap:6px;max-width:680px;margin:0 auto}
+.apptop button{border:0;background:transparent;font:700 22px/1 Manrope,sans-serif;color:var(--ink,#2A0844);width:40px;height:40px;border-radius:50%;cursor:pointer}
+.apptop button:active{background:rgba(107,33,168,.08)}
+.apptop button[disabled]{opacity:.25}
+.apptop .t{flex:1;text-align:center;font:700 16px Manrope,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.segs{display:flex;gap:3px;max-width:680px;margin:6px auto 0}.segs i{flex:1;height:3px;border-radius:3px;background:rgba(107,33,168,.15)}.segs i.on{background:#EC4899}
+body.stepmode .appbot{display:block;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(255,244,234,0),rgba(255,244,234,.97) 30%)}
+.appbot button{display:block;width:100%;max-width:520px;margin:0 auto;border:0;border-radius:16px;padding:16px;font:800 17px Manrope,sans-serif;background:#EC4899;color:#fff;cursor:pointer;box-shadow:0 8px 20px rgba(236,72,153,.28)}
+.appbot button[disabled]{background:#E9D5EF;color:#8B7AAB;box-shadow:none;cursor:default}
+.appbot .hint{text-align:center;font-size:12.5px;color:#8B7AAB;margin:0 0 6px;min-height:16px}
+body.stepmode .appmenu.open{display:block;position:fixed;top:60px;right:12px;z-index:50;background:#fff;border-radius:14px;box-shadow:0 12px 30px rgba(42,8,68,.18);overflow:hidden;min-width:220px}
+.appmenu button{display:block;width:100%;text-align:left;border:0;background:#fff;padding:14px 16px;font:600 15px Manrope,sans-serif;color:#2A0844;cursor:pointer;border-bottom:1px solid #F1E9FB}
+body.stepmode section.band{min-height:calc(100vh - 190px)}
+body.stepmode section.band.enter-r{animation:inR .22s ease-out}body.stepmode section.band.enter-l{animation:inL .22s ease-out}
+@keyframes inR{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}@keyframes inL{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+.sheet-bg.open{display:block;position:fixed;inset:0;z-index:60;background:rgba(42,8,68,.35)}
+.sheet.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;bottom:0;height:88vh;z-index:61;background:#fff;border-radius:22px 22px 0 0;overflow:hidden;animation:up .25s ease-out}
+@keyframes up{from{transform:translateY(40%)}to{transform:none}}
+.sheet .grab{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #F1E9FB}
+.sheet .grab span{width:40px;height:5px;border-radius:5px;background:#E9D5EF;margin:0 auto}
+.sheet .grab button{border:0;background:#F1E9FB;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer}
+.sheet iframe{flex:1;border:0;width:100%}
+/* picks */
+#fmtHost .fmt,#fmtHost .gs-backup{cursor:pointer;position:relative;transition:.12s}
+#fmtHost .fmt.sel,#fmtHost .gs-backup.sel{border:2px solid #EC4899 !important;background:#FFF0F7 !important}
+#fmtHost .fmt.sel::after,#fmtHost .gs-backup.sel::after{content:"✓";position:absolute;top:10px;right:10px;width:24px;height:24px;border-radius:50%;background:#EC4899;color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center}
+#fmtHost .fmt-sub{font-weight:800;font-size:15px;margin:16px 0 8px}
+#fmtHost details{margin-top:6px}
+.co-lead{color:#4C1D7E;margin:0 0 12px}
+.co-rows{background:#fff;border:1px solid #E9D5EF;border-radius:14px;padding:2px 12px;margin-bottom:12px}
+.co-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #F1E9FB}.co-row:last-child{border-bottom:0}
+.co-row span{flex:none;width:64px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#8B7AAB}
+.co-row b{flex:1;font-size:15px;line-height:1.35}.co-row a{flex:none;font-size:13px;font-weight:700;color:#BE185D;text-decoration:none}
+.co-msg{background:#FFF0F7;border-radius:14px;padding:12px 14px;margin-bottom:12px;white-space:pre-line;font-size:15px}
+.co-send{width:100%}
+.co-how{font-size:14px;color:#4C1D7E;margin:10px 0 0;text-align:center}
+
+.sc-picks{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;background:#FFF0F7;border-radius:14px;padding:12px 14px;margin-bottom:14px}
+.sc-picks span{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#8B7AAB;padding-top:2px}.sc-picks b{font-size:15px;line-height:1.35}
+.sc-steps{margin:0 0 14px;padding-left:22px;font-size:16px;line-height:1.6}.sc-steps small{color:#8B7AAB}
+.sc-open{display:block;text-align:center;border:2px solid #EC4899;color:#BE185D;background:#fff;border-radius:16px;padding:13px;font-weight:800;text-decoration:none}
+.sc-hook{text-align:center;margin:12px 0 0;font-size:14px}.sc-hook a{color:#6B21A8;font-weight:700}
+
+#planner > h3,#planner > .ps,#planner .pmsg,#planner .pstep{display:none !important}
+#coWhenSlot .pq{display:block;font-weight:800;margin:0 0 8px}
+#coWhenSlot{margin-bottom:14px}
 </style>
+<link rel="manifest" href="playbook.webmanifest">
+<meta name="theme-color" content="#EC4899">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Playbook">
+<link rel="apple-touch-icon" href="kit-media/app-icon-180.png">
 </head>
 <body><div class="wrap">
 
 
+<div class="vmode" id="vmode"><button type="button" data-m="step" class="on">Step by step</button><button type="button" data-m="full">See it all on one page</button></div>
 <section class="band band-1" style="--next:#F1E9FB"><h1 class="top-h">Creator Playbook</h1>
 <p class="lede top-l">The proven process behind our highest-performing creator ads.</p>
 <p class="bmk"><span>🔖 <b>Bookmark this page.</b> You'll come back to it every round.</span></p>
@@ -514,7 +650,7 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 </div>
 </div>
 </section>
-<section class="band band-2" style="--next:#FFF4EA"><div class="winflow">
+<section class="band band-2" style="--next:#FBE3EE"><div class="winflow">
 <h2 class="wf-h">What's a winning ad?</h2>
 <p class="windef2"><b>Think of an organic video going viral. A winning ad is the ad version of that.</b></p>
 <ol class="tl">
@@ -538,7 +674,6 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 <figcaption><b>I've been pro makeup</b><span>$78,680 AUD ad spend · hook rate 32%</span><div class="vs2"><div class="was"><small>Flat fee she was paid</small><s>$250</s></div><div class="now"><small>On 10% commission</small><b>$7,868</b></div></div></figcaption></figure>
 </div>
 <p class="tv-sum">A flat fee pays you once. <b>Commission pays you for as long as your video keeps selling.</b></p>
-<p class="tv-ps">PS: These two were made before our current framework, so they may not match everything in this guide.</p>
 </div>
 
 <div class="calc">
@@ -554,153 +689,16 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 <div class="tiles3"><a href="#p1"><span class="pnum">1</span><b>Get set up</b></a><a href="#p2"><span class="pnum">2</span><b>Know the standard</b></a><a href="#p3"><span class="pnum">3</span><b>Make your videos</b></a></div>
 
 </section>
-<section class="band band-3" style="--next:#FBE3EE"><div class="banner" id="p1"><span class="pnum big">1</span><div><span class="of">Part 1 of 3</span><h2 class="part">Get set up</h2></div></div>
-<div class="card steps">
-<div class="step"><span class="si sil">A</span><div><b>Open your packages</b><p>Fuller, Simple and Blair, plus carry pouches and applicators.</p></div></div>
-<div class="step"><span class="si sil">B</span><div><b>Watch the tutorials</b><p>Loading, applying and taking them off.</p><a class="mini" href="https://baybellabeauty.com.au/pages/how-to" target="_blank" rel="noopener">Watch now →</a></div></div>
-<div class="step"><span class="si sil">C</span><div><b>Practice for a few days</b><p>Until putting them on feels easy.</p></div></div>
-</div>
-<div class="nails">💅 <b>Got our press-on nails too?</b> They're a bonus. Focus on the lashes for now.</div>
-
-</section>
-<section class="band band-4" style="--next:#ECEEFC"><div class="banner" id="p2"><span class="pnum big">2</span><div><span class="of">Part 2 of 3</span><h2 class="part">Know the standard</h2></div></div>
-<div class="card steps">
-<div class="step"><span class="si">✅</span><div><b>How to film yourself with the lashes</b><p>What we approve and what we send back when you put them on and take them off on camera, with real examples.</p><a class="mini" href="https://baybella-creator-guidelines.netlify.app" target="_blank" rel="noopener">Open the guidelines →</a></div></div>
-</div>
-</section>
-<section class="band band-5" style="--next:#FFF4EA"><div class="banner" id="p3"><span class="pnum big">3</span><div><span class="of">Part 3 of 3</span><h2 class="part">Make your videos</h2></div></div>
-<div class="card" id="hooks">
-<div class="head"><span class="n">1</span><h2>Choosing your angle</h2></div>
-<div class="windef">An <b>angle</b> is the approach your video takes to win her over.<span>In performance marketing, it's the reason your video gives her to buy.</span></div>
-<p class="an-h">Think of it like getting someone's number</p>
-<div class="an-goal">🎯 <b>The goal:</b> get their number</div>
-<div class="an-row">
-<div class="an"><span>😂</span><b>Make them laugh</b></div>
-<div class="an"><span>🙌</span><b>Be honest</b></div>
-<div class="an"><span>🤝</span><b>Find common ground</b></div>
-</div>
-<p class="an-cap">Three different approaches, same goal. <b>Each one is an angle.</b></p>
-<div class="an-map">
-<div><small>On a date</small><small>In your video</small></div>
-<div><b>Getting the number</b><i>→</i><b>She buys</b></div>
-<div><b>Your approach</b><i>→</i><b>Your angle</b></div>
-<div><b>Your opening line</b><i>→</i><b>Your hook</b></div>
-</div>
-<a class="mini" href="angles.html" target="_blank" rel="noopener">See our angles →</a>
-</div>
-
-
-</section>
-<section class="band band-3" style="--next:#FCE7F1"><div class="card" id="structure">
-<div class="head"><span class="n">2</span><h2>The Winning TikTok Shop Ad Script Formula</h2></div>
-<div class="windef">Every ad that sells answers <b>three questions</b> before she scrolls away.<span>This formula gives each one a place, in the order she asks them.</span></div>
-<div class="q3"><span>🧲 Why magnetic lashes?</span><span>💜 Why Baybella?</span><span>⏰ Why right now?</span></div>
-<div class="beats2">
-<div class="bt"><em>1</em><div><b>Hook</b><small>Open a question she needs answered</small></div></div>
-<div class="bt"><em>2</em><div><b>Problem</b><small>What was annoying you before</small></div></div>
-<div class="bt"><em>3</em><div><b>What they are</b><small>Magnetic lashes, no glue</small></div><i>🧲 Why magnetic</i></div>
-<div class="bt"><em>4</em><div><b>Show it</b><small>Put them on, on camera</small></div></div>
-<div class="bt"><em>5</em><div><b>What's changed</b><small>Life since you switched</small></div></div>
-<div class="bt"><em>6</em><div><b>The doubt</b><small>"But will they work for me?"</small></div><i>💜 Why Baybella</i></div>
-<div class="bt"><em>7</em><div><b>Call to action</b><small>Where to get them, and why not wait</small></div><i>⏰ Why now</i></div>
-</div>
-</div>
-
-
-</section>
-<section class="band band-1" style="--next:#F1E9FB"><div class="card" id="script">
-<div class="head"><span class="n">3</span><h2>Write your script</h2></div>
-<p>Once you've picked your angle, open our Script Maker. Tell it your angle and it'll help you with your hook and script.</p><p><a class="more" href="hook-guide/index.html" target="_blank" rel="noopener">See hooks from high-performing ads in the Hook Guide →</a></p>
-<a class="btn" href="https://baybella-script-maker.netlify.app" target="_blank" rel="noopener">Open the Script Maker</a>
-</div>
-
-
-</section>
-<section class="band band-2" style="--next:#FFF4EA"><div class="card" id="film">
-<div class="head"><span class="n">4</span><h2>Filming tips</h2></div>
-<div class="windef">Before you film, <b>decide where you'll look</b> while you put them on.</div>
-<div class="look2">
-<div class="lk"><span>📱</span><b>Look at your phone</b><small>Use the screen like a mirror. Get close.</small><video src="kit-media/look-at-phone.mp4" controls playsinline muted loop preload="metadata"></video></div>
-<div class="lk"><span>🪞</span><b>Look in a mirror</b><small>Hold it beside your phone at about 45°.</small><video src="kit-media/look-in-mirror.mp4" controls playsinline muted loop preload="metadata"></video></div>
-</div>
-<p class="eyesline">Either way is fine, as long as <b>your eyes are clearly visible</b> while you demonstrate the product.</p>
-</div>
-
-
-</section>
-<section class="band band-6" style="--next:#FBE3EE"><div class="card" id="test">
-<div class="head"><span class="n">5</span><h2>Plan your round</h2></div>
-<p>More videos means more shots at a winner, and more data to improve on every round. <b>That's why we suggest 3 to 5.</b> Creators filming one or two can wait so long between shots that they give up before they find one.</p>
-
-<div class="price">
-<div class="pcol dim"><div class="pname">Casual</div><div class="pnum2">1–2<small>videos</small></div>
-<div class="prow"><span>Best for</span><b>Just seeing what happens</b></div>
-<div class="prow"><span>Your ideas</span><b>On your own</b></div>
-<div class="prow"><span>Support</span><b>This playbook</b></div></div>
-<div class="pcol best"><div class="ribbon">Recommended</div><div class="pname">Insider</div><div class="pnum2">3–5<small>videos</small></div>
-<div class="prow"><span>Best for</span><b>Finding your first winner faster</b></div>
-<div class="prow"><span>Your ideas</span><b>Crafted with our creative strategist</b></div>
-<div class="prow"><span>Support</span><b>Our creative strategist helps craft your content</b></div></div>
-<div class="pcol"><div class="pname">Proven creator</div><div class="pnum2">6+<small>videos</small></div>
-<div class="prow"><span>Best for</span><b>Doubling down on a hit</b></div>
-<div class="prow"><span>Your ideas</span><b>More of your best one</b></div>
-<div class="prow"><span>Support</span><b>Ongoing strategist support to scale your winners</b></div><div class="pnote">🔒 Unlocked after your first winner</div></div>
-</div>
-
-<div class="book"><div><span class="book-tag excl-tag">🔒 Included with Insider · 3+ videos</span><div class="book-head"><b>30-minute 1:1 with our creative strategist</b><span class="book-price"><s>$110</s> <em>FREE</em></span></div><p class="whyfree2"><span class="wf-ic">💡</span><span><b>Why free?</b> The better you understand winning ads the way a creative strategist does, the better your content will sell. <b class="wf-b">You earn more, we sell more.</b></span></p><p>Our strategist is the mind behind the ad strategy that took Baybella from zero to <b class="bl">50,000+ customers</b>, and knows the creator side from filming content too.</p><p class="book-lead">In just 30 minutes, you'll walk away with:</p><ul class="book-list"><li><span class="bi">🔍</span><div><b class="bl">FREE content audit</b><span>We go through your past videos one by one: what's working, where you're losing viewers, and exactly what to change in your hooks, pacing and delivery</span></div></li><li><span class="bi">🧪</span><div><b class="bl">Ideas pressure-tested</b><span>Before you spend a day filming them</span></div></li><li><span class="bi">📖</span><div><b class="bl">Your story, your angles</b><span>Got one? We'll turn it into angles only you could film</span></div></li><li><span class="bi">📊</span><div><b class="bl">Performance marketing basics</b><span>Brands rebook creators who hit their numbers. Learn ROAS, CPA, CTR, CPM and CPC, and how to use that data strategically to improve your content</span></div></li><li><span class="bi">🧠</span><div><b class="bl">Think like a strategist</b><span>Learn how we decide what a video should say before anyone films it. Bring that to every brand you work with, and stand out from creators who just film what they're told</span></div></li></ul></div>
-<a class="btn book-btn" href="https://calendly.com/arvinjayya" target="_blank" rel="noopener">📅 Book your FREE strategy call</a><p class="book-alt">No time that works? Message us in Trybe chat.</p></div>
-</div>
-
-<div class="plan" id="planner">
-<h3>Lock in your plan</h3>
-<p class="ps">Two quick picks, then paste it in our Trybe chat so we know what's coming.</p>
-<span class="pq">How many videos this round?</span>
-<div class="pcount" id="pCount"><button type="button">1</button><button type="button">2</button><button type="button">3</button><button type="button">4</button><button type="button">5</button><button type="button">6+</button></div>
-<p class="pnudge" id="pNudge">That's Insider. Your free strategy call above is unlocked 👆</p>
-<span class="pq">Filming by when?</span>
-<div class="pdates" id="pDates"><button type="button" data-d="3">This week</button><button type="button" data-d="7">Within a week</button><button type="button" data-d="14">Within 2 weeks</button><button type="button" data-d="pick">Pick a date</button></div>
-<input type="date" class="pdate-in" id="pDateIn">
-<div class="pmsg"><span class="pmsg-l">Your message</span><span id="pMsg">Pick how many and when, and your message shows up here</span></div>
-<div class="pstep"><span class="sn">1</span><div class="sb"><span class="st">Copy your plan</span><button type="button" class="btn pcopy" id="pCopy" disabled>📋 Copy my plan</button></div></div>
-<div class="pstep"><span class="sn">2</span><div class="sb"><span class="st">Paste it in our Trybe chat</span><div class="pnext" id="pNext">Open the <b>Trybe app</b>, go to your <b>chat with Baybella</b>, and paste it in. That's it, we'll take it from there.</div></div></div>
-</div>
-
-
-</section>
-<section class="band band-4" style="--next:#FBE3EE"><div class="card" id="edit">
-<div class="head"><span class="n">6</span><h2>Edit your video</h2></div>
-<p>Turn your footage into a finished ad, ready to run: your hook text, tight cuts, captions and sound, plus sending your raw clips.</p>
-<a class="btn" href="editing-guide/index.html" target="_blank" rel="noopener">Open the editing guide</a>
-</div>
-<div class="card" id="submit">
-<div class="head"><span class="n">7</span><h2>Before you submit</h2></div>
-<div class="cklist">
-<label class="ck"><span class="ckn">1</span><input type="checkbox" data-k="s0"><span>Watched the <a class="ckl" href="https://baybellabeauty.com.au/pages/how-to" target="_blank" rel="noopener">tutorials</a> and practised putting them on</span></label>
-<label class="ck"><span class="ckn">2</span><input type="checkbox" data-k="s1"><span>Read the <a class="ckl" href="https://baybella-creator-guidelines.netlify.app" target="_blank" rel="noopener">filming guidelines</a></span></label>
-<label class="ck"><span class="ckn">3</span><input type="checkbox" data-k="s2"><span>Picked my <a class="ckl" href="angles.html" target="_blank" rel="noopener">angle</a></span></label>
-<label class="ck"><span class="ckn">4</span><input type="checkbox" data-k="s3"><span>Wrote my <a class="ckl" href="hook-guide/index.html" target="_blank" rel="noopener">hook</a> and script with the <a class="ckl" href="https://baybella-script-maker.netlify.app" target="_blank" rel="noopener">Script Maker</a></span></label>
-<label class="ck"><span class="ckn">5</span><input type="checkbox" data-k="s4"><span>Had my call with our <a class="ckl" href="https://calendly.com/arvinjayya" target="_blank" rel="noopener">strategist</a> <em class="excl">🔒 Only for creators filming 3 or more</em></span></label>
-<label class="ck"><span class="ckn">6</span><input type="checkbox" data-k="s5"><span>Filmed my videos</span></label>
-<label class="ck"><span class="ckn">7</span><input type="checkbox" data-k="s6"><span>Edited them with the <a class="ckl" href="editing-guide/index.html" target="_blank" rel="noopener">editing guide</a></span></label>
-<label class="ck"><span class="ckn">8</span><input type="checkbox" data-k="s7"><span>Raw clips ready to send with my edits</span></label>
-</div>
-<p class="ckdone" id="ckDone">All ticked? Send it through.</p>
-<div class="send2">
-<div class="send-row"><span class="send-n">1</span><div><b>Your edited video</b><p>Submit it in Trybe, like normal.</p><a class="btn send-btn" href="https://jointrybe.com/" target="_blank" rel="noopener">Submit in Trybe</a></div></div>
-<div class="send-row"><span class="send-n">2</span><div><b>Your raw clips</b><p>Your cut video with <b>no text or captions</b> on it. Upload them using the link below.</p><a class="btn send-btn" href="upload.html" target="_blank" rel="noopener">Upload your raw clips</a></div></div>
-</div>
-<button type="button" class="ckreset" id="ckReset">Clear ticks</button>
-</div>
-
+<section class="band band-4" style="--next:#FFF4EA" id="infoSec">
 <div class="card" id="next">
-<div class="head"><span class="n">8</span><h2>What happens next</h2></div>
+<div class="head"><span class="n">💡</span><h2>What happens next</h2></div>
 <p class="nx-lede">Every video you send starts a loop. Here's how it runs.</p>
 <ol class="nx"><li><span class="nx-dot">📤</span><div><span class="nx-when">Day 0</span><b>You upload</b><p>Edited video in Trybe. Raw clips in the drop box.</p></div></li><li><span class="nx-dot">👀</span><div><span class="nx-when">Within 2 days</span><b>We review it</b><p>Within 2 business days. Your feedback comes through Trybe.</p></div></li><li><span class="nx-dot">🚀</span><div><span class="nx-when">1 day later</span><b>It goes live as an ad</b><p>Within a day of being approved.</p></div></li><li><span class="nx-dot">🧪</span><div><span class="nx-when">1 to 2 weeks</span><b>We test it</b><p>For 1 to 2 weeks. Keep track of the spend on your video in Trybe.</p></div></li><li><span class="nx-dot">💸</span><div><span class="nx-when">Every week</span><b>You get paid</b><p>Every week through Trybe, for as long as your ad runs.</p></div></li><li><span class="nx-dot">📈</span><div><span class="nx-when">Then repeat</span><b>Next round</b><p>We read your results and the performance data behind them, so your next round is sharper.</p></div></li></ol>
 <p class="nx-loop">↻ Each round you learn what sells. That's how high-performing creators are made.</p>
 
 </div>
 <div class="card" id="faq">
-<div class="head"><span class="n">9</span><h2>FAQs</h2></div>
+<div class="head"><span class="n">❓</span><h2>FAQs</h2></div>
 <details class="fq" open><summary><span class="fqn">1.</span> When is my content due?</summary>
 <div class="fa">
 <p class="fa-lead due">Within <b>7 to 14 days</b> of your lashes arriving.</p>
@@ -736,8 +734,184 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 <details class="fq"><summary><span class="fqn">9.</span> Is this program right for me?</summary>
 <div class="fa"><p class="fa-lead">It depends on what you want from it.</p><div class="fit"><div class="fit-c"><b>☕ 1 to 2 videos a round</b><ul><li>🧩 Fits more easily around your other content work</li><li>💸 Same 10% on every video we run</li></ul></div><div class="fit-c"><b>🚀 3 to 5 videos a round</b><ul><li>🎯 More shots at a winner every round</li><li>⚡ Faster feedback on what's working for you</li><li>💬 A free 1:1 with our creative strategist</li><li>🏆 A quicker path to Proven creator</li></ul></div></div><p class="fit-foot">Either way works, and you can change it any round. The creators aiming highest go for 3 to 5.</p></div></details>
 </div>
+</section>
+<section class="band band-3" style="--next:#FBE3EE"><div class="banner" id="p1"><span class="pnum big">1</span><div><span class="of">Part 1 of 3</span><h2 class="part">Get set up</h2></div></div>
+<div class="card steps">
+<div class="step"><span class="si sil">A</span><div><b>Open your packages</b><p>Fuller, Simple and Blair, plus carry pouches and applicators.</p></div></div>
+<div class="step"><span class="si sil">B</span><div><b>Watch the tutorials</b><p>Loading, applying and taking them off.</p><a class="mini" href="https://baybellabeauty.com.au/pages/how-to" target="_blank" rel="noopener">Watch now →</a></div></div>
+<div class="step"><span class="si sil">C</span><div><b>Practice for a few days</b><p>Until putting them on feels easy.</p></div></div>
+</div>
+<div class="nails">💅 <b>Got our press-on nails too?</b> They're a bonus. Focus on the lashes for now.</div>
 
 </section>
+<section class="band band-4" style="--next:#ECEEFC"><div class="banner" id="p2"><span class="pnum big">2</span><div><span class="of">Part 2 of 3</span><h2 class="part">Know the standard</h2></div></div>
+<div class="card steps">
+<div class="step"><span class="si">✅</span><div><b>How to film yourself with the lashes</b><p>What we approve and what we send back when you put them on and take them off on camera, with real examples.</p><a class="mini" href="https://baybella-creator-guidelines.netlify.app" target="_blank" rel="noopener">Open the guidelines →</a></div></div>
+</div>
+</section>
+<section class="band band-5" style="--next:#FCE7F1"><div class="banner" id="p3"><span class="pnum big">3</span><div><span class="of">Part 3 of 3</span><h2 class="part">Make your videos</h2></div></div>
+<div class="card" id="hooks">
+<div class="head"><span class="n">1</span><h2>Choosing your angle</h2></div>
+<div class="windef">An <b>angle</b> is the approach your video takes to win her over.<span>In performance marketing, it's the reason your video gives her to buy.</span></div>
+<p class="an-h">Think of it like getting someone's number</p>
+<div class="an-goal">🎯 <b>The goal:</b> get their number</div>
+<div class="an-row">
+<div class="an"><span>😂</span><b>Make them laugh</b></div>
+<div class="an"><span>🙌</span><b>Be honest</b></div>
+<div class="an"><span>🤝</span><b>Find common ground</b></div>
+</div>
+<p class="an-cap">Three different approaches, same goal. <b>Each one is an angle.</b></p>
+<div class="an-map">
+<div><small>On a date</small><small>In your video</small></div>
+<div><b>Getting the number</b><i>→</i><b>She buys</b></div>
+<div><b>Your approach</b><i>→</i><b>Your angle</b></div>
+<div><b>Your opening line</b><i>→</i><b>Your hook</b></div>
+</div>
+<a class="mini full-only" href="angles.html" target="_blank" rel="noopener">See our angles →</a>
+</div>
+
+
+</section>
+<section class="band band-1 step-only" style="--next:#F1E9FB"><div class="card" id="pickangle">
+<div class="head"><span class="n">1</span><h2>Pick your angle</h2></div>
+<div id="angHost"><p style="color:var(--ink-faint)">Loading our angles…</p></div>
+</div>
+</section>
+<section class="band band-2" style="--next:#FFF4EA"><div class="card" id="format">
+<div class="head"><span class="n">2</span><h2>Choose your format</h2></div>
+<p>Your format is how your video is built on screen: talking to camera, voiceover, stitch, green screen and more. <b>Same angle, new format = a whole new video.</b></p>
+<a class="btn full-only" href="formats/index.html" target="_blank" rel="noopener">Open the format guide</a>
+<div id="fmtHost" class="step-only"></div>
+</div>
+
+
+</section>
+<section class="band band-3" style="--next:#F1E9FB"><div class="card" id="structure">
+<div class="head"><span class="n">3</span><h2>What every ad needs</h2></div>
+<div class="windef">Every ad that sells answers <b>three questions</b> before she scrolls away.<span>This formula gives each one a place, in the order she asks them.</span></div>
+<div class="q3"><span>🧲 Why magnetic lashes?</span><span>💜 Why Baybella?</span><span>⏰ Why right now?</span></div>
+<div class="beats2">
+<div class="bt"><em>1</em><div><b>Hook</b><small>Open a question she needs answered</small></div></div>
+<div class="bt"><em>2</em><div><b>Problem</b><small>What was annoying you before</small></div></div>
+<div class="bt"><em>3</em><div><b>What they are</b><small>Magnetic lashes, no glue</small></div><i>🧲 Why magnetic</i></div>
+<div class="bt"><em>4</em><div><b>Show it</b><small>Put them on, on camera</small></div></div>
+<div class="bt"><em>5</em><div><b>What's changed</b><small>Life since you switched</small></div></div>
+<div class="bt"><em>6</em><div><b>The doubt</b><small>"But will they work for me?"</small></div><i>💜 Why Baybella</i></div>
+<div class="bt"><em>7</em><div><b>Call to action</b><small>Where to get them, and why not wait</small></div><i>⏰ Why now</i></div>
+</div>
+</div>
+
+
+</section>
+
+<section class="band band-2" style="--next:#FFF4EA"><div class="card" id="film">
+<div class="head"><span class="n">4</span><h2>Filming tips</h2></div>
+<div class="windef">Before you film, <b>decide where you'll look</b> while you put them on.</div>
+<div class="look2">
+<div class="lk"><span>📱</span><b>Look at your phone</b><small>Use the screen like a mirror. Get close.</small><video src="kit-media/look-at-phone.mp4" controls playsinline muted loop preload="metadata"></video></div>
+<div class="lk"><span>🪞</span><b>Look in a mirror</b><small>Hold it beside your phone at about 45°.</small><video src="kit-media/look-in-mirror.mp4" controls playsinline muted loop preload="metadata"></video></div>
+</div>
+<p class="eyesline">Either way is fine, as long as <b>your eyes are clearly visible</b> while you demonstrate the product.</p>
+</div>
+
+
+</section>
+<section class="band band-6" style="--next:#FCE7F1"><div class="card" id="test">
+<div class="head"><span class="n">5</span><h2>Plan your round</h2></div>
+<p>More videos means more shots at a winner, and more data to improve on every round. <b>That's why we suggest 3 to 5.</b> Creators filming one or two can wait so long between shots that they give up before they find one.</p>
+
+<div class="price">
+<div class="pcol dim"><div class="pname">Casual</div><div class="pnum2">1–2<small>videos</small></div>
+<div class="prow"><span>Best for</span><b>Just seeing what happens</b></div>
+<div class="prow"><span>Your ideas</span><b>On your own</b></div>
+<div class="prow"><span>Support</span><b>This playbook</b></div></div>
+<div class="pcol best"><div class="ribbon">Recommended</div><div class="pname">Insider</div><div class="pnum2">3–5<small>videos</small></div>
+<div class="prow"><span>Best for</span><b>Finding your first winner faster</b></div>
+<div class="prow"><span>Your ideas</span><b>Crafted with our creative strategist</b></div>
+<div class="prow"><span>Support</span><b>Our creative strategist helps craft your content</b></div></div>
+<div class="pcol"><div class="pname">Proven creator</div><div class="pnum2">6+<small>videos</small></div>
+<div class="prow"><span>Best for</span><b>Doubling down on a hit</b></div>
+<div class="prow"><span>Your ideas</span><b>More of your best one</b></div>
+<div class="prow"><span>Support</span><b>Ongoing strategist support to scale your winners</b></div><div class="pnote">🔒 Unlocked after your first winner</div></div>
+</div>
+
+<div class="book"><div><span class="book-tag excl-tag">🔒 Included with Insider · 3+ videos</span><div class="book-head"><b>30-minute 1:1 with our creative strategist</b><span class="book-price"><s>$110</s> <em>FREE</em></span></div><p class="whyfree2"><span class="wf-ic">💡</span><span><b>Why free?</b> The better you understand winning ads the way a creative strategist does, the better your content will sell. <b class="wf-b">You earn more, we sell more.</b></span></p><p>Our strategist is the mind behind the ad strategy that took Baybella from zero to <b class="bl">50,000+ customers</b>, and knows the creator side from filming content too.</p><p class="book-lead">In just 30 minutes, you'll walk away with:</p><ul class="book-list"><li><span class="bi">🔍</span><div><b class="bl">FREE content audit</b><span>We go through your past videos one by one: what's working, where you're losing viewers, and exactly what to change in your hooks, pacing and delivery</span></div></li><li><span class="bi">🧪</span><div><b class="bl">Ideas pressure-tested</b><span>Before you spend a day filming them</span></div></li><li><span class="bi">📖</span><div><b class="bl">Your story, your angles</b><span>Got one? We'll turn it into angles only you could film</span></div></li><li><span class="bi">📊</span><div><b class="bl">Performance marketing basics</b><span>Brands rebook creators who hit their numbers. Learn ROAS, CPA, CTR, CPM and CPC, and how to use that data strategically to improve your content</span></div></li><li><span class="bi">🧠</span><div><b class="bl">Think like a strategist</b><span>Learn how we decide what a video should say before anyone films it. Bring that to every brand you work with, and stand out from creators who just film what they're told</span></div></li></ul></div>
+<a class="btn book-btn" href="https://calendly.com/arvinjayya" target="_blank" rel="noopener">📅 Book your FREE strategy call</a><p class="book-alt">No time that works? Message us in Trybe chat.</p></div>
+</div>
+
+<div class="plan" id="planner">
+<h3>Lock in your plan</h3>
+<p class="ps">Two quick picks, then paste it in our Trybe chat so we know what's coming.</p>
+<span class="pq">How many videos this round?</span>
+<div class="pcount" id="pCount"><button type="button">1</button><button type="button">2</button><button type="button">3</button><button type="button">4</button><button type="button">5</button><button type="button">6+</button></div>
+<p class="pnudge" id="pNudge">That's Insider. Your free strategy call above is unlocked 👆</p>
+<div id="pWhen"><span class="pq">Filming by when?</span>
+<div class="pdates" id="pDates"><button type="button" data-d="3">This week</button><button type="button" data-d="7">Within a week</button><button type="button" data-d="14">Within 2 weeks</button><button type="button" data-d="pick">Pick a date</button></div>
+<input type="date" class="pdate-in" id="pDateIn"></div>
+<div class="pmsg"><span class="pmsg-l">Your message</span><span id="pMsg">Pick how many and when, and your message shows up here</span></div>
+<div class="pstep"><span class="sn">1</span><div class="sb"><span class="st">Copy your plan</span><button type="button" class="btn pcopy" id="pCopy" disabled>📋 Copy my plan</button></div></div>
+<div class="pstep"><span class="sn">2</span><div class="sb"><span class="st">Paste it in our Trybe chat</span><div class="pnext" id="pNext">Open the <b>Trybe app</b>, go to your <b>chat with Baybella</b>, and paste it in. That's it, we'll take it from there.</div></div></div>
+</div>
+
+
+</section>
+<section class="band band-1" style="--next:#ECEEFC"><div class="card" id="script">
+<div class="head"><span class="n">6</span><h2>Write your script</h2></div>
+<div class="full-only"><p>Once you've picked your angle, open our Script Maker. Tell it your angle and it'll help you with your hook and script.</p><p><a class="more" href="hook-guide/index.html" target="_blank" rel="noopener">See hooks from high-performing ads in the Hook Guide →</a></p>
+<a class="btn" href="https://baybella-script-maker.netlify.app" target="_blank" rel="noopener">Open the Script Maker</a></div>
+<div class="step-only sc-app">
+<div class="sc-picks"><span>Your angle</span><b id="scAngle">–</b><span>Your format</span><b id="scFormat">–</b></div>
+<ol class="sc-steps"><li>Open the Script Maker <small>(it opens in a new tab)</small></li><li>Tell it your angle and format</li><li>Copy your hook and script, then come back here</li></ol>
+<a class="sc-open" href="https://baybella-script-maker.netlify.app" target="_blank" rel="noopener">✍️ Open the Script Maker ↗</a>
+<p class="sc-hook"><a href="hook-guide/index.html">Need hook ideas? See the Hook Guide</a></p>
+</div>
+</div>
+
+
+</section>
+<section class="band band-5" style="--next:#FBE3EE" id="checkoutSec"><div class="card" id="checkout">
+<div class="head"><span class="n">7</span><h2>Your plan</h2></div>
+<p class="co-lead">Got your script? Pick when you'll film it, then send your plan to Linda.</p>
+<div id="coWhenSlot"></div>
+<div class="co-rows">
+<div class="co-row"><span>Angle</span><b id="coAngle">Not picked yet</b><a href="#pickangle" class="co-ch">Change</a></div>
+<div class="co-row"><span>Format</span><b id="coFormat">Not picked yet</b><a href="#format" class="co-ch">Change</a></div>
+<div class="co-row"><span>Videos</span><b id="coPlan">Not picked yet</b><a href="#planner" class="co-ch">Change</a></div>
+</div>
+<div class="co-msg"><span class="pmsg-l">Your message</span><span id="coMsg"></span></div>
+<button type="button" class="btn co-send" id="coSend">💌 Send my plan to Linda</button>
+<p class="co-how" id="coHow">We copy your plan. Then open the <b>Trybe app</b>, go to your <b>chat with Baybella</b> and paste it in.</p>
+</div></section>
+<section class="band band-4" style="--next:#FBE3EE"><div class="card" id="edit">
+<div class="head"><span class="n">8</span><h2>Edit your video</h2></div>
+<p>Turn your footage into a finished ad, ready to run: your hook text, tight cuts, captions and sound, plus sending your raw clips.</p>
+<a class="btn" href="editing-guide/index.html" target="_blank" rel="noopener">Open the editing guide</a>
+</div>
+<div class="card" id="submit">
+<div class="head"><span class="n">9</span><h2>Before you submit</h2></div>
+<div class="cklist">
+<label class="ck"><span class="ckn">1</span><input type="checkbox" data-k="s0"><span>Watched the <a class="ckl" href="https://baybellabeauty.com.au/pages/how-to" target="_blank" rel="noopener">tutorials</a> and practised putting them on</span></label>
+<label class="ck"><span class="ckn">2</span><input type="checkbox" data-k="s1"><span>Read the <a class="ckl" href="https://baybella-creator-guidelines.netlify.app" target="_blank" rel="noopener">filming guidelines</a></span></label>
+<label class="ck"><span class="ckn">3</span><input type="checkbox" data-k="s2"><span>Picked my <a class="ckl" href="angles.html" target="_blank" rel="noopener">angle</a></span></label>
+<label class="ck"><span class="ckn">4</span><input type="checkbox" data-k="s3"><span>Wrote my <a class="ckl" href="hook-guide/index.html" target="_blank" rel="noopener">hook</a> and script with the <a class="ckl" href="https://baybella-script-maker.netlify.app" target="_blank" rel="noopener">Script Maker</a></span></label>
+<label class="ck"><span class="ckn">5</span><input type="checkbox" data-k="s4"><span>Had my call with our <a class="ckl" href="https://calendly.com/arvinjayya" target="_blank" rel="noopener">strategist</a> <em class="excl">🔒 Only for creators filming 3 or more</em></span></label>
+<label class="ck"><span class="ckn">6</span><input type="checkbox" data-k="s5"><span>Filmed my videos</span></label>
+<label class="ck"><span class="ckn">7</span><input type="checkbox" data-k="s6"><span>Edited them with the <a class="ckl" href="editing-guide/index.html" target="_blank" rel="noopener">editing guide</a></span></label>
+<label class="ck"><span class="ckn">8</span><input type="checkbox" data-k="s7"><span>Raw clips ready to send with my edits</span></label>
+</div>
+<p class="ckdone" id="ckDone">All ticked? Send it through.</p>
+<div class="send2">
+<div class="send-row"><span class="send-n">1</span><div><b>Your edited video</b><p>Submit it in Trybe, like normal.</p><a class="btn send-btn" href="https://jointrybe.com/" target="_blank" rel="noopener">Submit in Trybe</a></div></div>
+<div class="send-row"><span class="send-n">2</span><div><b>Your raw clips</b><p>Your cut video with <b>no text or captions</b> on it. Upload them using the link below.</p><a class="btn send-btn" href="upload.html" target="_blank" rel="noopener">Upload your raw clips</a></div></div>
+</div>
+<button type="button" class="ckreset" id="ckReset">Clear ticks</button>
+</div>
+
+
+
+
+</section>
+
 
 </div><script>
 (function(){
@@ -824,6 +998,165 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done,fallback); } else fallback();
     function fallback(){ var a=document.createElement('textarea'); a.value=t; document.body.appendChild(a); a.select(); try{document.execCommand('copy')}catch(e){} a.remove(); done(); }
   });
+})();
+</script>
+<script>
+/* ANGLES STEP: loads the live angles page so the angles only ever live in one place (angles.html, generated by sync_angles.py) */
+(function(){
+  var host=document.getElementById('angHost'); if(!host) return;
+  fetch('angles.html').then(function(r){return r.text()}).then(function(html){
+    var d=new DOMParser().parseFromString(html,'text/html');
+    var css=(d.querySelector('style')||{}).textContent||'';
+    css=css.replace(/(^|[{}])\s*([^{}@]+)\{/g,function(m,b,sel){
+      if(/^\s*(:root|\*|body|h1|\.wrap|\.back)\b/.test(sel)) return b+' #angHost .__skip{';
+      return b+' '+sel.split(',').map(function(x){return '#angHost '+x.trim()}).join(',')+'{';
+    });
+    var st=document.createElement('style'); st.textContent=css; document.head.appendChild(st);
+    var keep=['.lede','.hot-note','.pickhint','.grid','.pickbar'];
+    host.innerHTML=''; keep.forEach(function(q){ var el=d.querySelector(q); if(el) host.appendChild(document.importNode(el,true)); });
+    var scr=[].slice.call(d.querySelectorAll('script')).map(function(x){return x.textContent}).join('\n');
+    try{ new Function(scr)(); }catch(e){ console.error('angles script',e); }
+  }).catch(function(){ host.innerHTML='<p><a class="mini" href="angles.html" target="_blank" rel="noopener">See our angles →</a></p>'; });
+})();
+</script>
+<div class="apptop" id="appTop"><div class="row"><button type="button" id="appBack" aria-label="Back">‹</button><div class="t" id="appTitle"></div><button type="button" id="appMenuBtn" aria-label="Menu">⋯</button></div><div class="segs" id="appSegs"></div></div>
+<div class="appmenu" id="appMenu"><button type="button" data-a="next">⏭️ What happens next</button><button type="button" data-a="faq">❓ FAQs</button><button type="button" data-a="full">📄 See it all on one page</button><button type="button" data-a="restart">↺ Start from the beginning</button></div>
+<div class="appbot" id="appBot"><p class="hint" id="appHint"></p><button type="button" id="appNext">Continue</button></div>
+<div class="sheet-bg" id="sheetBg"></div><div class="sheet" id="sheet"><div class="grab"><i style="width:32px"></i><span></span><button type="button" id="sheetX" aria-label="Close">✕</button></div><iframe id="sheetFrame" title="Guide"></iframe></div>
+<script>
+/* APP MODE: one screen per section, picks carried forward, checkout at the end. Full-page view is untouched. */
+(function(){
+  var LS={get:function(k,d){try{var v=localStorage.getItem(k);return v===null?d:v}catch(e){return d}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+  var secs=[].slice.call(document.querySelectorAll('section.band'));
+  function secOf(q){ var el=document.querySelector(q); return el?el.closest('section.band'):null; }
+  function card(q){ var el=document.querySelector(q); return el?{sec:el.closest('section.band'),only:el}:null; }
+  /* APP ORDER (Arvin 16 Oct): everything she must see comes BEFORE the script, because the script is when she films */
+  var steps=[ {sec:secOf('h1.top-h')},{sec:secOf('.winflow')},card('#next'),card('#faq'),{sec:secOf('#p1')},{sec:secOf('#p2')},{sec:secOf('#hooks')},{sec:secOf('#pickangle')},{sec:secOf('#format')},{sec:secOf('#structure')},{sec:secOf('#film')},{sec:secOf('#test')},{sec:secOf('#script')},{sec:document.getElementById('checkoutSec')},card('#edit'),card('#submit') ].filter(function(x){return x&&x.sec}).map(function(x){ x.only=x.only||null; return x; });
+  var extras={next:card('#next'),faq:card('#faq')};
+  function title(st){ var el=st.only||st.sec; var h=el.querySelector('.card .head h2')||el.querySelector('h2.part,h2.wf-h,h2.ic-h,h1.top-h'); return h?h.textContent.trim():''; }
+  var segs=document.getElementById('appSegs'); steps.forEach(function(){ segs.appendChild(document.createElement('i')); });
+  var cur=0, mode='step';
+  /* --- picks --- */
+  function anglesPicked(){ return [].slice.call(document.querySelectorAll('#angHost .grid .a.sel h2')).map(function(h){return h.textContent.trim().replace(/^\d+\.\s*/,'')}); }
+  function formatPicked(){ var el=document.querySelector('#fmtHost .sel'); if(!el) return ''; var b=el.querySelector('b, h2, h3'); return b?b.textContent.replace(/^🟩\s*/,'').trim():''; }
+  function planText(){ var m=document.getElementById('pMsg'); var t=m?m.textContent:''; return /Pick how many/.test(t)?'':t; }
+  function need(st){
+    var el=st.only||st.sec;
+    if(el.querySelector('#pickangle')||el.id==='pickangle') return anglesPicked().length?'':'Tap at least one angle to continue';
+    if(el.querySelector('#format')) return formatPicked()?'':'Pick a format to continue';
+    if(el.querySelector('#planner')) return document.querySelector('#pCount button.on')?'':'Pick how many videos';
+    if(el.id==='checkoutSec') return planText()?'':'Pick when you\'ll film it';
+    return '';
+  }
+  function refreshNext(){
+    var st=steps[cur], btn=document.getElementById('appNext'), hint=document.getElementById('appHint');
+    if(st.sec.querySelector('#script')){ var so=document.querySelector('.sc-open'); if(so){ var aa=anglesPicked(); so.href='https://baybella-script-maker.netlify.app'+(aa.length?'?angle='+encodeURIComponent(aa[0]):''); }
+      var pa=anglesPicked(); document.getElementById('scAngle').textContent=pa.length?pa.join(' · '):'Not picked yet'; document.getElementById('scFormat').textContent=formatPicked()||'Not picked yet'; }
+    fillCheckout();
+    var n=need(st); btn.disabled=!!n; hint.textContent=n;
+    if(cur===steps.length-1){ btn.disabled=true; btn.textContent='All set. Send your video in Trybe 🎉'; hint.textContent=''; }
+    else if(st.sec.id==='checkoutSec'){ btn.textContent=n?n:'💌 Send my plan to Linda →'; }
+    else if(!n && st.sec.querySelector('#script')) btn.textContent='I\'ve got my script →'; else btn.textContent=n?n:'Continue: '+title(steps[cur+1]);
+  }
+  function fillCheckout(){
+    var a=anglesPicked(), f=formatPicked(), p=planText();
+    document.getElementById('coAngle').textContent=a.length?a.join(' · '):'Not picked yet';
+    document.getElementById('coFormat').textContent=f||'Not picked yet';
+    document.getElementById('coPlan').textContent=p?p.split('\n').map(function(x){return x.replace(/^hey linda! /,'')}).join(', '):'Not picked yet';
+    var msg=(p||'hey linda! here\'s my plan')+(a.length?'\nangle'+(a.length>1?'s':'')+': '+a.join(', '):'')+(f?'\nformat: '+f:'');
+    document.getElementById('coMsg').textContent=msg;
+  }
+  function showExtra(x){ secs.forEach(function(sec){ sec.classList.add('st-hide'); }); x.sec.classList.remove('st-hide'); [].slice.call(x.sec.querySelectorAll(':scope > .card')).forEach(function(c){ c.classList.toggle('st-hide',c!==x.only); }); document.getElementById('appTitle').textContent=x.only.querySelector('.head h2').textContent; var b=document.getElementById('appNext'); b.disabled=false; b.textContent='← Back to where I was'; b.dataset.extra='1'; window.scrollTo(0,0); closeMenu(); }
+  function show(i,dir){
+    var prev=cur; cur=Math.max(0,Math.min(steps.length-1,i));
+    secs.forEach(function(sec){ sec.classList.add('st-hide'); sec.classList.remove('enter-r','enter-l'); [].slice.call(sec.querySelectorAll(':scope > .card')).forEach(function(c){c.classList.remove('st-hide')}); });
+    var st=steps[cur]; st.sec.classList.remove('st-hide');
+    if(st.only) [].slice.call(st.sec.querySelectorAll(':scope > .card')).forEach(function(c){ if(c!==st.only) c.classList.add('st-hide'); });
+    void st.sec.offsetWidth; if(dir) st.sec.classList.add(dir>0?'enter-r':'enter-l');
+    document.getElementById('appTitle').textContent=title(st);
+    document.getElementById('appBack').disabled=cur===0;
+    [].slice.call(segs.children).forEach(function(s,k){ s.classList.toggle('on',k<=cur); });
+    if((st.only||st.sec).querySelector('#checkout')||st.sec.id==='checkoutSec') fillCheckout();
+    if(st.sec.querySelector('#script')){ var a=anglesPicked(); document.getElementById('scAngle').textContent=a.length?a.join(' · '):'Not picked yet'; document.getElementById('scFormat').textContent=formatPicked()||'Not picked yet'; }
+    refreshNext(); LS.set('bbPlaybookStep',String(cur));
+    try{ history.replaceState(null,'','#step-'+(cur+1)); }catch(e){}
+    window.scrollTo(0,0);
+  }
+  function go(d){ var b=document.getElementById('appNext'); if(b.dataset.extra){ delete b.dataset.extra; show(cur,0); return; } if(d>0 && (b.disabled||cur===steps.length-1)) return; show(cur+d,d); }
+  function placeWhen(){ var w=document.getElementById('pWhen'); if(w) document.getElementById('coWhenSlot').appendChild(w); }
+  function setMode(m){
+    mode=m; document.body.classList.toggle('stepmode',m==='step');
+    placeWhen(m==='step');
+    [].slice.call(document.querySelectorAll('#vmode button')).forEach(function(b){ b.classList.toggle('on',b.dataset.m===m); });
+    if(m==='step') show(cur,0); else document.querySelectorAll('.st-hide').forEach(function(e){e.classList.remove('st-hide')});
+    LS.set('bbPlaybookMode',m); closeMenu();
+  }
+  function stepOf(el){ for(var i=0;i<steps.length;i++){ var st=steps[i]; if(st.only?st.only.contains(el):st.sec.contains(el)) return i; } return -1; }
+  /* --- controls --- */
+  document.getElementById('appNext').onclick=function(){
+    if(this.dataset.extra){ delete this.dataset.extra; show(cur,0); return; }
+    if(steps[cur].sec.id==='checkoutSec'){ document.getElementById('coSend').click(); var me=this; me.textContent='✓ Copied! Paste it in Trybe'; setTimeout(function(){ show(cur+1,1); },1100); return; }
+    go(1);
+  };
+  document.getElementById('appBack').onclick=function(){ go(-1); };
+  var menu=document.getElementById('appMenu');
+  function closeMenu(){ menu.classList.remove('open'); }
+  document.getElementById('appMenuBtn').onclick=function(e){ e.stopPropagation(); menu.classList.toggle('open'); };
+  document.addEventListener('click',function(e){ if(!menu.contains(e.target)) closeMenu(); });
+  menu.onclick=function(e){ var b=e.target.closest('button'); if(!b) return; if(b.dataset.a==='full') setMode('full'); if((b.dataset.a==='next'||b.dataset.a==='faq')&&extras[b.dataset.a]) showExtra(extras[b.dataset.a]); if(b.dataset.a==='restart'){ closeMenu(); show(0,-1); } };
+  [].slice.call(document.querySelectorAll('#vmode button')).forEach(function(b){ b.onclick=function(){ setMode(b.dataset.m); }; });
+  /* --- links: in-page jumps go to their step; our own guides open as a bottom sheet --- */
+  var sheet=document.getElementById('sheet'), sbg=document.getElementById('sheetBg'), fr=document.getElementById('sheetFrame');
+  function closeSheet(){ sheet.classList.remove('open'); sbg.classList.remove('open'); fr.src='about:blank'; }
+  document.getElementById('sheetX').onclick=closeSheet; sbg.onclick=closeSheet;
+  document.addEventListener('click',function(e){
+    if(mode!=='step') return;
+    var a=e.target.closest('a[href]'); if(!a) return;
+    var h=a.getAttribute('href');
+    if(h.charAt(0)==='#'){ var t=document.getElementById(h.slice(1)); if(!t) return; var i=stepOf(t); if(i<0) return; e.preventDefault(); show(i,i>cur?1:-1); return; }
+    if(!/^(https?:|mailto:|tel:)/.test(h)){ e.preventDefault(); fr.src=h; sheet.classList.add('open'); sbg.classList.add('open'); }
+  });
+  /* --- swipe --- */
+  var sx=0,sy=0,ok=false;
+  document.addEventListener('touchstart',function(e){ if(mode!=='step'||sheet.classList.contains('open')) {ok=false;return;} var t=e.touches[0]; sx=t.clientX; sy=t.clientY; ok=!e.target.closest('input,textarea,select,video,.pcount,.pdates'); },{passive:true});
+  document.addEventListener('touchend',function(e){ if(!ok) return; var t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy; if(Math.abs(dx)>70&&Math.abs(dy)<45) go(dx<0?1:-1); },{passive:true});
+  /* --- picks wiring --- */
+  document.addEventListener('click',function(e){ if(e.target.closest('#angHost .grid .a, #pCount button, #pDates button')) setTimeout(refreshNext,0); });
+  document.addEventListener('change',function(e){ if(e.target.id==='pDateIn') setTimeout(refreshNext,0); });
+  window.__appRefresh=refreshNext;
+  /* --- format picker: loads the format guide's own content, so formats live in one place --- */
+  var fh=document.getElementById('fmtHost');
+  if(fh) fetch('formats/index.html').then(function(r){return r.text()}).then(function(html){
+    var d=new DOMParser().parseFromString(html,'text/html');
+    var g=d.querySelector('#s1 .fmt-grid'), gs=d.querySelector('#s3'), fits=d.querySelectorAll('#s2 .fit');
+    var openMap=(html.match(/FORMATS_OPEN\s*=\s*(\{[^}]*\})/)||[])[1]; var open={}; try{ open=Function('return '+openMap)(); }catch(e){}
+    var t=document.createElement('p'); t.className='fmt-sub'; t.textContent='Not sure which to pick?'; 
+    var wrap=document.createElement('div');
+    if(g) wrap.appendChild(document.importNode(g,true));
+    wrap.appendChild(t); [].slice.call(fits).forEach(function(f){ wrap.appendChild(document.importNode(f,true)); });
+    if(gs){ var box=document.createElement('div'); box.className='gs-backup'; box.dataset.fmt='greenscreen'; var inner=document.importNode(gs,true); [].slice.call(inner.childNodes).forEach(function(n){ if(!(n.classList&&n.classList.contains('band-h'))) box.appendChild(n); }); var hh=document.createElement('h3'); hh.textContent='🟩 Green screen'; box.insertBefore(hh,box.firstChild); var more=document.createElement('a'); more.href='formats/index.html#s4'; more.className='mini'; more.textContent='Green screen ideas + how to make one →'; box.appendChild(more); wrap.appendChild(box); }
+    [].slice.call(wrap.querySelectorAll('[data-fmt]')).forEach(function(el){ if(open[el.dataset.fmt]===false) el.hidden=true; });
+    fh.appendChild(wrap);
+    var saved=LS.get('bbFormatPicked','');
+    var opts=[].slice.call(fh.querySelectorAll('.fmt[data-fmt], .gs-backup'));
+    opts.forEach(function(o){ if(o.dataset.fmt===saved) o.classList.add('sel'); o.addEventListener('click',function(e){ if(e.target.closest('a,summary')) return; opts.forEach(function(x){x.classList.remove('sel')}); o.classList.add('sel'); LS.set('bbFormatPicked',o.dataset.fmt); refreshNext(); }); });
+    refreshNext();
+  });
+  /* --- start: hash > resume > beginning --- */
+  var m=LS.get('bbPlaybookMode','step');
+  var h=location.hash.match(/^#step-(\d+)$/);
+  if(h) cur=parseInt(h[1],10)-1;
+  else if(location.hash){ var tt=document.getElementById(location.hash.slice(1)); if(tt){ var ii=stepOf(tt); if(ii>=0) cur=ii; } }
+  else cur=parseInt(LS.get('bbPlaybookStep','0'),10)||0;
+  setMode(m);
+  /* angles load async: re-check the Continue button once they arrive */
+  var tries=0, iv=setInterval(function(){ refreshNext(); if(document.querySelector('#angHost .grid')||++tries>20) clearInterval(iv); },300);
+  /* checkout send */
+  document.getElementById('coSend').onclick=function(){
+    var t=document.getElementById('coMsg').textContent, b=this;
+    function done(){ b.textContent='✓ Copied, now paste it in Trybe'; document.getElementById('coHow').style.fontWeight='700'; }
+    if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done,function(){}); else done();
+  };
 })();
 </script>
 </body></html>
