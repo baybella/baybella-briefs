@@ -740,7 +740,7 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 </section>
 <section class="band band-5" style="--next:#FCE7F1"><div class="banner" id="p3"><span class="pnum big">3</span><div><span class="of">Part 3 of 3</span><h2 class="part">Make your videos</h2></div></div>
 <div class="card" id="hooks">
-<div class="head"><span class="n">1</span><h2>Choosing your angle</h2></div>
+<div class="head"><span class="n">1</span><h2>What's an angle?</h2></div>
 <div class="windef">An <b>angle</b> is the approach your video takes to win her over.<span>In performance marketing, it's the reason your video gives her to buy.</span></div>
 <p class="an-h">Think of it like getting someone's number</p>
 <div class="an-goal">🎯 <b>The goal:</b> get their number</div>
@@ -845,7 +845,7 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 
 </section>
 <section class="band band-1" style="--next:#ECEEFC"><div class="card" id="script">
-<div class="head"><span class="n">6</span><h2>Write your script</h2></div>
+<div class="head"><span class="n">6</span><h2>Generate your script</h2></div>
 <div class="full-only"><p>Once you've picked your angle, open our Script Maker. Tell it your angle and it'll help you with your hook and script.</p><p><a class="more" href="hook-guide/index.html" target="_blank" rel="noopener">See hooks from high-performing ads in the Hook Guide →</a></p>
 <a class="btn" href="https://baybella-script-maker.netlify.app" target="_blank" rel="noopener">Open the Script Maker</a></div>
 <div class="step-only sc-app">
@@ -882,7 +882,7 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 <label class="ck"><span class="ckn">1</span><input type="checkbox" data-k="s0"><span>Watched the <a class="ckl" href="https://baybellabeauty.com.au/pages/how-to" target="_blank" rel="noopener">tutorials</a> and practised putting them on</span></label>
 <label class="ck"><span class="ckn">2</span><input type="checkbox" data-k="s1"><span>Read the <a class="ckl" href="https://baybella-creator-guidelines.netlify.app" target="_blank" rel="noopener">filming guidelines</a></span></label>
 <label class="ck"><span class="ckn">3</span><input type="checkbox" data-k="s2"><span>Picked my <a class="ckl" href="angles.html" target="_blank" rel="noopener">angle</a></span></label>
-<label class="ck"><span class="ckn">4</span><input type="checkbox" data-k="s3"><span>Wrote my <a class="ckl" href="hook-guide/index.html" target="_blank" rel="noopener">hook</a> and script with the <a class="ckl" href="https://baybella-script-maker.netlify.app" target="_blank" rel="noopener">Script Maker</a></span></label>
+<label class="ck"><span class="ckn">4</span><input type="checkbox" data-k="s3"><span>Generated my <a class="ckl" href="hook-guide/index.html" target="_blank" rel="noopener">hook</a> and script with the <a class="ckl" href="https://baybella-script-maker.netlify.app" target="_blank" rel="noopener">Script Maker</a></span></label>
 <label class="ck"><span class="ckn">5</span><input type="checkbox" data-k="s4"><span>Had my call with our <a class="ckl" href="https://calendly.com/arvinjayya" target="_blank" rel="noopener">strategist</a> <em class="excl">🔒 Only for creators filming 3 or more</em></span></label>
 <label class="ck"><span class="ckn">6</span><input type="checkbox" data-k="s5"><span>Filmed my videos</span></label>
 <label class="ck"><span class="ckn">7</span><input type="checkbox" data-k="s6"><span>Edited them with the <a class="ckl" href="editing-guide/index.html" target="_blank" rel="noopener">editing guide</a></span></label>
@@ -1064,7 +1064,7 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
   var segs=document.getElementById('appSegs'); steps.forEach(function(){ segs.appendChild(document.createElement('i')); });
 
   /* WHAT'S INSIDE: built from the step list, so it can never drift from the real order */
-  var TOC_DESC={next:'The whole loop, from upload to getting paid',p1:'Open your kit, watch the tutorials, practise',p2:'What we approve and what we send back',hooks:'What an angle is, in one minute',pickangle:'Choose the reason your video gives her to buy',format:'How your video is built on screen',structure:'What every ad that sells has to cover',film:'Where to look while you put them on',test:'How many videos, plus your free strategy call',script:'Our Script Maker writes it with you',checkoutSec:'When you\'ll film, then send your plan to Linda',edit:'Turn your footage into a finished ad',submit:'Your final checklist before you send'};
+  var TOC_DESC={next:'The whole loop, from upload to getting paid',p1:'Open your kit, watch the tutorials, practise',p2:'What we approve and what we send back',hooks:'The idea behind every video, in one minute',pickangle:'Choose the reason your video gives her to buy',format:'How your video is built on screen',structure:'What every ad that sells has to cover',film:'Where to look while you put them on',test:'How many videos, plus your free strategy call',script:'Done in a minute with our Script Maker',checkoutSec:'When you\'ll film, then send your plan to Linda',edit:'Turn your footage into a finished ad',submit:'Your final checklist before you send'};
   function keyOf(st){ var el=st.only||st.sec; if(el.id&&TOC_DESC[el.id]) return el.id; for(var k in TOC_DESC){ if(el.querySelector('#'+k)) return k; } return ''; }
   var tocList=document.getElementById('tocList'), tocStart=-1;
   steps.forEach(function(st,i){ if((st.only||st.sec).querySelector('#toc')) tocStart=i; });
