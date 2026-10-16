@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Baybella Format Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg-pink:#FCE9F1;--pink:#EC4899;--pink-deep:#BE185D;--pink-light:#FBC4DC;--purple-deep:#3B0764;--purple:#6B21A8;--purple-pale:#EDE9FE;--ink:#2A0844;--ink-soft:#4C1D7E;--ink-faint:#8B7AAB;--cream:#FFFAF5;--line:#E9D5EF}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-pink);color:var(--ink);font:17px/1.55 'Manrope',-apple-system,Helvetica,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 16px 70px}
+.back{font-weight:700;font-size:15px;color:var(--pink-deep);text-decoration:none}
+.eyebrow{display:block;margin:22px 0 6px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-deep)}
+h1{font:500 42px/1.1 'Fraunces',Georgia,serif;color:var(--purple-deep);margin:0 0 10px}
+.lede{font:400 20px/1.45 'Fraunces',Georgia,serif;color:var(--ink-soft);margin:0 0 30px}
+.band{background:var(--cream);border:1px solid var(--line);border-radius:22px;padding:24px 22px;margin:0 0 18px}
+.band-h{display:flex;align-items:center;gap:12px;margin:0 0 14px}
+.band-h span{flex:none;width:34px;height:34px;border-radius:50%;background:var(--purple-pale);color:var(--purple);font-weight:800;display:grid;place-items:center}
+.band-h h2{font:500 26px/1.2 'Fraunces',Georgia,serif;color:var(--purple-deep);margin:0}
+.rule{border-top:1px solid var(--line);padding:16px 0 4px}
+.rule:first-of-type{border-top:0;padding-top:0}
+.rule h3{margin:0 0 4px;font-size:19px;font-weight:800;color:var(--ink)}
+.rule p{margin:0 0 12px;color:var(--ink-soft)}
+.clips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:4px 0 6px}
+.clips.one{grid-template-columns:minmax(0,1fr);max-width:calc(50% - 6px)}
+figure{margin:0}
+video,figure img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px;background:#000;display:block}
+figcaption{margin-top:6px;font-size:13px;color:var(--ink-faint)}
+.good{display:inline-block;background:#E7F6EC;color:#1F7A44;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:100px;margin-right:6px}
+.note{background:var(--purple-pale);border-radius:14px;padding:12px 14px;margin:8px 0 6px;font-size:15px;color:var(--ink-soft)}
+.raw{border:2px solid var(--pink);background:#FFF0F7}
+.raw p{margin:0 0 8px}
+.check{list-style:none;padding:0;margin:0}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line)}
+.check li:first-child{border-top:0}
+.check li::before{content:'';flex:none;width:20px;height:20px;border:2px solid var(--pink-light);border-radius:6px;margin-top:2px}
+.foot{margin-top:26px;text-align:center;color:var(--ink-faint);font-size:14px}
+@media(max-width:520px){h1{font-size:34px}.clips.one{max-width:100%}}
+.pts{list-style:none;padding:0;margin:2px 0 14px}.pts li{position:relative;padding:5px 0 5px 22px;color:var(--ink-soft)}.pts li::before{content:"";position:absolute;left:4px;top:13px;width:8px;height:8px;border-radius:50%;background:var(--pink)}.pts b{color:var(--ink)}
+.phone{position:relative;max-width:330px;margin:6px auto 4px;border-radius:26px;overflow:hidden;border:6px solid #111;background:#000;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.phone img{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;border-radius:0}
+.ui-top{position:absolute;top:4%;left:0;right:0;text-align:center;color:#fff;font-size:14px;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.ui-top span{opacity:.75;margin-right:14px}.ui-top b{border-bottom:2px solid #fff;padding-bottom:2px}
+.ui-rail{position:absolute;right:2.5%;bottom:24%;display:flex;flex-direction:column;align-items:center;gap:12px}
+.ri{display:flex;flex-direction:column;align-items:center;color:#fff;font-size:11px;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.ri svg{width:30px;height:30px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
+.ri.av{position:relative;margin-bottom:6px}.ri.av span{width:38px;height:38px;border-radius:50%;background:#ddd;border:2px solid #fff}
+.ri.av i{position:absolute;bottom:-8px;width:18px;height:18px;border-radius:50%;background:#FE2C55;color:#fff;font-style:normal;font-size:14px;line-height:17px;text-align:center}
+.ri.disc{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle,#666 25%,#222 27%,#111 70%);border:4px solid #333;margin-top:4px}
+.ui-bottom{position:absolute;left:4%;right:20%;bottom:5%;color:#fff;font-size:12.5px;line-height:1.35;text-shadow:0 1px 3px rgba(0,0,0,.7)}
+.ui-bottom b{font-size:14px}.ui-bottom p{margin:3px 0 0;color:#fff}.ui-bottom .snd{opacity:.9}
+.safe{position:absolute;left:5%;width:77%;top:14%;height:62%;border:3px dashed #22c55e;border-radius:6px}
+.phone-cap{text-align:center;font-size:13px;color:var(--ink-faint);margin:6px 0 0}
+.tabs{display:flex;justify-content:center;gap:6px;margin:4px 0 10px}
+.tabs button{border:1.5px solid var(--pink);background:#fff;color:var(--pink-deep);font:700 13px Manrope,sans-serif;padding:6px 14px;border-radius:100px;cursor:pointer}
+.tabs button.on{background:var(--pink);color:#fff}
+.phone .tt,.phone .ig{display:none}.phone[data-show=tt] .tt,.phone[data-show=ig] .ig{display:block}
+.ig-top{position:absolute;top:4%;left:5%;right:5%;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:20px;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.ig-top svg{width:26px;height:26px}
+.ig-rail{bottom:6%}.ri.dots{font-size:22px;line-height:1}.ri.sq{width:26px;height:26px;border-radius:6px;border:2px solid #fff;background:#999}
+.ig-bottom{bottom:4%}.ig-user{display:flex;align-items:center;gap:7px}.ig-user span{width:26px;height:26px;border-radius:50%;background:#ddd}
+.ig-user em{font-style:normal;font-size:12px;font-weight:700;border:1px solid #fff;border-radius:6px;padding:1px 8px}
+.toc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:0 0 26px}
+.toc a{display:flex;align-items:center;gap:8px;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:8px 10px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14.5px}
+.toc b{flex:none;width:24px;height:24px;border-radius:50%;background:var(--purple-pale);color:var(--purple);display:grid;place-items:center;font-size:12.5px}
+.grp{margin:26px 0 10px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-deep)}
+.band{scroll-margin-top:12px}
+.clips.one.center{margin-left:auto;margin-right:auto}
+.ps{display:inline-block;background:var(--purple);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:2px 8px;border-radius:100px;margin-right:8px;vertical-align:1px}
+.opt{border:1.5px solid var(--line);border-radius:18px;padding:10px;background:#fff}
+.opt-h{display:flex;flex-direction:column;gap:4px;margin:0 0 10px}
+.opt-h b{font-size:15px;color:var(--ink)}
+.opt-tag{align-self:flex-start;background:var(--purple-pale);color:var(--purple);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:100px}
+.opt-tag.def{background:var(--pink);color:#fff}
+.news{list-style:none;padding:0;margin:4px 0 14px}
+.news li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}
+.news li:first-child{border-top:0}
+.news li>span{flex:none;font-size:22px;line-height:1.2}
+.news b{color:var(--ink)}.news div{color:var(--ink-soft)}
+.news em{display:block;margin-top:4px;font-style:italic;color:var(--pink-deep);font-size:15px}
+.eyebrow,h1,.lede{text-align:center}
+.beats2{background:#fff;border:1px solid var(--line);border-radius:14px;padding:4px 12px;margin-bottom:12px;text-align:left}
+.bt{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+.bt:last-child{border-bottom:0}
+.bt em{flex:none;width:26px;height:26px;border-radius:50%;background:var(--purple-pale);color:var(--purple);font-style:normal;font-weight:800;font-size:13px;display:grid;place-items:center}
+.bt>div{flex:1}.bt b{display:block;font-weight:600;font-size:15px}.bt small{display:block;font-size:13px;color:var(--ink-faint)}
+.bt i{flex:none;font-style:normal;font-size:11.5px;font-weight:700;color:var(--pink-deep);background:#FFF0F7;border-radius:100px;padding:3px 8px}
+/* green screen (phase 3) */
+.gs-pitch{background:#fff;border:1.5px solid var(--pink);border-radius:14px;padding:12px 14px;margin:6px 0 10px;font-size:17px;line-height:1.4}
+.gs-pitch span{display:block;font-size:14px;color:var(--ink-faint);margin-top:6px}
+.gs-what{font-size:16px;margin:0 0 10px}
+.bt .gs-tag{display:inline-block;margin-top:5px;flex:none;font-size:11.5px;font-weight:700;border-radius:100px;padding:3px 8px;white-space:nowrap}
+.gs-tag.on{color:var(--pink-deep);background:#FFF0F7}.gs-tag.off{color:var(--purple);background:var(--purple-pale)}.gs-tag.either{color:var(--ink-faint);background:#F3F1F4}
+.gs-tip{font-size:15px;margin:12px 0 2px;color:var(--ink)}
+.fmt-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 10px}
+.fmt{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+.fmt>span{display:block;font-size:26px}.fmt b{display:block;font-weight:700;font-size:16px}.fmt small{display:block;font-size:13.5px;color:var(--ink-faint);margin-top:2px}
+.fmt .fmt-tag{display:inline-block;margin-top:7px;font-size:11.5px;font-weight:700;color:var(--pink-deep);background:#FFF0F7;border-radius:100px;padding:3px 8px}
+.fmt.wide{grid-column:1/-1}
+.fmt details{margin-top:8px}.fmt summary{cursor:pointer;font-weight:700;font-size:15px;color:var(--accent)}
+@media(max-width:520px){.fmt-grid{grid-template-columns:1fr}}
+.gs-closed{display:none;text-align:center;font-size:16px;padding:10px 4px;color:var(--ink-faint)}
+#greenscreen[data-open="false"] .gs-body{display:none}#greenscreen[data-open="false"] .gs-closed{display:block}
+
+.fmt-grid{grid-template-columns:1fr 1fr}
+@media(max-width:520px){.fmt-grid{grid-template-columns:1fr 1fr}.fmt{padding:10px}.fmt b{font-size:15px}.fmt small{font-size:12.5px}}
+.fmt .inc{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
+.fmt .inc i{font-style:normal;font-size:11px;font-weight:600;color:var(--ink-faint);background:#F3F1F4;border-radius:100px;padding:2px 7px}
+.fmt .fmt-tag.green{color:#2E7D32;background:#E8F5E9}
+.fit-h{font-weight:800;font-size:17px;margin:16px 0 8px}
+.fit{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:8px}
+.fit>span{flex:1;font-size:15px;line-height:1.35}.fit>span small{display:block;font-size:12.5px;color:var(--ink-faint);margin-top:2px}
+.fit>b{flex:none;font-size:13px;font-weight:700;color:var(--purple);background:var(--purple-pale);border-radius:100px;padding:5px 10px;white-space:nowrap}
+.fit .arr{flex:none;color:var(--ink-faint);font-weight:700}
+@media(max-width:520px){.fit{flex-wrap:wrap;gap:6px}.fit>span{flex-basis:100%}.fit .arr{margin-left:2px}}
+.both{background:#fff;border:1.5px solid var(--pink);border-radius:14px;padding:12px 14px;margin:14px 0 4px;text-align:center}
+.both .eq{font-size:15px;font-weight:700;margin:6px 0}.both .eq em{font-style:normal;color:var(--pink-deep)}
+.both p{font-size:13.5px;color:var(--ink-faint);margin:0}
+
+.fmt[hidden],.fit[hidden],.gs-backup[hidden]{display:none}
+.gs-backup{border:1.5px dashed #B9B4BF;border-radius:16px;padding:14px;margin:14px 0 6px;background:#FAFAFB}
+.gs-backup .gb-top{font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint)}
+.gs-backup h3{font-size:18px;margin:4px 0 2px}
+.gs-backup>p{font-size:14.5px;margin:4px 0 8px;line-height:1.4}
+.gs-backup details{margin-top:6px}.gs-backup summary{cursor:pointer;font-weight:700;font-size:15px;color:var(--accent)}
+.gb-tag{display:inline-block;font-size:11.5px;font-weight:800;border-radius:100px;padding:3px 9px;margin-bottom:6px}.gb-tag.extra{color:var(--pink-deep);background:#FFF0F7}.gb-tag.backup{color:#2E7D32;background:#E8F5E9}
+.gb-lane>span.gb-tag{display:inline-block;font-size:11.5px;line-height:1.3}
+.gb-lanes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 4px}
+.gb-lane{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px}
+.gb-lane>b{display:block;font-size:14.5px;margin-bottom:3px}.gb-lane>span{display:block;font-size:13.5px;line-height:1.4;color:var(--ink)}
+.gb-lane.only{border-color:#A5D6A7}
+@media(max-width:520px){.gb-lanes{grid-template-columns:1fr}}
+.gs-how .bt small b{display:inline;font-size:inherit;color:var(--ink)}.gs-lib{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:var(--ink-faint);background:#F3F1F4;border-radius:100px;padding:3px 9px}
+.gb-pros{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 6px}
+.gb-pros span{font-size:12px;font-weight:700;border-radius:100px;padding:4px 9px}
+.gb-pros .up{color:#2E7D32;background:#E8F5E9}.gb-pros .down{color:#8A5A00;background:#FFF4DC}
+
+:root{--accent:#6B21A8}
+.toc.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:520px){.toc.three{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.band .fmt{background:#fff}
+.band .beats2{margin-bottom:4px}
+.gs-desc{margin:0 0 12px;color:var(--ink-soft)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../index.html#format">← Back to the playbook</a>
+<span class="eyebrow">Baybella x Creators</span>
+<h1>Format guide</h1>
+<p class="lede">Your format is how your video is built on screen. Same angle, new format, and you've got a whole new video.</p>
+<nav class="toc">
+<a href="#s1"><b>1</b>The formats</a><a href="#s2"><b>2</b>Which one's for you?</a><a href="#s3" data-fmt="greenscreen"><b>3</b>Green screen</a><a href="#s4" data-fmt="greenscreen"><b>4</b>Green screen ideas</a><a href="#s5" data-fmt="greenscreen"><b>5</b>How to make one</a>
+</nav>
+
+<section class="band" id="s1">
+<div class="band-h"><span>1</span><h2>The formats</h2></div>
+<div class="fmt-grid">
+<div class="fmt" data-fmt="talking"><span>🗣️</span><b>Talking to camera</b><small>Talk to camera and put them on as you go.</small><div class="inc"><i>Reply to a comment</i><i>Storytime</i><i>Get ready with me</i><i>Tutorial</i></div><span class="fmt-tag">⭐ Start here</span></div>
+<div class="fmt" data-fmt="voiceover"><span>🎙️</span><b>Voiceover</b><small>Film yourself putting them on, then talk over it after.</small></div>
+<div class="fmt" data-fmt="vlog"><span>📹</span><b>Vlog</b><small>Clips from your day with them on.</small><div class="inc"><i>Day in the life</i><i>Night out</i></div></div>
+<div class="fmt" data-fmt="text"><span>💬</span><b>Text on screen</b><small>No talking. You act it out, and the text tells the story.</small><div class="inc"><i>POV</i><i>Skit</i></div></div>
+<div class="fmt" data-fmt="stitch"><span>🎬</span><b>Stitch</b><small>Someone else's clip plays, then you respond. No other lash brands in it.</small></div>
+<div class="fmt" data-fmt="reaction"><span>👀</span><b>Reaction</b><small>One of our ads plays while you react to it.</small></div>
+</div>
+</section>
+
+<section class="band" id="s2">
+<div class="band-h"><span>2</span><h2>Which one's for you?</h2></div>
+<div class="fit" data-fmt="talking"><span>Confident putting them on while you talk?</span><i class="arr">→</i><b>🗣️ Talking to camera</b></div>
+<div class="fit" data-fmt="voiceover"><span>Hard to talk and put them on at once?<small>Film the application first, add your voice after.</small></span><i class="arr">→</i><b>🎙️ Voiceover</b></div>
+<div class="fit" data-fmt="greenscreen"><span>Really can't get them looking right on camera?</span><i class="arr">→</i><b>🟩 Green screen</b></div>
+<p class="note"><b>Film more than one format.</b> The more videos you have running, the more chances you have to land a winner.</p>
+</section>
+
+<section class="band" id="s3" data-fmt="greenscreen">
+<div class="band-h"><span>3</span><h2>🟩 Green screen</h2></div>
+<p class="gs-desc">You talk while our clips play behind you, and our clips show the lashes going on.</p>
+<div class="gb-lanes">
+<div class="gb-lane"><span class="gb-tag extra">⚡ Low-effort extra</span><b>Good with the lashes?</b><span>Film your talking-to-camera video first. Green screen is quick to film, so add one on top as a <b>bonus, not a swap</b>.</span></div>
+<div class="gb-lane only"><span class="gb-tag backup">🛟 Backup option</span><b>Really can't get them looking right on camera?</b><span>Green screen is your backup. Our clips show the lashes going on, so you can still make a video.</span></div>
+</div>
+</section>
+
+<section class="band" id="s4" data-fmt="greenscreen">
+<div class="band-h"><span>4</span><h2>Green screen ideas</h2></div>
+<div class="beats2">
+<div class="bt"><em>1</em><div><b>Your lash story</b><small>Tell your own story while our clips show them going on. End wearing yours.</small><i class="gs-tag on">💜 You wear them</i></div></div>
+<div class="bt"><em>2</em><div><b>Teach something, then show yours</b><small>Explain something most people don't know about lashes, then show yours on.</small><i class="gs-tag on">💜 You wear them</i></div></div>
+<div class="bt"><em>3</em><div><b>Teach something</b><small>Same idea, and our clips do all the showing.</small><i class="gs-tag off">🎬 No lashes needed</i></div></div>
+<div class="bt"><em>4</em><div><b>"3 things I wish I knew"</b><small>A quick list. The last one is the answer.</small><i class="gs-tag either">Either</i></div></div>
+<div class="bt"><em>5</em><div><b>Read our reviews</b><small>Real reviews pop up behind you. Read them out and react.</small><i class="gs-tag off">🎬 No lashes needed</i></div></div>
+<div class="bt"><em>6</em><div><b>Bust a myth</b><small>Say what everyone thinks ("they fall off, right?"), and the clip proves it wrong.</small><i class="gs-tag either">Either</i></div></div>
+<div class="bt"><em>7</em><div><b>Old way vs new way</b><small>Glue on one side of the screen, magnetic on the other. You talk over it.</small><i class="gs-tag either">Either</i></div></div>
+</div>
+<p class="note">💡 <b>Wearing them in the video?</b> Put them on before you hit record, and take your time.</p>
+</section>
+
+<section class="band" id="s5" data-fmt="greenscreen">
+<div class="band-h"><span>5</span><h2>How to make one</h2></div>
+<div class="beats2">
+<div class="bt"><em>1</em><div><b>Pick 2 to 4 of our clips</b><small>From our clip library, then save them to your phone.</small><span class="gs-lib">📂 Clip library link coming soon</span></div></div>
+<div class="bt"><em>2</em><div><b>Put yourself over the clip</b><small><b>TikTok:</b> tap +, then Effects, search "Green Screen", pick your clip and record.<br><b>CapCut:</b> add the clip, add your video as an overlay, then tap Remove background.</small></div></div>
+<div class="bt"><em>3</em><div><b>Keep yourself small</b><small>Sit in a bottom corner. The clip behind you is the star.</small></div></div>
+<div class="bt"><em>4</em><div><b>Edit it like any other video</b><small>Hook text, tight cuts, captions. It's all in the editing guide.</small></div></div>
+</div>
+<p class="foot" style="text-align:left;margin-top:8px">Then edit it like any other video: <a href="../editing-guide/index.html" style="color:var(--pink-deep);font-weight:700">open the editing guide →</a></p>
+</section>
+
+<p class="foot">Picked your format? Head back to <a href="../index.html#structure" style="color:var(--pink-deep);font-weight:700">your playbook</a> for the script formula.</p>
+</div>
+<script>
+/* FORMAT SWITCHES: set any format to false to remove it everywhere on this page; true brings it back */
+const FORMATS_OPEN = { talking:true, voiceover:true, vlog:true, text:true, stitch:true, reaction:true, greenscreen:true };
+document.querySelectorAll('[data-fmt]').forEach(el => { if (FORMATS_OPEN[el.dataset.fmt] === false) el.hidden = true; });
+</script>
+</body>
+</html>
