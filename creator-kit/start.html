@@ -58,6 +58,17 @@ h2 em{font-style:normal;color:var(--pink)}
 .do{display:flex;gap:12px;align-items:baseline;font-size:1.05rem;font-weight:600;color:var(--ink);margin:22px 0 10px}
 .do span{flex:none;font-weight:800;color:var(--pink-deep);font-size:1.05rem}
 .shot{border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(59,7,100,.12)}
+.shot.full{width:100vw;max-width:980px;position:relative;left:50%;transform:translateX(-50%);border-radius:14px}
+@media (max-width:600px){.shot.full{border-radius:0;box-shadow:0 8px 22px rgba(59,7,100,.12)}}
+.do .t{font-style:normal}
+@media (max-width:600px){
+  .shot.full{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .shot.full::-webkit-scrollbar{display:none}
+  .shot.full img{width:190vw;max-width:none}
+  .shot.full + .swipe{display:block}
+}
+.swipe{display:none;text-align:center;font-size:.85rem;font-weight:700;color:var(--pink-deep);margin:8px 0 0}
+.pin{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#E12D23;color:#fff;font-size:.8rem;font-weight:800;margin:0 2px;vertical-align:1px}
 .shot img{display:block;width:100%;height:auto}
 .styles{display:flex;gap:8px;margin-left:24px}
 .styles b{font-weight:800;font-size:1.05rem;color:var(--purple-deep);background:var(--cream);border-radius:999px;padding:7px 16px;box-shadow:0 4px 14px rgba(59,7,100,.08)}
@@ -95,16 +106,15 @@ h2 em{font-style:normal;color:var(--pink)}
     <h2>Claim your <em>free lashes</em></h2>
     <p class="why">You need to try them before you can film them.</p>
 
-    <p class="do"><span>a.</span>In Trybe, tap Home</p>
-    <figure class="shot"><a href="start-img/trybe-1-home.webp" target="_blank" rel="noopener"><img src="start-img/trybe-1-home.webp" alt="Home circled in the Trybe Creator Portal menu"></a></figure>
+    <p class="do"><span>a.</span><em class="t">In Trybe, tap Home <b class="pin">1</b> then Baybella Beauty <b class="pin">2</b></em></p>
+    <figure class="shot full" data-focus="0.18"><a href="start-img/full-1-home-baybella.webp" target="_blank" rel="noopener"><img src="start-img/full-1-home-baybella.webp" alt="Trybe with Home circled as 1 and the Baybella logo circled as 2"></a></figure>
+    <p class="swipe">← swipe to see the whole page →</p>
 
-    <p class="do"><span>b.</span>Tap Baybella Beauty</p>
-    <figure class="shot"><a href="start-img/trybe-2-baybella.webp" target="_blank" rel="noopener"><img src="start-img/trybe-2-baybella.webp" alt="The Baybella logo circled in Trybe"></a></figure>
+    <p class="do"><span>b.</span>Tap Request Sample</p>
+    <figure class="shot full" data-focus="0.78"><a href="start-img/full-2-request-sample.webp" target="_blank" rel="noopener"><img src="start-img/full-2-request-sample.webp" alt="Trybe with the Request Sample button circled"></a></figure>
+    <p class="swipe">← swipe to see the whole page →</p>
 
-    <p class="do"><span>c.</span>Tap Request Sample</p>
-    <figure class="shot"><a href="start-img/trybe-3-request-sample.webp" target="_blank" rel="noopener"><img src="start-img/trybe-3-request-sample.webp" alt="The Request Sample button circled in Trybe"></a></figure>
-
-    <p class="do"><span>d.</span>Pick all three, so you find the one that suits your eyes</p>
+    <p class="do"><span>c.</span>Pick all three, so you find the one that suits your eyes</p>
     <div class="styles"><b>Fuller</b><b>Simple</b><b>Blair</b></div>
 
     <div class="ship"><i>📦</i><div><b>We'll approve it and ship them</b>We're in Australia, so the US takes 1-2 weeks</div></div>
@@ -138,5 +148,10 @@ h2 em{font-style:normal;color:var(--pink)}
     <b>Linda, Baybella creative team</b>
   </div>
 </div>
+<script>
+// phones: the screenshot is wider than the screen, so start it scrolled to the circled button
+function focusShots(){document.querySelectorAll('.shot.full').forEach(function(f){var img=f.querySelector('img');var go=function(){var x=img.offsetWidth*parseFloat(f.dataset.focus)-f.clientWidth/2;f.scrollLeft=Math.max(0,x);};if(img.complete)go();else img.addEventListener('load',go);});}
+window.addEventListener('load',focusShots);
+</script>
 </body>
 </html>
