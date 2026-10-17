@@ -24,66 +24,6 @@
   "poster": "clip-pool/BR-0280.jpg"
  },
  {
-  "id": "BR-0365",
-  "file": "family/t60_20.5s_daughter-applies-on-mum.mp4",
-  "beat": "click-on-face",
-  "beat_label": "Lashes going on",
-  "desc": "Daughter clicks applicator lash onto her 50s+ mum eye",
-  "age": "50s+",
-  "quality": "great",
-  "dur": 4.3,
-  "web": "clip-pool/BR-0365.mp4",
-  "poster": "clip-pool/BR-0365.jpg"
- },
- {
-  "id": "BR-0817",
-  "file": "application/t1059_0s_applicator-click-30s-blonde-close.mp4",
-  "beat": "click-on-face",
-  "beat_label": "Lashes going on",
-  "desc": "30s/40s blonde with bob clicks lash onto blue eye with applicator, big close-up",
-  "age": "40s",
-  "quality": "great",
-  "dur": 3.8,
-  "web": "clip-pool/BR-0817.mp4",
-  "poster": "clip-pool/BR-0817.jpg"
- },
- {
-  "id": "BR-0190",
-  "file": "family/t215_17.1s_daughter-applies-mum-second-eye.mp4",
-  "beat": "click-on-face",
-  "beat_label": "Lashes going on",
-  "desc": "Applicator clamped on mum's second eye, mum looks up at camera",
-  "age": "50s mum",
-  "quality": "good",
-  "dur": 6.0,
-  "web": "clip-pool/BR-0190.mp4",
-  "poster": "clip-pool/BR-0190.jpg"
- },
- {
-  "id": "BR-0366",
-  "file": "family/t60_25.5s_daughter-applies-second-eye.mp4",
-  "beat": "click-on-face",
-  "beat_label": "Lashes going on",
-  "desc": "Daughter applies lash to mum second eye with applicator",
-  "age": "50s+",
-  "quality": "good",
-  "dur": 4.5,
-  "web": "clip-pool/BR-0366.mp4",
-  "poster": "clip-pool/BR-0366.jpg"
- },
- {
-  "id": "BR-0818",
-  "file": "application/t1059_4.8s_applicator-second-eye-blonde-bob.mp4",
-  "beat": "click-on-face",
-  "beat_label": "Lashes going on",
-  "desc": "30s/40s blonde clicks lash on second eye with applicator, then looks to camera",
-  "age": "40s",
-  "quality": "good",
-  "dur": 5.3,
-  "web": "clip-pool/BR-0818.mp4",
-  "poster": "clip-pool/BR-0818.jpg"
- },
- {
   "id": "BR-0076",
   "file": "family/t193_35.5s_mum-applies-second-eye.mp4",
   "beat": "click-on-face",
@@ -94,18 +34,6 @@
   "dur": 3.5,
   "web": "clip-pool/BR-0076.mp4",
   "poster": "clip-pool/BR-0076.jpg"
- },
- {
-  "id": "BR-0094",
-  "file": "family/t247_12.0s_mum-daughter-race-applying.mp4",
-  "beat": "click-on-face",
-  "beat_label": "Lashes going on",
-  "desc": "Daughter and 50s mum side by side both clamping applicators on, racing",
-  "age": "20s+50s mum",
-  "quality": "good",
-  "dur": 5.3,
-  "web": "clip-pool/BR-0094.mp4",
-  "poster": "clip-pool/BR-0094.jpg"
  },
  {
   "id": "BR-0095",
@@ -132,18 +60,6 @@
   "poster": "clip-pool/BR-0101.jpg"
  },
  {
-  "id": "BR-0288",
-  "file": "family/t217_0.5s_mum-applies-on-daughter-wide.mp4",
-  "beat": "click-on-face",
-  "beat_label": "Lashes going on",
-  "desc": "Curly-haired 50s mum clamps applicator on daughter, wide living-room shot",
-  "age": "20s+50s mum",
-  "quality": "good",
-  "dur": 5.8,
-  "web": "clip-pool/BR-0288.mp4",
-  "poster": "clip-pool/BR-0288.jpg"
- },
- {
   "id": "BR-0952",
   "file": "application/t1114_2s_applicator-click-on-talking.mp4",
   "beat": "click-on-face",
@@ -154,18 +70,6 @@
   "dur": 8.2,
   "web": "clip-pool/BR-0952.mp4",
   "poster": "clip-pool/BR-0952.jpg"
- },
- {
-  "id": "BR-0289",
-  "file": "family/t217_31.1s_mum-applies-close-side.mp4",
-  "beat": "closeup-click-on",
-  "beat_label": "Lashes going on, up close",
-  "desc": "Close side shot: mum's hand clamps applicator onto daughter's eye",
-  "age": "20s+50s mum",
-  "quality": "good",
-  "dur": 5.0,
-  "web": "clip-pool/BR-0289.mp4",
-  "poster": "clip-pool/BR-0289.jpg"
  },
  {
   "id": "BR-0291",
@@ -252,30 +156,6 @@
   "poster": "clip-pool/BR-1159.jpg"
  },
  {
-  "id": "BR-1164",
-  "file": "application/t1135_44.5s_applicator-click-on-closeup.mp4",
-  "beat": "closeup-click-on",
-  "beat_label": "Lashes going on, up close",
-  "desc": "Close-up: brings the applicator to her eye and clamps the lash on while talking",
-  "age": "30s",
-  "quality": "great",
-  "dur": 4.2,
-  "web": "clip-pool/BR-1164.mp4",
-  "poster": "clip-pool/BR-1164.jpg"
- },
- {
-  "id": "BR-0719",
-  "file": "application/t1009_12s_applicator-at-eye-macro.mp4",
-  "beat": "closeup-click-on",
-  "beat_label": "Lashes going on, up close",
-  "desc": "Applicator clicks lash onto blue eye, tight close-up, 30s blonde (footage plays sideways, needs rotating)",
-  "age": "30s",
-  "quality": "good",
-  "dur": 3.8,
-  "web": "clip-pool/BR-0719.mp4",
-  "poster": "clip-pool/BR-0719.jpg"
- },
- {
   "id": "BR-0027",
   "file": "application/t15_2.0s_macro-applicator-clamp-second-eye.mp4",
   "beat": "closeup-click-on",
@@ -298,66 +178,6 @@
   "dur": 4.0,
   "web": "clip-pool/BR-0931.mp4",
   "poster": "clip-pool/BR-0931.jpg"
- },
- {
-  "id": "BR-0718",
-  "file": "application/t1009_9.6s_load-lash-on-applicator.mp4",
-  "beat": "loading-applicator",
-  "beat_label": "Loading the applicator",
-  "desc": "Hands load magnetic lash onto rose-gold applicator, close-up (footage plays sideways, needs rotating)",
-  "age": "30s",
-  "quality": "good",
-  "dur": 4.2,
-  "web": "clip-pool/BR-0718.mp4",
-  "poster": "clip-pool/BR-0718.jpg"
- },
- {
-  "id": "BR-0053",
-  "file": "case-product/t72_4.5s_40s-woman-holds-case-garden.mp4",
-  "beat": "case-applicator",
-  "beat_label": "The case + applicator",
-  "desc": "40s blonde woman in garden holds BAYBELLA case to camera, smiles",
-  "age": "40s",
-  "quality": "good",
-  "dur": 3.7,
-  "web": "clip-pool/BR-0053.mp4",
-  "poster": "clip-pool/BR-0053.jpg"
- },
- {
-  "id": "BR-0368",
-  "file": "case-product/t60_41.5s_mum-holds-pink-case.mp4",
-  "beat": "case-applicator",
-  "beat_label": "The case + applicator",
-  "desc": "Mum holds open pink lash case up while daughter watches",
-  "age": "50s+",
-  "quality": "good",
-  "dur": 3.0,
-  "web": "clip-pool/BR-0368.mp4",
-  "poster": "clip-pool/BR-0368.jpg"
- },
- {
-  "id": "BR-0073",
-  "file": "family/t193_2.0s_mum-holds-open-case.mp4",
-  "beat": "case-applicator",
-  "beat_label": "The case + applicator",
-  "desc": "50s blonde mum holds open pink case and applicator at table, daughter beside",
-  "age": "20s+50s mum",
-  "quality": "good",
-  "dur": 3.5,
-  "web": "clip-pool/BR-0073.mp4",
-  "poster": "clip-pool/BR-0073.jpg"
- },
- {
-  "id": "BR-0100",
-  "file": "family/t254_34.0s_daughter-opens-case-mum-beside.mp4",
-  "beat": "case-applicator",
-  "beat_label": "The case + applicator",
-  "desc": "Daughter opens pink case and picks up applicator, mum beside",
-  "age": "20s+50s mum",
-  "quality": "good",
-  "dur": 3.5,
-  "web": "clip-pool/BR-0100.mp4",
-  "poster": "clip-pool/BR-0100.jpg"
  },
  {
   "id": "BR-0425",
@@ -540,30 +360,6 @@
   "poster": "clip-pool/BR-0941.jpg"
  },
  {
-  "id": "BR-1084",
-  "file": "application/t1127_34.6s_clicks-lash-back-on.mp4",
-  "beat": "off-and-back-on",
-  "beat_label": "The redo: off and straight back on",
-  "desc": "Second attempt: with that eye bare she brings the applicator back up and clicks the lash on again, then lowers it",
-  "age": "30s",
-  "quality": "great",
-  "dur": 4.7,
-  "web": "clip-pool/BR-1084.mp4",
-  "poster": "clip-pool/BR-1084.jpg"
- },
- {
-  "id": "BR-1098",
-  "file": "application/t1128_36.7s_clicks-lash-back-on.mp4",
-  "beat": "off-and-back-on",
-  "beat_label": "The redo: off and straight back on",
-  "desc": "Second attempt: with that eye bare she brings the applicator back up and clicks the lash on again, then lowers it",
-  "age": "30s",
-  "quality": "great",
-  "dur": 2.8,
-  "web": "clip-pool/BR-1098.mp4",
-  "poster": "clip-pool/BR-1098.jpg"
- },
- {
   "id": "BR-1085",
   "file": "application/t1127_26.3s_mess-up-and-retry-full.mp4",
   "beat": "off-and-back-on",
@@ -598,18 +394,6 @@
   "dur": 19.8,
   "web": "clip-pool/BR-1167.mp4",
   "poster": "clip-pool/BR-1167.jpg"
- },
- {
-  "id": "BR-0985",
-  "file": "application/t1116_33.3s_clicks-lash-back-on.mp4",
-  "beat": "off-and-back-on",
-  "beat_label": "The redo: off and straight back on",
-  "desc": "Second attempt: she clamps the applicator on her right eye again and clicks the lash back on, then lowers it",
-  "age": "20s",
-  "quality": "great",
-  "dur": 4.8,
-  "web": "clip-pool/BR-0985.mp4",
-  "poster": "clip-pool/BR-0985.jpg"
  },
  {
   "id": "BR-0997",
@@ -720,18 +504,6 @@
   "poster": "clip-pool/BR-0310.jpg"
  },
  {
-  "id": "BR-0191",
-  "file": "family/t215_27.4s_mum-daughter-smiling-together.mp4",
-  "beat": "finished-closeup",
-  "beat_label": "Finished look, close-up",
-  "desc": "Mum and daughter side by side smiling, both wearing lashes",
-  "age": "50s mum",
-  "quality": "good",
-  "dur": 4.1,
-  "web": "clip-pool/BR-0191.mp4",
-  "poster": "clip-pool/BR-0191.jpg"
- },
- {
   "id": "BR-0281",
   "file": "family/t188_31.5s_mum-daughter-smile-finished.mp4",
   "beat": "finished-closeup",
@@ -742,30 +514,6 @@
   "dur": 3.0,
   "web": "clip-pool/BR-0281.mp4",
   "poster": "clip-pool/BR-0281.jpg"
- },
- {
-  "id": "BR-0367",
-  "file": "reaction/t60_30.5s_mum-shows-finished-lashes.mp4",
-  "beat": "finished-closeup",
-  "beat_label": "Finished look, close-up",
-  "desc": "50s+ mum leans into camera showing her new lashes",
-  "age": "50s+",
-  "quality": "good",
-  "dur": 3.5,
-  "web": "clip-pool/BR-0367.mp4",
-  "poster": "clip-pool/BR-0367.jpg"
- },
- {
-  "id": "BR-0290",
-  "file": "reaction/t217_35.0s_close-excited-after-mum.mp4",
-  "beat": "finished-closeup",
-  "beat_label": "Finished look, close-up",
-  "desc": "Daughter leans to lens with excited 'oh my god' face",
-  "age": "20s+50s mum",
-  "quality": "good",
-  "dur": 3.5,
-  "web": "clip-pool/BR-0290.mp4",
-  "poster": "clip-pool/BR-0290.jpg"
  },
  {
   "id": "BR-0285",
@@ -912,30 +660,6 @@
   "poster": "clip-pool/BR-0532.jpg"
  },
  {
-  "id": "BR-0548",
-  "file": "lifestyle/t277_9s_walking-past-pink-door.mp4",
-  "beat": "finished-out-in-life",
-  "beat_label": "Wearing them out and about",
-  "desc": "Walks past ivy-covered pink door in white dress and sunglasses",
-  "age": "20s",
-  "quality": "great",
-  "dur": 2.0,
-  "web": "clip-pool/BR-0548.mp4",
-  "poster": "clip-pool/BR-0548.jpg"
- },
- {
-  "id": "BR-0549",
-  "file": "lifestyle/t277_12s_city-park-autumn.mp4",
-  "beat": "finished-out-in-life",
-  "beat_label": "Wearing them out and about",
-  "desc": "Standing in autumn city park with skyline behind",
-  "age": "20s",
-  "quality": "great",
-  "dur": 2.0,
-  "web": "clip-pool/BR-0549.mp4",
-  "poster": "clip-pool/BR-0549.jpg"
- },
- {
   "id": "BR-0591",
   "file": "lifestyle/t48_5s_walking-street-headphones.mp4",
   "beat": "finished-out-in-life",
@@ -996,18 +720,6 @@
   "poster": "clip-pool/BR-0259.jpg"
  },
  {
-  "id": "BR-0819",
-  "file": "removal/t1059_10.8s_pinch-off-blonde-bob.mp4",
-  "beat": "taking-off",
-  "beat_label": "Taking them off",
-  "desc": "30s/40s blonde pinches magnetic lashes off both eyes",
-  "age": "40s",
-  "quality": "good",
-  "dur": 3.3,
-  "web": "clip-pool/BR-0819.mp4",
-  "poster": "clip-pool/BR-0819.jpg"
- },
- {
   "id": "BR-0434",
   "file": "removal/t276_39s_pinch-lash-off-macro.mp4",
   "beat": "taking-off",
@@ -1018,18 +730,6 @@
   "dur": 3.8,
   "web": "clip-pool/BR-0434.mp4",
   "poster": "clip-pool/BR-0434.jpg"
- },
- {
-  "id": "BR-0833",
-  "file": "removal/t1064_10s_peel-lash-off-fingers.mp4",
-  "beat": "taking-off",
-  "beat_label": "Taking them off",
-  "desc": "30s brunette in headband peels the magnetic lash off one eye with her fingers",
-  "age": "30s",
-  "quality": "good",
-  "dur": 7.3,
-  "web": "clip-pool/BR-0833.mp4",
-  "poster": "clip-pool/BR-0833.jpg"
  },
  {
   "id": "BR-0835",
@@ -1068,30 +768,6 @@
   "poster": "clip-pool/BR-0183.jpg"
  },
  {
-  "id": "BR-0485",
-  "file": "before/t61_0s_strip-lash-box-glue.mp4",
-  "beat": "glue-struggle",
-  "beat_label": "The old way: glue struggle",
-  "desc": "Holds strip lash box and glue brush, unimpressed",
-  "age": "20s",
-  "quality": "great",
-  "dur": 5.5,
-  "web": "clip-pool/BR-0485.mp4",
-  "poster": "clip-pool/BR-0485.jpg"
- },
- {
-  "id": "BR-0486",
-  "file": "before/t61_2s_fiddling-glue-lash.mp4",
-  "beat": "glue-struggle",
-  "beat_label": "The old way: glue struggle",
-  "desc": "Close-up fiddling a glue strip lash onto eye",
-  "age": "20s",
-  "quality": "great",
-  "dur": 3.5,
-  "web": "clip-pool/BR-0486.mp4",
-  "poster": "clip-pool/BR-0486.jpg"
- },
- {
   "id": "BR-0707",
   "file": "before/t1005_0s_glue-strip-lash-struggle.mp4",
   "beat": "glue-struggle",
@@ -1126,30 +802,6 @@
   "dur": 4.8,
   "web": "clip-pool/BR-0841.mp4",
   "poster": "clip-pool/BR-0841.jpg"
- },
- {
-  "id": "BR-0967",
-  "file": "ai/ai_mascara-rushed-slip_A4t2.mp4",
-  "beat": "mascara-before",
-  "beat_label": "The old way: mascara",
-  "desc": "AI: woman early 40s rushing her mascara, small mark on her lid, drops the wand and sighs - the slow mascara routine",
-  "age": "40s",
-  "quality": "good",
-  "dur": 5.2,
-  "web": "clip-pool/BR-0967.mp4",
-  "poster": "clip-pool/BR-0967.jpg"
- },
- {
-  "id": "BR-0968",
-  "file": "ai/ai_mascara-selfie-slip_B4.mp4",
-  "beat": "mascara-before",
-  "beat_label": "The old way: mascara",
-  "desc": "AI iPhone selfie: woman brushing mascara, the wand catches her lid and leaves a mark, she drops her hand and frowns at it - the slow mascara routine",
-  "age": "40s",
-  "quality": "good",
-  "dur": 3.5,
-  "web": "clip-pool/BR-0968.mp4",
-  "poster": "clip-pool/BR-0968.jpg"
  },
  {
   "id": "BR-0003",
@@ -1200,18 +852,6 @@
   "poster": "clip-pool/BR-0567.jpg"
  },
  {
-  "id": "BR-0900",
-  "file": "before/t1089_22.5s_squinting-into-makeup-mirror.mp4",
-  "beat": "bare-lashes",
-  "beat_label": "Bare lashes, before",
-  "desc": "50s blonde leans in squinting into a small makeup mirror on the kitchen bench",
-  "age": "50s mum",
-  "quality": "good",
-  "dur": 5.5,
-  "web": "clip-pool/BR-0900.mp4",
-  "poster": "clip-pool/BR-0900.jpg"
- },
- {
   "id": "BR-0282",
   "file": "closeup/t197_0.0s_side-profile-winged-liner-lashes.mp4",
   "beat": "bare-lashes",
@@ -1222,42 +862,6 @@
   "dur": 2.2,
   "web": "clip-pool/BR-0282.mp4",
   "poster": "clip-pool/BR-0282.jpg"
- },
- {
-  "id": "BR-0283",
-  "file": "application/t197_3.5s_fingertip-press-outer-corner.mp4",
-  "beat": "bare-lashes",
-  "beat_label": "Bare lashes, before",
-  "desc": "Close: fingertip presses lash outer corner into place",
-  "age": "30s",
-  "quality": "good",
-  "dur": 2.8,
-  "web": "clip-pool/BR-0283.mp4",
-  "poster": "clip-pool/BR-0283.jpg"
- },
- {
-  "id": "BR-0319",
-  "file": "before/t288_5.4s_bare-eye-real-lashes-intact.mp4",
-  "beat": "bare-lashes",
-  "beat_label": "Bare lashes, before",
-  "desc": "Close-up of bare green eye after removal, natural lashes intact",
-  "age": "20s",
-  "quality": "great",
-  "dur": 2.2,
-  "web": "clip-pool/BR-0319.mp4",
-  "poster": "clip-pool/BR-0319.jpg"
- },
- {
-  "id": "BR-0822",
-  "file": "before/t1061_0s_bare-lashes-to-lashes-on.mp4",
-  "beat": "bare-lashes",
-  "beat_label": "Bare lashes, before",
-  "desc": "Tight half-face close-up of 20s brunette with green eyes, bare lashes then lashes appear",
-  "age": "20s",
-  "quality": "great",
-  "dur": 3.0,
-  "web": "clip-pool/BR-0822.mp4",
-  "poster": "clip-pool/BR-0822.jpg"
  },
  {
   "id": "BR-1089",
@@ -1332,18 +936,6 @@
   "poster": "clip-pool/BR-0099.jpg"
  },
  {
-  "id": "BR-0097",
-  "file": "reaction/t247_46.5s_mum-daughter-laughing.mp4",
-  "beat": "reaction",
-  "beat_label": "Reactions",
-  "desc": "Daughter laughs at camera, mum beside her, both lashes on",
-  "age": "20s+50s mum",
-  "quality": "good",
-  "dur": 3.0,
-  "web": "clip-pool/BR-0097.mp4",
-  "poster": "clip-pool/BR-0097.jpg"
- },
- {
   "id": "BR-0729",
   "file": "family/t1011_76s_mum-daughter-mirror-selfie.mp4",
   "beat": "reaction",
@@ -1392,18 +984,6 @@
   "poster": "clip-pool/BR-0278.jpg"
  },
  {
-  "id": "BR-0096",
-  "file": "family/t247_42.0s_mum-applicator-click.mp4",
-  "beat": "mum-daughter",
-  "beat_label": "Mum and daughter",
-  "desc": "50s mum clamps applicator onto her eye during the race",
-  "age": "20s+50s mum",
-  "quality": "good",
-  "dur": 3.0,
-  "web": "clip-pool/BR-0096.mp4",
-  "poster": "clip-pool/BR-0096.jpg"
- },
- {
   "id": "BR-0057",
   "file": "family/t140_21.5s_dad-applies-lash.mp4",
   "beat": "mum-daughter",
@@ -1414,17 +994,5 @@
   "dur": 3.5,
   "web": "clip-pool/BR-0057.mp4",
   "poster": "clip-pool/BR-0057.jpg"
- },
- {
-  "id": "BR-0405",
-  "file": "family/t237_0s_little-girl-applies-on-mum.mp4",
-  "beat": "mum-daughter",
-  "beat_label": "Mum and daughter",
-  "desc": "Little girl in tutu puts lashes on her mum, both laughing on bed",
-  "age": "20s",
-  "quality": "great",
-  "dur": 5.0,
-  "web": "clip-pool/BR-0405.mp4",
-  "poster": "clip-pool/BR-0405.jpg"
  }
 ]
