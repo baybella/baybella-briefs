@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Start Here</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* skin matches trybecreators.baybellabeauty.com.au (email-outreach/creator-page/index.html) */
+:root{
+  color-scheme:light only;
+  --bg-pink:#FCE9F1;--bg-pink-warm:#F8D6E5;
+  --pink:#EC4899;--pink-soft:#F9A8C9;--pink-light:#FBC4DC;--pink-deep:#BE185D;
+  --purple-deep:#3B0764;--purple:#6B21A8;--purple-soft:#C4B5FD;--purple-pale:#EDE9FE;
+  --ink:#2A0844;--ink-soft:#4C1D7E;--ink-faint:#8B7AAB;--line:#E9D5EF;--cream:#FFFAF5
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#FCE9F1;overflow-x:hidden}
+body{font-family:'Manrope',sans-serif;background:linear-gradient(180deg,var(--bg-pink) 0%,var(--purple-pale) 100%);color:var(--ink);min-height:100vh;position:relative;overflow-x:hidden}
+body::before{content:'';position:absolute;top:-200px;right:-220px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,var(--pink-soft) 0%,transparent 70%);opacity:.7;pointer-events:none}
+body::after{content:'';position:absolute;top:900px;left:-200px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,var(--purple-soft) 0%,transparent 70%);opacity:.45;pointer-events:none}
+.wrap{position:relative;z-index:1;max-width:540px;margin:0 auto;padding:20px 20px 60px}
+.mock{background:#FEF3C7;border:1px dashed #D97706;color:#92400E;font-size:13px;padding:6px 10px;border-radius:10px;margin-bottom:18px}
+
+/* hero */
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--pink-deep);margin:18px 0 14px}
+.eyebrow::before{content:'—— ';color:var(--purple)}
+h1{font-weight:800;font-size:2.6rem;line-height:1.05;letter-spacing:-.03em;color:var(--purple-deep)}
+h1 em{font-style:normal;color:var(--pink)}
+.sub{font-weight:500;font-size:1.1rem;line-height:1.45;color:var(--ink-soft);margin:14px 0 0}
+
+/* steps: one thing at a time, no boxes */
+.step{padding:44px 0 0}
+.step + .step{border-top:1px solid var(--purple-soft);margin-top:44px}
+.n{font-weight:800;font-size:3rem;line-height:1;color:var(--pink-light);letter-spacing:-.03em}
+h2{font-weight:800;font-size:1.75rem;line-height:1.15;letter-spacing:-.02em;color:var(--purple-deep);margin:6px 0 10px}
+h2 em{font-style:normal;color:var(--pink)}
+.why{font-weight:500;font-size:1.08rem;line-height:1.45;color:var(--ink-soft);margin:0 0 22px}
+
+.do{display:flex;gap:12px;align-items:baseline;font-size:1.05rem;font-weight:600;color:var(--ink);margin:22px 0 10px}
+.do span{flex:none;font-weight:800;color:var(--pink-deep);font-size:1.05rem}
+.shot{border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(59,7,100,.12)}
+.shot img{display:block;width:100%;height:auto}
+.styles{display:flex;gap:8px;margin-left:24px}
+.styles b{font-weight:800;font-size:1.05rem;color:var(--purple-deep);background:var(--cream);border-radius:999px;padding:7px 16px;box-shadow:0 4px 14px rgba(59,7,100,.08)}
+
+.ticks{list-style:none;margin:0}
+.ticks li{display:flex;gap:12px;align-items:flex-start;font-size:1.02rem;line-height:1.5;color:var(--ink-soft);margin:0 0 14px}
+.ticks li::before{content:'✓';flex:none;width:26px;height:26px;border-radius:50%;background:var(--purple-deep);color:#fff;font-size:.8rem;font-weight:800;display:grid;place-items:center;margin-top:1px}
+.ticks b{color:var(--purple-deep)}
+.ship{display:flex;gap:14px;align-items:center;background:#fff;border-radius:16px;padding:16px;margin:26px 0 0;box-shadow:0 8px 24px rgba(59,7,100,.10);font-size:1rem;line-height:1.45;color:var(--ink-soft)}
+.ship i{flex:none;width:44px;height:44px;border-radius:50%;background:var(--pink);color:#fff;font-style:normal;font-size:1.3rem;display:grid;place-items:center}
+.ship b{display:block;color:var(--purple-deep);font-size:1.1rem;margin-bottom:2px}
+
+.btn{display:block;text-align:center;margin:26px 0 0;padding:17px 24px;border-radius:999px;background:var(--pink);color:#fff;font-weight:700;font-size:1.08rem;text-decoration:none;box-shadow:0 10px 26px rgba(214,80,150,.32)}
+.btn2{display:block;text-align:center;margin:20px 0 0;padding:15px 22px;border-radius:999px;background:#fff;color:var(--pink-deep);border:2px solid var(--pink);font-weight:700;font-size:1.02rem;text-decoration:none}
+.fine{font-size:1rem;line-height:1.5;color:var(--ink-soft);background:#FDF0F5;border-left:3px solid var(--pink-deep);border-radius:0 12px 12px 0;padding:14px 16px;margin:22px 0 0}
+.fine b{display:block;color:var(--pink-deep);font-size:1.05rem;margin-bottom:2px}
+
+.sig{text-align:center;margin:56px 0 0;padding-top:30px;border-top:1px solid var(--purple-soft)}
+.sig p{font-weight:500;font-size:1.05rem;color:var(--ink-soft)}
+.sig b{display:block;font-weight:800;font-size:1.05rem;color:var(--purple-deep);margin-top:6px}
+@media (max-width:380px){h1{font-size:2.5rem}h2{font-size:1.7rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Start here</p>
+  <h1>Your first <em>3 steps</em></h1>
+  <p class="sub">Free lashes, a bit of practice, then the blueprint our best creators follow.</p>
+
+  <section class="step">
+    <div class="n">01</div>
+    <h2>Claim your <em>free lashes</em></h2>
+    <p class="why">You need to try them before you can film them.</p>
+
+    <p class="do"><span>a.</span>Tap Baybella Beauty in Trybe</p>
+    <figure class="shot"><img src="start-img/request-sample-1-home-my-brands.webp" alt="Baybella Beauty circled under My Brands in Trybe"></figure>
+
+    <p class="do"><span>b.</span>Tap Request Sample</p>
+    <figure class="shot"><img src="start-img/request-sample-2-brand-page.webp" alt="Request Sample button circled on the Baybella Beauty page"></figure>
+
+    <p class="do"><span>c.</span>Pick all three, so you find the one that suits your eyes</p>
+    <div class="styles"><b>Fuller</b><b>Simple</b><b>Blair</b></div>
+
+    <div class="ship"><i>📦</i><div><b>We'll approve it and ship them</b>We're in Australia, so the US takes 1-2 weeks</div></div>
+  </section>
+
+  <section class="step">
+    <div class="n">02</div>
+    <h2>Practise <em>before</em> you film</h2>
+    <p class="why">Viewers can tell straight away when lashes don't look right, and then the ad flops.</p>
+    <ul class="ticks">
+      <li><span><b>Scan the QR code</b> in the box for the how-to video</span></li>
+      <li><span><b>Give it a few goes.</b> Tricky at first, then quick and easy</span></li>
+      <li><span><b>Have a proper play.</b> Everyone's eye shape is a bit different</span></li>
+    </ul>
+    <a target="_blank" rel="noopener" class="btn2" href="https://baybellabeauty.com.au/pages/how-to">Watch the how-to instructions →</a>
+  </section>
+
+  <section class="step">
+    <div class="n">03</div>
+    <h2>Ready to start <em>earning?</em></h2>
+    <p class="why">Our highest-earning creators all follow the exact blueprint below. It takes you from your first idea to your finished video.</p>
+    <a target="_blank" rel="noopener" class="btn" href="https://baybella.github.io/baybella-briefs/creator-kit">Open the blueprint →</a>
+    <p class="fine"><b>Lashes not for you?</b>That's completely fine, just tell me in Trybe chat.</p>
+  </section>
+
+  <div class="sig">
+    <p>Any questions, message me in Trybe chat</p>
+    <b>Linda, Baybella creative team</b>
+  </div>
+</div>
+</body>
+</html>
