@@ -23,6 +23,9 @@ body::after{content:'';position:absolute;top:900px;left:-200px;width:440px;heigh
 .mock{background:#FEF3C7;border:1px dashed #D97706;color:#92400E;font-size:13px;padding:6px 10px;border-radius:10px;margin-bottom:18px}
 
 /* hero */
+.top{text-align:center}
+.top .sub{max-width:420px;margin-left:auto;margin-right:auto}
+.top .eyebrow::after{content:' ——';color:var(--purple)}
 .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--pink-deep);margin:18px 0 14px}
 .eyebrow::before{content:'—— ';color:var(--purple)}
 h1{font-weight:800;font-size:2.6rem;line-height:1.05;letter-spacing:-.03em;color:var(--purple-deep)}
@@ -66,9 +69,11 @@ h2 em{font-style:normal;color:var(--pink)}
 <body>
 <div class="wrap">
 
-  <p class="eyebrow">Start here</p>
-  <h1>Your first <em>3 steps</em></h1>
-  <p class="sub">Free lashes, a bit of practice, then the blueprint our best creators follow.</p>
+  <header class="top">
+    <p class="eyebrow">Start here</p>
+    <h1>Your first <em>3 steps</em></h1>
+    <p class="sub">Free lashes, a bit of practice, then the blueprint our best creators follow.</p>
+  </header>
 
   <section class="step">
     <div class="n">01</div>
