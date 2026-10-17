@@ -32,7 +32,22 @@ h1{font-weight:800;font-size:2.6rem;line-height:1.05;letter-spacing:-.03em;color
 h1 em{font-style:normal;color:var(--pink)}
 .sub{font-weight:500;font-size:1.1rem;line-height:1.45;color:var(--ink-soft);margin:14px 0 0}
 
+/* step 3: the special one (dark band like trybecreators .dark-sec) */
+.step.big{border-top:none}
+.star{position:relative;overflow:hidden;text-align:center;color:#fff;background:linear-gradient(150deg,var(--purple-deep) 0%,#5B1A8C 100%);border-radius:28px;padding:34px 22px 28px;box-shadow:0 18px 44px rgba(59,7,100,.35)}
+.star::before{content:'';position:absolute;top:-120px;right:-120px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(236,72,153,.45) 0%,transparent 70%);pointer-events:none}
+.star::after{content:'';position:absolute;bottom:-140px;left:-110px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(196,181,253,.28) 0%,transparent 70%);pointer-events:none}
+.star>*{position:relative;z-index:1}
+.badge{display:inline-block;background:var(--pink);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;border-radius:999px;padding:6px 14px;margin-bottom:14px;box-shadow:0 6px 18px rgba(236,72,153,.45)}
+.star .n{color:var(--pink-soft)}
+.star h2{color:#fff;font-size:2rem}
+.star h2 em{color:var(--pink-light)}
+.star .why{color:#EDE3F7}
+.star .btn{background:#fff;color:var(--pink-deep);font-size:1.12rem;box-shadow:0 10px 30px rgba(236,72,153,.45)}
 /* steps: one thing at a time, no boxes */
+.step .n,.step h2,.step .why{text-align:center}
+.step .why{max-width:440px;margin-left:auto;margin-right:auto}
+
 .step{padding:44px 0 0}
 .step + .step{border-top:1px solid var(--purple-soft);margin-top:44px}
 .n{font-weight:800;font-size:3rem;line-height:1;color:var(--pink-light);letter-spacing:-.03em}
@@ -104,11 +119,14 @@ h2 em{font-style:normal;color:var(--pink)}
     <a target="_blank" rel="noopener" class="btn2" href="https://baybellabeauty.com.au/pages/how-to">Watch the how-to instructions →</a>
   </section>
 
-  <section class="step">
-    <div class="n">03</div>
-    <h2>Ready to start <em>earning?</em></h2>
-    <p class="why">Our highest-earning creators all follow the exact blueprint below. It takes you from your first idea to your finished video.</p>
-    <a target="_blank" rel="noopener" class="btn" href="https://baybella.github.io/baybella-briefs/creator-kit">Open the blueprint →</a>
+  <section class="step big">
+    <div class="star">
+      <span class="badge">✨ This is the one</span>
+      <div class="n">03</div>
+      <h2>Ready to start <em>earning?</em></h2>
+      <p class="why">Our highest-earning creators all follow the exact blueprint below. It takes you from your first idea to your finished video.</p>
+      <a target="_blank" rel="noopener" class="btn" href="https://baybella.github.io/baybella-briefs/creator-kit">Open the blueprint →</a>
+    </div>
     <p class="fine"><b>Lashes not for you?</b>That's completely fine, just tell me in Trybe chat.</p>
   </section>
 
