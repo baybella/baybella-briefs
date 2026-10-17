@@ -56,7 +56,7 @@ h2 em{font-style:normal;color:var(--pink)}
 .why{font-weight:500;font-size:1.08rem;line-height:1.45;color:var(--ink-soft);margin:0 0 22px}
 
 .do{display:flex;gap:12px;align-items:baseline;font-size:1.05rem;font-weight:600;color:var(--ink);margin:22px 0 10px}
-.do span{flex:none;font-weight:800;color:var(--pink-deep);font-size:1.05rem}
+.do > span{flex:none;font-weight:800;color:var(--pink-deep);font-size:1.05rem}
 .shot{border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(59,7,100,.12)}
 .shot.full{width:100vw;max-width:980px;position:relative;left:50%;transform:translateX(-50%);border-radius:14px}
 @media (max-width:600px){.shot.full{border-radius:0;box-shadow:0 8px 22px rgba(59,7,100,.12)}}
@@ -90,6 +90,16 @@ h2 em{font-style:normal;color:var(--pink)}
 .sig p{font-weight:500;font-size:1.05rem;color:var(--ink-soft)}
 .sig b{display:block;font-weight:800;font-size:1.05rem;color:var(--purple-deep);margin-top:6px}
 @media (max-width:380px){h1{font-size:2.5rem}h2{font-size:1.7rem}}
+/* sub-steps: big centred headings so each tap reads at a glance */
+.do{justify-content:center;align-items:center;text-align:center;font-size:1.3rem;font-weight:800;color:var(--purple-deep);margin:40px 0 16px;line-height:1.35}
+.do > span{width:34px;height:34px;border-radius:50%;background:var(--pink);color:#fff !important;font-style:normal !important;font-size:1rem !important;display:grid;place-items:center;box-shadow:0 6px 16px rgba(236,72,153,.35)}
+.do{flex-direction:column;gap:10px}
+.do .t{display:block}
+.nw{white-space:nowrap}
+.pin{width:28px !important;height:28px !important;font-size:.95rem !important;vertical-align:2px !important}
+.styles{justify-content:center;margin-left:0 !important}
+.styles b{font-size:1.15rem;padding:9px 20px}
+.step:first-of-type .do:first-of-type{margin-top:26px}
 </style>
 </head>
 <body>
@@ -106,11 +116,11 @@ h2 em{font-style:normal;color:var(--pink)}
     <h2>Claim your <em>free lashes</em></h2>
     <p class="why">You need to try them before you can film them.</p>
 
-    <p class="do"><span>a.</span><em class="t">In Trybe, tap Home <b class="pin">1</b> then Baybella Beauty <b class="pin">2</b></em></p>
+    <p class="do"><span>a.</span><em class="t">In Trybe, tap <span class="nw">Home <b class="pin">1</b></span> then <span class="nw">Baybella Beauty <b class="pin">2</b></span></em></p>
     <figure class="shot full" data-focus="0.18"><a href="start-img/full-1-home-baybella.webp" target="_blank" rel="noopener"><img src="start-img/full-1-home-baybella.webp" alt="Trybe with Home circled as 1 and the Baybella logo circled as 2"></a></figure>
     <p class="swipe">← swipe to see the whole page →</p>
 
-    <p class="do"><span>b.</span><em class="t">Tap Request Sample <b class="pin">3</b></em></p>
+    <p class="do"><span>b.</span><em class="t">Tap <span class="nw">Request Sample <b class="pin">3</b></span></em></p>
     <figure class="shot full" data-focus="0.78"><a href="start-img/full-2-request-sample.webp" target="_blank" rel="noopener"><img src="start-img/full-2-request-sample.webp" alt="Trybe with the Request Sample button circled"></a></figure>
     <p class="swipe">← swipe to see the whole page →</p>
 
