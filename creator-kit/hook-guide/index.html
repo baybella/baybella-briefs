@@ -402,5 +402,6 @@ go.onclick=async()=>{err.hidden=true;if(!sel.value){err.textContent='Pick your a
 const ldr=document.querySelector('.tips-new');document.querySelectorAll('.tip').forEach(t=>t.addEventListener('mouseenter',()=>ldr&&ldr.classList.remove('tips-new')));
 document.addEventListener('click',e=>{const t=e.target.closest('.tip');if(t&&ldr)ldr.classList.remove('tips-new');document.querySelectorAll('.tip.on').forEach(x=>{if(x!==t)x.classList.remove('on')});if(t)t.classList.toggle('on');});
 </script>
+<script src="../kit-a11y.js"></script>
 </body>
 </html>
