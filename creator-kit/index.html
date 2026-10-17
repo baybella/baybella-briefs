@@ -594,6 +594,16 @@ body.stepmode section.band.enter-r{animation:inR .22s ease-out}body.stepmode sec
 .sc-picks{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;background:#FFF0F7;border-radius:14px;padding:12px 14px;margin-bottom:14px}
 .sc-picks span{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#8B7AAB;padding-top:2px}.sc-picks b{font-size:15px;line-height:1.35}
 .sc-steps{margin:0 0 14px;padding-left:22px;font-size:16px;line-height:1.6}.sc-steps small{color:#8B7AAB}
+/* FIX 1 (friction review, 17 Oct 2026): one "Write this script" button per angle she picked. Before, only the
+   FIRST ticked angle reached the Script Maker and she had to copy each script back by hand. */
+.sc-picks span:first-of-type,#scAngle{display:none}
+.sc-lead{font-size:17px;line-height:1.5;margin:0 0 14px}
+.sc-card{background:#fff;border:2px solid #EAD9E4;border-radius:16px;padding:14px;margin:0 0 12px}
+.sc-card b{display:block;font-size:18px;line-height:1.35}
+.sc-card .sc-go{display:block;margin-top:10px;text-align:center;background:#EC4899;color:#fff;border-radius:14px;padding:14px;font-weight:800;font-size:17px;text-decoration:none}
+.sc-card.done{border-color:#A5D6A7}.sc-card.done .sc-go{background:#fff;color:#BE185D;border:2px solid #EC4899}
+.sc-card .sc-ok{display:block;color:#1B5E20;font-weight:700;font-size:15.5px;margin-top:6px}
+.sc-none{background:#FFF0F7;border-radius:14px;padding:14px;font-size:16px}
 .sc-open{display:block;text-align:center;border:2px solid #EC4899;color:#BE185D;background:#fff;border-radius:16px;padding:13px;font-weight:800;text-decoration:none}
 .sc-hook{text-align:center;margin:12px 0 0;font-size:14px}.sc-hook a{color:#6B21A8;font-weight:700}
 
@@ -613,6 +623,16 @@ body.stepmode section.band.enter-r{animation:inR .22s ease-out}body.stepmode sec
 .toc-list .tn{flex:none;width:26px;height:26px;border-radius:50%;background:#EDE9FE;color:#6B21A8;font-weight:800;font-size:13px;display:grid;place-items:center}
 .toc-list .tt{flex:1;min-width:0}.toc-list .tt b{display:block;font-size:15.5px}.toc-list .tt small{display:block;font-size:13px;color:#8B7AAB;line-height:1.35}
 .toc-list .ta{flex:none;color:#BE185D;font-weight:800}
+.nt-note{display:block;font-size:14.5px;color:#6F6259;margin-top:6px}
+/* FIX 6 (kit friction review, 17 Oct 2026): copy + open another app + find the chat + paste was one sentence. */
+.co-steps{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
+.co-steps li{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1.5px solid #EAD9E4;border-radius:14px;padding:12px 14px;font-size:16.5px;line-height:1.45}
+.co-steps li span{flex:none;width:30px;height:30px;border-radius:50%;background:#EC4899;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.why3{display:grid;gap:12px;margin:16px 0 0}
+.w3{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1.5px solid #EAD9E4;border-radius:16px;padding:16px}
+.w3i{flex:none;width:34px;height:34px;border-radius:50%;background:#EC4899;color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center}
+.w3 b{display:block;font-size:19px;margin-bottom:4px}.w3 p{margin:0;font-size:17px;line-height:1.5}
+.w3foot{font-size:17px;line-height:1.5;margin:16px 0 0;text-align:center}
 </style>
 <link rel="manifest" href="playbook.webmanifest">
 <meta name="theme-color" content="#EC4899">
@@ -727,7 +747,7 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 <section class="band band-3" style="--next:#FBE3EE"><div class="banner" id="p1"><span class="pnum big">1</span><div><span class="of">Part 1 of 3</span><h2 class="part">Get set up</h2></div></div>
 <div class="card steps">
 <div class="step"><span class="si sil">A</span><div><b>Open your packages</b><p>Fuller, Simple and Blair, plus carry pouches and applicators.</p></div></div>
-<div class="step"><span class="si sil">B</span><div><b>Watch the tutorials</b><p>Loading, applying and taking them off.</p><a class="mini" href="https://baybellabeauty.com.au/pages/how-to" target="_blank" rel="noopener">Watch now →</a></div></div>
+<div class="step"><span class="si sil">B</span><div><b>Watch the tutorials</b><p>Loading, applying and taking them off.</p><a class="mini" href="https://baybellabeauty.com.au/pages/how-to" target="_blank" rel="noopener">Watch now →</a><span class="nt-note">Opens in a new tab. Close it to come back here.</span></div></div>
 <div class="step"><span class="si sil">C</span><div><b>Practice for a few days</b><p>Until putting them on feels easy.</p></div></div>
 </div>
 <div class="nails">💅 <b>Got our press-on nails too?</b> They're a bonus. Focus on the lashes for now.</div>
@@ -735,7 +755,7 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 </section>
 <section class="band band-4" style="--next:#ECEEFC"><div class="banner" id="p2"><span class="pnum big">2</span><div><span class="of">Part 2 of 3</span><h2 class="part">Know the standard</h2></div></div>
 <div class="card steps">
-<div class="step"><span class="si">✅</span><div><b>How to film yourself with the lashes</b><p>What we approve and what we send back when you put them on and take them off on camera, with real examples.</p><a class="mini" href="https://baybella-creator-guidelines.netlify.app" target="_blank" rel="noopener">Open the guidelines →</a></div></div>
+<div class="step"><span class="si">✅</span><div><b>How to film yourself with the lashes</b><p>What we approve and what we send back when you put them on and take them off on camera, with real examples.</p><a class="mini" href="https://baybella-creator-guidelines.netlify.app" target="_blank" rel="noopener">Open the guidelines →</a><span class="nt-note">Opens in a new tab. Close it to come back here.</span></div></div>
 </div>
 </section>
 <section class="band band-5" style="--next:#FCE7F1"><div class="banner" id="p3"><span class="pnum big">3</span><div><span class="of">Part 3 of 3</span><h2 class="part">Make your videos</h2></div></div>
@@ -775,6 +795,8 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 
 
 </section>
+<!-- "It's like telling a friend" / "What every ad needs" page REMOVED (founder, 17 Oct 2026: "Just remove that page"). -->
+
 <section class="band band-2" style="--next:#FFF4EA"><div class="card" id="film">
 <div class="head"><span class="n">3</span><h2>Filming tips</h2></div>
 <div class="windef">Before you film, <b>decide where you'll look</b> while you put them on.</div>
@@ -832,8 +854,8 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 <a class="btn" href="https://baybella-script-maker.netlify.app" target="_blank" rel="noopener">Open the Script Maker</a></div>
 <div class="step-only sc-app">
 <div class="sc-picks"><span>Your angle</span><b id="scAngle">–</b><span>Your format</span><b id="scFormat">–</b></div>
-<ol class="sc-steps"><li>Open the Script Maker <small>(your angle's already picked)</small></li><li>Answer the few questions it asks</li><li>Copy your hook and script, then come back here</li></ol>
-<a class="sc-open" href="https://baybella-script-maker.netlify.app" target="_blank" rel="noopener">✍️ Open the Script Maker ↗</a>
+<p class="sc-lead">One script for each video. Tap an angle, answer 2 quick questions, and your script is saved in the Script Maker.</p>
+<div id="scList"></div>
 <p class="sc-hook"><a href="hook-guide/index.html">Need hook ideas? See the Hook Guide</a></p>
 </div>
 </div>
@@ -851,7 +873,7 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
 </div>
 <div class="co-msg"><span class="pmsg-l">Your message</span><span id="coMsg"></span></div>
 <button type="button" class="btn co-send" id="coSend">💌 Send my plan to Linda</button>
-<p class="co-how" id="coHow">We copy your plan. Then open the <b>Trybe app</b>, go to your <b>chat with Baybella</b> and paste it in.</p>
+<ol class="co-steps" id="coHow"><li><span>1</span><div>Tap <b>Send my plan to Linda</b>. It copies your message for you.</div></li><li><span>2</span><div>Open the <b>Trybe app</b> and find your chat with <b>Baybella</b>.</div></li><li><span>3</span><div><b>Press and hold</b> in the message box, tap <b>Paste</b>, then send.</div></li></ol>
 </div></section>
 <section class="band band-4" style="--next:#FBE3EE"><div class="card" id="edit">
 <div class="head"><span class="n">7</span><h2>Edit your video</h2></div>
@@ -994,13 +1016,21 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
     var t='hey linda! I\'m planning '+n+' '+v+' this round\nI\'ll have '+(count==='1'?'it':'them')+' filmed by '+fmt(when);
     msg.textContent=t; copy.disabled=false;
   }
-  cBtns.forEach(function(b){ b.addEventListener('click',function(){ cBtns.forEach(function(x){x.classList.remove('on')}); b.classList.add('on'); count=b.textContent; render(); }); });
+  /* REMEMBERED (kit friction review, 17 Oct 2026): how many videos and when used to live only in the page, so a
+     refresh - or going to the Script Maker and back - wiped them and left her stuck on "Your plan". */
+  function keep(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+  cBtns.forEach(function(b){ b.addEventListener('click',function(){ cBtns.forEach(function(x){x.classList.remove('on')}); b.classList.add('on'); count=b.textContent; keep('bbPlanCount',count); render(); }); });
   dBtns.forEach(function(b){ b.addEventListener('click',function(){
     dBtns.forEach(function(x){x.classList.remove('on')}); b.classList.add('on');
     if(b.dataset.d==='pick'){ dIn.style.display='block'; when=dIn.value?new Date(dIn.value+'T12:00'):null; }
     else { dIn.style.display='none'; var n=+b.dataset.d; if(n===3){ var d=new Date(); var k=(7-d.getDay())%7; when=plus(k===0?0:k); } else when=plus(n); }
-    render(); }); });
-  dIn.addEventListener('change',function(){ when=dIn.value?new Date(dIn.value+'T12:00'):null; render(); });
+    keep('bbPlanWhen',b.dataset.d); render(); }); });
+  dIn.addEventListener('change',function(){ when=dIn.value?new Date(dIn.value+'T12:00'):null; keep('bbPlanDate',dIn.value||''); render(); });
+  setTimeout(function(){ try{
+    var c=localStorage.getItem('bbPlanCount'), d=localStorage.getItem('bbPlanWhen'), dv=localStorage.getItem('bbPlanDate');
+    if(c){ var cb=cBtns.filter(function(x){return x.textContent===c})[0]; if(cb) cb.click(); }
+    if(d){ if(d==='pick'&&dv) dIn.value=dv; var db=dBtns.filter(function(x){return x.dataset.d===d})[0]; if(db) db.click(); }
+  }catch(e){} },0);
   copy.addEventListener('click',function(){
     var t=msg.textContent;
     function done(){ copy.textContent='✓ Copied'; var nx=document.getElementById('pNext'); nx.classList.add('go'); nx.scrollIntoView({behavior:'smooth',block:'center'}); setTimeout(function(){copy.textContent='📋 Copy my plan'},3000); }
@@ -1060,6 +1090,21 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
   var faqA=document.createElement('a'); faqA.href='#faq'; faqA.innerHTML='<span class="tn">?</span><span class="tt"><b>FAQs</b><small>Quick answers to common questions</small></span><span class="ta">›</span>'; tocList.appendChild(faqA);
   var cur=0, mode='step';
   /* --- picks --- */
+  /* The Script Maker, opened on each angle she picked (kit friction review, 17 Oct 2026). */
+  var SM_URL='https://baybella-script-maker.netlify.app/';
+  var FMT_KEY={'Talking to camera':'talking','Voiceover':'voiceover','Vlog':'vlog','Text on screen':'text','Stitch':'stitch','Reaction':'reaction','Green screen':'greenscreen'};
+  function paintScList(){
+    var box=document.getElementById('scList'); if(!box) return;
+    var aa=anglesPicked(), f=FMT_KEY[formatPicked()]||'', started=[]; try{ started=JSON.parse(localStorage.getItem('bbScriptsStarted')||'[]'); }catch(e){}
+    if(!aa.length){ box.innerHTML='<div class="sc-none">Pick your angles first. <a href="#pickangle">Go to Pick your angle</a></div>'; return; }
+    var back=location.href.split('#')[0]+'#script';   // same tab: the Playbook remembers her step, angles and which scripts she started
+    box.innerHTML=aa.map(function(a,i){ var d=started.indexOf(a)>=0;
+      var href=SM_URL+'?angle='+encodeURIComponent(a)+(f?'&format='+f:'')+'&back='+encodeURIComponent(back);
+      return '<div class="sc-card'+(d?' done':'')+'"><b>'+(i+1)+'. '+a.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</b>'+(d?'<span class="sc-ok">✓ Started. It&rsquo;s saved in the Script Maker.</span>':'')+
+        '<a class="sc-go" data-a="'+encodeURIComponent(a)+'" href="'+href+'">'+(d?'Open it again →':'✍️ Write this script →')+'</a></div>'; }).join('');
+    [].slice.call(box.querySelectorAll('.sc-go')).forEach(function(l){ l.addEventListener('click',function(){ var a=decodeURIComponent(l.dataset.a);
+      if(started.indexOf(a)<0){ started.push(a); try{ localStorage.setItem('bbScriptsStarted',JSON.stringify(started)); }catch(e){} } setTimeout(paintScList,300); }); });
+  }
   function anglesPicked(){ return [].slice.call(document.querySelectorAll('#angHost .grid .a.sel h2')).map(function(h){return h.textContent.trim().replace(/^\d+\.\s*/,'')}); }
   function formatPicked(){ var el=document.querySelector('#fmtHost .sel'); if(!el) return ''; var b=el.querySelector('b, h2, h3'); return b?b.textContent.replace(/^🟩\s*/,'').trim():''; }
   function planText(){ var m=document.getElementById('pMsg'); var t=m?m.textContent:''; return /Pick how many/.test(t)?'':t; }
@@ -1073,13 +1118,13 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
   }
   function refreshNext(){
     var st=steps[cur], btn=document.getElementById('appNext'), hint=document.getElementById('appHint');
-    if(st.sec.querySelector('#script')){ var so=document.querySelector('.sc-open'); if(so){ var aa=anglesPicked(); so.href='https://baybella-script-maker.netlify.app'+(aa.length?'?angle='+encodeURIComponent(aa[0]):''); }
+    if(st.sec.querySelector('#script')){ paintScList();
       var pa=anglesPicked(); document.getElementById('scAngle').textContent=pa.length?pa.join(' · '):'Not picked yet'; document.getElementById('scFormat').textContent=formatPicked()||'Not picked yet'; }
     fillCheckout();
     var n=need(st); btn.disabled=!!n; hint.textContent=n;
     if(cur===steps.length-1){ btn.disabled=true; btn.textContent='All set. Send your video in Trybe 🎉'; hint.textContent=''; }
     else if(st.sec.id==='checkoutSec'){ btn.textContent=n?n:'💌 Send my plan to Linda →'; }
-    else if(!n && st.sec.querySelector('#script')) btn.textContent='I\'ve got my script →'; else btn.textContent=n?n:'Continue: '+title(steps[cur+1]);
+    else if(!n && st.sec.querySelector('#script')) btn.textContent=anglesPicked().length>1?'I\'ve got my scripts →':'I\'ve got my script →'; else btn.textContent=n?n:'Continue: '+title(steps[cur+1]);
   }
   function fillCheckout(){
     var a=anglesPicked(), f=formatPicked(), p=planText();
@@ -1118,7 +1163,9 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
   /* --- controls --- */
   document.getElementById('appNext').onclick=function(){
     if(this.dataset.extra){ delete this.dataset.extra; show(cur,0); return; }
-    if(steps[cur].sec.id==='checkoutSec'){ document.getElementById('coSend').click(); var me=this; me.textContent='✓ Copied! Paste it in Trybe'; setTimeout(function(){ show(cur+1,1); },1100); return; }
+    if(steps[cur].sec.id==='checkoutSec'){ /* nothing moves on its own (kit friction review, 17 Oct 2026): she copies, goes to Trybe, comes back to the SAME step; a second tap moves on */
+      var me=this; if(me.dataset.copied){ delete me.dataset.copied; show(cur+1,1); return; }
+      document.getElementById('coSend').click(); me.dataset.copied='1'; me.textContent='✓ Copied. Paste it in Trybe, then tap here to carry on'; return; }
     go(1);
   };
   document.getElementById('appBack').onclick=function(){ go(-1); };
@@ -1182,4 +1229,5 @@ document.getElementById('msgNo').classList.toggle('show',!yes);
   };
 })();
 </script>
+<script src="kit-a11y.js"></script>
 </body></html>
