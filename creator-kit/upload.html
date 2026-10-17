@@ -49,6 +49,14 @@ body{font-family:var(--sans);background:#FDF4F8;background:linear-gradient(160de
 .note{background:#fff;border:1px solid var(--line-soft);border-left:4px solid var(--pink);border-radius:12px;padding:15px 17px;margin:20px 0 0;font-size:.93rem;line-height:1.55;color:var(--ink2)}
 .note b{color:var(--ink)}
 footer{text-align:center;color:var(--grey);font-size:.82rem;margin-top:30px}
+/* FIX 3 (kit friction review, 17 Oct 2026): "Drag them in" can't be done on a phone, and she had to type
+   "Name - angle" exactly by hand. Now: phone words, and the line is built for her and copied. */
+.nl{margin-top:12px;display:grid;gap:10px}
+.nl input,.nl select{width:100%;font:inherit;font-size:17px;padding:13px;border:2px solid #EAD9E4;border-radius:12px;background:#fff;box-sizing:border-box}
+.nl button{font:inherit;font-weight:800;font-size:17px;padding:14px;border:0;border-radius:14px;background:#EC4899;color:#fff;cursor:pointer}
+.nl button.ok{background:#2E7D32}
+.nl-out{font-size:16px;font-weight:700;color:#2A0844;min-height:1em}
+.step .d{font-size:16px}.step .t{font-size:18px}
 </style>
 </head>
 <body>
@@ -62,8 +70,10 @@ footer{text-align:center;color:var(--grey);font-size:.82rem;margin-top:30px}
 
   <div class="how">
     <div class="step"><div class="n">1</div><div class="t">Edited video</div><div class="d">Submit it in <a href="https://jointrybe.com/" target="_blank" rel="noopener">Trybe</a>, like normal.</div></div>
-    <div class="step"><div class="n">2</div><div class="t">Raw clips</div><div class="d">Drag them into the box below. Any size, no login.</div></div>
-    <div class="step"><div class="n">3</div><div class="t">Add your name and angle</div><div class="d">Type it like this:<br><b>Sarah Jones - She sleeps face-down</b><br>Same angle twice? Add a word from your hook.</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Copy your name line</div><div class="d">Type your name, pick the video, then tap Copy. You'll paste it into the box in a moment.</div>
+      <div class="nl"><input id="nlName" type="text" placeholder="Your name" autocomplete="name"><select id="nlAngle"></select>
+      <button type="button" id="nlCopy">📋 Copy my name line</button><div class="nl-out" id="nlOut"></div></div></div>
+    <div class="step"><div class="n">3</div><div class="t">Upload your raw clips</div><div class="d">Tap <b>Select files</b> in the box below, then choose your clips. Any size, no login. When it asks for your name, press and hold, then tap <b>Paste</b>.</div></div>
   </div>
 
   <div class="brief">
@@ -80,5 +90,23 @@ footer{text-align:center;color:var(--grey);font-size:.82rem;margin-top:30px}
   <footer>Baybella x Creators</footer>
 </div>
 <script src="https://driveuploader.com/static/du-embed.js" async></script>
+<script>
+(function(){
+  var sel=document.getElementById('nlAngle'), nm=document.getElementById('nlName'), out=document.getElementById('nlOut'), btn=document.getElementById('nlCopy');
+  var picked=[]; try{ picked=JSON.parse(localStorage.getItem('bb-angles-picked-v1')||'[]'); }catch(e){}
+  var clean=function(a){ return String(a).replace(/^\s*\d+\.\s*/,''); };
+  var opts=picked.length?picked.map(clean):[];
+  sel.innerHTML=(opts.length?'':'<option value="">Which video is this?</option>')+opts.map(function(a){return '<option>'+a.replace(/</g,'&lt;')+'</option>';}).join('')+'<option value="__other">Another angle (type it after your name)</option>';
+  try{ nm.value=localStorage.getItem('bbCreatorName')||''; }catch(e){}
+  function line(){ var a=sel.value==='__other'?'':sel.value; return (nm.value.trim()||'Your name')+(a?' - '+a:''); }
+  function show(){ out.textContent=line(); }
+  nm.addEventListener('input',function(){ try{ localStorage.setItem('bbCreatorName',nm.value.trim()); }catch(e){} show(); }); sel.addEventListener('change',show); show();
+  btn.addEventListener('click',function(){ var t=line();
+    var done=function(){ btn.textContent='✓ Copied'; btn.classList.add('ok'); setTimeout(function(){ btn.textContent='📋 Copy my name line'; btn.classList.remove('ok'); },2500); };
+    if(navigator.clipboard) navigator.clipboard.writeText(t).then(done).catch(function(){ prompt('Copy this:',t); });
+    else prompt('Copy this:',t); });
+})();
+</script>
+<script src="kit-a11y.js"></script>
 </body>
 </html>
