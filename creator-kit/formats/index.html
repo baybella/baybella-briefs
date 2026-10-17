@@ -216,5 +216,6 @@ figcaption{margin-top:6px;font-size:13px;color:var(--ink-faint)}
 const FORMATS_OPEN = { talking:true, voiceover:true, vlog:true, text:true, stitch:true, reaction:true, greenscreen:true };
 document.querySelectorAll('[data-fmt]').forEach(el => { if (FORMATS_OPEN[el.dataset.fmt] === false) el.hidden = true; });
 </script>
+<script src="../kit-a11y.js"></script>
 </body>
 </html>
