@@ -3347,42 +3347,6 @@
   "poster": "clip-pool/BR-0842.jpg"
  },
  {
-  "id": "BR-1304",
-  "file": "ai/ai_struggle-cluster-stuck-on-foot_v1.mp4",
-  "beat": "glue-struggle",
-  "beat_label": "The old way: glue struggle",
-  "desc": "AI: filmed across a lounge, the phone zooms in on a friend's bare foot to find a stray cluster lash stuck to the sole - lashes end up everywhere",
-  "age": "30s",
-  "quality": "good",
-  "dur": 5.0,
-  "web": "clip-pool/BR-1304.mp4",
-  "poster": "clip-pool/BR-1304.jpg"
- },
- {
-  "id": "BR-1305",
-  "file": "ai/ai_struggle-botched-clusters-closeup_v1.mp4",
-  "beat": "glue-struggle",
-  "beat_label": "The old way: glue struggle",
-  "desc": "AI: lash-tech close-up of a client's closed eye, botched cluster lashes glued into stiff clumps with her natural lashes, tweezers lifting the clumps",
-  "age": "30s",
-  "quality": "good",
-  "dur": 5.0,
-  "web": "clip-pool/BR-1305.mp4",
-  "poster": "clip-pool/BR-1305.jpg"
- },
- {
-  "id": "BR-1306",
-  "file": "ai/ai_struggle-false-lash-stuck-in-curler_v1.mp4",
-  "beat": "glue-struggle",
-  "beat_label": "The old way: glue struggle",
-  "desc": "AI handheld selfie: woman late 20s wearing a false lash on one eye, the other bare - the missing false lash is stuck in her eyelash curler, quiet 'oh no' then a flat 'seriously?' at the camera",
-  "age": "20s",
-  "quality": "good",
-  "dur": 5.0,
-  "web": "clip-pool/BR-1306.mp4",
-  "poster": "clip-pool/BR-1306.jpg"
- },
- {
   "id": "BR-1144",
   "file": "before/t1133_8.8s_fistful-of-mascara-tubes.mp4",
   "beat": "mascara-before",
@@ -3393,66 +3357,6 @@
   "dur": 2.4,
   "web": "clip-pool/BR-1144.mp4",
   "poster": "clip-pool/BR-1144.jpg"
- },
- {
-  "id": "BR-1299",
-  "file": "ai/ai_struggle-mascara-eye-sore-tissue_v3.mp4",
-  "beat": "mascara-before",
-  "beat_label": "The old way: mascara",
-  "desc": "AI: woman in her mid 30s with red curls dabbing a sore, red, watering eye with a tissue after mascara went in it - the mascara routine hurts",
-  "age": "35",
-  "quality": "good",
-  "dur": 5.0,
-  "web": "clip-pool/BR-1299.mp4",
-  "poster": "clip-pool/BR-1299.jpg"
- },
- {
-  "id": "BR-1300",
-  "file": "ai/ai_struggle-mascara-sneeze-splatter_v1.mp4",
-  "beat": "mascara-before",
-  "beat_label": "The old way: mascara",
-  "desc": "AI: silver-bob woman late 40s mid-mascara, the sneeze builds and hits, mascara splattered round both eyes",
-  "age": "40s",
-  "quality": "good",
-  "dur": 6.3,
-  "web": "clip-pool/BR-1300.mp4",
-  "poster": "clip-pool/BR-1300.jpg"
- },
- {
-  "id": "BR-1301",
-  "file": "ai/ai_struggle-mascara-sneeze-rings_v1.mp4",
-  "beat": "mascara-before",
-  "beat_label": "The old way: mascara",
-  "desc": "AI: wavy dirty-blonde woman early 40s sneezes mid-mascara, black rings left under her eyes",
-  "age": "40s",
-  "quality": "good",
-  "dur": 4.5,
-  "web": "clip-pool/BR-1301.mp4",
-  "poster": "clip-pool/BR-1301.jpg"
- },
- {
-  "id": "BR-1302",
-  "file": "ai/ai_struggle-mascara-car-eye-poke_v1.mp4",
-  "beat": "mascara-before",
-  "beat_label": "The old way: mascara",
-  "desc": "AI: grey-pixie woman early 50s doing mascara in her car, jabs the wand into her eye and winces with it shut",
-  "age": "50s",
-  "quality": "good",
-  "dur": 5.6,
-  "web": "clip-pool/BR-1302.mp4",
-  "poster": "clip-pool/BR-1302.jpg"
- },
- {
-  "id": "BR-1303",
-  "file": "ai/ai_struggle-mascara-wand-slip-lid_v1.mp4",
-  "beat": "mascara-before",
-  "beat_label": "The old way: mascara",
-  "desc": "AI: dark curly-bob woman mid 40s blinks onto the wand, mascara smudged on her lid, dismay",
-  "age": "40s",
-  "quality": "good",
-  "dur": 5.9,
-  "web": "clip-pool/BR-1303.mp4",
-  "poster": "clip-pool/BR-1303.jpg"
  },
  {
   "id": "BR-0962",
