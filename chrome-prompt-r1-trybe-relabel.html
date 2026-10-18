@@ -1,0 +1,137 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chrome Ad Prompt</title>
+<style>:root{--bg:#fbf9f7;--ink:#1a1614;--line:#e6ded8;--accent:#b5827a}@media (prefers-color-scheme:dark){:root{--bg:#141110;--ink:#f2ece8;--line:#2f2926;--accent:#d8a49a}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,system-ui,sans-serif;padding:24px 16px}.w{max-width:860px;margin:0 auto}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:12px 18px;font-size:16px;cursor:pointer}
+pre{white-space:pre-wrap;border:1px solid var(--line);border-radius:10px;padding:16px;font:14px/1.5 ui-monospace,monospace}</style></head><body><div class="w">
+<h1>Prompt for Claude in Chrome</h1><p>Press the button, then paste into Claude in Chrome with Ads Manager open.</p>
+<button onclick="navigator.clipboard.writeText(document.getElementById('p').innerText).then(()=>this.textContent='Copied')">Copy the whole prompt</button>
+<pre id="p">You are editing 8 existing ads in Meta Ads Manager for Baybella. Ad account: Baybella - Annie Pineda (act_1798371600552352). Business 1210531597223225.
+
+FIRST: SAVE THIS PROMPT
+This prompt is also published at https://baybella.github.io/baybella-briefs/chrome-prompt-r1-trybe-relabel.html. Before every stop-and-ask decision, re-open it and re-read the rules below. Don&#x27;t work from your memory of it - long runs get compacted and the exact wording is lost.
+
+WHAT THIS RUN IS
+Campaign &quot;ABO Test - Underserved Ads (22 Aug)&quot; (ID 120251817541230116) -&gt; ad set &quot;R1 - Trybe&quot; (ID 120252686105500116). The ad set is OFF and must stay OFF.
+It holds 8 ads built from Trybe creator videos. For each ad you change exactly four things: the ad name, the primary text, the headline and the description. Nothing else.
+DO NOT change: the video, the website URL (it carries a &quot;?trybe=...&quot; tracking tag - leave it exactly as it is), the call to action, the Facebook page / identity, the ad set, the budget, or any other ad set or campaign.
+
+THE AD NAMES ARE THE WHOLE POINT
+Trybe credits each ad to its creator by the end of the ad name: &quot;trybe=xxxxxxxx&quot;. Every new name below ends in the SAME trybe= code the ad has now. Paste each name EXACTLY as written, nothing added or removed after it. Never duplicate an ad to make one (the copy keeps the old name and gets &quot;- Copy&quot;). Check each name a second time before publishing.
+
+APPROVAL - GIVEN ONCE, HERE. Do not ask me again mid-run for any of these:
+edit the name, primary text, headline and description of these 8 ads, turn every enhancement off on them, and publish the edits. Do NOT switch the ad set or any ad on.
+
+IGNORE AND PUBLISH - never stop for these:
+1. &quot;WhatsApp number required&quot; (#2446880) once Product browsing is off. It&#x27;s a known false error. Tick &quot;Try to publish items with errors&quot; and publish.
+2. A YELLOW aspect-ratio warning.
+3. &quot;Won&#x27;t deliver to Facebook right column&quot;.
+A YELLOW warning is publishable. Only a RED error blocks.
+
+STOP AND ASK ONLY IF: billing is declined, an enhancement won&#x27;t turn off, a RED error that is NOT on the list above is still there after one fix attempt, an ad name won&#x27;t save exactly as written, or an ad below can&#x27;t be found by its current name. If a known fix exists, do it yourself.
+
+STEP 0 - BEFORE ANYTHING
+- Open Billing and confirm the payment method isn&#x27;t declined. If it is, stop and tell me.
+- If an Australian tax (ABN/GST) prompt appears at any point, skip it.
+
+STEP 1 - FIND THE ADS
+Open the ad set &quot;R1 - Trybe&quot; and list its ads. Match each ad to the table below by the trybe= code at the end of its CURRENT name (Nichole Dillon has 4 ads, so the code is the only safe match). There should be exactly 8. If there are more or fewer, stop and tell me.
+
+STEP 2 - EDIT EACH AD (one at a time - bulk edit can&#x27;t change text when ads differ)
+- Before editing, check the breadcrumb shows the right ad (current name with the right trybe= code) inside &quot;R1 - Trybe&quot;.
+- Ad name: replace it with the NEW NAME below, exactly.
+- Primary text: select all the existing text, delete it, paste the new PRIMARY TEXT exactly (keep the line breaks as written - there are none, it&#x27;s one paragraph).
+- Headline: replace with the new HEADLINE exactly.
+- Description: replace with the new DESCRIPTION exactly. If the field is empty, fill it.
+- If Meta offers multiple text options (&quot;Add text option&quot;), there must be only ONE primary text, ONE headline and ONE description. Delete any extras.
+- Leave the video, URL and call to action exactly as they are.
+
+----- AD 1 of 8 -----
+CURRENT NAME ends in: trybe=5f1412a5   (KelseyChardet_BellaMagneticLashes_20261018_trybe=5f1412a5)
+NEW NAME: ML_V_v1_r12_108-MyLashTechWillHateThis_50OFF_trybe=5f1412a5
+PRIMARY TEXT: One lash fill costs more than this whole kit. And the second you stop paying for fills, the extensions fall out with your own lashes and you&#x27;ve got nothing to show for it. Baybella magnetic lashes clip together over your own lashes with no glue, and the applicator works like a lash curler, so you already know how. Every kit comes with a spare set. Trial them for 30 days, and if you don&#x27;t love them, get your money back. 50% off - sale ends soon.
+HEADLINE: Salon Lashes Without The Fills - 50% Off Today
+DESCRIPTION: 30-day trial. No glue.
+
+----- AD 2 of 8 -----
+CURRENT NAME ends in: trybe=363baa0d   (DaniellaPark_BellaMagneticLashes_20261018_trybe=363baa0d)
+NEW NAME: ML_V_v1_r13_109-TheHardWay_trybe=363baa0d
+PRIMARY TEXT: Strip glue, clusters, extensions - and at the end of it, hardly any lashes of your own left. Baybella magnetic lashes go on with no glue at all. Lay it on, tilt back, clamp, and they hold, even when you blow on them. Everything you need comes in the kit. 50% off - sale ends soon.
+HEADLINE: Lashes The Easy Way - 50% Off Today
+DESCRIPTION: No glue. Nothing pulled out.
+
+----- AD 3 of 8 -----
+CURRENT NAME ends in: trybe=16ade6d1   (DaniellaPark_BellaMagneticLashes_20261018_trybe=16ade6d1)
+NEW NAME: ML_V_v1_r13_110-WhyDidItTakeUntilNow_trybe=16ade6d1
+PRIMARY TEXT: Gen X, we&#x27;ve tried every lash under the sun. Glue, strips, clusters. Turns out all it needed was magnets. Baybella magnetic lashes clip on over your own: lay it on, tilt back, click, done. They stay put in the wind, and the kit comes with everything you need. 50% off - sale ends soon.
+HEADLINE: Finally, Lashes This Simple - 50% Off Today
+DESCRIPTION: No glue. Holds in the wind.
+
+----- AD 4 of 8 -----
+CURRENT NAME ends in: trybe=4fc374c2   (AmandaDotterer_BellaMagneticLashes_20261018_trybe=4fc374c2)
+NEW NAME: ML_V_v1_r13_111-PutTogetherInSeconds_trybe=4fc374c2
+PRIMARY TEXT: The quickest way to look put together is lashes. Line Baybella magnetic lashes up with your own, look up, tilt back, clamp, and you&#x27;re done. To take them off, don&#x27;t pull - just slide them apart, so your own lashes stay where they are. It can take a couple of tries the first time. Every kit comes with the applicator, the case and two sets. 50% off - sale ends soon.
+HEADLINE: Put Together In Seconds - 50% Off Today
+DESCRIPTION: No glue. Two sets in every kit.
+
+----- AD 5 of 8 -----
+CURRENT NAME ends in: trybe=8bd7552b   (NicholeDillon_BellaMagneticLashes_20261018_trybe=8bd7552b)
+NEW NAME: ML_V_v1_r13_112-SpiderOnTheFloor_trybe=8bd7552b
+PRIMARY TEXT: Love the look of false lashes but hate the glue? Even the &quot;glueless&quot; ones with the sticky strip still fall off - in little pieces, all over the house. Baybella magnetic lashes have no glue and nothing sticky. They clip together over your own lashes and stay on all day, right through a full work shift. 50% off - sale ends soon.
+HEADLINE: Lashes Without The Glue - 50% Off Today
+DESCRIPTION: On all day. Nothing sticky.
+
+----- AD 6 of 8 -----
+CURRENT NAME ends in: trybe=c248953d   (NicholeDillon_BellaMagneticLashes_20261018_trybe=c248953d)
+NEW NAME: ML_V_v1_r13_113-StayedPutAllDay_trybe=c248953d
+PRIMARY TEXT: Looking for magnetic lashes that actually stay put? Baybella lashes clip together over your own lashes with the applicator and hold all day. Every kit comes with two sets, and there are different styles to choose from - she&#x27;s wearing Fuller. 50% off - sale ends soon.
+HEADLINE: Lashes That Stay Put All Day - 50% Off Today
+DESCRIPTION: Two sets. No glue.
+
+----- AD 7 of 8 -----
+CURRENT NAME ends in: trybe=9aa9bd71   (NicholeDillon_BellaMagneticLashes_20261018_trybe=9aa9bd71)
+NEW NAME: ML_V_v1_r13_114-InMyHandbag_trybe=9aa9bd71
+PRIMARY TEXT: Every Baybella kit comes in a magnetic carrying case, so your lashes can go wherever your handbag does - just in case you have a little mishap. The applicator comes in the kit too, so you can put them back on anywhere. No glue needed. 50% off - sale ends soon.
+HEADLINE: Lashes That Fit In Your Bag - 50% Off Today
+DESCRIPTION: Case and applicator included.
+
+----- AD 8 of 8 -----
+CURRENT NAME ends in: trybe=cb0bcc41   (NicholeDillon_BellaMagneticLashes_20261018_trybe=cb0bcc41)
+NEW NAME: ML_V_v1_r13_115-WouldYouBelieveTheyreMagnetic_trybe=cb0bcc41
+PRIMARY TEXT: Would you believe these lashes are magnetic? No glue, so they come on and off without pulling your own lashes out. Load the top and bottom lash onto the applicator, close it over your lashes, done. They store in their own case and you can wear them again and again. 50% off - sale ends soon.
+HEADLINE: You&#x27;d Never Know They&#x27;re Magnetic - 50% Off Today
+DESCRIPTION: Reusable. No glue.
+
+STEP 3 - TURN OFF EVERYTHING META SWITCHES ON (on every one of the 8 ads, after its text is changed - editing an ad can switch these back on)
+- Creative setup: Website summaries (untick Product descriptions AND Selling points), Website highlights, Site links, Promotions, Products. Must read 0/4 or 0/5.
+- Format display options: under Carousel AND under Collection, untick &quot;Show products&quot;. Only Single media stays on.
+- Personalized destinations -&gt; Product browsing: OFF. If the toggle is locked: Show products -&gt; Shopify Product Catalog -&gt; Save, then switch Product browsing off.
+- Advantage+ enhancements, essential enhancements, AI images, translation, music, text variations, touch-ups, subtitles: 0 selected.
+- &quot;Review defaults&quot; must show no settings on by default.
+
+STEP 4 - CLOSING THE EDITOR (an ad went live by accident here before)
+- Closing the editor pops up &quot;Publish draft items?&quot;. Always click Close on it.
+- Never use &quot;Preview to publish&quot; - it publishes the open ad.
+- Only ever publish from the main &quot;Review and publish (N)&quot; button, in Step 6.
+
+STEP 5 - CHECK EVERY AD BEFORE PUBLISHING
+- Filter the ads table by the ad set &quot;R1 - Trybe&quot;. The table, the ad tree and the Review dialog only load what&#x27;s on screen, so scroll them in steps.
+- For each of the 8: the name, primary text, headline and description must match this prompt word for word, and the URL must still end in its own &quot;?trybe=&quot; tag.
+- Hover over any error to read it (clicking only opens the editor). Fix anything RED that isn&#x27;t on the ignore list.
+
+STEP 6 - PUBLISH ONLY THESE 8 EDITS
+- &quot;Review and publish&quot; publishes EVERY ticked draft. Untick anything that is not one of these 8 ads. Scroll the dialog in steps, take a screenshot of the ticks, and check it before you click Publish.
+- If Publish is greyed out only because of ignore-list items, tick &quot;Try to publish items with errors&quot;.
+- If a pop-up offers to raise budgets, click Cancel.
+- After publishing, confirm the ad set &quot;R1 - Trybe&quot; is still OFF. Do not switch anything on.
+
+HOW TO WORK
+- Keep each batch to 5-8 actions - long batches and long scripts time out.
+- If navigating fails, set location.href with JavaScript instead.
+- Page reloads wipe helper scripts - re-define them after each reload.
+
+HOW TO TALK TO ME
+- 1-3 lines per reply: what&#x27;s done, what&#x27;s blocked. At most one yes/no question.
+- Don&#x27;t stop for anything this prompt already answers.
+- A progress line every few ads, e.g. &quot;3 of 8 done&quot;.
+- At the end: a table with every ad&#x27;s final name COPIED FROM ADS MANAGER (not from this prompt), its headline, and on/off status, plus &quot;enhancements off on all 8&quot; and &quot;ad set R1 - Trybe still OFF&quot;.
+</pre></div></body></html>
