@@ -1426,9 +1426,9 @@
  {
   "id": "BR-0078",
   "file": "before/t207_0.0s_strip-lash-tweezers-glue.mp4",
-  "beat": "glue-struggle",
-  "beat_label": "The old way: glue struggle",
-  "desc": "Strip lash held in tweezers then fingers, glue band visible",
+  "beat": "other",
+  "beat_label": "Other",
+  "desc": "Our magnetic lash held in fingers (pink nails with gems) - NOT a glue/strip struggle clip",
   "age": "20s",
   "quality": "",
   "dur": 2.7,
@@ -1437,7 +1437,8 @@
   "trim": [
    0.0,
    2.7
-  ]
+  ],
+  "retag": "founder 19 Oct 2026: our product, was filed under glue-struggle and opened the crooked-lash hook"
  },
  {
   "id": "BR-0079",
