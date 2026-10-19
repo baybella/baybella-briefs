@@ -4198,5 +4198,20 @@
   "added": "arvin-approved-20261019",
   "ai": true,
   "lash": "strip"
+ },
+ {
+  "id": "BR-1316",
+  "file": "ai/ai_struggle-cluster-sticks-to-tweezers_v1.mp4",
+  "beat": "glue-struggle",
+  "beat_label": "The old way: glue struggle",
+  "desc": "AI close phone selfie: young woman presses a DIY lash cluster on with tweezers and it comes off stuck to the tweezers, three times over; she breathes out fed up and stares at the lens.",
+  "age": "20s",
+  "quality": "good",
+  "dur": 10.7,
+  "web": "clip-pool/BR-1316.mp4",
+  "poster": "clip-pool/BR-1316.jpg",
+  "added": "arvin-approved-20261019",
+  "ai": true,
+  "lash": "cluster"
  }
 ]
