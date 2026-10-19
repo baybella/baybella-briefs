@@ -777,7 +777,8 @@
   "quality": "great",
   "dur": 6.3,
   "web": "clip-pool/BR-0756.mp4",
-  "poster": "clip-pool/BR-0756.jpg"
+  "poster": "clip-pool/BR-0756.jpg",
+  "hook": true
  },
  {
   "id": "BR-0841",
@@ -801,7 +802,8 @@
   "quality": "great",
   "dur": 2.8,
   "web": "clip-pool/BR-0003.mp4",
-  "poster": "clip-pool/BR-0003.jpg"
+  "poster": "clip-pool/BR-0003.jpg",
+  "hook": true
  },
  {
   "id": "BR-0004",
@@ -813,7 +815,8 @@
   "quality": "great",
   "dur": 3.0,
   "web": "clip-pool/BR-0004.mp4",
-  "poster": "clip-pool/BR-0004.jpg"
+  "poster": "clip-pool/BR-0004.jpg",
+  "hook": true
  },
  {
   "id": "BR-0418",
@@ -1077,7 +1080,8 @@
   "trim": [
    0.0,
    2.83
-  ]
+  ],
+  "hook": true
  },
  {
   "id": "BR-0009",
@@ -3843,7 +3847,8 @@
   "web": "clip-pool/BR-1299.mp4",
   "poster": "clip-pool/BR-1299.jpg",
   "added": "arvin-approved-20261018",
-  "ai": true
+  "ai": true,
+  "hook": true
  },
  {
   "id": "BR-1300",
@@ -3857,7 +3862,8 @@
   "web": "clip-pool/BR-1300.mp4",
   "poster": "clip-pool/BR-1300.jpg",
   "added": "arvin-approved-20261018",
-  "ai": true
+  "ai": true,
+  "hook": true
  },
  {
   "id": "BR-1301",
@@ -3871,7 +3877,8 @@
   "web": "clip-pool/BR-1301.mp4",
   "poster": "clip-pool/BR-1301.jpg",
   "added": "arvin-approved-20261018",
-  "ai": true
+  "ai": true,
+  "hook": true
  },
  {
   "id": "BR-1302",
@@ -3913,7 +3920,9 @@
   "web": "clip-pool/BR-1304.mp4",
   "poster": "clip-pool/BR-1304.jpg",
   "added": "arvin-approved-20261018",
-  "ai": true
+  "ai": true,
+  "hook": true,
+  "hook_only": true
  },
  {
   "id": "BR-1305",
@@ -3927,7 +3936,8 @@
   "web": "clip-pool/BR-1305.mp4",
   "poster": "clip-pool/BR-1305.jpg",
   "added": "arvin-approved-20261018",
-  "ai": true
+  "ai": true,
+  "hook": true
  },
  {
   "id": "BR-1306",
@@ -3941,7 +3951,8 @@
   "web": "clip-pool/BR-1306.mp4",
   "poster": "clip-pool/BR-1306.jpg",
   "added": "arvin-approved-20261018",
-  "ai": true
+  "ai": true,
+  "hook": true
  },
  {
   "id": "BR-1307",
@@ -3969,7 +3980,8 @@
   "web": "clip-pool/BR-1308.mp4",
   "poster": "clip-pool/BR-1308.jpg",
   "added": "arvin-approved-20261018",
-  "ai": true
+  "ai": true,
+  "hook": true
  },
  {
   "id": "BR-1309",
@@ -3997,7 +4009,8 @@
   "web": "clip-pool/BR-1310.mp4",
   "poster": "clip-pool/BR-1310.jpg",
   "added": "arvin-approved-20261019",
-  "ai": true
+  "ai": true,
+  "hook": true
  },
  {
   "id": "BR-1311",
@@ -4011,7 +4024,8 @@
   "web": "clip-pool/BR-1311.mp4",
   "poster": "clip-pool/BR-1311.jpg",
   "added": "arvin-approved-20261019",
-  "ai": true
+  "ai": true,
+  "hook": true
  },
  {
   "id": "BR-1312",
@@ -4053,6 +4067,7 @@
   "web": "clip-pool/BR-1314.mp4",
   "poster": "clip-pool/BR-1314.jpg",
   "added": "arvin-approved-20261019",
-  "ai": true
+  "ai": true,
+  "hook": true
  }
 ]
