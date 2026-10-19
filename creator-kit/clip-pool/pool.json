@@ -4026,5 +4026,19 @@
   "poster": "clip-pool/BR-1312.jpg",
   "added": "arvin-approved-20261019",
   "ai": true
+ },
+ {
+  "id": "BR-1313",
+  "file": "ai/ai_struggle-tweezers-poke-eye-clusters_v1.mp4",
+  "beat": "glue-struggle",
+  "beat_label": "The old way: glue struggle",
+  "desc": "AI low-angle selfie: young woman gluing on lash clusters with tweezers pokes herself in the eye, it snaps shut and waters, she gasps.",
+  "age": "20s",
+  "quality": "good",
+  "dur": 2.7,
+  "web": "clip-pool/BR-1313.mp4",
+  "poster": "clip-pool/BR-1313.jpg",
+  "added": "arvin-approved-20261019",
+  "ai": true
  }
 ]
