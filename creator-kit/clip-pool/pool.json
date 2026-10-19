@@ -3997,5 +3997,19 @@
   "poster": "clip-pool/BR-1310.jpg",
   "added": "arvin-approved-20261019",
   "ai": true
+ },
+ {
+  "id": "BR-1311",
+  "file": "ai/ai_struggle-pulling-out-extensions_v1.mp4",
+  "beat": "glue-struggle",
+  "beat_label": "The old way: glue struggle",
+  "desc": "AI car selfie: woman ~40 pinches her heavy extensions, one quick tug, brief flinch, a few hairs come off, mildly annoyed.",
+  "age": "40s",
+  "quality": "good",
+  "dur": 5.0,
+  "web": "clip-pool/BR-1311.mp4",
+  "poster": "clip-pool/BR-1311.jpg",
+  "added": "arvin-approved-20261019",
+  "ai": true
  }
 ]
