@@ -776,7 +776,8 @@
   "quality": "great",
   "dur": 2.3,
   "web": "clip-pool/BR-0183.mp4",
-  "poster": "clip-pool/BR-0183.jpg"
+  "poster": "clip-pool/BR-0183.jpg",
+  "lash": "strip"
  },
  {
   "id": "BR-0707",
@@ -788,7 +789,8 @@
   "quality": "great",
   "dur": 6.5,
   "web": "clip-pool/BR-0707.mp4",
-  "poster": "clip-pool/BR-0707.jpg"
+  "poster": "clip-pool/BR-0707.jpg",
+  "lash": "strip"
  },
  {
   "id": "BR-0756",
@@ -801,7 +803,8 @@
   "dur": 6.3,
   "web": "clip-pool/BR-0756.mp4",
   "poster": "clip-pool/BR-0756.jpg",
-  "hook": true
+  "hook": true,
+  "lash": "glue"
  },
  {
   "id": "BR-0841",
@@ -813,7 +816,8 @@
   "quality": "great",
   "dur": 4.8,
   "web": "clip-pool/BR-0841.mp4",
-  "poster": "clip-pool/BR-0841.jpg"
+  "poster": "clip-pool/BR-0841.jpg",
+  "lash": "strip"
  },
  {
   "id": "BR-0003",
@@ -1454,7 +1458,8 @@
   "quality": "",
   "dur": 3.3,
   "web": "clip-pool/BR-0077.mp4",
-  "poster": "clip-pool/BR-0077.jpg"
+  "poster": "clip-pool/BR-0077.jpg",
+  "lash": "strip"
  },
  {
   "id": "BR-0078",
@@ -1679,7 +1684,8 @@
   "quality": "",
   "dur": 4.7,
   "web": "clip-pool/BR-0113.mp4",
-  "poster": "clip-pool/BR-0113.jpg"
+  "poster": "clip-pool/BR-0113.jpg",
+  "lash": "strip"
  },
  {
   "id": "BR-0118",
@@ -2717,7 +2723,8 @@
   "quality": "",
   "dur": 1.5,
   "web": "clip-pool/BR-0504.mp4",
-  "poster": "clip-pool/BR-0504.jpg"
+  "poster": "clip-pool/BR-0504.jpg",
+  "lash": "strip"
  },
  {
   "id": "BR-0509",
@@ -2837,7 +2844,8 @@
   "quality": "",
   "dur": 3.8,
   "web": "clip-pool/BR-0182.mp4",
-  "poster": "clip-pool/BR-0182.jpg"
+  "poster": "clip-pool/BR-0182.jpg",
+  "lash": "strip"
  },
  {
   "id": "BR-0159",
@@ -3352,7 +3360,8 @@
   "quality": "ok",
   "dur": 3.9,
   "web": "clip-pool/BR-0114.mp4",
-  "poster": "clip-pool/BR-0114.jpg"
+  "poster": "clip-pool/BR-0114.jpg",
+  "lash": "strip"
  },
  {
   "id": "BR-0221",
@@ -3364,7 +3373,8 @@
   "quality": "good",
   "dur": 2.7,
   "web": "clip-pool/BR-0221.mp4",
-  "poster": "clip-pool/BR-0221.jpg"
+  "poster": "clip-pool/BR-0221.jpg",
+  "lash": "glue"
  },
  {
   "id": "BR-0233",
@@ -3376,7 +3386,8 @@
   "quality": "good",
   "dur": 2.7,
   "web": "clip-pool/BR-0233.mp4",
-  "poster": "clip-pool/BR-0233.jpg"
+  "poster": "clip-pool/BR-0233.jpg",
+  "lash": "strip"
  },
  {
   "id": "BR-0743",
@@ -3388,7 +3399,8 @@
   "quality": "ok",
   "dur": 3.0,
   "web": "clip-pool/BR-0743.mp4",
-  "poster": "clip-pool/BR-0743.jpg"
+  "poster": "clip-pool/BR-0743.jpg",
+  "lash": "strip"
  },
  {
   "id": "BR-0797",
@@ -3400,7 +3412,8 @@
   "quality": "good",
   "dur": 2.9,
   "web": "clip-pool/BR-0797.mp4",
-  "poster": "clip-pool/BR-0797.jpg"
+  "poster": "clip-pool/BR-0797.jpg",
+  "lash": "strip"
  },
  {
   "id": "BR-0842",
@@ -3412,7 +3425,8 @@
   "quality": "good",
   "dur": 4.5,
   "web": "clip-pool/BR-0842.mp4",
-  "poster": "clip-pool/BR-0842.jpg"
+  "poster": "clip-pool/BR-0842.jpg",
+  "lash": "strip"
  },
  {
   "id": "BR-1144",
@@ -4014,14 +4028,15 @@
   "added": "arvin-approved-20261018",
   "ai": true,
   "hook": true,
-  "hook_only": true
+  "hook_only": true,
+  "lash": "cluster"
  },
  {
   "id": "BR-1305",
   "file": "ai/ai_struggle-botched-clusters-closeup_v1.mp4",
   "beat": "glue-struggle",
   "beat_label": "The old way: glue struggle",
-  "desc": "AI: lash-tech close-up of a client's closed eye, botched cluster lashes glued into stiff clumps with her natural lashes, tweezers lifting the clumps",
+  "desc": "AI: lash-tech close-up of a client's closed eye on an under-eye pad, tweezers placing salon lash EXTENSIONS",
   "age": "30s",
   "quality": "good",
   "dur": 5.0,
@@ -4029,7 +4044,8 @@
   "poster": "clip-pool/BR-1305.jpg",
   "added": "arvin-approved-20261018",
   "ai": true,
-  "hook": true
+  "hook": true,
+  "lash": "extension"
  },
  {
   "id": "BR-1306",
@@ -4044,7 +4060,8 @@
   "poster": "clip-pool/BR-1306.jpg",
   "added": "arvin-approved-20261018",
   "ai": true,
-  "hook": true
+  "hook": true,
+  "lash": "strip"
  },
  {
   "id": "BR-1307",
@@ -4073,7 +4090,8 @@
   "poster": "clip-pool/BR-1308.jpg",
   "added": "arvin-approved-20261018",
   "ai": true,
-  "hook": true
+  "hook": true,
+  "lash": "strip"
  },
  {
   "id": "BR-1309",
@@ -4102,7 +4120,8 @@
   "poster": "clip-pool/BR-1310.jpg",
   "added": "arvin-approved-20261019",
   "ai": true,
-  "hook": true
+  "hook": true,
+  "lash": "cluster"
  },
  {
   "id": "BR-1311",
@@ -4117,7 +4136,8 @@
   "poster": "clip-pool/BR-1311.jpg",
   "added": "arvin-approved-20261019",
   "ai": true,
-  "hook": true
+  "hook": true,
+  "lash": "extension"
  },
  {
   "id": "BR-1312",
@@ -4145,7 +4165,8 @@
   "web": "clip-pool/BR-1313.mp4",
   "poster": "clip-pool/BR-1313.jpg",
   "added": "arvin-approved-20261019",
-  "ai": true
+  "ai": true,
+  "lash": "cluster"
  },
  {
   "id": "BR-1314",
@@ -4160,7 +4181,8 @@
   "poster": "clip-pool/BR-1314.jpg",
   "added": "arvin-approved-20261019",
   "ai": true,
-  "hook": true
+  "hook": true,
+  "lash": "strip"
  },
  {
   "id": "BR-1315",
@@ -4174,6 +4196,7 @@
   "web": "clip-pool/BR-1315.mp4",
   "poster": "clip-pool/BR-1315.jpg",
   "added": "arvin-approved-20261019",
-  "ai": true
+  "ai": true,
+  "lash": "strip"
  }
 ]
