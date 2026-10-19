@@ -4213,5 +4213,20 @@
   "added": "arvin-approved-20261019",
   "ai": true,
   "lash": "cluster"
+ },
+ {
+  "id": "BR-1317",
+  "file": "ai/ai_makeup-eyeliner-slip-wipe-off_v1.mp4",
+  "beat": "makeup-redo",
+  "beat_label": "Easy fix: makeup you just wipe off",
+  "desc": "AI close phone selfie: woman finishing her liquid eyeliner wing blinks and the pen skids into a jagged slip; she sighs and wipes the eyeliner off with a makeup wipe in one go.",
+  "age": "30s",
+  "quality": "good",
+  "dur": 3.7,
+  "web": "clip-pool/BR-1317.mp4",
+  "poster": "clip-pool/BR-1317.jpg",
+  "added": "arvin-approved-20261019",
+  "ai": true,
+  "hook": true
  }
 ]
