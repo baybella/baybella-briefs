@@ -4012,5 +4012,19 @@
   "poster": "clip-pool/BR-1311.jpg",
   "added": "arvin-approved-20261019",
   "ai": true
+ },
+ {
+  "id": "BR-1312",
+  "file": "ai/ai_struggle-extensions-thinned-lashes_v1.mp4",
+  "beat": "extensions-rules",
+  "beat_label": "The old way: extension rules",
+  "desc": "AI extreme close-up: woman ~26 lifts her brow to show thin, patchy natural lashes with gaps and a pink lash line after extensions; eye looks around, one blink.",
+  "age": "20s",
+  "quality": "good",
+  "dur": 5.0,
+  "web": "clip-pool/BR-1312.mp4",
+  "poster": "clip-pool/BR-1312.jpg",
+  "added": "arvin-approved-20261019",
+  "ai": true
  }
 ]
