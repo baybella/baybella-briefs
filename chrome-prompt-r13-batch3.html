@@ -26,6 +26,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
 pre{white-space:pre-wrap;word-break:break-word;border:1px solid var(--line);border-radius:10px;padding:16px;font:13.5px/1.5 ui-monospace,monospace;background:var(--card)}
 a{color:var(--accent)}
 </style></head><body><div class="w">
+<div id="replaced" style="background:#a5482f;color:#fff;border-radius:12px;padding:16px 18px;margin:0 0 20px;font-weight:600;font-size:17px">REPLACED - do not run this prompt. Use <a href="https://baybella.github.io/baybella-briefs/chrome-prompt-r13-all.html" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">chrome-prompt-r13-all</a> instead. It builds all 14 Round 13 ads in one go.</div>
 <div class="eyebrow">Round 13 · Meta build · batch 3</div>
 <h1>Prompt for Claude in Chrome</h1>
 <p class="sub">2 more Round 13 ads into the ad set "R13 Iterations - 20 Oct" (it creates the ad set if batch 1 hasn't been run yet), in "ABO Test - Underserved Ads (22 Aug)". Fill in the two boxes, press Copy, paste into Claude in Chrome with Ads Manager open. Nothing spends until you pick it here.</p>
@@ -172,7 +173,7 @@ HOW TO TALK TO ME
       ? 'Do NOT switch anything on. Leave the ad set "R13 Iterations - 20 Oct" OFF after publishing (if it is already on from batch 1, switch it OFF), so nothing spends. I will switch it on myself. Confirm in your final table that it reads Off.'
       : '[ON/OFF]';
     t=t.split('{{STEP8}}').join(s8);
-    out.textContent=t; btn.disabled=!ok; need.style.display=ok?'none':'block';
+    out.textContent=t; btn.disabled=true; need.textContent='Replaced - use chrome-prompt-r13-all.';need.style.display='block';
     return t;
   }
   bud.addEventListener('input',build);
