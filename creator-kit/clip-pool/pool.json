@@ -4197,7 +4197,9 @@
   "poster": "clip-pool/BR-1315.jpg",
   "added": "arvin-approved-20261019",
   "ai": true,
-  "lash": "strip"
+  "lash": "strip",
+  "shock_only": true,
+  "shock_note": "Founder 19 Oct 2026: a hook for a SHOCK video only - the irony is drawn out on purpose. Never plays as B-roll in a green-screen brief."
  },
  {
   "id": "BR-1316",
