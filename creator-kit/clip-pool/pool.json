@@ -4218,5 +4218,95 @@
   "added": "arvin-approved-20261019",
   "ai": true,
   "hook": true
+ },
+ {
+  "id": "BR-1187",
+  "file": "spoken/try-again/LucyShore_Only-Half-Right_33.8s.mp4",
+  "beat": "other",
+  "beat_label": "Other",
+  "desc": "LucyShore says: \"And if you applied them crooked, no worries at all, you can just slide them off and then go again, just like that.\"",
+  "age": "20s",
+  "quality": "",
+  "dur": 7.7,
+  "web": "clip-pool/BR-1187.mp4",
+  "poster": "clip-pool/BR-1187.jpg",
+  "trim": [
+   33.76,
+   41.42
+  ],
+  "creator": "LucyShore",
+  "added": "arvin-approved-20261020"
+ },
+ {
+  "id": "BR-1191",
+  "file": "spoken/try-again/PaigeDillon_By-Hour-Eight-Ending2_71.2s.mp4",
+  "beat": "other",
+  "beat_label": "Other",
+  "desc": "PaigeDillon says: \"The best part about these is if you do make a mistake you can literally just pull them back off and try again.\"",
+  "age": "20s",
+  "quality": "",
+  "dur": 4.9,
+  "web": "clip-pool/BR-1191.mp4",
+  "poster": "clip-pool/BR-1191.jpg",
+  "trim": [
+   71.18,
+   76.02
+  ],
+  "creator": "PaigeDillon",
+  "added": "arvin-approved-20261020"
+ },
+ {
+  "id": "BR-1181",
+  "file": "spoken/try-again/AlyssaRasul_Youve-Got-It-All-Wrong_33.2s.mp4",
+  "beat": "other",
+  "beat_label": "Other",
+  "desc": "AlyssaRasul says: \"And it might take you a couple tries, but the thing is, if you mess up, all you have to do is take them off and then try again.\"",
+  "age": "20s",
+  "quality": "",
+  "dur": 7.2,
+  "web": "clip-pool/BR-1181.mp4",
+  "poster": "clip-pool/BR-1181.jpg",
+  "trim": [
+   33.16,
+   40.36
+  ],
+  "creator": "AlyssaRasul",
+  "added": "arvin-approved-20261020"
+ },
+ {
+  "id": "BR-1184",
+  "file": "spoken/try-again/DaniSealey_The-Look-Without-The-Salon-Take1_39.6s.mp4",
+  "beat": "other",
+  "beat_label": "Other",
+  "desc": "DaniSealey says: \"But my favorite thing is that they come straight off and clip straight back on.\"",
+  "age": "20s",
+  "quality": "",
+  "dur": 5.0,
+  "web": "clip-pool/BR-1184.mp4",
+  "poster": "clip-pool/BR-1184.jpg",
+  "trim": [
+   39.6,
+   44.62
+  ],
+  "creator": "DaniSealey",
+  "added": "arvin-approved-20261020"
+ },
+ {
+  "id": "BR-1186",
+  "file": "spoken/try-again/JoannaIpsaros_Why-Would-You-Rent-Lashes_40.6s.mp4",
+  "beat": "other",
+  "beat_label": "Other",
+  "desc": "JoannaIpsaros says: \"It can be really difficult at times, but the good thing is that you can take them right off and try it right again.\"",
+  "age": "20s",
+  "quality": "",
+  "dur": 6.9,
+  "web": "clip-pool/BR-1186.mp4",
+  "poster": "clip-pool/BR-1186.jpg",
+  "trim": [
+   40.58,
+   47.36
+  ],
+  "creator": "JoannaIpsaros",
+  "added": "arvin-approved-20261020"
  }
 ]
