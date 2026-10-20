@@ -406,7 +406,9 @@
   "dur": 19.8,
   "web": "clip-pool/BR-1167.mp4",
   "poster": "clip-pool/BR-1167.jpg",
-  "creator": "BecWallace"
+  "creator": "BecWallace",
+  "needs_edit": true,
+  "needs_edit_note": "Founder 20 Oct 2026: 'This clip here has not been optimized' - 10s dead stretch reloading the applicator (5.5-15s). Out of briefs until his CapCut cut comes back."
  },
  {
   "id": "BR-0997",
