@@ -57,13 +57,13 @@ a{color:var(--accent)}
 <p class="sub" style="margin:0 0 12px">Filled in from your call on 20 Oct: <b>$50/day, switched ON at publish</b>. Change them here first if that's changed.</p>
 <div class="row">
 <label for="budget">Daily budget for "R13 Iterations - 20 Oct" (AUD, for all its ads together)</label>
-<input id="budget" type="number" min="1" step="1" placeholder="e.g. 50" value="50">
+<input id="budget" autocomplete="off" type="number" min="1" step="1" placeholder="e.g. 50" value="50">
 </div>
 <div class="row">
 <label>After publishing, the ad set should be</label>
 <div class="choice">
-<label><input type="radio" name="onoff" value="on" checked> Switched ON (starts spending)</label>
-<label><input type="radio" name="onoff" value="off"> Left OFF (I switch it on myself)</label>
+<label><input type="radio" name="onoff" value="on" checked autocomplete="off"> Switched ON (starts spending)</label>
+<label><input type="radio" name="onoff" value="off" autocomplete="off"> Left OFF (I switch it on myself)</label>
 </div>
 </div>
 <button id="copy" disabled>Copy the whole prompt</button>
