@@ -4308,5 +4308,19 @@
   ],
   "creator": "JoannaIpsaros",
   "added": "arvin-approved-20261020"
+ },
+ {
+  "id": "BR-1318",
+  "file": "ai/ai_struggle-waterproof-mascara-towel-scrub_v1.mp4",
+  "beat": "mascara-before",
+  "beat_label": "The old way: mascara",
+  "desc": "AI phone selfie: woman ~30 lying on a grey towel rubs her eye into it to get waterproof mascara off - a black mascara smear spreads on the towel; hard cut to both eyes red and sore after scrubbing, slow tired blink.",
+  "age": "30s",
+  "quality": "good",
+  "dur": 7.3,
+  "web": "clip-pool/BR-1318.mp4",
+  "poster": "clip-pool/BR-1318.jpg",
+  "added": "arvin-approved-20261021",
+  "ai": true
  }
 ]
