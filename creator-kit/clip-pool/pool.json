@@ -372,41 +372,44 @@
  {
   "id": "BR-1085",
   "file": "application/t1127_26.3s_mess-up-and-retry-full.mp4",
-  "beat": "off-and-back-on",
-  "beat_label": "The redo: off and straight back on",
+  "beat": "click-on-face",
+  "beat_label": "Clicking them on",
   "desc": "Whole retry: clicks the lash on with the applicator, talks, pinches it off with her fingers, then clicks it back on with the applicator",
   "age": "30s",
   "quality": "great",
   "dur": 13.0,
   "web": "clip-pool/BR-1085.mp4",
   "poster": "clip-pool/BR-1085.jpg",
-  "creator": "BrodieJenkins"
+  "creator": "BrodieJenkins",
+  "onoff": "cut-arvin-20261022"
  },
  {
   "id": "BR-1099",
   "file": "application/t1128_30.3s_mess-up-and-retry-full.mp4",
-  "beat": "off-and-back-on",
-  "beat_label": "The redo: off and straight back on",
+  "beat": "click-on-face",
+  "beat_label": "Clicking them on",
   "desc": "Whole retry: clicks the lash on with the applicator, points at it, pinches it off with her fingers, then clicks it back on with the applicator",
   "age": "30s",
   "quality": "great",
   "dur": 9.1,
   "web": "clip-pool/BR-1099.mp4",
   "poster": "clip-pool/BR-1099.jpg",
-  "creator": "BrodieJenkins"
+  "creator": "BrodieJenkins",
+  "onoff": "cut-arvin-20261022"
  },
  {
   "id": "BR-0997",
   "file": "application/t1118_40.2s_clicks-lash-back-on.mp4",
-  "beat": "off-and-back-on",
-  "beat_label": "The redo: off and straight back on",
+  "beat": "click-on-face",
+  "beat_label": "Clicking them on",
   "desc": "With bare lashes again, she lifts the applicator to her right eye and clicks the lash back on, then lowers it",
   "age": "20s",
   "quality": "great",
   "dur": 4.4,
   "web": "clip-pool/BR-0997.mp4",
   "poster": "clip-pool/BR-0997.jpg",
-  "creator": "DaniSealey"
+  "creator": "DaniSealey",
+  "onoff": "cut-arvin-20261022"
  },
  {
   "id": "BR-1016",
@@ -751,7 +754,8 @@
   "dur": 3.0,
   "web": "clip-pool/BR-1094.mp4",
   "poster": "clip-pool/BR-1094.jpg",
-  "creator": "BrodieJenkins"
+  "creator": "BrodieJenkins",
+  "onoff": "cut-arvin-20261022"
  },
  {
   "id": "BR-0183",
@@ -1019,13 +1023,14 @@
    31.33,
    36.26
   ],
-  "creator": "BrodieJenkins"
+  "creator": "BrodieJenkins",
+  "onoff": "keep-arvin-20261022"
  },
  {
   "id": "BR-0985",
   "file": "application/t1116_33.3s_clicks-lash-back-on.mp4",
-  "beat": "off-and-back-on",
-  "beat_label": "The redo: off and straight back on",
+  "beat": "click-on-face",
+  "beat_label": "Clicking them on",
   "desc": "Second attempt: she clamps the applicator on her right eye again and clicks the lash back on, then lowers it",
   "age": "20s",
   "quality": "great",
@@ -1036,7 +1041,8 @@
    31.05,
    37.61
   ],
-  "creator": "MollieWhite"
+  "creator": "MollieWhite",
+  "onoff": "cut-arvin-20261022"
  },
  {
   "id": "BR-0548",
@@ -3122,8 +3128,8 @@
  {
   "id": "BR-1182",
   "file": "spoken/try-again/BrodieJenkins_Too-Short-For-Falsies_31.1s.mp4",
-  "beat": "other",
-  "beat_label": "Other",
+  "beat": "off-and-back-on",
+  "beat_label": "The redo: off and straight back on",
   "desc": "BrodieJenkins says: \"The thing is, if you mess it up, you just take them off and try again.\"",
   "age": "30s",
   "quality": "",
@@ -3134,7 +3140,8 @@
    31.36,
    36.1
   ],
-  "creator": "BrodieJenkins"
+  "creator": "BrodieJenkins",
+  "onoff": "keep-arvin-20261022"
  },
  {
   "id": "BR-0940",
@@ -3151,7 +3158,8 @@
    33.55,
    38.36
   ],
-  "creator": "unnamed-t1078-group"
+  "creator": "unnamed-t1078-group",
+  "onoff": "keep-arvin-20261022"
  },
  {
   "id": "BR-0626",
@@ -4222,8 +4230,8 @@
  {
   "id": "BR-1187",
   "file": "spoken/try-again/LucyShore_Only-Half-Right_33.8s.mp4",
-  "beat": "other",
-  "beat_label": "Other",
+  "beat": "off-and-back-on",
+  "beat_label": "The redo: off and straight back on",
   "desc": "LucyShore says: \"And if you applied them crooked, no worries at all, you can just slide them off and then go again, just like that.\"",
   "age": "20s",
   "quality": "",
@@ -4235,7 +4243,8 @@
    41.42
   ],
   "creator": "LucyShore",
-  "added": "arvin-approved-20261020"
+  "added": "arvin-approved-20261020",
+  "onoff": "keep-arvin-20261022"
  },
  {
   "id": "BR-1191",
@@ -4289,7 +4298,8 @@
    44.62
   ],
   "creator": "DaniSealey",
-  "added": "arvin-approved-20261020"
+  "added": "arvin-approved-20261020",
+  "onoff": "cut-arvin-20261022"
  },
  {
   "id": "BR-1186",
@@ -4307,7 +4317,8 @@
    47.36
   ],
   "creator": "JoannaIpsaros",
-  "added": "arvin-approved-20261020"
+  "added": "arvin-approved-20261020",
+  "onoff": "cut-arvin-20261022"
  },
  {
   "id": "BR-1318",
@@ -4367,5 +4378,20 @@
   "poster": "clip-pool/BR-1321.jpg",
   "added": "arvin-approved-20261022",
   "ai": true
+ },
+ {
+  "id": "BR-1322",
+  "file": "application/t1136_0s_off-and-back-on-full.mp4",
+  "beat": "off-and-back-on",
+  "beat_label": "The redo: off and straight back on",
+  "desc": "Blonde slides a magnetic strip lash off her eye with her fingers, loads it into the rose-gold applicator and clicks it straight back on, talking to camera",
+  "age": "20s",
+  "quality": "great",
+  "dur": 6.0,
+  "web": "clip-pool/BR-1322.mp4",
+  "poster": "clip-pool/BR-1322.jpg",
+  "creator": "SavanaAkers",
+  "added": "arvin-approved-20261022",
+  "onoff": "keep-arvin-20261022"
  }
 ]
