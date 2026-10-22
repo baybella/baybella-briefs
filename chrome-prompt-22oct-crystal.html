@@ -1,0 +1,114 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chrome Ad Prompt Crystal</title>
+<style>
+:root{--bg:#fbf9f7;--ink:#1a1614;--muted:#6b625c;--line:#e6ded8;--card:#fff;--accent:#b5827a;--soft:#f3e9e6;--warn:#a5482f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141110;--ink:#f2ece8;--muted:#a89e98;--line:#2f2926;--card:#1d1917;--accent:#d8a49a;--soft:#2b2220;--warn:#e08a6f}}
+:root[data-theme="dark"]{--bg:#141110;--ink:#f2ece8;--muted:#a89e98;--line:#2f2926;--card:#1d1917;--accent:#d8a49a;--soft:#2b2220;--warn:#e08a6f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,system-ui,sans-serif;padding:24px 16px 80px}
+.w{max-width:860px;margin:0 auto}
+h1{font-size:28px;line-height:1.2;margin:4px 0 6px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.sub{color:var(--muted);margin:0 0 20px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 18px}
+.box h2{font-size:16px;margin:0 0 10px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td,th{text-align:left;padding:6px 8px;border-top:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;border-top:0}
+code{font:13px ui-monospace,Menlo,monospace;word-break:break-all}
+label{display:block;font-weight:600;margin:0 0 6px}
+input[type=number]{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:140px}
+.choice{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 0}
+.choice label{font-weight:500;display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;margin:0}
+.row{margin:0 0 16px}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:12px 18px;font-size:16px;cursor:pointer}
+button:disabled{opacity:.45;cursor:not-allowed}
+.need{color:var(--warn);font-size:14px;margin:8px 0 0}
+pre{white-space:pre-wrap;word-break:break-word;border:1px solid var(--line);border-radius:10px;padding:16px;font:13.5px/1.5 ui-monospace,monospace;background:var(--card)}
+a{color:var(--accent)}
+</style></head><body><div class="w">
+<div class="eyebrow">22 Oct · Meta build · 1 Trybe ad into the new ad set</div>
+<h1>Prompt for Claude in Chrome</h1>
+<p class="sub" style="margin:0 0 6px;font-size:13px">Built 22 Oct 2026, 12:19pm Toronto · <span id="ago"></span></p>
+<p class="sub">Crystal Cismaru's ad into "Trybe + 095 v2 - 22 Oct" (live, $50/day). Press Copy, paste into Claude in Chrome with Ads Manager open. The ad set is already on, so the ad runs once published.</p>
+<div class="box">
+<h2>What goes in</h2>
+<table><tr><th>Ad</th><th>What it is</th></tr>
+<tr><td><code>ML_V_v1_r13_119-WithoutTheGlueHassle_50OFF_trybe=2e60b2f0</code></td><td>Crystal Cismaru, Trybe, 50% off end card (22.5s)</td></tr></table>
+<p class="sub" style="margin:10px 0 0">9:16 and <code>_4x5</code> are in the ad library. Upload sheet: <a href="https://baybella.github.io/baybella-briefs/upload-sheet-22oct-crystal.html" target="_blank" rel="noopener">upload-sheet-22oct-crystal</a></p>
+</div>
+<button id="copy">Copy the whole prompt</button>
+<pre id="p">You are adding ONE ad to an existing ad set in Meta Ads Manager for Baybella. Ad account: Baybella - Annie Pineda (act_1798371600552352). Business 1210531597223225.
+
+FIRST: SAVE THIS PROMPT
+This prompt is also published at https://baybella.github.io/baybella-briefs/chrome-prompt-22oct-crystal.html. Before every stop-and-ask decision, re-read the rules below.
+
+APPROVAL - GIVEN ONCE, HERE. Do not ask me again mid-run for any of these:
+create this one ad in the ad set below, add its videos, remove and re-add videos where needed, turn every enhancement off, and publish it. The ad set is already ON, so the ad starts running when it publishes - that is wanted.
+
+IGNORE AND PUBLISH - never stop for these:
+1. &quot;WhatsApp number required&quot; (#2446880) once Product browsing is off. It&#x27;s a known false error. Tick &quot;Try to publish items with errors&quot; and publish.
+2. The YELLOW aspect-ratio warning on 4:5 videos.
+3. &quot;Won&#x27;t deliver to Facebook right column&quot;.
+A YELLOW warning is publishable. Only a RED error blocks.
+
+STOP AND ASK ONLY IF: billing is declined, an enhancement won&#x27;t turn off, a RED error that is NOT on the list above is still there after one fix attempt, the ad name won&#x27;t save exactly as written, or the ad set below can&#x27;t be found.
+
+THE SOURCE OF TRUTH
+Open this upload sheet and keep it open the whole time:
+https://baybella.github.io/baybella-briefs/upload-sheet-22oct-crystal.html
+The ad name, video and every word of copy come from that sheet, pasted with its Copy buttons. Never retype, shorten or rewrite anything.
+
+THE AD NAME IS THE WHOLE POINT
+The name ends in &quot;_trybe=2e60b2f0&quot;. That tail is how Trybe credits this ad to the creator, Crystal Cismaru, so she can see it and we can measure it on Trybe. Paste the name EXACTLY:
+ML_V_v1_r13_119-WithoutTheGlueHassle_50OFF_trybe=2e60b2f0
+Nothing added or removed after it. Never duplicate another ad to make this one (the copy keeps the old name). Build it fresh. Check the name a second time before publishing.
+
+WHERE IT GOES
+Campaign &quot;ABO Test - Underserved Ads (22 Aug)&quot; (ID 120251817541230116) -&gt; ad set &quot;Trybe + 095 v2 - 22 Oct&quot; (ID 120252758463210116).
+That ad set is LIVE at $50/day with 5 ads. Don&#x27;t change its budget, targeting, on/off or any of its 5 existing ads. Don&#x27;t touch any other ad set or campaign.
+
+STEP 0 - BEFORE ANYTHING
+- Open Billing and confirm the payment method isn&#x27;t declined. If it is, stop and tell me.
+- If an Australian tax (ABN/GST) prompt appears, skip it.
+
+STEP 1 - CREATE THE AD
+Open the ad set &quot;Trybe + 095 v2 - 22 Oct&quot; and create a new ad inside it (Create / &quot;+&quot; in the ads level, with this ad set selected). Check the breadcrumb shows this ad set before editing.
+- Ad name: ML_V_v1_r13_119-WithoutTheGlueHassle_50OFF_trybe=2e60b2f0
+- Identity: Facebook page &quot;Baybella Lashes&quot;. Instagram: choose &quot;Use Facebook Page&quot;. No Instagram account is connected, so don&#x27;t try to pick one.
+- Media - PAIR FIRST, 4:5 ONLY AS THE FALLBACK. If the wizard opens on &quot;Creative setup&quot;, click Next once to reach Media. Add media -&gt; Add video, click the search box, type &quot;119-WithoutTheGlueHassle&quot;. Select the 9:16 original FIRST, then the &quot;_4x5&quot;. Wait about 8 seconds (the &quot;Aspect ratios&quot; box is greyed out while videos process). Re-check the count.
+  - CHECK THE PLACEMENTS: Stories and Reels must show the 9:16 video. Feed must show the 4:5. If they&#x27;re the wrong way round, reassign them by hand.
+  - FALLBACK, no need to ask me: if &quot;Story media aspect ratio has to be smaller than or equal to 9:16&quot; is still RED after the placements are right, remove the 9:16 and keep the &quot;_4x5&quot; only. Check &quot;Aspect ratios&quot; reads &quot;(1 included)&quot;.
+- Primary text, Headline, Description: paste from the card&#x27;s Copy buttons. Only ONE of each - delete any extra &quot;text options&quot;.
+- Call to action: Shop Now. Website URL: https://baybellabeauty.com.au/ (the homepage, never a product page).
+
+STEP 2 - TURN OFF EVERYTHING META SWITCHES ON. Redo this after ANY media change:
+- Creative setup: Website summaries (untick Product descriptions AND Selling points), Website highlights, Site links, Promotions, Products. Must read 0/4 or 0/5.
+- Format display options: under Carousel AND under Collection, untick &quot;Show products&quot;. Only Single media stays on.
+- Personalized destinations -&gt; Product browsing: OFF. If the toggle is locked: Show products -&gt; Shopify Product Catalog -&gt; Save, then switch Product browsing off.
+- Advantage+ enhancements, essential enhancements, AI images, translation, music, text variations, touch-ups, subtitles: 0 selected.
+- &quot;Review defaults&quot; must show no settings on by default.
+
+STEP 3 - CLOSING THE EDITOR
+- Closing the editor pops up &quot;Publish draft items?&quot;. Always click Close on it.
+- Never use &quot;Preview to publish&quot;.
+- Only publish from the main &quot;Review and publish (N)&quot; button, in Step 4.
+
+STEP 4 - PUBLISH ONLY THIS AD
+- Check the ad&#x27;s primary text starts &quot;Some days you want lashes without the glue mess&quot; and matches the sheet.
+- &quot;Review and publish&quot; publishes EVERY ticked draft. Untick everything except this one ad. Take a screenshot of the ticks and check it before you click Publish.
+- If Publish is greyed out only because of ignore-list items, tick &quot;Try to publish items with errors&quot;.
+- If a pop-up offers to raise budgets, click Cancel.
+
+HOW TO WORK
+- Keep each batch to 5-8 actions.
+- If navigating fails, set location.href with JavaScript instead.
+
+HOW TO TALK TO ME
+- 1-3 lines per reply. At most one yes/no question.
+- At the end: the ad name COPIED FROM ADS MANAGER (not from this prompt), its ad set, its status (should be Active/In review), &quot;enhancements off&quot;, and whether it kept the 9:16 + 4:5 pair or fell back to 4:5 only.</pre>
+<script>
+(function(){var btn=document.getElementById('copy');btn.addEventListener('click',function(){var t=document.getElementById('p').textContent;var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy the whole prompt';},1600);};var fb=function(){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){btn.textContent='Press Ctrl+C';}document.body.removeChild(ta);};if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,fb);}else{fb();}});})();
+(function(){var b=new Date("2026-10-22T12:19:54.447232-04:00");function u(){var m=Math.round((Date.now()-b)/60000);document.getElementById("ago").textContent=m<60?m+" min ago":Math.round(m/60)+" h ago";}u();setInterval(u,60000);})();
+</script>
+<script>document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a)return;e.preventDefault();window.open(a.href,'_blank','noopener');});</script>
+</div></body></html>
