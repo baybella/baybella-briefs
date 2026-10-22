@@ -1,0 +1,209 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chrome Ad Prompt 22 Oct</title>
+<style>
+:root{--bg:#fbf9f7;--ink:#1a1614;--muted:#6b625c;--line:#e6ded8;--card:#fff;--accent:#b5827a;--soft:#f3e9e6;--warn:#a5482f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141110;--ink:#f2ece8;--muted:#a89e98;--line:#2f2926;--card:#1d1917;--accent:#d8a49a;--soft:#2b2220;--warn:#e08a6f}}
+:root[data-theme="dark"]{--bg:#141110;--ink:#f2ece8;--muted:#a89e98;--line:#2f2926;--card:#1d1917;--accent:#d8a49a;--soft:#2b2220;--warn:#e08a6f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,system-ui,sans-serif;padding:24px 16px 80px}
+.w{max-width:860px;margin:0 auto}
+h1{font-size:28px;line-height:1.2;margin:4px 0 6px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.sub{color:var(--muted);margin:0 0 20px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 18px}
+.box h2{font-size:16px;margin:0 0 10px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td,th{text-align:left;padding:6px 8px;border-top:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;border-top:0}
+code{font:13px ui-monospace,Menlo,monospace;word-break:break-all}
+label{display:block;font-weight:600;margin:0 0 6px}
+input[type=number]{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:140px}
+.choice{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 0}
+.choice label{font-weight:500;display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;margin:0}
+.row{margin:0 0 16px}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:12px 18px;font-size:16px;cursor:pointer}
+button:disabled{opacity:.45;cursor:not-allowed}
+.need{color:var(--warn);font-size:14px;margin:8px 0 0}
+pre{white-space:pre-wrap;word-break:break-word;border:1px solid var(--line);border-radius:10px;padding:16px;font:13.5px/1.5 ui-monospace,monospace;background:var(--card)}
+a{color:var(--accent)}
+</style></head><body><div class="w">
+<div class="eyebrow">22 Oct · Meta build · 5 ads, one new ad set</div>
+<h1>Prompt for Claude in Chrome</h1>
+<p class="sub" style="margin:0 0 6px;font-size:13px">Built 22 Oct 2026, 2:06am Toronto · <span id="ago"></span></p>
+<p class="sub">5 ads into one new ad set, "Trybe + 095 v2 - 22 Oct", in "ABO Test - Underserved Ads (22 Aug)". Fill in the two boxes, press Copy, paste into Claude in Chrome with Ads Manager open. Nothing spends until you pick it here.</p>
+
+<div class="box">
+<h2>What goes in</h2>
+<table>
+<tr><th>Ad</th><th>What it is</th><th>Copy</th></tr>
+<tr><td><code>ML_V_v2_r12_095-YouAlreadyKnowHow_50OFF</code></td><td>Alana Aceski, You Already Know How, recaptioned edit (57.4s)</td><td>095 v1 live copy</td></tr>
+<tr><td><code>ML_V_v1_r13_116-LostHalfMyLashes_trybe=0f9969da</code></td><td>Daniella Park, Trybe (54.2s)</td><td>new</td></tr>
+<tr><td><code>ML_V_v1_r13_117-SurviveANightOut_trybe=3438dfa3</code></td><td>kiana da silva, Trybe (46.1s)</td><td>new</td></tr>
+<tr><td><code>ML_V_v1_r13_118-JustTakesPractice_trybe=02e5b2da</code></td><td>Meagan Maynard, Trybe, short take (42.9s)</td><td>new</td></tr>
+<tr><td><code>ML_V_v2_r13_118-JustTakesPractice_trybe=aa717c71</code></td><td>Meagan Maynard, Trybe, long take (61.2s)</td><td>new</td></tr>
+</table>
+<p class="sub" style="margin:10px 0 0">Each one has a 9:16 and a <code>_4x5</code> in the ad library. Upload sheet: <a href="https://baybella.github.io/baybella-briefs/upload-sheet-22oct-trybe.html" target="_blank" rel="noopener">upload-sheet-22oct-trybe</a></p>
+</div>
+
+<div class="box">
+<h2>Your two calls</h2>
+<p class="sub" style="margin:0 0 12px">Filled in from your call on 22 Oct: <b>$50/day, switched ON at publish</b>. Change them here first if that's changed.</p>
+<div class="row">
+<label for="budget">Daily budget for "Trybe + 095 v2 - 22 Oct" (AUD, for all 5 ads together)</label>
+<input id="budget" autocomplete="off" type="number" min="1" step="1" placeholder="e.g. 50" value="50">
+</div>
+<div class="row">
+<label>After publishing, the ad set should be</label>
+<div class="choice">
+<label><input type="radio" name="onoff" value="on" checked autocomplete="off"> Switched ON (starts spending)</label>
+<label><input type="radio" name="onoff" value="off" autocomplete="off"> Left OFF (I switch it on myself)</label>
+</div>
+</div>
+<button id="copy" disabled>Copy the whole prompt</button>
+<p class="need" id="need">Fill in the budget and pick on or off first.</p>
+</div>
+
+<pre id="p"></pre>
+
+<script type="text/plain" id="tpl">You are building ads in Meta Ads Manager for Baybella. Ad account: Baybella - Annie Pineda (act_1798371600552352). Business 1210531597223225.
+
+FIRST: SAVE THIS PROMPT
+This prompt is also published at https://baybella.github.io/baybella-briefs/chrome-prompt-22oct-trybe.html (the budget and on/off choice are the ones in this pasted copy: ${{BUDGET}}/day, {{ONOFF_WORD}}). Before every stop-and-ask decision, re-read the rules below. Don't work from your memory of it - long runs get compacted and the exact wording is lost.
+
+APPROVAL - GIVEN ONCE, HERE. Do not ask me again mid-run for any of these:
+create the ad set, add these 5 ads to it, add videos, remove and re-add videos where needed, turn every enhancement off, publish the clean ads{{APPROVAL_SWITCH}}.
+
+IGNORE AND PUBLISH - never stop for these:
+1. "WhatsApp number required" (#2446880) once Product browsing is off. It's a known false error. Tick "Try to publish items with errors" and publish.
+2. The YELLOW aspect-ratio warning on 4:5 videos.
+3. "Won't deliver to Facebook right column".
+A YELLOW warning is publishable. Only a RED error blocks.
+
+STOP AND ASK ONLY IF: billing is declined, an enhancement won't turn off, a RED error that is NOT on the list above is still there after one fix attempt, an ad name won't save exactly as written, or something on the sheet doesn't match Ads Manager. If a known fix exists, do it yourself.
+
+THE SOURCE OF TRUTH
+Open this upload sheet and keep it open the whole time:
+https://baybella.github.io/baybella-briefs/upload-sheet-22oct-trybe.html
+Every ad name, video and every word of copy comes from that sheet, pasted with its Copy buttons. Never retype, shorten or rewrite anything.
+
+THE AD NAMES MATTER MORE THAN USUAL
+4 of these 5 ads end in "_trybe=xxxxxxxx". That tail is how Trybe credits the ad to the creator who filmed it. Paste each name EXACTLY as written, with nothing added or removed after it. Never duplicate an ad to make another one (the copy keeps the old name and gets "- Copy"). Build each ad fresh. Check each name a second time before publishing.
+
+WHICH CARDS
+Build exactly these 5 ads, one per card on the sheet:
+- ML_V_v2_r12_095-YouAlreadyKnowHow_50OFF
+- ML_V_v1_r13_116-LostHalfMyLashes_trybe=0f9969da
+- ML_V_v1_r13_117-SurviveANightOut_trybe=3438dfa3
+- ML_V_v1_r13_118-JustTakesPractice_trybe=02e5b2da
+- ML_V_v2_r13_118-JustTakesPractice_trybe=aa717c71
+If an ad with one of these exact names already exists in "Trybe + 095 v2 - 22 Oct", don't build it twice - tell me in the end report.
+
+DO NOT TOUCH
+Everything already inside the campaign stays exactly as it is - no edits, no deletes, no on/off changes. The one exception is the new ad set "Trybe + 095 v2 - 22 Oct" (Step 2).
+- Live: "R13 Iterations - 20 Oct", "R1 - Trybe", "R12 Remixes A - 10 Oct", "R12 Remixes B - 10 Oct", "R12 Originals - 10 Oct"
+- Paused: "11th Sep" (the source you duplicate - the original stays paused and keeps its ads), "089 - Georgia - This Entire Time", "105 - Alice - I Timed It", "106 - Georgia - Made For You", "088 - Gina - You've Got It All Wrong", "104 - Carmen - Running Late Again", "101 - Paige - The Pickiest Person I Know", "ABO S3 - Starved Winners (6 Sep)", "4th Sep", "ABO S2 - Early Signal", "ABO S2 - Early Signal - Copy", "ABO S1 - Proven Underfed"
+- The live ad "ML_V_v1_r12_095-YouAlreadyKnowHow_50OFF" is v1 of the same concept. Leave it alone. You are building v2.
+
+STEP 0 - BEFORE ANYTHING
+- Open Billing and confirm the payment method isn't declined. If it is, stop and tell me.
+- If an Australian tax (ABN/GST) prompt appears at any point, skip it.
+
+STEP 1 - THE CAMPAIGN (do NOT create a new one)
+Use "ABO Test - Underserved Ads (22 Aug)" (ID 120251817541230116). Don't change its settings.
+
+STEP 2 - THE AD SET "Trybe + 095 v2 - 22 Oct"
+FIRST look for an ad set called exactly "Trybe + 095 v2 - 22 Oct" in this campaign.
+- IF IT EXISTS: use it. Don't duplicate anything. Set its daily budget to ${{BUDGET}}/day if it isn't already. Skip to Step 3.
+- IF IT DOESN'T EXIST: create it as below.
+Duplicate the ad set "11th Sep" inside the same campaign ONCE, then delete the old ads inside the NEW copy only. Duplicating pre-ticks a "Show products" suggestion: untick it.
+If you can't duplicate, build it by hand: website conversion, pixel 3747865808779224, Purchase; Australia; 18-65 all genders; exclude "180Day Purchasers" and "Klaviyo All Purchasers"; Advantage+ audience OFF; 7-day click; highest volume, no cap.
+Name it: Trybe + 095 v2 - 22 Oct
+Daily budget: ${{BUDGET}}/day. (The duplicate copies 11th Sep's $100 - change it to ${{BUDGET}}.)
+All 5 ads go into this one ad set.
+
+STEP 3 - EACH AD (one at a time - bulk edit can't change media, text or enhancements when ads differ)
+- Before editing, check the breadcrumb shows the right ad name AND ad set.
+- Ad name: the card's ad name, exactly (Copy button). Then check it once more - the trybe= tail must be intact.
+- Identity: Facebook page "Baybella Lashes". Instagram: choose "Use Facebook Page". No Instagram account is connected, so don't try to pick one.
+- Media - PAIR FIRST, 4:5 ONLY AS THE FALLBACK. If the wizard opens on "Creative setup", click Next once to reach Media. Add media -> Add video, click the search box, type the ad name (for a trybe ad, typing up to the concept slug is enough, e.g. "116-LostHalfMyLashes"). Select the 9:16 original FIRST, then the "_4x5". Wait about 8 seconds (the "Aspect ratios" box is greyed out while videos process). One click can jump the count by two, so re-check it.
+  - The two Meagan ads (118) share a slug. Pick by the trybe= code: 02e5b2da is v1, aa717c71 is v2. Never mix their videos.
+  - CHECK THE PLACEMENTS: open the placement / aspect-ratio view. Stories and Reels must show the 9:16 video. Feed must show the 4:5. If they're the wrong way round, reassign them by hand. (On 10-11 Oct the pair failed on 23 of 23 ads with "Story media aspect ratio has to be smaller than or equal to 9:16". That error means Meta put the 4:5 into Stories.)
+  - FALLBACK, no need to ask me: if that aspect-ratio error is still RED after the placements are right, remove the 9:16 and keep the "_4x5" only. Check "Aspect ratios" reads "(1 included)". Note the ad name for the end report.
+- FIRST AD OF THE RUN: after its media is set, tell me in one line whether the pair held. That one line is the test; don't stop for an answer, carry on.
+- Primary text, Headline, Description: paste from the card's Copy buttons. Only ONE primary text, ONE headline and ONE description - delete any extra "text options".
+- Call to action: Shop Now. Website URL: https://baybellabeauty.com.au/ (the homepage, never a product page).
+
+STEP 4 - TURN OFF EVERYTHING META SWITCHES ON. Redo this after ANY media change, including a fix. These come back every time:
+- Creative setup: Website summaries (untick Product descriptions AND Selling points), Website highlights, Site links, Promotions, Products. Must read 0/4 or 0/5.
+- Format display options: under Carousel AND under Collection, untick "Show products". Only Single media stays on.
+- Personalized destinations -> Product browsing: OFF. If the toggle is locked: Show products -> Shopify Product Catalog -> Save, then switch Product browsing off.
+- Advantage+ enhancements, essential enhancements, AI images, translation, music, text variations, touch-ups, subtitles: 0 selected.
+- "Review defaults" must show no settings on by default.
+
+STEP 5 - CLOSING THE EDITOR (an ad went live by accident here before)
+- Closing the editor pops up "Publish draft items?". Always click Close on it.
+- Never use "Preview to publish" - it publishes the open ad.
+- Only ever publish from the main "Review and publish (N)" button, in Step 7.
+
+STEP 6 - CHECK EVERY AD BEFORE PUBLISHING
+- Filter the ads table by the ad set "Trybe + 095 v2 - 22 Oct". The table, the ad tree and the Review dialog only load what's on screen, so scroll them in steps. Pick ads by scrolling the tree, not its search box.
+- Each ad's primary text, headline and description must match its own card on the sheet. Every ad has different copy:
+- ML_V_v2_r12_095-YouAlreadyKnowHow_50OFF: starts "If you can use a lash curler"
+- ML_V_v1_r13_116-LostHalfMyLashes_trybe=0f9969da: starts "Clusters, glue, extensions"
+- ML_V_v1_r13_117-SurviveANightOut_trybe=3438dfa3: starts "Mascara never gives you"
+- ML_V_v1_r13_118-JustTakesPractice_trybe=02e5b2da: starts "Everyone says strip lashes just take practice ... trial them for 30 days"
+- ML_V_v2_r13_118-JustTakesPractice_trybe=aa717c71: starts "Everyone says strip lashes just take practice ... Wonky? Take it off"
+- Hover over any error to read it (clicking only opens the editor). Fix anything RED that isn't on the ignore list.
+
+STEP 7 - PUBLISH ONLY THE CLEAN ADS
+- "Review and publish" publishes EVERY ticked draft. Untick anything with a RED error not on the ignore list, and anything not in this run. Scroll the dialog in steps, take a screenshot of the ticks, and check it before you click Publish.
+- If Publish is greyed out only because of ignore-list items, tick "Try to publish items with errors".
+- After publishing, a pop-up offers to raise budgets. Click Cancel.
+
+STEP 8 - ON OR OFF
+{{STEP8}}
+
+HOW TO WORK
+- Keep each batch to 5-8 actions - long batches and long scripts time out.
+- If navigating fails, set location.href with JavaScript instead.
+- Page reloads wipe helper scripts - re-define them after each reload.
+
+HOW TO TALK TO ME
+- 1-3 lines per reply: what's done, what's blocked. At most one yes/no question.
+- Don't stop for anything this prompt already answers.
+- A progress line every couple of ads, e.g. "2 of 5 done".
+- At the end: a table of ad set, budget, on/off, and every ad name inside it COPIED FROM ADS MANAGER (not from this prompt), plus "enhancements off on all 5", plus which ads kept the 9:16 + 4:5 pair and which fell back to 4:5 only.</script>
+
+<script>
+(function(){
+  var tpl=document.getElementById('tpl').textContent;
+  var out=document.getElementById('p'), btn=document.getElementById('copy'), need=document.getElementById('need'), bud=document.getElementById('budget');
+  function onoff(){var r=document.querySelector('input[name=onoff]:checked');return r?r.value:'';}
+  function build(){
+    var b=(bud.value||'').trim(), o=onoff();
+    var ok=b!==''&&Number(b)>0&&o!=='';
+    var t=tpl.split('{{BUDGET}}').join(ok?b:'[BUDGET]');
+    t=t.split('{{ONOFF_WORD}}').join(o==='on'?'switch on':o==='off'?'leave off':'[ON/OFF]');
+    t=t.split('{{APPROVAL_SWITCH}}').join(o==='on'?', then switch on the ad set':'');
+    var s8=o==='on'
+      ? 'Switch on the ad set "Trybe + 095 v2 - 22 Oct" and confirm the toggle took. It starts spending $'+b+'/day. Don\'t switch on anything outside this run.'
+      : o==='off'
+      ? 'Do NOT switch anything on. Leave the ad set "Trybe + 095 v2 - 22 Oct" OFF after publishing (if it is already on, switch it OFF), so nothing spends. I will switch it on myself. Confirm in your final table that it reads Off.'
+      : '[ON/OFF]';
+    t=t.split('{{STEP8}}').join(s8);
+    out.textContent=t; btn.disabled=!ok; need.style.display=ok?'none':'block';
+    return t;
+  }
+  bud.addEventListener('input',build);
+  document.querySelectorAll('input[name=onoff]').forEach(function(r){r.addEventListener('change',build);});
+  btn.addEventListener('click',function(){
+    var t=build();
+    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy the whole prompt';},1600);};
+    var fallback=function(){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){btn.textContent='Press Ctrl+C';}document.body.removeChild(ta);};
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,fallback);}else{fallback();}
+  });
+  build();
+})();
+</script>
+<script>document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a)return;e.preventDefault();window.open(a.href,'_blank','noopener');});</script>
+<script>(function(){var b=new Date("2026-10-22T02:06:44.058660-04:00");function u(){var m=Math.round((Date.now()-b)/60000);document.getElementById("ago").textContent=m<60?m+" min ago":Math.round(m/60)+" h ago";}u();setInterval(u,60000);})();</script>
+</div></body></html>
