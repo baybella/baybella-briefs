@@ -1,0 +1,23 @@
+{
+ "_why": "Clips the founder deleted from the pool. tests/pool-guard.mjs in creator-script-maker fails any deploy if one of these is back in pool.json. Never re-add one.",
+ "clips": [
+  {
+   "id": "BR-0291",
+   "desc": "Close-up: 50s curly-haired mum gets applicator clamped on her own eye",
+   "removed": "2026-10-23",
+   "why": "Founder: 'remove these all' (how-it-works clip review). BR-0291 he had asked to delete several times before; it was never taken out."
+  },
+  {
+   "id": "BR-1159",
+   "desc": "30s blonde woman in a navy blazer leans into camera and clamps the lash on one eye with the rose-gold applicator",
+   "removed": "2026-10-23",
+   "why": "Founder: 'remove these all' (how-it-works clip review). BR-0291 he had asked to delete several times before; it was never taken out."
+  },
+  {
+   "id": "BR-0012",
+   "desc": "Applicator clicks lash on, sitting on bed in blue tee",
+   "removed": "2026-10-23",
+   "why": "Founder: 'remove these all' (how-it-works clip review). BR-0291 he had asked to delete several times before; it was never taken out."
+  }
+ ]
+}

@@ -73,18 +73,6 @@
   "creator": "MeganM"
  },
  {
-  "id": "BR-0291",
-  "file": "family/t217_72.0s_mum-close-applicator-own-eye.mp4",
-  "beat": "closeup-click-on",
-  "beat_label": "Lashes going on, up close",
-  "desc": "Close-up: 50s curly-haired mum gets applicator clamped on her own eye",
-  "age": "20s+50s mum",
-  "quality": "good",
-  "dur": 4.7,
-  "web": "clip-pool/BR-0291.mp4",
-  "poster": "clip-pool/BR-0291.jpg"
- },
- {
   "id": "BR-0284",
   "file": "application/t197_9.6s_macro-side-applicator-winged-liner.mp4",
   "beat": "closeup-click-on",
@@ -144,19 +132,6 @@
   "dur": 7.0,
   "web": "clip-pool/BR-0932.mp4",
   "poster": "clip-pool/BR-0932.jpg"
- },
- {
-  "id": "BR-1159",
-  "file": "application/t1135_2.3s_opening-click-on-closeup.mp4",
-  "beat": "closeup-click-on",
-  "beat_label": "Lashes going on, up close",
-  "desc": "30s blonde woman in a navy blazer leans into camera and clamps the lash on one eye with the rose-gold applicator",
-  "age": "30s",
-  "quality": "great",
-  "dur": 6.0,
-  "web": "clip-pool/BR-1159.mp4",
-  "poster": "clip-pool/BR-1159.jpg",
-  "creator": "BecWallace"
  },
  {
   "id": "BR-0027",
@@ -3028,22 +3003,6 @@
   "dur": 2.2,
   "web": "clip-pool/BR-0241.mp4",
   "poster": "clip-pool/BR-0241.jpg"
- },
- {
-  "id": "BR-0012",
-  "file": "application/t9_2.4s_applicator-click-on.mp4",
-  "beat": "click-on-face",
-  "beat_label": "Lashes going on",
-  "desc": "Applicator clicks lash on, sitting on bed in blue tee",
-  "age": "20s",
-  "quality": "",
-  "dur": 2.9,
-  "web": "clip-pool/BR-0012.mp4",
-  "poster": "clip-pool/BR-0012.jpg",
-  "trim": [
-   2.96,
-   5.88
-  ]
  },
  {
   "id": "BR-0026",
