@@ -324,8 +324,8 @@ footer{text-align:center;color:var(--ink-soft);font-size:15px;margin-top:28px}
 <div class="how"><span>Your first round</span><i>↓</i></div>
 <section class="step">
 <span class="stepno">Round 1 · Step 1</span>
-<h2>Pick at least 2 briefs<span class="h2b">The ones you feel most confident filming.</span></h2>
-<p class="lead">Read each hook out loud. The ones that feel natural are the ones to pick. 2 is the minimum, and you can pick as many as you want to film.</p>
+<h2>Pick at least 1 brief<span class="h2b">The ones you feel most confident filming.</span></h2>
+<p class="lead">Read each hook out loud. The ones that feel natural are the ones to pick. 1 is the minimum, and you can pick as many as you want to film.</p>
 <div class="choice pick" data-i="0">
 <span class="tag alt">Script 1</span>
 <h3>🪮 Tweezer vs lash curler</h3>
@@ -368,12 +368,19 @@ footer{text-align:center;color:var(--ink-soft);font-size:15px;margin-top:28px}
 <p>🎬 Reply to a comment, honest and calm</p>
 <a class="small-link" href="https://baybella.github.io/baybella-briefs/strip-lash/brief-09-scary.html" target="_blank">Read the full script →</a>
 <button class="btn sec choose" type="button">Pick this one</button>
+</div><div class="choice pick" data-i="6">
+<span class="tag alt">Script 7 · Black Friday</span>
+<h3>🖤 Black Friday: the meltdown</h3>
+<ul class="hooks"><li>“My [husband] had a FULL meltdown JUST cos I wanted to buy $140 lashes, and before you come at me too, HEAR ME OUT.”</li></ul>
+<p>🎬 Venting to the internet, talking to camera</p>
+<a class="small-link" href="https://baybella.github.io/baybella-briefs/strip-lash/brief-bf-husband.html" target="_blank">Read the full script →</a>
+<button class="btn sec choose" type="button">Pick this one</button>
 </div>
 </section>
 <section class="step" id="lockbox">
 <div id="pre">
 <span class="stepno">Round 1 · Step 2</span>
-<h2>Lock in your scripts<span class="h2b" id="count">0 picked (2 minimum)</span></h2>
+<h2>Lock in your scripts<span class="h2b" id="count">0 picked (1 minimum)</span></h2>
 <label class="lead" for="film" style="display:block;margin-top:14px"><b>When do you think you'll have them filmed by?</b></label>
 <input type="date" id="film" style="display:block;width:100%;box-sizing:border-box;font:inherit;font-size:17px;padding:13px 14px;border:2px solid var(--pink-soft);border-radius:14px;margin-top:8px;background:#fff;color:inherit">
 <p class="lead" id="note" style="display:none;color:var(--bad);font-weight:700"></p>
@@ -409,7 +416,7 @@ footer{text-align:center;color:var(--ink-soft);font-size:15px;margin-top:28px}
 <footer>Stuck on anything? Message me in Trybe chat.<br><b>Linda</b>, Baybella creative team<br><small>Your Baybella Insiders page is just for you.</small></footer>
 </div>
 <script>
-var API="https://baybella-insiders-api.netlify.app/api/picks",T="sara-lopez-ee32ad",IDS=["1", "2", "3", "7", "8", "9"];
+var API="https://baybella-insiders-api.netlify.app/api/picks",T="sara-lopez-ee32ad",IDS=["1", "2", "3", "7", "8", "9", "10"];
 document.querySelectorAll('a[target=_blank]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();window.open(a.href,'_blank')})});
 var picks=[],cards=[].slice.call(document.querySelectorAll('.pick')),busy=false,FD=document.getElementById('film');
 var DN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -419,7 +426,7 @@ function nice(f){var d=new Date(f+'T12:00:00');return DN[d.getDay()]+' '+d.getDa
 function title(b){var c=cards[IDS.indexOf(b)];return '#'+b+' '+c.querySelector('h3').textContent.replace(/^[^A-Za-z0-9]+/,'').trim()}
 function id(c){return IDS[+c.dataset.i]}
 function draw(){cards.forEach(function(c){var on=picks.indexOf(id(c))>-1;c.classList.toggle('on',on);c.querySelector('.choose').textContent=on?'✓ Picked':'Pick this one'});
-document.getElementById('count').textContent=picks.length+' picked (2 minimum)';document.getElementById('lock').disabled=busy||picks.length<2||!FD.value}
+document.getElementById('count').textContent=picks.length+' picked (1 minimum)';document.getElementById('lock').disabled=busy||picks.length<1||!FD.value}
 function note(t){var n=document.getElementById('note');n.textContent=t;n.style.display=t?'block':'none'}
 function hideFull(full){cards.forEach(function(c){if(full.indexOf(id(c))>-1&&picks.indexOf(id(c))<0)c.style.display='none'})}
 function locked(mine,film){document.getElementById('pre').style.display='none';document.getElementById('done').style.display='block';
@@ -433,7 +440,7 @@ cards.forEach(function(c){c.querySelector('.choose').onclick=function(){var b=id
 document.getElementById('lock').onclick=function(){busy=true;draw();note('');
 fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({t:T,picks:picks,film:FD.value})}).then(function(r){return r.json().then(function(j){return[r.status,j]})}).then(function(x){busy=false;var j=x[1];
 if(j.locked){locked(j.mine,j.film);return}
-if(x[0]==409){picks=picks.filter(function(b){return j.gone.indexOf(b)<0});hideFull(j.full);draw();note('One of those briefs just closed, so pick another to make up your 2.');return}
+if(x[0]==409){picks=picks.filter(function(b){return j.gone.indexOf(b)<0});hideFull(j.full);draw();note('One of those briefs just closed, so pick another one.');return}
 draw();note(j.error=='pick a film date'?'Pick the day you think you\'ll have them filmed by.':'Something went wrong saving your picks, please try again.')}).catch(function(){busy=false;draw();note('Something went wrong saving your picks, please try again.')})};
 fetch(API+'?t='+T).then(function(r){return r.json()}).then(function(j){if(j.locked)locked(j.mine,j.film);else hideFull(j.full||[]);draw()}).catch(function(){draw()});
 </script></body></html>
