@@ -433,7 +433,10 @@ function locked(mine,film){document.getElementById('pre').style.display='none';d
 var m='hey linda! I just locked in my scripts on my insiders page:\n'+mine.slice().sort(function(a,b){return a-b}).map(title).join('\n')+(film?"\nI'm planning to film them by "+nice(film):'');
 var ta=document.getElementById('msg');ta.value=m;ta.style.height='auto';ta.style.height=(ta.scrollHeight+4)+'px';
 document.getElementById('mine').textContent='These '+mine.length+' are yours.';
-cards.forEach(function(c){c.style.display=mine.indexOf(id(c))>-1?'':'none';c.classList.add('on');c.querySelector('.choose').style.display='none'})}
+cards.forEach(function(c){var m2=mine.indexOf(id(c))>-1,bf=id(c)==='10',ch=c.querySelector('.choose');c.style.display=m2||bf?'':'none';c.classList.toggle('on',m2);
+if(bf&&!m2){ch.style.display='';ch.textContent='Add this one too';ch.onclick=function(){ch.textContent='Adding…';
+fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({t:T,add:'10'})}).then(function(r){return r.json()}).then(function(j){if(j.locked&&j.mine.indexOf('10')>-1){locked(j.mine,j.film)}else{ch.textContent=j.error=='full'?'This one just filled up':'Add this one too'}}).catch(function(){ch.textContent='Add this one too'})}}
+else ch.style.display='none'})}
 document.getElementById('copy').onclick=function(){var ta=document.getElementById('msg'),b=this;function ok(){b.textContent='Copied ✓, now paste it in your chat with Linda'}
 if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok()})}else{ta.select();document.execCommand('copy');ok()}};
 cards.forEach(function(c){c.querySelector('.choose').onclick=function(){var b=id(c),k=picks.indexOf(b);if(k>-1)picks.splice(k,1);else picks.push(b);draw()}});
