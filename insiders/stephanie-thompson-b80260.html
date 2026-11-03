@@ -374,12 +374,17 @@ footer{text-align:center;color:var(--ink-soft);font-size:15px;margin-top:28px}
 <div id="pre">
 <span class="stepno">Round 1 · Step 2</span>
 <h2>Lock in your scripts<span class="h2b" id="count">0 picked (2 minimum)</span></h2>
+<label class="lead" for="film" style="display:block;margin-top:14px"><b>When do you think you'll have them filmed by?</b></label>
+<input type="date" id="film" style="display:block;width:100%;box-sizing:border-box;font:inherit;font-size:17px;padding:13px 14px;border:2px solid var(--pink-soft);border-radius:14px;margin-top:8px;background:#fff;color:inherit">
 <p class="lead" id="note" style="display:none;color:var(--bad);font-weight:700"></p>
 <button class="btn pri" id="lock" disabled>🔒 Lock in my scripts</button>
 </div>
 <div class="done" id="done">
 <h2>You're locked in, Stephanie 💗<span class="h2b" id="mine">These are yours.</span></h2>
-<p class="lead">Film whenever you're ready and send them through in Trybe like normal. Once they're in, Linda will send you feedback on each one. And if you'd ever like advice before you film, you can book a complimentary 1 on 1 (totally optional):</p>
+<p class="lead"><b>Last step:</b> copy this and paste it into your Trybe chat with Linda so she knows what's coming.</p>
+<textarea id="msg" readonly style="display:block;width:100%;box-sizing:border-box;font:inherit;font-size:16px;line-height:1.5;padding:13px 14px;border:2px solid var(--pink-soft);border-radius:14px;background:#fff;color:inherit;resize:none;margin-top:10px"></textarea>
+<button class="btn pri" id="copy">📋 Copy my message</button>
+<p class="lead" style="margin-top:18px">Once your videos are in, Linda will send you feedback on each one. And if you'd ever like advice before you film, you can book a complimentary 1 on 1:</p>
 <a class="btn sec" href="https://calendly.com/arvinjayya" target="_blank">Book a 1 on 1 with Arvin (optional)</a>
 </div>
 </section>
@@ -406,20 +411,29 @@ footer{text-align:center;color:var(--ink-soft);font-size:15px;margin-top:28px}
 <script>
 var API="https://baybella-insiders-api.netlify.app/api/picks",T="stephanie-thompson-b80260",IDS=["1", "2", "3", "7", "8", "9"];
 document.querySelectorAll('a[target=_blank]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();window.open(a.href,'_blank')})});
-var picks=[],cards=[].slice.call(document.querySelectorAll('.pick')),busy=false;
+var picks=[],cards=[].slice.call(document.querySelectorAll('.pick')),busy=false,FD=document.getElementById('film');
+var DN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function ymd(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+(function(){var a=new Date(),b=new Date();b.setDate(b.getDate()+45);FD.min=ymd(a);FD.max=ymd(b);FD.onchange=FD.oninput=function(){draw()}})();
+function nice(f){var d=new Date(f+'T12:00:00');return DN[d.getDay()]+' '+d.getDate()+' '+MN[d.getMonth()]}
+function title(b){var c=cards[IDS.indexOf(b)];return '#'+b+' '+c.querySelector('h3').textContent.replace(/^[^A-Za-z0-9]+/,'').trim()}
 function id(c){return IDS[+c.dataset.i]}
 function draw(){cards.forEach(function(c){var on=picks.indexOf(id(c))>-1;c.classList.toggle('on',on);c.querySelector('.choose').textContent=on?'✓ Picked':'Pick this one'});
-document.getElementById('count').textContent=picks.length+' picked (2 minimum)';document.getElementById('lock').disabled=busy||picks.length<2}
+document.getElementById('count').textContent=picks.length+' picked (2 minimum)';document.getElementById('lock').disabled=busy||picks.length<2||!FD.value}
 function note(t){var n=document.getElementById('note');n.textContent=t;n.style.display=t?'block':'none'}
 function hideFull(full){cards.forEach(function(c){if(full.indexOf(id(c))>-1&&picks.indexOf(id(c))<0)c.style.display='none'})}
-function locked(mine){document.getElementById('pre').style.display='none';document.getElementById('done').style.display='block';
+function locked(mine,film){document.getElementById('pre').style.display='none';document.getElementById('done').style.display='block';
+var m='hey linda! I just locked in my scripts on my insiders page:\n'+mine.slice().sort(function(a,b){return a-b}).map(title).join('\n')+(film?"\nI'm planning to film them by "+nice(film):'');
+var ta=document.getElementById('msg');ta.value=m;ta.style.height='auto';ta.style.height=(ta.scrollHeight+4)+'px';
 document.getElementById('mine').textContent='These '+mine.length+' are yours.';
 cards.forEach(function(c){c.style.display=mine.indexOf(id(c))>-1?'':'none';c.classList.add('on');c.querySelector('.choose').style.display='none'})}
+document.getElementById('copy').onclick=function(){var ta=document.getElementById('msg'),b=this;function ok(){b.textContent='Copied ✓, now paste it in your chat with Linda'}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok()})}else{ta.select();document.execCommand('copy');ok()}};
 cards.forEach(function(c){c.querySelector('.choose').onclick=function(){var b=id(c),k=picks.indexOf(b);if(k>-1)picks.splice(k,1);else picks.push(b);draw()}});
 document.getElementById('lock').onclick=function(){busy=true;draw();note('');
-fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({t:T,picks:picks})}).then(function(r){return r.json().then(function(j){return[r.status,j]})}).then(function(x){busy=false;var j=x[1];
-if(j.locked){locked(j.mine);return}
+fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({t:T,picks:picks,film:FD.value})}).then(function(r){return r.json().then(function(j){return[r.status,j]})}).then(function(x){busy=false;var j=x[1];
+if(j.locked){locked(j.mine,j.film);return}
 if(x[0]==409){picks=picks.filter(function(b){return j.gone.indexOf(b)<0});hideFull(j.full);draw();note('One of those briefs just closed, so pick another to make up your 2.');return}
-draw();note('Something went wrong saving your picks, please try again.')}).catch(function(){busy=false;draw();note('Something went wrong saving your picks, please try again.')})};
-fetch(API+'?t='+T).then(function(r){return r.json()}).then(function(j){if(j.locked)locked(j.mine);else hideFull(j.full||[]);draw()}).catch(function(){draw()});
+draw();note(j.error=='pick a film date'?'Pick the day you think you\'ll have them filmed by.':'Something went wrong saving your picks, please try again.')}).catch(function(){busy=false;draw();note('Something went wrong saving your picks, please try again.')})};
+fetch(API+'?t='+T).then(function(r){return r.json()}).then(function(j){if(j.locked)locked(j.mine,j.film);else hideFull(j.full||[]);draw()}).catch(function(){draw()});
 </script></body></html>
