@@ -423,10 +423,7 @@ document.getElementById('count').textContent=picks.length+' picked (2 minimum)';
 function note(t){var n=document.getElementById('note');n.textContent=t;n.style.display=t?'block':'none'}
 function hideFull(full){cards.forEach(function(c){if(full.indexOf(id(c))>-1&&picks.indexOf(id(c))<0)c.style.display='none'})}
 function locked(mine,film){document.getElementById('pre').style.display='none';document.getElementById('done').style.display='block';
-var m='hey linda! I just locked in my scripts on my insiders page:
-'+mine.slice().sort(function(a,b){return a-b}).map(title).join('
-')+(film?"
-I'm planning to film them by "+nice(film):'');
+var m='hey linda! I just locked in my scripts on my insiders page:\n'+mine.slice().sort(function(a,b){return a-b}).map(title).join('\n')+(film?"\nI'm planning to film them by "+nice(film):'');
 var ta=document.getElementById('msg');ta.value=m;ta.style.height='auto';ta.style.height=(ta.scrollHeight+4)+'px';
 document.getElementById('mine').textContent='These '+mine.length+' are yours.';
 cards.forEach(function(c){c.style.display=mine.indexOf(id(c))>-1?'':'none';c.classList.add('on');c.querySelector('.choose').style.display='none'})}
@@ -437,6 +434,6 @@ document.getElementById('lock').onclick=function(){busy=true;draw();note('');
 fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({t:T,picks:picks,film:FD.value})}).then(function(r){return r.json().then(function(j){return[r.status,j]})}).then(function(x){busy=false;var j=x[1];
 if(j.locked){locked(j.mine,j.film);return}
 if(x[0]==409){picks=picks.filter(function(b){return j.gone.indexOf(b)<0});hideFull(j.full);draw();note('One of those briefs just closed, so pick another to make up your 2.');return}
-draw();note(j.error=='pick a film date'?'Pick the day you think you'll have them filmed by.':'Something went wrong saving your picks, please try again.')}).catch(function(){busy=false;draw();note('Something went wrong saving your picks, please try again.')})};
+draw();note(j.error=='pick a film date'?'Pick the day you think you\'ll have them filmed by.':'Something went wrong saving your picks, please try again.')}).catch(function(){busy=false;draw();note('Something went wrong saving your picks, please try again.')})};
 fetch(API+'?t='+T).then(function(r){return r.json()}).then(function(j){if(j.locked)locked(j.mine,j.film);else hideFull(j.full||[]);draw()}).catch(function(){draw()});
 </script></body></html>
