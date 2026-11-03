@@ -1,0 +1,425 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Baybella Insiders · Marika Murray</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-pink:#FCE9F1; --pink:#EC4899; --pink-soft:#F9A8C9; --pink-deep:#BE185D;
+  --purple-deep:#3B0764; --purple:#6B21A8; --purple-pale:#EDE9FE;
+  --teal:#0F766E; --teal-pale:#CCFBF1; --teal-soft:#99F6E4;
+  --ink:#2A0844; --ink-soft:#4C1D7E; --ink-faint:#8B7AAB; --line:#E9D5EF;
+  --card:#FFFFFF; --good:#15803D; --good-bg:#DCFCE7; --bad:#B91C1C; --bad-bg:#FEE2E2;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-pink);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:17px;line-height:1.5}
+.mock{background:var(--purple-deep);color:#fff;text-align:center;font-size:13px;font-weight:700;padding:8px 16px;letter-spacing:.04em}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 64px}
+header{padding:36px 0 8px;text-align:center}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-deep)}
+h1{font-family:Fraunces,serif;font-weight:600;font-size:31px;line-height:1.15;margin:8px 0 12px}
+.sub{color:var(--ink-soft);font-size:18px;margin:0 0 18px}
+.pay{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;font-size:15px;color:var(--ink-soft);text-align:left}
+.pay b{color:var(--ink)}
+.steps-nav{display:flex;gap:6px;justify-content:center;margin:22px 0 6px;flex-wrap:wrap}
+.steps-nav a{font-size:13px;font-weight:700;color:var(--purple);background:var(--purple-pale);padding:6px 12px;border-radius:999px;text-decoration:none}
+.h1b{display:block;color:var(--pink-deep);margin-top:4px}
+.flow{list-style:none;padding:0;margin:20px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;position:relative;counter-reset:none}
+.flow:before{content:"";position:absolute;left:12%;right:12%;top:15px;height:3px;background:var(--pink-soft);border-radius:3px;z-index:0}
+.flow li{position:relative;z-index:1}
+.flow a{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--ink);text-align:center}
+.flow .fn{width:32px;height:32px;border-radius:50%;background:var(--pink);color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px var(--bg-pink)}
+.flow .fe{font-size:24px;margin:10px 0 4px}
+.flow b{font-size:14px;font-weight:800;line-height:1.2}
+.flow small{display:block;font-size:12px;color:var(--ink-faint);font-weight:600;margin-top:3px;line-height:1.25}
+@media (max-width:420px){.flow b{font-size:12.5px}.flow small{font-size:11px}.flow .fe{font-size:20px}}
+.hero{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px;text-align:left}
+.hero video{max-width:300px;margin:0 auto}
+.hero-skip{font-family:Fraunces,serif;font-weight:600;font-size:21px;line-height:1.2;margin:16px 0 0;color:var(--ink)}
+.hero-k{font-size:13px;font-weight:800;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;margin:14px 0 6px}
+.moments{display:flex;flex-direction:column;gap:6px}
+.moments button{font-family:inherit;text-align:left;font-size:15px;font-weight:600;color:var(--ink);background:var(--bg-pink);border:0;border-radius:10px;padding:10px 12px;cursor:pointer}
+.moments b{color:var(--pink-deep);margin-right:6px}
+.hero-line{margin:14px 0 4px;font-weight:700}
+.hero-earn{margin:0;color:var(--ink-soft);font-size:15px}
+section.step{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 18px;margin-top:22px;box-shadow:0 6px 24px rgba(59,7,100,.06)}
+.num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--pink);color:#fff;font-weight:800;font-size:16px}
+.step h2{font-family:Manrope,sans-serif;font-weight:800;font-size:25px;line-height:1.2;margin:10px 0 4px}
+.why{color:var(--ink-faint);font-size:15px;margin:0 0 14px}
+video{width:100%;border-radius:14px;background:#000;display:block}
+.vid-tall{max-width:300px;margin:0 auto}
+ol.do,ul.do{padding-left:22px;margin:14px 0}
+ol.do li,ul.do li{margin:6px 0}
+.tip{background:var(--purple-pale);border-radius:14px;padding:12px 14px;margin:14px 0;font-size:15px}
+.tip b{color:var(--purple)}
+h3{font-size:17px;font-weight:800;margin:20px 0 8px}
+.pairs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair figure{margin:0}
+.pair figcaption{font-size:13px;font-weight:700;padding:6px 8px;border-radius:8px;margin-top:6px;line-height:1.3}
+.ok figcaption{background:var(--good-bg);color:var(--good)}
+.no figcaption{background:var(--bad-bg);color:var(--bad)}
+.exit{border:2px dashed var(--pink-soft);border-radius:14px;padding:12px 14px;margin-top:18px;font-size:15px}
+.exit a{color:var(--pink-deep);font-weight:800}
+.choice{border:2px solid var(--line);border-radius:18px;padding:16px;margin-top:14px}
+.choice.main{border-color:var(--pink)}
+.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--pink);color:#fff}
+.tag.alt{background:var(--purple-pale);color:var(--purple)}
+.choice h3{margin:10px 0 4px;font-size:19px}
+.choice p{margin:4px 0 12px;color:var(--ink-soft);font-size:15px}
+.hooks{list-style:none;padding:0;margin:8px 0 0}
+.hooks li{background:var(--bg-pink);border-radius:12px;padding:10px 12px;margin:8px 0;font-size:15px;font-weight:600}
+.script{border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:12px}
+.beat{padding:12px 14px;border-top:1px solid var(--line)}
+.beat:first-child{border-top:0}
+.beat .say{font-size:16px;font-weight:600}
+.beat .act{font-size:13px;color:var(--pink-deep);font-weight:700;margin-top:4px}
+.beat.yours{background:var(--bg-pink)}
+.guide{font-size:13px;color:var(--ink-faint);margin:10px 0 0}
+.btn{display:block;text-align:center;font-weight:800;font-size:17px;text-decoration:none;border-radius:14px;padding:15px 16px;margin-top:12px;border:0;width:100%;cursor:pointer;font-family:inherit}
+.btn.pri{background:var(--pink);color:#fff}
+.btn.sec{background:var(--purple-pale);color:var(--purple)}
+.small-link{display:block;text-align:center;font-size:14px;color:var(--purple);font-weight:700;margin-top:12px}
+.faq details{border-top:1px solid var(--line);padding:12px 0}
+.faq details:first-of-type{border-top:0}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{margin:8px 0 0;color:var(--ink-soft);font-size:15px}
+footer{text-align:center;color:var(--ink-soft);font-size:15px;margin-top:28px}
+.stepno{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--pink-deep);background:var(--bg-pink);padding:6px 12px;border-radius:999px}
+.step h2{font-family:Fraunces,serif;font-weight:600;font-size:23px;line-height:1.2;margin:12px 0 6px}
+.h2b{display:block;color:var(--pink-deep)}
+.lead{font-size:16px;color:var(--ink-soft);margin:6px 0 4px}
+.blk{border-top:1px solid var(--line);margin-top:18px;padding-top:16px}
+.lbl{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
+.note{margin:8px 0 0;font-size:15px}
+.blk.exit{border:2px dashed var(--pink-soft);border-radius:14px;padding:14px;margin-top:20px}
+.blk.exit .lbl{color:var(--pink-deep)}
+.blk.exit a{color:var(--pink-deep);font-weight:800}
+@media (max-width:420px){h1{font-size:25px}}
+.how{margin:16px 0 4px}
+.how span{display:inline-block;color:var(--purple-deep);font-weight:800;font-size:20px}
+.how i{display:block;font-style:normal;font-size:22px;font-weight:800;color:var(--pink);margin-top:6px;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(4px)}}
+.moments{position:relative;gap:8px;margin-top:14px}
+.moments:before{content:"";position:absolute;left:37px;top:14px;bottom:14px;width:2px;background:var(--pink-soft)}
+.moments button{display:flex;align-items:center;gap:10px;position:relative;background:#fff;border:1px solid var(--line);padding:10px 12px}
+.moments button:hover{border-color:var(--pink)}
+.moments .ts{flex:none;background:var(--pink);color:#fff;font-weight:800;font-size:12px;padding:5px 8px;border-radius:999px;min-width:58px;text-align:center;position:relative;z-index:1}
+.moments .ic{flex:none;font-size:22px;line-height:1}
+.moments .tx{font-size:15px;font-weight:500;line-height:1.3}
+.moments .tx b{font-weight:800;color:var(--pink-deep);margin-right:0}
+.recipe{font-family:Fraunces,serif;font-weight:600;font-size:28px;line-height:1.2;margin:18px 0 4px;text-align:center;color:var(--ink)}
+.recipe-sub{text-align:center;color:var(--ink);font-size:19px;font-weight:800;line-height:1.35;margin:0;text-wrap:balance}
+.recipe-sub span{display:inline-block;color:#fff;background:var(--pink);padding:3px 12px;border-radius:999px;margin-left:4px;white-space:nowrap;box-shadow:0 4px 12px rgba(236,72,153,.35);transform:rotate(-2deg)}
+.recipe-arrow{text-align:center;font-size:22px;font-weight:800;color:var(--pink);margin:2px 0 0;animation:bob 1.6s ease-in-out infinite}
+.recipe-card{margin-top:20px;padding-top:16px;background:linear-gradient(160deg,#FFF0F7 0%,#F3E8FF 100%);border:2px solid var(--pink-soft);border-radius:20px;padding:22px 14px 16px;position:relative}
+.recipe-card .recipe{margin:0;transform:translateY(-50%)}
+.recipe-card .recipe span{display:inline-block;background:var(--purple-deep);color:#fff;padding:10px 20px;border-radius:999px;box-shadow:0 8px 20px rgba(59,7,100,.22);letter-spacing:.01em}
+.recipe-card .recipe-sub{margin-top:-6px}
+.recipe-top{margin:0 0 16px}
+.recipe-top span{display:inline-block;background:var(--purple-deep);color:#fff;padding:10px 20px;border-radius:999px;box-shadow:0 8px 20px rgba(59,7,100,.22)}
+.recipe-card .recipe-sub{margin-top:0}
+.recipe-ribbon{font-weight:800;font-size:19px;text-align:center;line-height:1.3;background:var(--pink);color:#fff;padding:12px 30px;margin:0 10px;clip-path:polygon(0 0,100% 0,calc(100% - 14px) 50%,100% 100%,0 100%,14px 50%)}
+.recipe-ribbon em{font-style:normal;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:4px}
+.btn.exit-btn{background:var(--purple-deep);color:#fff!important;text-decoration:none}
+.step .stepno{display:table;margin-left:auto;margin-right:auto}
+.step>h2,.step>.lead{text-align:center}
+.gs-q{margin:6px 0 8px;font-size:15px;color:var(--ink)}
+.gs-list{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-direction:column;gap:6px}
+.gs-list li{background:var(--purple-pale);border-radius:10px;padding:8px 12px;font-size:15px;font-weight:600}
+.choice.purple{border-color:var(--purple)}
+.gs-box{background:#FDF2F8;border:2px solid var(--pink);border-radius:14px;padding:14px 16px;margin:6px 0 14px;text-align:center;color:var(--ink);font-size:15px;line-height:1.45}
+.gs-box b{display:block;font-size:17px;margin-bottom:4px}
+.gs-box hr{border:0;border-top:1px solid var(--pink-soft);margin:12px 0 10px}
+.gs-box .gs-off{color:var(--pink);margin-bottom:3px}
+.tag.purple{background:var(--purple);color:#fff}
+.tag.teal{background:var(--teal);color:#fff}
+.choice.teal{border-color:var(--teal)}
+.vo-box{background:#F0FDFA;border:2px solid var(--teal);border-radius:14px;padding:14px 16px;margin:6px 0 10px;text-align:center;color:var(--ink);font-size:15px;line-height:1.45}
+.vo-box b{display:block;font-size:17px;margin-bottom:4px}
+.vo-box hr{border:0;border-top:1px solid var(--teal-soft);margin:12px 0 10px}
+.vo-box .vo-steps{color:var(--teal);margin-bottom:6px}
+.vo-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;text-align:left}
+.vo-list li{background:var(--teal-pale);border-radius:10px;padding:8px 12px;font-size:15px;font-weight:600}
+.vo-note{text-align:center;color:var(--ink-soft);font-size:14px;margin:10px 0 0}
+.pair2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair2 .choice{margin-top:14px;padding:12px 10px}
+.pair2 .choice h3{font-size:16px;margin:8px 0 4px}
+.pair2 .choice p{font-size:13.5px;margin:4px 0 10px}
+.pair2 .vid-tall{width:100%}
+.choice h3,.choice>p,.choice .gs-q{text-align:center}
+.choice .tag{display:table;margin-left:auto;margin-right:auto}
+.sm-box{margin-top:18px;background:linear-gradient(160deg,#FFF0F7,#F3E8FF);border:2px solid var(--pink-soft);border-radius:18px;padding:18px 16px;text-align:center}
+.sm-pitch{margin:0;font-size:18px;line-height:1.3;color:var(--ink)}
+.sm-sub{margin:8px 0 4px;color:var(--ink-soft);font-size:15px}
+.sm-btn{font-size:18px;margin-top:14px}
+.fallback{margin-top:18px;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.fallback summary{cursor:pointer;font-weight:800;color:var(--purple);text-align:center;list-style-position:inside}
+.fallback[open] summary{margin-bottom:6px}
+.sm-box{background:none;border:0;padding:0;margin-top:18px}
+.sm-box .sm-btn{margin-top:0;font-size:19px;padding:17px 16px;box-shadow:0 8px 20px rgba(236,72,153,.3)}
+.sm-box .sm-sub{margin:8px 0 0;font-size:13px;color:var(--ink-faint)}
+.fallback{border:0;padding:0;margin-top:14px}
+.fallback summary{font-weight:700;font-size:14px;color:var(--purple);text-decoration:underline;text-underline-offset:3px;list-style:none}
+.fallback summary::-webkit-details-marker{display:none}
+.fallback[open]{border-top:1px solid var(--line);padding-top:6px}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+@media (max-width:560px){.paths{grid-template-columns:1fr}}
+.path{border:2px solid var(--pink);border-radius:16px;padding:14px 12px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.path-b{border-color:var(--purple)}
+.path .tag{margin-bottom:10px}
+.path .sm-btn{margin-top:0;font-size:16px;padding:14px 12px}
+.path .sm-sub{margin:8px 0 0;font-size:13px;color:var(--ink-soft)}
+.btn-purple{background:var(--purple);color:#fff;box-shadow:0 8px 20px rgba(107,33,168,.28)}
+.proof{margin:14px auto 0;max-width:520px;text-align:center;background:var(--purple-pale);border-radius:14px;padding:12px 16px;font-size:15px;line-height:1.4;color:var(--ink)}
+.proof b{color:var(--purple-deep)}
+.v1-tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.v1-t{border-radius:18px;padding:16px 12px;color:#fff!important;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;text-align:center}
+.v1-t.a{background:var(--pink)}.v1-t.b{background:var(--purple)}.v1-t.c{background:var(--teal)}
+.v1-t .ic{font-size:30px}.v1-t .tg{font-size:11px;font-weight:800;letter-spacing:.1em;opacity:.85}
+.v1-t .ti{font-weight:800;font-size:16px;line-height:1.2}
+.v1-t .go{margin-top:6px;background:#fff;border-radius:999px;padding:8px 14px;font-weight:800;font-size:14px}
+.v1-t.a .go{color:var(--pink-deep)}.v1-t.b .go{color:var(--purple)}.v1-t.c .go{color:var(--teal)}
+.v1-t .sb{font-size:12px;opacity:.92;line-height:1.3}
+.v1-proof{display:flex;align-items:center;gap:12px;margin:16px 0 0;text-align:left;background:var(--purple-pale);border-radius:14px;padding:12px 14px}
+.v1-proof .big{font-family:Fraunces,serif;font-size:30px;color:var(--purple);line-height:1;flex:none}
+.v1-proof p{margin:0;font-size:14px;line-height:1.35}
+.v1-t{color:var(--ink)!important;border:2px solid}
+.v1-t.a{background:linear-gradient(160deg,#FFF1F7 0%,#FCD9EA 100%);border-color:var(--pink)}
+.v1-t.b{background:linear-gradient(160deg,#F7F1FF 0%,#E4D5FB 100%);border-color:var(--purple)}
+.v1-t.c{background:linear-gradient(160deg,#F0FDFA 0%,#BFF3EA 100%);border-color:var(--teal)}
+.v1-t.a .tg{color:var(--pink-deep);opacity:1}.v1-t.b .tg{color:var(--purple);opacity:1}.v1-t.c .tg{color:var(--teal);opacity:1}
+.v1-t .sb{color:var(--ink-soft);opacity:1}
+.v1-t.a .go{background:var(--pink);color:#fff}.v1-t.b .go{background:var(--purple);color:#fff}.v1-t.c .go{background:var(--teal);color:#fff}
+.v1-proof .pt{margin:0 0 4px;font-size:15px}
+.v1-proof .pl{list-style:none;margin:0;padding:0}
+.v1-proof .pl li{font-size:14px;line-height:1.5;padding-left:22px;position:relative}
+.v1-proof .pl li:before{content:"✓";position:absolute;left:0;color:var(--purple);font-weight:800}
+.v1-proof .big{font-size:38px}
+.v1-proof .pay{margin:8px 0 0;font-weight:800;font-size:14px;color:var(--purple-deep)}
+.s4-row{display:flex;gap:12px;align-items:flex-start;border-top:1px solid var(--line);padding:14px 0;text-align:left}
+.s4-row:first-of-type{border-top:0}
+.s4-n{flex:none;width:40px;height:40px;border-radius:50%;background:var(--bg-pink);display:flex;align-items:center;justify-content:center;font-size:20px}
+.s4-tx{flex:1;font-size:16px;padding-top:8px}
+.s4-tx b{color:var(--ink)}
+.s4-btn{margin-top:10px;font-size:16px;padding:13px 14px}
+.raw-why{margin-top:6px;background:linear-gradient(160deg,#F7F1FF,#E4D5FB);border:2px solid var(--purple);border-radius:16px;padding:14px 16px;text-align:left}
+.rw-h{margin:0 0 8px;font-weight:800;font-size:17px;color:var(--purple-deep);text-align:center}
+.raw-why ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.raw-why li{background:#fff;border-radius:10px;padding:9px 12px;font-size:14px;line-height:1.35}
+.fa{background:var(--purple-pale);border-radius:14px;padding:12px 16px;margin:10px 0 2px}
+.fa p{margin:6px 0;font-size:15px;color:var(--ink)}
+.fa-lead{font-weight:800;font-size:16px}
+.fa-lead.due{font-size:19px}.fa-lead.due b{color:var(--pink-deep)}
+.tl3{list-style:none;padding:0;margin:12px 0 10px;display:grid;grid-template-columns:repeat(3,1fr);position:relative}
+.tl3::before{content:'';position:absolute;top:13px;left:16.6%;right:16.6%;height:2px;background:linear-gradient(90deg,var(--line),var(--pink))}
+.tl3 li{position:relative;text-align:center;padding-top:30px}
+.tl3 li::before{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid var(--line)}
+.tl3 li.hot::before{background:var(--pink);border-color:var(--pink)}
+.tl3 b{display:block;font-size:14px;color:var(--ink)}.tl3 li.hot b{color:var(--pink-deep)}
+.tl3 small{display:block;font-size:12px;color:var(--ink-faint);margin-top:2px}
+.rw-def{margin:-2px 0 10px;text-align:center;font-size:14px;color:var(--ink)}
+.faq .fqx summary{list-style:none;display:flex;align-items:flex-start;gap:6px;font-size:16px}
+.faq .fqx summary::-webkit-details-marker{display:none}
+.faq .fqx summary::after{content:'+';margin-left:auto;color:var(--pink-deep);font-weight:800;padding-left:10px}
+.faq .fqx[open] summary::after{content:'–'}
+.fqn{color:var(--pink-deep);font-weight:800}
+.ctx{display:inline-block;margin:10px 0 6px;font-size:17px;font-weight:800;color:var(--purple-deep);background:#fff;border:2px dashed var(--pink-soft);border-radius:16px;padding:9px 18px;max-width:100%;box-shadow:0 6px 18px rgba(59,7,100,.08)}
+
+.pick.on{border-color:var(--pink);background:#FFF7FB}
+.pick.on .choose{background:var(--pink);color:#fff}
+.pick.off{opacity:.45}
+#lock[disabled]{opacity:.45;cursor:default}
+.done{display:none;text-align:center}
+.stamp{text-align:center;font-size:12px;color:var(--ink-faint);margin-top:6px}
+
+.mock .nm{font:inherit;font-size:12px;margin:4px 2px 0;background:#ffffff22;color:#fff;border:1px solid #ffffff55;border-radius:999px;padding:3px 9px;cursor:pointer}
+.mock .nm.on{background:var(--pink);border-color:var(--pink)}
+.mcard{margin:18px auto 22px;max-width:340px;aspect-ratio:1.6;border-radius:20px;padding:18px 20px;color:#fff;text-align:left;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(120% 140% at 100% 0%,#EC4899 0%,#6B21A8 45%,#3B0764 100%);box-shadow:0 18px 40px rgba(59,7,100,.35),inset 0 0 0 1px #ffffff33;transform:rotate(-2deg);position:relative;overflow:hidden;animation:pop .8s cubic-bezier(.2,1.4,.4,1) both}
+.mcard:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,#ffffff40 48%,transparent 62%);transform:translateX(-100%);animation:shine 2.8s 1s ease-in-out infinite}
+@keyframes shine{60%,100%{transform:translateX(100%)}}
+@keyframes pop{from{opacity:0;transform:rotate(-8deg) scale(.85)}}
+.mc-top{display:flex;justify-content:space-between;font-size:12px;font-weight:800;letter-spacing:.18em}
+.mc-inv{background:#ffffff26;padding:3px 8px;border-radius:999px;letter-spacing:.1em;font-size:10px}
+.mc-prog{font-family:Fraunces,serif;font-size:15px;opacity:.85}
+.mc-name{font-family:Fraunces,serif;font-weight:600;font-size:34px;line-height:1}
+.mc-foot{display:flex;justify-content:space-between;font-size:12px;font-weight:700;opacity:.85}
+.perk{display:flex;gap:12px;align-items:flex-start;background:var(--bg-pink);border-radius:16px;padding:14px;margin-top:10px}
+.perk .pi{font-size:26px;line-height:1}
+.perk b{font-size:16px;font-weight:800}
+.perk p{margin:3px 0 0;font-size:15px;color:var(--ink-soft)}
+.perk.hot{background:linear-gradient(160deg,#FFF0F7,#F3E8FF);border:2px solid var(--pink-soft)}
+.strat .sface{width:96px;height:96px;border-radius:50%;margin:14px auto;background:var(--purple-pale);color:var(--purple);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;border:3px solid var(--pink-soft)}
+.how{text-align:center;margin-top:26px}
+.strat{text-align:center}
+.sphoto{display:block;width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:50% 18%;margin:16px auto 0;border:4px solid #fff;box-shadow:0 0 0 3px var(--pink),0 12px 28px rgba(59,7,100,.25)}
+.loop{position:relative;margin-top:14px}
+.loop:before{content:"";position:absolute;left:15px;top:16px;bottom:16px;width:3px;background:var(--pink-soft);border-radius:3px}
+.lp{display:flex;gap:12px;align-items:flex-start;position:relative;padding:8px 0}
+.lp .fn{flex:none;width:32px;height:32px;border-radius:50%;background:var(--pink);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #fff}
+.lp b{font-size:16px;font-weight:800}
+.lp p{margin:2px 0 0;font-size:14px;color:var(--ink-soft)}
+.lp.again .fn{background:var(--purple-deep)}
+.mets{display:grid;gap:6px;margin-top:10px}
+.mets div{display:flex;gap:10px;align-items:baseline;background:#fff;border-radius:10px;padding:8px 10px}
+.mets b{flex:none;min-width:40px;color:var(--pink-deep);font-size:14px}
+.mets span{font-size:14px;color:var(--ink-soft)}
+.ks p{text-align:left;font-size:16px;color:var(--ink-soft);margin:12px 0 0}
+.faq .fqx summary{list-style:none;display:flex;align-items:flex-start;gap:6px;font-size:16px}
+.faq .fqx summary::-webkit-details-marker{display:none}
+.faq .fqx summary::after{content:'+';margin-left:auto;color:var(--pink-deep);font-weight:800;padding-left:10px}
+.faq .fqx[open] summary::after{content:'–'}
+.fqn{color:var(--pink-deep);font-weight:800}
+.fa{background:var(--purple-pale);border-radius:14px;padding:12px 16px;margin:10px 0 2px}
+.fa p{margin:6px 0;font-size:15px;color:var(--ink)}
+.fa-lead{font-weight:800;font-size:16px}
+</style></head><body>
+<div class="wrap">
+<header>
+<div class="eyebrow">Baybella Insiders</div>
+<div class="mcard">
+<div class="mc-top"><span>BAYBELLA</span><span class="mc-inv">INVITE ONLY</span></div>
+<div class="mc-prog">Baybella Insiders</div>
+<div class="mc-name">Marika Murray</div>
+<div class="mc-foot"><span>Member since November 2026</span><span>✦</span></div>
+</div>
+<h1>You're in, Marika.<span class="h1b">Welcome to Baybella Insiders.</span></h1>
+<p class="sub">We only invite creators who've shown strong potential to succeed in our program, and you're one of them. From here on it's all about helping you earn more from every video.</p>
+</header>
+<section class="step">
+<span class="stepno">Your member perks</span>
+<h2>Your creative<span class="h2b">development program.</span></h2>
+<p class="lead">Every round we look at how your videos performed and what's winning in our ads, then build your next briefs around it.</p>
+<div class="perk hot"><span class="pi">⚡</span><div><b>First pick of new briefs</b><p>New briefs land on your page before anywhere else.</p></div></div>
+<div class="perk"><span class="pi">🌱</span><div><b>Feedback on every video</b><p>Linda tells you what worked and what to change next.</p></div></div>
+<div class="perk"><span class="pi">📊</span><div><b>Deep ad metrics</b><p>Outside the program, creators can only see total ad spend and sales generated. Baybella Insiders get more exclusive ad metrics, which can show exactly what you need to improve in your video.</p>
+<div class="mets"><div><b>CTR</b><span>Did your video make people want to click?</span></div><div><b>CPC</b><span>How cheaply your video gets people to the store</span></div><div><b>CPM</b><span>How much Facebook charges to show your video, lower means it rates it higher</span></div></div></div></div>
+<div class="perk"><span class="pi">📞</span><div><b>1 on 1s with our Lead Creative Strategist</b><p>Optional 30-minute zooms on your content, complimentary for members.</p></div></div>
+</section>
+<section class="step">
+<span class="stepno">How membership works</span>
+<h2>Every round<span class="h2b">you get better.</span></h2>
+<div class="loop">
+<div class="lp"><span class="fn">1</span><div><b>New briefs land here first</b><p>Your page fills up with the latest scripts.</p></div></div>
+<div class="lp"><span class="fn">2</span><div><b>You pick your briefs</b><p>The ones you feel most confident filming.</p></div></div>
+<div class="lp"><span class="fn">3</span><div><b>You film and send in Trybe</b><p>Film when it suits you and upload it right in Trybe.</p></div></div>
+<div class="lp"><span class="fn">4</span><div><b>You get feedback + your ad data</b><p>What worked, what to sharpen and how your ad is performing.</p></div></div>
+<div class="lp again"><span class="fn">↻</span><div><b>Then the next round lands</b><p>Built on what we learned from your last one.</p></div></div>
+</div>
+</section>
+<section class="step strat">
+<span class="stepno">Meet your strategist</span>
+<img class="sphoto" src="arvin.jpg" alt="Arvin Jay">
+<h2>Arvin Jay<span class="h2b">Lead Creative Strategist</span></h2>
+<p class="lead">Arvin Jay built the entire ad strategy that grew Baybella to <b>50,000+ customers</b>. He studies every ad we run, works out why the winners win, and turns that into the briefs you're about to pick from.</p>
+<p class="lead">If you ever want to go deeper on your content, you can book a 1 on 1 with him. It's completely optional, it's just there if you'd find it useful.</p>
+<a class="btn sec" href="https://calendly.com/arvinjayya" target="_blank">Book a 1 on 1 with Arvin (optional)</a>
+</section>
+<section class="step">
+<span class="stepno">The key to success</span>
+<h2>Volume wins<span class="h2b">in affiliate UGC.</span></h2>
+<div class="ks">
+<p><b>This is not a get rich quick scheme.</b> If a brand tells you that you can make a ton of money by filming one or two videos for them, that is a red flag.</p>
+<p>Like any business, 80% of your success will come from 20% of your work. So focus your efforts on the brands that give you the most attention and develop you the most, and always be looking to improve your skillset as a creator.</p>
+</div>
+</section>
+<div class="how"><span>Your first round</span><i>↓</i></div>
+<section class="step">
+<span class="stepno">Round 1 · Step 1</span>
+<h2>Pick at least 2 briefs<span class="h2b">The ones you feel most confident filming.</span></h2>
+<p class="lead">Read each hook out loud. The ones that feel natural are the ones to pick. 2 is the minimum, and you can pick as many as you want to film.</p>
+<div class="choice pick" data-i="0">
+<span class="tag alt">Script 1</span>
+<h3>🪮 Tweezer vs lash curler</h3>
+<ul class="hooks"><li>“Would you rather put a TWEEZER near your eye or a lash curler?”</li></ul>
+<p>🎬 Playful would-you-rather, talking to camera</p>
+<a class="small-link" href="https://baybella.github.io/baybella-briefs/strip-lash/brief-01-tweezer.html" target="_blank">Read the full script →</a>
+<button class="btn sec choose" type="button">Pick this one</button>
+</div><div class="choice pick" data-i="1">
+<span class="tag alt">Script 2</span>
+<h3>🤯 We&#x27;ve been gaslit</h3>
+<ul class="hooks"><li>“I watched 7 different strip lash tutorials, and I&#x27;m sorry, but we have been GASLIT...”</li></ul>
+<p>🎬 Green screen for the hook, then on camera</p>
+<a class="small-link" href="https://baybella.github.io/baybella-briefs/strip-lash/brief-02-gaslit.html" target="_blank">Read the full script →</a>
+<button class="btn sec choose" type="button">Pick this one</button>
+</div><div class="choice pick" data-i="2">
+<span class="tag alt">Script 3</span>
+<h3>🎭 Strip lash tutorials be like...</h3>
+<ul class="hooks"><li>“(tutorial voice) Okay so make sure the glue&#x27;s not too WET... but not too DRY...”</li></ul>
+<p>🎬 You act out a YouTube tutorial, then break character</p>
+<a class="small-link" href="https://baybella.github.io/baybella-briefs/strip-lash/brief-03-tutorials.html" target="_blank">Read the full script →</a>
+<button class="btn sec choose" type="button">Pick this one</button>
+</div><div class="choice pick" data-i="3">
+<span class="tag alt">Script 4</span>
+<h3>📺 Maybe the product is the problem</h3>
+<ul class="hooks"><li>“If there are ENDLESS YouTube tutorials on how to use a product... maybe the PRODUCT is the problem”</li></ul>
+<p>🎬 Talking to camera with a tutorial scroll over you</p>
+<a class="small-link" href="https://baybella.github.io/baybella-briefs/strip-lash/brief-07-product-problem.html" target="_blank">Read the full script →</a>
+<button class="btn sec choose" type="button">Pick this one</button>
+</div><div class="choice pick" data-i="4">
+<span class="tag alt">Script 5</span>
+<h3>💃 The mid-day fix</h3>
+<ul class="hooks"><li>“I KNOW the girlies are gonna feel the pain when you&#x27;re out with the GIRLS and you feel your strip lash start to lift.”</li></ul>
+<p>🎬 One take, talking to camera</p>
+<a class="small-link" href="https://baybella.github.io/baybella-briefs/strip-lash/brief-08-mid-day-fix.html" target="_blank">Read the full script →</a>
+<button class="btn sec choose" type="button">Pick this one</button>
+</div><div class="choice pick" data-i="5">
+<span class="tag alt">Script 6</span>
+<h3>🫣 Scary near your eye</h3>
+<ul class="hooks"><li>“Look, I&#x27;m gonna cut the BS here. Putting ANYTHING near your eye is scary, magnetic lashes included.”</li></ul>
+<p>🎬 Reply to a comment, honest and calm</p>
+<a class="small-link" href="https://baybella.github.io/baybella-briefs/strip-lash/brief-09-scary.html" target="_blank">Read the full script →</a>
+<button class="btn sec choose" type="button">Pick this one</button>
+</div>
+</section>
+<section class="step" id="lockbox">
+<div id="pre">
+<span class="stepno">Round 1 · Step 2</span>
+<h2>Lock in your scripts<span class="h2b" id="count">0 picked (2 minimum)</span></h2>
+<p class="lead" id="note" style="display:none;color:var(--bad);font-weight:700"></p>
+<button class="btn pri" id="lock" disabled>🔒 Lock in my scripts</button>
+</div>
+<div class="done" id="done">
+<h2>You're locked in, Marika 💗<span class="h2b" id="mine">These are yours.</span></h2>
+<p class="lead">Film whenever you're ready and send them through in Trybe like normal. Once they're in, Linda will send you feedback on each one. And if you'd ever like advice before you film, you can book a complimentary 1 on 1 (totally optional):</p>
+<a class="btn sec" href="https://calendly.com/arvinjayya" target="_blank">Book a 1 on 1 with Arvin (optional)</a>
+</div>
+</section>
+<section class="step faq">
+<div class="stepno">❓ Your questions</div>
+<h2>Quick questions.</h2>
+<details class="fqx" open><summary><span class="fqn">1.</span> My video is live but it's not getting any ad spend. Why?</summary>
+<div class="fa">
+<p class="fa-lead">Ad spend is like views.</p>
+<p>It works the same as organic content. On your own page, when a video performs well, the algorithm keeps showing it to more and more people.</p>
+<p>Paid ads work the same way, so the better your video does, the more Facebook spends to show it.</p>
+<p>If your ad isn't getting spend, that's Facebook telling us the video didn't land.</p>
+<p>It's not a judgment on you, it just means that one wasn't the winner, and your feedback and ad metrics show you what to change for the next one.</p>
+</div></details>
+<details class="fqx"><summary><span class="fqn">2.</span> How do I know how my video is doing?</summary>
+<div class="fa">
+<p class="fa-lead">Message Linda any time in the Trybe chat.</p>
+<p>She'll send you the latest numbers on your content, including the deeper ad metrics, whenever you want them.</p>
+</div></details>
+</section>
+
+<footer>Stuck on anything? Message me in Trybe chat.<br><b>Linda</b>, Baybella creative team<br><small>Your Baybella Insiders page is just for you.</small></footer>
+</div>
+<script>
+var API="https://baybella-insiders-api.netlify.app/api/picks",T="marika-murray-863132",IDS=["1", "2", "3", "7", "8", "9"];
+document.querySelectorAll('a[target=_blank]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();window.open(a.href,'_blank')})});
+var picks=[],cards=[].slice.call(document.querySelectorAll('.pick')),busy=false;
+function id(c){return IDS[+c.dataset.i]}
+function draw(){cards.forEach(function(c){var on=picks.indexOf(id(c))>-1;c.classList.toggle('on',on);c.querySelector('.choose').textContent=on?'✓ Picked':'Pick this one'});
+document.getElementById('count').textContent=picks.length+' picked (2 minimum)';document.getElementById('lock').disabled=busy||picks.length<2}
+function note(t){var n=document.getElementById('note');n.textContent=t;n.style.display=t?'block':'none'}
+function hideFull(full){cards.forEach(function(c){if(full.indexOf(id(c))>-1&&picks.indexOf(id(c))<0)c.style.display='none'})}
+function locked(mine){document.getElementById('pre').style.display='none';document.getElementById('done').style.display='block';
+document.getElementById('mine').textContent='These '+mine.length+' are yours.';
+cards.forEach(function(c){c.style.display=mine.indexOf(id(c))>-1?'':'none';c.classList.add('on');c.querySelector('.choose').style.display='none'})}
+cards.forEach(function(c){c.querySelector('.choose').onclick=function(){var b=id(c),k=picks.indexOf(b);if(k>-1)picks.splice(k,1);else picks.push(b);draw()}});
+document.getElementById('lock').onclick=function(){busy=true;draw();note('');
+fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({t:T,picks:picks})}).then(function(r){return r.json().then(function(j){return[r.status,j]})}).then(function(x){busy=false;var j=x[1];
+if(j.locked){locked(j.mine);return}
+if(x[0]==409){picks=picks.filter(function(b){return j.gone.indexOf(b)<0});hideFull(j.full);draw();note('One of those briefs just closed, so pick another to make up your 2.');return}
+draw();note('Something went wrong saving your picks, please try again.')}).catch(function(){busy=false;draw();note('Something went wrong saving your picks, please try again.')})};
+fetch(API+'?t='+T).then(function(r){return r.json()}).then(function(j){if(j.locked)locked(j.mine);else hideFull(j.full||[]);draw()}).catch(function(){draw()});
+</script></body></html>
