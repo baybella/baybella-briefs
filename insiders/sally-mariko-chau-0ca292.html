@@ -425,11 +425,11 @@ function ymd(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+
 function nice(f){var d=new Date(f+'T12:00:00');return DN[d.getDay()]+' '+d.getDate()+' '+MN[d.getMonth()]}
 function title(b){var c=cards[IDS.indexOf(b)];return '#'+b+' '+c.querySelector('h3').textContent.replace(/^[^A-Za-z0-9]+/,'').trim()}
 function id(c){return IDS[+c.dataset.i]}
-function draw(){cards.forEach(function(c){var on=picks.indexOf(id(c))>-1;c.classList.toggle('on',on);c.querySelector('.choose').textContent=on?'✓ Picked':'Pick this one'});
+function draw(){if(window.LK)return;cards.forEach(function(c){var on=picks.indexOf(id(c))>-1;c.classList.toggle('on',on);c.querySelector('.choose').textContent=on?'✓ Picked':'Pick this one'});
 document.getElementById('count').textContent=picks.length+' picked (1 minimum)';document.getElementById('lock').disabled=busy||picks.length<1||!FD.value}
 function note(t){var n=document.getElementById('note');n.textContent=t;n.style.display=t?'block':'none'}
 function hideFull(full){cards.forEach(function(c){if(full.indexOf(id(c))>-1&&picks.indexOf(id(c))<0)c.style.display='none'})}
-function locked(mine,film){document.getElementById('pre').style.display='none';document.getElementById('done').style.display='block';
+function locked(mine,film){window.LK=1;document.getElementById('pre').style.display='none';document.getElementById('done').style.display='block';
 var m='hey linda! I just locked in my scripts on my insiders page:\n'+mine.slice().sort(function(a,b){return a-b}).map(title).join('\n')+(film?"\nI'm planning to film them by "+nice(film):'');
 var ta=document.getElementById('msg');ta.value=m;ta.style.height='auto';ta.style.height=(ta.scrollHeight+4)+'px';
 document.getElementById('mine').textContent='These '+mine.length+' are yours.';
