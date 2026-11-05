@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baybella Creator Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-pink:#FCE9F1; --pink:#EC4899; --pink-soft:#F9A8C9; --pink-deep:#BE185D;
+  --purple-deep:#3B0764; --purple:#6B21A8; --purple-pale:#EDE9FE;
+  --teal:#0F766E; --teal-pale:#CCFBF1;
+  --ink:#2A0844; --ink-soft:#4C1D7E; --ink-faint:#8B7AAB; --line:#E9D5EF;
+  --card:#FFFFFF; --good:#15803D; --good-bg:#DCFCE7; --mid:#B45309; --mid-bg:#FEF3C7; --bad:#B91C1C; --bad-bg:#FEE2E2;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-pink);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:17px;line-height:1.5}
+.mock{background:var(--purple-deep);color:#fff;text-align:center;font-size:13px;font-weight:700;padding:8px 16px;letter-spacing:.04em}
+.mock small{display:block;font-weight:600;opacity:.75;letter-spacing:0}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 64px}
+header{padding:36px 0 8px;text-align:center}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-deep)}
+h1{font-family:Fraunces,serif;font-weight:600;font-size:32px;line-height:1.15;margin:8px 0 10px}
+.sub{color:var(--ink-soft);font-size:18px;margin:0}
+.myth{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px;text-align:left}
+.myth div{border-radius:16px;padding:14px;font-size:15px;line-height:1.4}
+.myth .no{background:var(--card);border:1px solid var(--line);color:var(--ink-faint)}
+.myth .no b{color:var(--bad);display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.myth .no s{text-decoration-color:var(--bad)}
+.myth .yes{background:var(--purple-deep);color:#fff}
+.myth .yes b{color:var(--pink-soft);display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.skip{display:flex;align-items:center;justify-content:center;gap:8px;margin:-14px 0 18px;padding:12px 16px;background:var(--purple-deep);color:#fff;font-size:16px;font-weight:800;border-radius:999px;text-decoration:none;box-shadow:0 6px 18px rgba(59,7,100,.18)}
+.skip span{font-size:13px;font-weight:600;opacity:.8}
+.toc{display:flex;gap:6px;justify-content:center;margin:20px 0 4px;flex-wrap:wrap}
+.toc a{font-size:13px;font-weight:700;color:var(--purple);background:var(--purple-pale);padding:6px 12px;border-radius:999px;text-decoration:none}
+section{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 18px;margin-top:20px;box-shadow:0 6px 24px rgba(59,7,100,.06)}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;color:var(--pink-deep);letter-spacing:.06em;text-transform:uppercase}
+.tag i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--pink);color:#fff;display:inline-flex;align-items:center;justify-content:center;letter-spacing:0}
+h2{font-weight:800;font-size:24px;line-height:1.2;margin:10px 0 8px}
+p{margin:0 0 12px}
+.big{font-size:19px;font-weight:700;color:var(--ink)}
+.so{background:var(--purple-pale);border-radius:14px;padding:12px 14px;margin-top:14px;font-size:15.5px}
+.so b{color:var(--purple)}
+ul.ticks{list-style:none;padding:0;margin:10px 0 0}
+ul.ticks li{padding:6px 0 6px 30px;position:relative}
+ul.ticks li:before{content:"✓";position:absolute;left:4px;top:6px;font-weight:800;color:var(--pink)}
+.stages{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:8px}
+.stages li{display:flex;gap:12px;align-items:flex-start;background:var(--bg-pink);border-radius:14px;padding:12px}
+.stages .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--purple);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.stages b{display:block}
+.stages span{font-size:15px;color:var(--ink-soft)}
+.stat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.stat div{border-radius:16px;padding:14px;text-align:center}
+.stat .lo{background:var(--bad-bg)} .stat .hi{background:var(--good-bg)}
+.stat strong{display:block;font-family:Fraunces,serif;font-size:34px;line-height:1}
+.stat .lo strong{color:var(--bad)} .stat .hi strong{color:var(--good)}
+.stat span{font-size:14px;font-weight:600;color:var(--ink-soft);display:block;margin-top:6px;line-height:1.3}
+.src{font-size:12.5px;color:var(--ink-faint);margin:-4px 0 10px}
+.srcline{font-size:13px;color:var(--ink-faint);margin:16px 0 0;padding-top:12px;border-top:1px dashed var(--line);line-height:1.5}
+.srcline a{color:var(--purple);font-weight:700}
+.meter{border:1px solid var(--line);border-radius:16px;padding:14px;margin-top:12px}
+.meter h3{margin:0;font-size:17px;font-weight:800}
+.meter p{font-size:15px;color:var(--ink-soft);margin:2px 0 10px}
+.bands{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;text-align:center}
+.bands div{border-radius:10px;padding:8px 4px;font-size:13px;font-weight:700;line-height:1.25}
+.bands b{display:block;font-size:17px}
+.b1{background:var(--bad-bg);color:var(--bad)} .b2{background:var(--mid-bg);color:var(--mid)} .b3{background:var(--good-bg);color:var(--good)}
+.rule{background:var(--bad-bg);border:2px solid var(--bad);border-radius:22px;padding:22px 18px;margin-top:24px;text-align:center}
+.rule h2{color:var(--bad);margin-top:0}
+.rule ol{text-align:left;margin:12px 0 0;padding-left:24px;font-weight:700;font-size:18px}
+.rule ol li{margin:8px 0}
+.rule p{font-size:15.5px;color:var(--ink-soft);margin:14px 0 0}
+.cta{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.btn{display:block;text-align:center;font-weight:800;font-size:17px;text-decoration:none;border-radius:999px;padding:15px 18px}
+.btn.pink{background:var(--pink);color:#fff}
+.btn.ghost{background:var(--card);color:var(--purple);border:2px solid var(--purple-pale)}
+footer{text-align:center;color:var(--ink-faint);font-size:14px;margin-top:28px}
+@media (max-width:380px){h1{font-size:28px}.myth{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="skip" href="index.html?seen=1"><span>Already read this?</span> Go to my toolkit →</a>
+  <div class="eyebrow">Read this before you film</div>
+  <h1>How this actually works</h1>
+  <p class="sub">Five minutes here will change how you film, and how much you earn.</p>
+  <div class="myth">
+    <div class="no"><b>What most people think</b><s>Get free lashes, film a quick unboxing, send 15 seconds, get paid.</s></div>
+    <div class="yes"><b>How it really works</b>Your video becomes an ad. You earn when that ad sells.</div>
+  </div>
+  <nav class="toc">
+    <a href="#paid">Getting paid</a><a href="#meta">Who picks</a><a href="#wear">Winners wear out</a><a href="#reps">It's reps</a><a href="#numbers">Your numbers</a>
+  </nav>
+</header>
+
+<section id="paid">
+  <span class="tag"><i>1</i>How you get paid</span>
+  <h2>You're not paid for posting. You're paid when your ad works.</h2>
+  <p>We take your video and run it as an ad on Facebook and Instagram. The better that ad sells, the more it runs, and the more you earn.</p>
+  <p>So the question is never "did I send a video?" It's <b>"would this video make a stranger buy?"</b></p>
+  <p class="srcline">📎 Source: Trybe on Instagram, <a href="https://www.instagram.com/p/DdCQ-r7PcW4/" target="_blank" rel="noopener">“How creators get paid on Trybe”</a></p>
+</section>
+
+<section id="meta">
+  <span class="tag"><i>2</i>Who picks the winners</span>
+  <h2>Meta decides which ads get pushed. Not us.</h2>
+  <p>We can put money behind your video, but if it isn't selling, Meta stops showing it. And Meta doesn't care about views or likes. It pushes the videos that make people <b>buy</b>.</p>
+  <div class="so"><b>So what wins?</b>
+    <ul class="ticks">
+      <li>The lashes are on screen in the first few seconds</li>
+      <li>You show them going on, up close</li>
+      <li>You give her a reason to buy, not just something to watch</li>
+    </ul>
+    <p style="margin:8px 0 0">That's exactly what your script is built to do.</p>
+  </div>
+  <p class="srcline">📎 Source: Trybe on Instagram, <a href="https://www.instagram.com/p/DexETNsD64F/" target="_blank" rel="noopener">“How does Meta actually work?”</a></p>
+</section>
+
+<section id="wear">
+  <span class="tag"><i>3</i>Winners wear out</span>
+  <h2>Every ad goes through three stages.</h2>
+  <ul class="stages">
+    <li><span class="n">1</span><div><b>Testing</b><span>A small amount of money goes behind your video to see how it does.</span></div></li>
+    <li><span class="n">2</span><div><b>Winning</b><span>A few ads take off and Meta gives them most of the budget.</span></div></li>
+    <li><span class="n">3</span><div><b>Wearing out</b><span>People get sick of seeing the same ad, it stops selling, and we need a new winner.</span></div></li>
+  </ul>
+  <div class="so"><b>That's good news for you.</b> There's always a spot opening up. If your first few didn't take off, the next one might take that spot. And give each new video a few days, as ads need time to find their feet.</div>
+  <p class="srcline">📎 Source: Trybe on Instagram, <a href="https://www.instagram.com/p/DfSdOwOvChY/" target="_blank" rel="noopener">“The 3 stages of a Meta ad”</a> · <a href="https://www.instagram.com/p/DexETNsD64F/" target="_blank" rel="noopener">“How does Meta actually work?”</a></p>
+</section>
+
+<section id="reps">
+  <span class="tag"><i>4</i>It's reps</span>
+  <h2>Nobody goes to the gym four times and expects to be fit.</h2>
+  <p>Same here. Trybe looked at their own creator data:</p>
+  <div class="stat">
+    <div class="lo"><strong>81%</strong><span>of creators who sent 4 videos or fewer made $0</span></div>
+    <div class="hi"><strong>90%</strong><span>of creators who sent 30+ videos made an income</span></div>
+  </div>
+  <p>Every video is a shot at goal. More shots, better odds. But it's not random: <b>every shot is scripted and on purpose.</b> That's why we write your script for you, built off the ads that are already selling.</p>
+  <div class="so"><b>More reps, better videos, better odds.</b> The creators who send the most also get the most feedback back, so they get better fastest.</div>
+  <p class="srcline">📎 Source: Trybe on Instagram, <a href="https://www.instagram.com/p/DcjmAp3htrb/" target="_blank" rel="noopener">“Why 4 videos isn't enough”</a> · <a href="https://www.instagram.com/p/DcwLyBVmm7b/" target="_blank" rel="noopener">“Post 100 times, or does quality matter more?”</a> · <a href="https://www.instagram.com/p/DePwJo7krYr/" target="_blank" rel="noopener">“Brands would rather work with 10 creators than 500”</a></p>
+</section>
+
+<section id="numbers">
+  <span class="tag"><i>5</i>Read your numbers</span>
+  <h2>Stop guessing. Your numbers tell you.</h2>
+  <p>Once your ad is running, three numbers tell you how it's going:</p>
+  <div class="meter">
+    <h3>🛑 Hook rate: did they stop scrolling?</h3>
+    <p>How many people watched at least the first 3 seconds.</p>
+    <div class="bands"><div class="b1"><b>&lt;16%</b>low</div><div class="b2"><b>24%</b>average</div><div class="b3"><b>34%+</b>good</div></div>
+  </div>
+  <div class="meter">
+    <h3>👀 Hold: did they stay?</h3>
+    <p>How many of those people were still watching halfway through.</p>
+    <div class="bands"><div class="b1"><b>&lt;12%</b>low</div><div class="b2"><b>20%</b>average</div><div class="b3"><b>30%+</b>good</div></div>
+  </div>
+  <div class="meter">
+    <h3>👆 Click rate: did they tap through?</h3>
+    <p>How many people who saw it tapped to the product.</p>
+    <div class="bands"><div class="b1"><b>&lt;0.8%</b>low</div><div class="b2"><b>1.2%</b>average</div><div class="b3"><b>1.9%+</b>good</div></div>
+  </div>
+  <div class="so"><b>Low hook rate?</b> Change your first 3 seconds. <b>Low hold?</b> Get to the lashes faster. <b>Low clicks?</b> Give a clearer reason to buy.</div>
+  <p class="srcline">📎 Source: Trybe on Instagram, <a href="https://www.instagram.com/p/Dd4fyRLEvb7/" target="_blank" rel="noopener">“Your analytics already tell you”</a></p>
+</section>
+
+<section>
+  <span class="tag"><i>6</i>We back you</span>
+  <h2>We'd rather go all in on a few creators than spread thin.</h2>
+  <p>The creators who do best work with a few brands and keep sending, week after week. That's who we put our time into:</p>
+  <ul class="ticks">
+    <li>A script made for you by the Script Maker</li>
+    <li>Feedback on your videos</li>
+    <li>A 1 on 1 with our creative strategist if you want one</li>
+  </ul>
+  <p style="margin-top:10px">This is a long-term thing, not a one-off.</p>
+  <p class="srcline">📎 Source: Trybe on Instagram, <a href="https://www.instagram.com/p/Dd_5cSjGr8Y/" target="_blank" rel="noopener">“What to look for when picking brands”</a> · <a href="https://www.instagram.com/p/DePwJo7krYr/" target="_blank" rel="noopener">“Brands would rather work with 10 creators than 500”</a></p>
+</section>
+
+
+<div class="cta">
+  <a class="btn pink" href="index.html?seen=1">Got it, take me to my toolkit →</a>
+</div>
+
+<footer>Baybella Creator Program</footer>
+</div>
+<script>
+document.querySelectorAll('a[target="_blank"]').forEach(function(a){
+  a.addEventListener('click',function(e){e.preventDefault();var w=window.open(a.href,'_blank');if(w){try{w.opener=null;}catch(_){}}});
+});
+</script>
+</body>
+</html>

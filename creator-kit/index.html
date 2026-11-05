@@ -227,22 +227,59 @@ footer{text-align:center;color:var(--ink-soft);font-size:15px;margin-top:28px}
 .faq .fqx[open] summary::after{content:'–'}
 .fqn{color:var(--pink-deep);font-weight:800}
 .ctx{display:inline-block;margin:10px 0 6px;font-size:17px;font-weight:800;color:var(--purple-deep);background:#fff;border:2px dashed var(--pink-soft);border-radius:16px;padding:9px 18px;max-width:100%;box-shadow:0 6px 18px rgba(59,7,100,.08)}
+.howtab{padding:14px 0 0}
+.howtab a{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;background:var(--purple-deep);color:#fff;font-size:16px;font-weight:800;border-radius:999px;text-decoration:none;box-shadow:0 6px 18px rgba(59,7,100,.18)}
+.howtab a span{font-size:13px;font-weight:600;opacity:.8}
+.rules2{background:#fff;border-radius:22px;overflow:hidden;border:2px solid #B91C1C;box-shadow:0 8px 24px rgba(59,7,100,.08);margin:18px 0 4px;text-align:left}
+.rules2 .top{background:#B91C1C;color:#fff;text-align:center;padding:14px 16px}
+.rules2 .top h2{font-family:Manrope,sans-serif;font-size:21px;font-weight:800;margin:0;line-height:1.2;color:#fff}
+.rules2 .top p{font-size:14px;opacity:.9;margin:2px 0 0}
+.rules2 .body{padding:4px 16px 14px}
+.rules2 .row{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+.rules2 .tick{flex:none;width:30px;height:30px;border-radius:50%;background:#FEE2E2;color:#B91C1C;font-weight:900;display:flex;align-items:center;justify-content:center}
+.rules2 .row b{display:block;font-size:17.5px;font-weight:800;line-height:1.25;color:var(--ink)}
+.rules2 .row p{font-size:15px;color:var(--ink-soft);margin:3px 0 0}
+.rules2 .gs{font-size:14px;color:var(--purple);font-weight:700;margin:10px 0 0}
+.redrules{background:#FEE2E2;border:3px solid #B91C1C;border-radius:18px;padding:16px 16px 14px;margin:18px 0 4px;text-align:left}
+.redrules h2{color:#B91C1C;font-size:22px;font-weight:800;margin:0 0 8px;text-align:center;font-family:Manrope,sans-serif}
+.redrules p{color:#B91C1C;font-weight:800;font-size:18px;line-height:1.3;margin:8px 0;display:flex;gap:8px}
+.redrules .lead{color:#7F1D1D;font-size:15.5px;font-weight:700;justify-content:center;text-align:center;margin:0 0 6px}
+.redrules small.gs{color:var(--purple);font-weight:700;margin-top:6px}
+.redrules p.why{display:block;color:#7F1D1D;font-size:15px;font-weight:600;line-height:1.45;text-align:center;margin:12px 0 0;padding-top:12px;border-top:1px dashed #FCA5A5}
+.redrules p.why b{display:block;color:#B91C1C;font-size:17px;font-weight:800;margin-bottom:4px}
+.redrules small{display:block;color:#7F1D1D;font-size:14px;font-weight:600;text-align:center;margin-top:8px}
+.mock button{font:inherit;font-size:12px;margin-left:8px;background:#fff;color:var(--purple-deep);border:0;border-radius:999px;padding:3px 10px;cursor:pointer}
 </style>
+<script>
+// One link: first visit shows "How this actually works", then the toolkit from then on.
+(function(){
+  var q=new URLSearchParams(location.search), ok=false;
+  try{ if(q.get('seen')==='1') localStorage.setItem('bb_seen_how','1'); ok=localStorage.getItem('bb_seen_how')==='1'; }catch(e){ ok=true; }
+  if(!ok && q.get('seen')!=='1') location.replace('how-it-works.html'+location.hash);
+})();
+</script>
 </head>
 <body>
 <div class="wrap">
+<div class="howtab"><a href="how-it-works.html?again=1"><span>New here?</span> 📖 How this actually works →</a></div>
 
 <header>
   <div class="eyebrow">Baybella creator program</div>
-  <p class="ctx">📖 The proven process behind our highest-performing creator ads.</p>
   <h1>Skip the guesswork.<br><span class="h1b">We already know what sells.</span></h1>
-  <p class="how"><span>Here's exactly how</span> <i>↓</i></p>
   <ol class="flow">
     <li><a href="#s1"><span class="fn">1</span><span class="fe">💗</span><b>Get them on</b><small>Practise a few days</small></a></li>
     <li><a href="#s2"><span class="fn">2</span><span class="fe">🎬</span><b>Pick your video</b><small>Option A, B or C</small></a></li>
     <li><a href="#s3"><span class="fn">3</span><span class="fe">💬</span><b>Say this</b><small>Copy our script</small></a></li>
     <li><a href="#s4"><span class="fn">4</span><span class="fe">📤</span><b>Film and send</b><small>Submit in Trybe</small></a></li>
   </ol>
+  <div class="rules2">
+    <div class="top"><h2>Every approved video has these 2 things</h2><p>Check yours before you send it</p></div>
+    <div class="body">
+      <div class="row"><span class="tick">✓</span><div><b>It uses our script</b><p>Every script is built from the ads that are selling right now. Why waste your time filming something with no chance of earning?</p></div></div>
+      <div class="row"><span class="tick">✓</span><div><b>It shows, not just tells</b><p>Footage of you putting the lashes on cleanly, with no cuts.</p></div></div>
+      <p class="gs">Doing green screen? Our B-roll clips cover this.</p>
+    </div>
+  </div>
   <div class="hero">
     <h2 class="recipe recipe-top"><span>✨ Our winning recipe ✨</span></h2>
     <video id="heroVid" src="media/A8-hero.mp4" controls playsinline preload="metadata"></video>
