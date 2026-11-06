@@ -220,6 +220,30 @@ footer{text-align:center;color:var(--ink-soft);font-size:15px;margin-top:28px}
 .tl3 li.hot::before{background:var(--pink);border-color:var(--pink)}
 .tl3 b{display:block;font-size:14px;color:var(--ink)}.tl3 li.hot b{color:var(--pink-deep)}
 .tl3 small{display:block;font-size:12px;color:var(--ink-faint);margin-top:2px}
+.s4-p{margin:6px 0 0;font-size:15px;line-height:1.4}
+.o1-hero{margin-top:10px;text-align:center;background:var(--purple-deep);color:#fff;border-radius:16px;padding:16px}
+.o1-hero .big{font-family:Fraunces,serif;font-weight:600;font-size:30px;line-height:1.1}
+.o1-hero p{margin:6px 0 0;font-size:14px;color:#E9D5FF}
+.o1-join{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.2)}
+.o1-hero .j-h{margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#F9A8C9}
+.j-row{display:flex;align-items:stretch;gap:4px;margin-bottom:6px;font-size:13px;font-weight:700}
+.j-tag{flex:none;width:22px;display:flex;align-items:center}
+.j-clip{flex:1;background:#fff;color:var(--ink);border-radius:8px;padding:7px 8px;text-align:left;line-height:1.3}
+.j-clip i{font-style:normal;background:#E5E0EA;color:#7c6f8c;border-radius:5px;padding:1px 5px;font-size:11px;white-space:nowrap}
+.bad .j-clip{opacity:.85}
+.j-cut{flex:none;width:3px;background:var(--pink);border-radius:2px}
+.o1-hero .j-tx{margin:8px 0 0;font-size:15px;font-weight:700;color:#fff;line-height:1.4}
+.o1-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.o1-col{border-radius:14px;padding:12px}
+.o1-col h4{margin:0 0 8px;font-size:15px}
+.o1-col ul{list-style:none;margin:0;padding:0;font-size:14px;line-height:1.45}
+.o1-col li{padding:4px 0;border-top:1px solid rgba(0,0,0,.06)}
+.o1-col li:first-child{border-top:0}
+.o1-cut{background:var(--bg-pink)}
+.o1-cut h4{color:var(--pink-deep)}
+.o1-no{background:var(--bad-bg)}
+.o1-no h4{color:var(--bad)}
+.o1-foot{text-align:center;font-weight:800;margin:12px 0 0;color:var(--ink)}
 .rw-def{margin:-2px 0 10px;text-align:center;font-size:14px;color:var(--ink)}
 .faq .fqx summary{list-style:none;display:flex;align-items:flex-start;gap:6px;font-size:16px}
 .faq .fqx summary::-webkit-details-marker{display:none}
@@ -506,26 +530,25 @@ footer{text-align:center;color:var(--ink-soft);font-size:15px;margin-top:28px}
 <!-- STEP 4 -->
 <section class="step" id="s4">
   <div class="stepno">📤 Step 4 of 4</div>
-  <h2>Film, edit, send.<span class="h2b">Three quick things.</span></h2>
+  <h2>Film, cut, send.<span class="h2b">Three quick things.</span></h2>
 
   <div class="s4-row"><span class="s4-n">🎥</span><div class="s4-tx"><b>1 · Film it</b> with your script</div></div>
 
-  <div class="s4-row"><span class="s4-n">✂️</span><div class="s4-tx"><b>2 · Edit it</b>
-    <a class="btn sec s4-btn" href="https://baybella.github.io/baybella-briefs/creator-kit/editing-guide/" target="_blank" rel="noopener">Open the editing guide →</a></div></div>
+  <div class="s4-row"><span class="s4-n">✂️</span><div class="s4-tx"><b>2 · Cut it up, that's it</b>
+    <div class="o1-hero"><div class="big">No dead air</div><p>Dead air = any second of silence.</p>
+      <div class="o1-join"><p class="j-h">Between clips</p>
+        <div class="j-row bad"><span class="j-tag">❌</span><span class="j-clip">"…and they're on." <i>pause</i></span><span class="j-cut"></span><span class="j-clip"><i>pause</i> "Now watch me…"</span></div>
+        <div class="j-row good"><span class="j-tag">✅</span><span class="j-clip">"…and they're on."</span><span class="j-cut"></span><span class="j-clip">"Now watch me…"</span></div>
+        <p class="j-tx">Your last word in one clip should run straight into your first word in the next.</p></div></div>
+    <div class="o1-cols">
+      <div class="o1-col o1-cut"><h4>✂️ Cut out</h4><ul><li>Pauses</li><li>"Um"s</li><li>Mistakes</li><li>Retakes</li><li><b>Gaps between clips</b></li></ul></div>
+      <div class="o1-col o1-no"><h4>🚫 Don't add</h4><ul><li>Captions</li><li>Text on screen</li><li>Music</li><li>Heavy filters or effects</li></ul></div>
+    </div>
+    <p class="o1-foot">We do all the editing for you.</p></div></div>
 
   <div class="s4-row"><span class="s4-n">📤</span><div class="s4-tx"><b>3 · Send it</b>
-    <a class="btn pri s4-btn" href="https://jointrybe.com/" target="_blank" rel="noopener">Submit your video in Trybe</a>
-    <a class="btn btn-purple s4-btn" href="https://baybella.github.io/baybella-briefs/creator-kit/upload.html" target="_blank" rel="noopener">Upload your raw clips</a></div></div>
+    <a class="btn pri s4-btn" href="https://jointrybe.com/" target="_blank" rel="noopener">Submit your video in Trybe</a></div></div>
 
-  <div class="raw-why">
-    <p class="rw-h">💸 Why send your raw clips?</p>
-    <p class="rw-def">Raw clips = your edited video with <b>no text over it</b>.</p>
-    <ul>
-      <li>🔁 <b>We re-edit them</b> into new versions: new hooks, new cuts</li>
-      <li>💰 <b>You earn 10% on every version that runs</b>, not just yours</li>
-      <li>🙌 <b>No extra filming.</b> Same footage, more chances to earn</li>
-    </ul>
-  </div>
 </section>
 
 <!-- FAQ -->
