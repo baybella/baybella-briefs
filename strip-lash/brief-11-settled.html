@@ -1,0 +1,558 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Brief #11 Warning signs you&#x27;ve settled for lashes you hate</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap"><style>
+:root{
+  --ink:#211C18;--ink2:#463E37;--grey:#8C8279;--pink:#E5147F;
+  --line:#EAD9E4;--paper:#fff;--bg1:#FCE3F0;--bg2:#F1E7FB;--bg3:#E7E7FB;
+  --green:#00A87E;--amber:#FF9500;
+  --serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;
+}
+/* ⛔ LIGHT ONLY, deliberately. Every shipped Baybella brief is light - the pink
+   gradient hero, the white cards, the tinted panels. A dark version is a look the
+   brand has never had, and inverting it made the script stop reading as a brief
+   (founder, 11 Sep 2026, comparing against r10-good-at-makeup). So there is no
+   dark palette here and the colours below are painted explicitly. */
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--sans);color:var(--ink);line-height:1.65;
+  background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 55%,var(--bg3) 100%);
+  background-attachment:fixed;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px 70px}
+
+.hero{
+  background:linear-gradient(135deg,#F49AC1 0%,#BBA2E8 100%);
+  border-radius:0 0 24px 24px;padding:38px 28px 32px;text-align:center;color:#211C18;margin-bottom:30px;
+}
+.hero .eyebrow{font-size:.7rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#9A1257;margin-bottom:11px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,5vw,2.2rem);line-height:1.1;letter-spacing:-.02em;color:#211C18}
+.hero p{margin-top:13px;font-size:.97rem;max-width:36ch;margin-inline:auto;color:#3D2233}
+
+.q{margin-bottom:22px}
+.q .lbl{display:flex;align-items:baseline;gap:9px;margin-bottom:4px}
+.q .num{font-family:var(--serif);font-size:1.1rem;color:var(--pink);flex-shrink:0}
+.q h2{font-size:1.12rem;font-weight:800;line-height:1.3;letter-spacing:-.01em;color:var(--ink)}
+.q .sub{font-size:.9rem;color:var(--grey);margin:0 0 13px 25px;line-height:1.5}
+.q.off{opacity:.62;pointer-events:none}
+/* A locked section still has to be READABLE - it is the only thing telling her
+   there is a next step. Founder, 12 Sep 2026, after watching someone stall. */
+.q.off h2,.q.off .num{opacity:.85}
+
+.picks{display:grid;gap:9px}
+.picks .pick{position:relative}
+/* Invisible pad so a near-miss into the gap still lands on a card. Half the 9px gap
+   each way, and the LATER card wins the shared boundary - no dead pixels either way. */
+.picks .pick::after{content:"";position:absolute;left:0;right:0;top:-5px;bottom:-5px;border-radius:12px}
+.pick{
+  text-align:left;font:inherit;cursor:pointer;background:var(--paper);
+  border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;transition:.14s;
+  display:flex;align-items:flex-start;gap:12px;width:100%;
+}
+.pick:hover{border-color:var(--pink)}
+.pick:focus-visible{outline:2px solid #B9A9B4;outline-offset:2px}
+.pick[aria-pressed="true"]{border-color:var(--pink);background:color-mix(in srgb,var(--pink) 8%,var(--paper))}
+.pick .dot{width:17px;height:17px;border-radius:50%;border:2px solid var(--line);flex-shrink:0;margin-top:3px;transition:.14s;position:relative}
+.pick[aria-pressed="true"] .dot{border-color:var(--pink)}
+.pick[aria-pressed="true"] .dot::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--pink)}
+.pick .t{flex:1;min-width:0}
+/* colour stated explicitly - it was inheriting white and the angle names
+   disappeared into the card (founder screenshot, 11 Sep 2026) */
+.pick .n{display:block;font-weight:700;font-size:1rem;line-height:1.35;color:var(--ink)}
+.pick .d{display:block;font-size:.9rem;color:var(--ink2);margin-top:3px;line-height:1.45}
+.badge{display:inline-block;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;padding:3px 7px;border-radius:4px;background:color-mix(in srgb,var(--green) 14%,#fff);color:#00654C;border:1px solid color-mix(in srgb,var(--green) 30%,#fff);margin-left:8px;vertical-align:middle}
+
+.go{
+  display:block;width:100%;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer;
+  background:var(--pink);color:#fff;border:none;border-radius:13px;padding:17px;transition:.14s;
+}
+.go:hover:not(:disabled){filter:brightness(1.08)}
+.go:disabled{background:#D9CBD4;color:#8C8279;cursor:not-allowed}
+.go:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.toggle{display:flex;gap:8px;margin-bottom:12px}
+.tg{flex:1;font:inherit;font-size:.93rem;font-weight:700;cursor:pointer;background:var(--paper);border:1.5px solid var(--line);border-radius:11px;padding:11px;color:var(--ink);transition:.14s}
+.tg[aria-pressed="true"]{border-color:var(--pink);background:color-mix(in srgb,var(--pink) 8%,var(--paper));color:var(--pink)}
+.tg:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.act.wide{width:100%;flex:none}
+/* The regenerate control is NOT a choice - it replaces the choices. Founder, 12 Sep
+   2026. Tinted, dashed and quieter than a real option so the eye reads it as a
+   control rather than a fourth card. */
+.act.more{width:100%;flex:none;background:color-mix(in srgb,var(--bg2) 55%,#fff);
+  border:1.5px dashed color-mix(in srgb,var(--pink) 32%,transparent);
+  color:var(--pink);font-size:.88rem;padding:11px}
+.act.more:hover{border-style:solid;border-color:var(--pink);
+  background:color-mix(in srgb,var(--pink) 6%,#fff)}
+.pager{display:flex;align-items:center;gap:10px;margin-top:10px}
+.pager .act{flex:1;min-width:0}
+.pager .act:disabled{opacity:.4;cursor:not-allowed}
+.pgnum{font-size:.85rem;color:var(--grey);white-space:nowrap}
+.qa{margin-bottom:16px}
+.qa.own{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+.qa label{display:block;font-size:.95rem;font-weight:700;margin-bottom:6px;line-height:1.4;color:var(--ink)}
+.qa textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;resize:vertical;font-family:var(--sans);line-height:1.5}
+.qa textarea:focus{outline:none;border-color:#B9A9B4}
+.qa textarea.using{border-color:var(--pink);border-width:1.5px;background:color-mix(in srgb,var(--pink) 8%,var(--paper))}
+#q-ownwrap:has(textarea.using) label,#q-ownstory:has(textarea.using) label{color:var(--pink)}
+.qa textarea::placeholder{color:#C3B7BF}
+.waiting{text-align:center;padding:30px 20px;color:var(--grey);font-size:.97rem;line-height:1.6}
+.waiting.err{color:#B4472C}
+.missing{font-size:.87rem;color:var(--grey);text-align:center;margin-top:10px}
+
+/* ─── THE SCRIPT LOOKS LIKE A BAYBELLA BRIEF ────────────────────────────────
+   Founder, 11 Sep 2026: "make it look like the briefs." Palette, section
+   panels, beat cards and the Fraunces/Manrope pair are lifted from the shipped
+   round-10 briefs (briefs-round10/r10-good-at-makeup.html), not approximated.
+   The one distinction that must survive: word-for-word beats are a WHITE SERIF
+   card with quote marks; guideline beats are a TINTED BULLETED card with none
+   (founder ruling, 9 Sep 2026 - "it almost kinda looks like that's what she's
+   meant to say, but this is what we're telling her to say").
+   ─────────────────────────────────────────────────────────────────────────── */
+#out{margin-top:34px}
+.script{position:relative}
+
+.bhero{
+  position:relative;overflow:hidden;text-align:center;
+  background:linear-gradient(135deg,#F49AC1 0%,#BBA2E8 100%);
+  border:1px solid #E58BB4;border-radius:24px;
+  padding:clamp(28px,5vw,42px) clamp(24px,5vw,38px);margin-bottom:22px;
+  box-shadow:0 28px 60px -28px rgba(150,40,100,.55),inset 0 1px 0 rgba(255,255,255,.4);
+}
+.bhero::before{content:"";position:absolute;top:-140px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.7}
+.bhero>*{position:relative;z-index:1}
+.bhero .eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#9A1257;margin-bottom:13px}
+.bhero h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.35rem,4vw,1.9rem);line-height:1.06;letter-spacing:-.02em;color:#211C18}
+.bhero .meta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 34px;border-top:1px solid #E9C6D9;padding-top:18px;margin-top:22px}
+.bhero .mi{display:flex;flex-direction:column;align-items:center;gap:2px}
+.bhero .mi .l{font-size:.6rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#9A1257}
+.bhero .mi .v{font-family:var(--serif);font-size:.98rem;color:#211C18}
+
+.sec{margin-bottom:18px}
+.panel{
+  position:relative;overflow:hidden;
+  background:color-mix(in srgb,var(--c) 7%,#fff);border-radius:16px;padding:0 22px 22px;
+  box-shadow:0 20px 46px -34px color-mix(in srgb,var(--c) 58%,#000),0 0 0 1px color-mix(in srgb,var(--c) 16%,#fff);
+}
+.phead{
+  background:linear-gradient(135deg, color-mix(in srgb,var(--c) 86%,#fff) 0%, var(--c) 56%, color-mix(in srgb,var(--c) 86%,#000) 100%);
+  color:#fff;margin:0 -22px 18px;padding:13px 22px;display:flex;align-items:baseline;gap:12px;
+}
+.phead .pnum{font-size:.78rem;font-weight:800;color:rgba(255,255,255,.72)}
+.phead .pname{font-size:.88rem;font-weight:800;color:#fff;letter-spacing:.13em;text-transform:uppercase;line-height:1}
+.phead .pwhat{margin-left:auto;font-family:var(--serif);font-style:italic;font-size:.92rem;color:rgba(255,255,255,.9)}
+@media(max-width:440px){.phead .pwhat{display:none}}
+
+/* ── PHONE (founder tested on an iPhone 15 Pro Max, 430px) ────────────────────
+   Apple's minimum comfortable tap target is 44px; the option cards and the
+   regenerate control both sat under that once the page rendered at real width. */
+@media(max-width:560px){
+  .wrap{padding:0 14px 56px}
+  .hero{padding:26px 16px 24px;border-radius:0 0 20px 20px}
+  .hero h1{font-size:1.72rem}
+  .hero p{font-size:.92rem}
+  .q{margin-bottom:20px}
+  .q h2{font-size:1.05rem}
+  .q .sub{margin-left:0}
+  .pick{padding:13px 14px;min-height:52px}
+  .pick .n{font-size:.97rem}
+  .pick .d{font-size:.86rem}
+  .tg{padding:13px 8px;font-size:.88rem}
+  .act{min-width:0;padding:13px;min-height:46px}
+  .act.more{padding:13px}
+  .go{padding:16px;font-size:1rem;position:sticky;bottom:10px;
+      box-shadow:0 6px 20px rgba(229,20,127,.28)}
+  .qa textarea{font-size:16px}   /* under 16px iOS zooms the page on focus */
+  .say.guide .opts{margin-left:12px;padding-left:11px}
+  .round-q{margin-left:0;margin-top:5px;display:inline-block}
+  .q .lbl{flex-wrap:wrap}
+}
+.panel .lead{font-size:.98rem;line-height:1.7;color:var(--ink)}
+.panel .lead+.lead{margin-top:10px}
+.panel .lead strong{font-weight:800}
+.panel .soft{color:var(--grey);font-size:.9rem;line-height:1.55;margin-top:8px}
+
+.round{padding:18px 0;border-top:1px solid color-mix(in srgb,var(--c) 18%,#fff)}
+.round:first-of-type{padding-top:4px;border-top:none}
+.round:last-of-type{padding-bottom:2px}
+.round-top{display:flex;align-items:baseline;gap:11px;margin-bottom:11px}
+.beatnum{width:19px;height:19px;border-radius:5px;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:.63rem;font-weight:800;flex-shrink:0}
+.round-k{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);font-weight:800}
+/* The Kade question this beat answers, tagged right next to the skeleton name. A beat
+   with no tag answers none of the three - which is the whole point of showing them. */
+.round-q{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;margin-left:9px;padding:3px 8px;border-radius:999px;color:var(--bc,#E5147F);background:color-mix(in srgb,var(--bc,#E5147F) 11%,#fff);border:1px solid color-mix(in srgb,var(--bc,#E5147F) 26%,transparent)}
+
+.saytag{display:inline-flex;align-items:center;gap:5px;font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;font-weight:800;padding:3px 8px;border-radius:5px;margin-bottom:9px}
+.saytag.t-exact{background:#211C18;color:#fff}
+.saytag.t-guide{background:#F3E3EE;color:#8A2E63;border:1px dashed #D9A9C6}
+
+.say{
+  font-family:var(--sans);font-weight:500;font-size:1.02rem;line-height:1.25;color:var(--ink);
+  background:#fff;border-radius:0 10px 10px 0;border-left:6px solid var(--bc,#E5147F);
+  padding:16px 18px;margin:0 0 16px;box-shadow:0 2px 8px -4px rgba(60,30,60,.25);
+}
+.say .ln{display:block}
+.say .ln+.ln{margin-top:10px}
+.say.exact{font-family:var(--serif);font-weight:500;font-size:1.06rem;line-height:1.4}
+.say.guide{background:#FBF6FA;font-size:.99rem}
+.say.guide .ln{padding-left:20px;position:relative;line-height:1.45}
+.say.guide .ln::before{content:"";position:absolute;left:4px;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--bc,#E5147F);opacity:.55}
+/* The pick-one menu. Founder, 12 Sep 2026: "she selects one of the two, and there's no
+   text style to differentiate it - it should be in italics, a different section." So the
+   options sit OUTSIDE the instruction: indented, italic, lighter, each on its own line
+   with a hairline down the side. Nothing here reads as a line she has to say. */
+.say.guide .opts{display:block;margin:11px 0 0 20px;padding:11px 0 11px 14px;border-left:2px solid var(--bc,#E5147F);border-left-color:color-mix(in srgb,var(--bc,#E5147F) 28%,transparent)}
+.say.guide .optlbl{display:block;font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--grey);margin-bottom:9px}
+.say.guide .opt{display:block;position:relative;padding-left:20px;font-style:italic;color:var(--ink2);line-height:1.45;font-size:.95rem}
+.say.guide .opt::before{content:"";position:absolute;left:0;top:.42em;width:9px;height:9px;border-radius:50%;border:2px solid var(--bc,#E5147F);opacity:.75}
+.say.guide .opt+.opt{margin-top:11px}
+.say.guide .opts+.ln{margin-top:11px}
+.say .guard{display:block;margin-top:11px;padding-top:10px;border-top:1px dashed #E6DEEA;font-size:.89rem;color:var(--grey);line-height:1.45}
+
+.screen{
+  display:flex;gap:7px;align-items:flex-start;font-size:.8rem;color:var(--grey);font-style:italic;
+  margin-top:-16px;margin-bottom:10px;background:#fff;border-radius:0 0 10px 0;
+  border-left:6px solid var(--bc,#E5147F);padding:9px 17px 13px;
+}
+.screen .e{font-style:normal;flex-shrink:0}
+
+/* The legend, lifted verbatim from the shipped briefs. It is how she knows a dot is
+   a point to make and not a line to read - without it the guideline cards read as
+   script. Founder rebuilt this as a three-row key on 9 Sep ("make this text more
+   visually scannable"), so it is a key, never a paragraph. */
+.script-legend{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);border-radius:12px;padding:14px 16px;margin-bottom:15px}
+.legend-key{display:grid;grid-template-columns:auto 1fr;gap:10px 14px;align-items:center}
+.legend-key .lk-what{display:flex;justify-content:flex-start}
+.legend-key .lk-means{font-size:.95rem;line-height:1.4;color:var(--ink)}
+.legend-key .lk-means b{font-weight:700}
+.lk-swatch{font-size:.78rem;font-weight:700;padding:5px 11px;border-radius:8px;white-space:nowrap}
+.lk-swatch.s-guide{background:#FBF6FA;border:1px solid #F0DCE9;color:var(--ink)}
+/* .dt not .d - the picker cards already use .d for their description text, and a
+   6px circle inherited onto those would wreck them. */
+.lk-swatch.s-guide .dt{display:inline-block;width:6px;height:6px;border-radius:50%;background:#8C8279;margin-right:2px;vertical-align:middle}
+.lk-swatch.s-do{background:#F4F2F0;border:1px solid #E6E1DC;color:var(--grey);font-style:italic}
+
+/* ─── ROUND 12 PIECES (12 Oct 2026) ─ lifted from briefs-round12/generator/_skeleton.html
+   and assemble.py, not approximated: the What We're Making prose, the "Before you press
+   record" card, the 340px opening clip, the KEY POINT tag and the filming note. The
+   outline ("The Shape Of It") and the How To Start ticks are deleted with their sections. */
+.vision p{font-size:1.02rem;line-height:1.7;margin-bottom:14px;color:var(--ink)}
+.vision p:last-child{margin-bottom:0}
+.vision strong{color:var(--ink);font-weight:800}
+.muted{color:var(--grey)}
+.hookcall{position:relative;overflow:hidden;text-align:center;background:linear-gradient(135deg,#F49AC1 0%,#BBA2E8 100%);border:1px solid #E58BB4;border-radius:20px;padding:26px clamp(20px,4vw,34px) 28px;margin-bottom:20px;box-shadow:0 24px 52px -28px rgba(150,40,100,.55),inset 0 1px 0 rgba(255,255,255,.4)}
+.hookcall::before{content:"";position:absolute;top:-120px;right:-100px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,#F9A8C9 0%,transparent 70%);opacity:.7}
+.hookcall>*{position:relative;z-index:1}
+.hookcall .hc-eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#8F1355;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);border-radius:40px;padding:6px 14px;margin-bottom:14px}
+.hookcall .hc-head{font-family:var(--serif);font-weight:500;font-size:clamp(1.25rem,3.6vw,1.55rem);line-height:1.2;letter-spacing:-.01em;color:var(--ink);margin-bottom:10px}
+.hookcall .hc-body{font-size:.97rem;line-height:1.65;color:var(--ink);max-width:560px;margin:0 auto}
+.hookcall .hc-body strong{font-weight:800}
+.of-ref-only{max-width:340px;margin:0 auto}
+.of-ref-only video{width:100%;border-radius:10px;display:block;background:#000}
+.of-ref-only .cap{margin-top:8px;font-size:.85rem;color:#8C8279;text-align:center}
+.round .say.guide+.screen{margin-top:-6px}.round .screen+.say.guide,.round .fnote+.say.guide{margin-top:18px}
+.exv{margin:6px 0 4px 22px;text-align:left}.exv b{display:block;color:#BE185D;font-size:.88rem;margin-bottom:6px}.exv video{display:block;margin:0;width:150px;aspect-ratio:9/16;object-fit:cover;background:#1a0b2e;border-radius:16px;border:3px solid #F9A8C9;box-shadow:0 0 0 4px #FDF0F5,0 6px 16px rgba(190,24,93,.16)}
+.fnote{margin:8px 0 0 0;padding:10px 14px;background:#FFF6DC;border:1px solid #F2D27A;border-radius:10px;font-size:.92rem;color:#4a3b12;line-height:1.45}.fnote b{color:#8a5a00}
+/* KEY POINT - the label text lives in CSS so nothing reads it as a line to say */
+.kp::after{content:"\2B50  Don\2019t skip this one";display:inline-block;padding:1px 7px;border-radius:4px;background:#FCE4F1;color:#C2166F;font-size:.72em;font-weight:800;letter-spacing:.04em}
+
+.acts{display:flex;gap:9px;padding:18px 0 0;flex-wrap:wrap}
+.act{flex:1;min-width:125px;font:inherit;font-weight:700;font-size:.92rem;cursor:pointer;background:var(--paper);color:var(--ink);border:1.5px solid var(--line);border-radius:11px;padding:12px;transition:.14s}
+.act:hover{border-color:var(--pink);color:var(--pink)}
+.act:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.act.prim{background:var(--pink);color:#fff;border-color:var(--pink)}
+.act.prim:hover{filter:brightness(1.08);color:#fff}
+.tip{font-size:.85rem;color:var(--grey);text-align:center;margin-top:14px;line-height:1.5}
+@media print{
+  body{background:#fff}.q,.hero,.acts,.tip,.go,.missing{display:none!important}
+  .script{box-shadow:none;border:1px solid #ddd}#out{margin:0}
+}
+
+/* LASH VISIBILITY - copied VERBATIM from the standard brief
+   (baybella.github.io/baybella-briefs/r9-unpopular-opinion.html, 15 Sep 2026).
+   Founder: "these are from the standard briefs". Do not restyle to match this page -
+   the creator sees the same yellow/green boxes she sees on every other brief. */
+.lv-box{border-radius:12px;padding:20px;font-size:.93rem;line-height:1.6}
+.lv-yellow{background:#FCF4A6;border:1px solid #E0C94F;color:#3a3418;margin-bottom:12px}
+.lv-yellow .lvh{font-weight:800;color:#241f08;margin-bottom:14px}
+.lv-yellow .q{font-weight:800;color:#241f08;margin:14px 0 8px}
+.lv-yellow ol.lvl{margin:0 0 0 24px;padding:0}.lv-yellow ol.lvl li{margin-bottom:6px;padding-left:6px}
+.lv-yellow .lvlink{font-weight:800;color:#241f08;margin-top:16px}.lv-yellow .lvlink a{color:#1155cc;text-decoration:underline}
+.lv-green{background:#CCEFBE;border:1px solid #87C775;color:#243319}
+.lv-green p{margin-bottom:12px}.lv-green p:last-child{margin-bottom:0}.lv-green strong{color:#15240c}
+.hookbox{background:#FFF7FB;border:1px solid #F3C6DD;border-radius:12px;padding:12px 14px;margin:6px 0 10px;font-size:.93rem;line-height:1.55}
+.hk-h{font-weight:800;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#B0285F;margin:10px 0 2px}
+.hk-l{margin:2px 0 4px;padding-left:20px}.hk-l li{margin:2px 0}
+.hk-in{display:block;margin:8px 0}.hk-in span{display:block;font-weight:700;font-size:.85rem;margin-bottom:3px}
+.hk-in textarea{width:100%;box-sizing:border-box;border:1.5px solid #E9D5EF;border-radius:10px;padding:9px 11px;font:inherit;font-size:.97rem;resize:vertical}
+.hk-in textarea:focus{outline:none;border-color:#D9558F}
+.hk-ideas{margin:8px 0;font-size:.92rem}.hk-ideas summary{cursor:pointer;font-weight:700;color:#B0285F}.hk-ideas ul{margin:4px 0;padding-left:20px}
+
+/* ─── CHEAT SHEET SKIN (founder, 12 Oct 2026: "same styling as the creator cheat sheet
+   ... just so there's more cohesion"). Skin only - fonts, colours, boxes. Layout untouched.
+   Tokens copied from trybe/projects/creator-kit/mockup.html. */
+:root{--ink:#2A0844;--ink2:#4C1D7E;--grey:#8B7AAB;--pink:#EC4899;--line:#E9D5EF;--paper:#FFFAF5;
+  --bg1:#FCE9F1;--bg2:#FCE9F1;--bg3:#FCE9F1;--pink-deep:#BE185D;--purple-deep:#3B0764}
+body{background:#FCE9F1;color:#2A0844}
+.hero{background:transparent;padding:34px 20px 8px;margin-bottom:18px}
+.hero .eyebrow{color:var(--pink-deep)}
+.hero h1{font-weight:500;color:var(--purple-deep);font-size:clamp(2rem,7vw,2.9rem)}
+.hero p{color:var(--ink2)}
+.q{background:var(--paper);border:1.5px solid var(--line);border-radius:20px;padding:18px 16px 16px}
+.q .num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#EDE9FE;color:#6B21A8;font:800 15px 'Manrope',sans-serif}
+.q .lbl{align-items:flex-start}.q .num{margin-top:2px}.q h2{flex:1;font-family:var(--serif);font-weight:500;font-size:1.35rem;color:var(--purple-deep)}
+/* Each question opens with a coloured header band, so you can see where a new section starts while scrolling (17 Oct 2026) */
+.q:has(> .lbl){margin-bottom:30px;overflow:hidden;padding-top:0;box-shadow:0 6px 18px rgba(107,33,168,.07)}
+.q > .lbl{margin:0 -16px 14px;padding:14px 16px;align-items:center;background:linear-gradient(100deg,#EC4899,#A855F7);border-bottom:0}
+.q > .lbl .num{background:#fff;color:#BE185D;width:34px;height:34px;font-size:16px;margin-top:0;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.q > .lbl h2{color:#fff;font-size:1.4rem;line-height:1.2}
+.q.off > .lbl{background:linear-gradient(100deg,#8E7AA8,#7C6699)}
+.pick{background:#fff;border-radius:14px}
+.pick[aria-pressed="true"]{background:#FFF0F7;border-color:var(--pink)}
+.pick .n{color:var(--ink)}
+.pick .d b{color:var(--ink);font-weight:700}
+.pick .emo{font-size:1.15em;margin-right:2px}
+.pick .n.doubt{font-weight:600}
+.go{background:var(--pink) !important;box-shadow:0 8px 24px rgba(214,8,107,.18)}
+.hk-intro{margin:0 0 6px;font-size:.98rem}
+.hk-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:4px 0 6px}
+.hk-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 11px;display:flex;flex-direction:column;gap:1px}
+.hk-card .hk-e{font-size:1.25rem;line-height:1.2}.hk-card b{font-size:.95rem}.hk-card small{font-size:.82rem;color:var(--ink2);line-height:1.35}
+.hk-rows{display:grid;gap:6px;margin:4px 0 6px}
+.hk-row{display:flex;align-items:baseline;gap:8px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 11px;flex-wrap:wrap}
+.hk-row b{font-size:.93rem}.hk-row small{font-size:.83rem;color:var(--ink2)}
+.hk-ticks{list-style:none;padding:0;margin:4px 0 0;display:grid;gap:4px}
+.hk-ticks li{position:relative;padding-left:24px;font-size:.92rem}.hk-ticks li::before{content:"✓";position:absolute;left:4px;color:var(--pink);font-weight:800}
+.hk-help{display:flex;flex-direction:column;gap:2px;margin:10px 0 12px;padding:11px 14px;background:#FFF0F7;border:1.5px solid var(--pink);border-radius:12px;text-decoration:none;color:var(--ink);font-size:.93rem}
+.hk-help b{color:var(--pink-deep)}.hk-help small{font-size:.78rem;font-weight:700;color:#BE185D}
+.hk-guide{display:block;text-align:center;margin:8px 0 12px;padding:12px 16px;background:var(--pink);color:#fff;font-weight:800;text-decoration:none;border-radius:100px;box-shadow:0 8px 24px rgba(214,8,107,.18)}
+.hotb{display:inline-block;font-size:.72rem;font-weight:800;color:#B45309;background:#FEF3C7;border-radius:100px;padding:2px 9px;margin:0 0 5px}.hotp{margin:0 0 0 6px;vertical-align:middle}
+.hot-note{margin:0 0 10px;font-size:.88rem;color:var(--ink2)}
+
+/* ── GREEN SCREEN BRIEF (16 Oct 2026) ── */
+.gs-saveall{display:block;width:100%;border:0;border-radius:16px;padding:14px;font:800 16px inherit;font-family:inherit;background:#EC4899;color:#fff;cursor:pointer;margin:6px 0 16px;box-shadow:0 8px 20px rgba(236,72,153,.25)}
+.gs-saveall small{display:block;font-weight:600;font-size:12px;opacity:.9}
+.gs-how{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 0 14px}.gs-how span{background:#fff;border:1px solid #EAD9E4;border-radius:100px;padding:6px 12px;font-size:13px;font-weight:600}
+.gs-beat{display:flex;gap:12px;background:#fff;border:1px solid #EAD9E4;border-radius:18px;padding:10px;margin-bottom:10px}
+.gs-clip{flex:none;width:112px}.gs-clip video{width:112px;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000;display:block}
+.gs-save{display:block;width:100%;margin-top:5px;border:0;background:none;font-family:inherit;font-weight:700;font-size:12px;color:#BE185D;cursor:pointer;padding:4px 0}
+.gs-txt{flex:1;min-width:0;display:flex;flex-direction:column}
+/* layout B + 2a pastel mesh (founder picked 19 Oct 2026, beat-layouts/colour.html 2a) */
+.gsb-rail{position:relative;border-radius:24px;padding:14px 12px 4px;margin:0 -4px;
+  background:radial-gradient(120% 45% at 0% 0%,#FFC9E3 0%,transparent 60%),radial-gradient(120% 45% at 100% 35%,#D9C6FF 0%,transparent 60%),radial-gradient(110% 40% at 15% 100%,#FFD9EC 0%,transparent 60%),#F7EEFF}
+.gsb-sec{border-radius:22px;padding:14px 12px 4px;margin-bottom:14px;background:rgba(255,255,255,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.75);box-shadow:0 10px 30px -22px color-mix(in srgb,var(--c) 80%,#000)}
+.gsb-lab{position:relative;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--c);margin:0 0 10px;padding-left:30px;min-height:21px;display:flex;align-items:center}
+.gsb-n{position:absolute;left:0;top:0;width:21px;height:21px;border-radius:50%;background:var(--c);color:#fff;font-size:11px;letter-spacing:0;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 22%,#fff)}
+.gs-beat.gsb-row{display:flex;gap:13px;align-items:center;background:rgba(255,255,255,.8);border:none;border-radius:16px;padding:9px;margin:0 0 10px}
+.gsb-rail .gs-switch{margin:4px 0 14px}
+.gsb-clip{width:104px!important;flex-shrink:0;aspect-ratio:9/16;border-radius:12px;overflow:hidden;box-shadow:0 0 0 2px #fff,0 0 0 4px color-mix(in srgb,var(--c,#E5147F) 45%,#fff)}
+.gsb-clip video{width:100%;height:100%;object-fit:cover;display:block}
+.gsb-txt{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.gsb-txt .saytag{align-self:flex-start}
+.gsb-hook{font-family:var(--serif);font-weight:500;font-size:16.5px;line-height:1.38;color:#211C18}
+.gsb-hook+.gsb-hook{margin-top:10px}
+.lead{font-weight:800;color:#6B1F9E;background:#F1E4FF;border-radius:7px;padding:1px 6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.gsb-pt{display:flex;gap:10px;font-size:15.5px;line-height:1.45;color:#2A1A3A;font-weight:600}
+mark.must{background:linear-gradient(transparent 12%,#FFE45C 12%,#FFE45C 88%,transparent 88%);color:#211C18;font-weight:800;padding:0 4px;border-radius:3px;letter-spacing:.02em}
+.gsb-time{display:inline-block;align-self:flex-start;margin-top:8px;font-size:11px;font-weight:700;color:#8B7AAB;background:rgba(255,255,255,.7);border-radius:999px;padding:3px 9px}
+.gsb-time.short{color:#B42318;background:#FDECEC}
+.gsb-clip{position:relative}
+.gsb-stack{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.gsb-join{display:block;width:2px;height:10px;background:color-mix(in srgb,var(--c,#E5147F) 45%,#fff)}
+.gsb-tag{position:absolute;left:5px;top:5px;background:var(--c,#E5147F);color:#fff;font-size:11px;font-weight:800;border-radius:999px;padding:2px 7px;letter-spacing:.02em}
+.gsb-keep{display:block;margin-top:8px;font-size:12px;font-weight:700;color:var(--c,#E5147F)}
+.gsb-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:9px;opacity:.75}
+.gsb-pt+.gsb-pt{margin-top:8px}
+.gsb-clip .gs-you{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:#F8EEF5;border:1.5px dashed #E5A3C6;border-radius:10px;font-size:10px;font-weight:700;color:#8A2E63;text-align:center;padding:4px}
+.gsb-clip .gs-you em{font-style:normal;font-size:20px;line-height:1}
+
+.gs-txt{justify-content:center}
+.gs-beat .say{box-shadow:none!important;border-radius:0!important;margin:0!important}
+.gs-beat .say.guide{background:none!important;border-left:3px solid var(--bc,#E5147F)!important;padding:2px 0 2px 12px!important;font-size:17px;line-height:1.45}
+.gs-key{display:inline-flex;align-items:center;flex-shrink:0;border-left:3px solid #E5147F;padding:1px 10px 1px 8px;font-weight:600;color:#2A1A3A}
+.gs-key .gs-dot{margin:0 6px 0 0}
+.gs-beat .say.exact{background:none!important;border-left:3px solid var(--bc,#E5147F)!important;padding:4px 0 4px 14px!important}
+.gs-beat.cont{margin-top:-4px}
+.gs-num{align-self:flex-start;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;color:#fff;font-weight:800;font-size:13px;margin-bottom:8px}
+.gs-legend{display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid #EADFF0;border-radius:12px;padding:12px 14px;margin:0 0 14px;font-size:14px;color:#3B2F4A}
+.gs-legend>div{display:flex;align-items:center;gap:8px}
+.gs-legend .saytag{flex-shrink:0}
+.gs-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#E5147F;opacity:.6;margin:0 4px}
+.gs-tag{align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;border-radius:100px;padding:3px 10px}
+.gs-l{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#8B7AAB;margin:10px 0 2px}
+.gs-say{font-size:16px;font-weight:700;line-height:1.4}
+.gs-say.gs-hookfix{font-size:15.5px;font-weight:600}   /* 21 Oct 2026: finished hook = same size/weight as the lines under it */
+.gs-behind{margin-top:auto;padding-top:10px;font-size:13px;color:#4C1D7E}.gs-behind b{color:#2A0844}
+.gs-beat .hk-guide{display:inline-block;background:none!important;box-shadow:none!important;padding:6px 0 0!important;margin:0!important;border-radius:0!important;font-size:13px!important;font-weight:700;color:#BE185D!important;text-align:left;width:auto!important}
+.gs-beat .hk-in textarea{width:100%;font:inherit;border:1px solid #EAD9E4;border-radius:10px;padding:8px}
+.gs-idea{background:#FFF0F7;border-radius:16px;padding:12px 14px;margin:0 0 12px;font-size:15px}.gs-idea b{display:block}
+.gs-tip{background:#FFF0F7;border-radius:16px;padding:12px 14px;margin:14px 0 0;font-size:14.5px}
+
+.resume{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid #EC4899;border-radius:16px;padding:12px 14px;margin:0 0 16px}
+.resume>div{flex:1}.resume b{display:block;font-size:15px}.resume span{font-size:14px;color:#4C1D7E}
+.resume button{flex:none;border:0;border-radius:100px;padding:10px 14px;background:#EC4899;color:#fff;font-family:inherit;font-weight:800;font-size:14px;cursor:pointer}
+
+.gs-strip{background:#fff;border:1px solid #EAD9E4;border-radius:16px;padding:12px 14px;margin:0 0 14px}
+.gs-strip .bar{display:flex;gap:3px;margin:8px 0 6px}.gs-strip .bar i{flex:1;height:10px;border-radius:4px}
+.gs-strip .bar i.g{background:#34C759}.gs-strip .bar i.y{background:#EC4899}
+.gs-strip .lg{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;font-weight:700}.gs-strip .lg span:before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.gs-strip .lg .g:before{background:#34C759}.gs-strip .lg .y:before{background:#EC4899}
+.gs-switch{background:#2A0844;color:#fff;border-radius:16px;padding:14px;margin:6px 0 12px;text-align:center}
+.gs-switch b{display:block;font-size:17px}.gs-switch span{display:inline-block;margin:8px 4px 0;background:rgba(255,255,255,.14);border-radius:100px;padding:5px 11px;font-size:13px;font-weight:700}
+.gs-you{width:112px;aspect-ratio:9/16;border-radius:12px;background:linear-gradient(160deg,#FCE7F1,#F1E9FB);border:2px dashed #EC4899;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:12.5px;font-weight:800;color:#BE185D;padding:6px}
+.gs-you em{font-style:normal;font-size:30px;display:block;margin-bottom:4px}
+.gs-mode{display:inline-block;font-size:11px;font-weight:800;border-radius:100px;padding:3px 9px;margin-left:6px;vertical-align:1px}
+.gs-mode.g{background:#E8F5E9;color:#2E7D32}.gs-mode.y{background:#FFF0F7;color:#BE185D}
+
+.gs-dl{background:#fff;border:1.5px solid #EC4899;border-radius:18px;padding:14px;margin:0 0 16px}
+.gs-steps{background:#fff;border:1.5px solid #EC4899;border-radius:18px;padding:16px;margin:0 0 16px}
+.gs-st-top{margin:0 0 6px}.gs-st-tag{display:inline-block;background:#FFF0F7;color:#BE185D;border-radius:100px;padding:4px 12px;font-size:13px;font-weight:800}
+.gs-st-top p{margin:8px 0 0;font-size:15px;color:#4C1D7E}
+.gs-st{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;padding:14px 0 0;margin-top:14px;border-top:1px solid #F3E2EC}
+.gs-n{width:40px;height:40px;border-radius:50%;background:#EC4899;color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.gs-st>div>b{display:block;font-size:17px;line-height:1.3}.gs-st>div>span{display:block;font-size:14px;color:#4C1D7E;margin-top:2px}
+.gs-st .gs-dlbtn{margin-top:12px}
+.gs-dl-top{display:flex;gap:12px;align-items:center;margin-bottom:12px}.gs-dl-ic{font-size:30px}
+.gs-dl-top b{display:block;font-size:17px}.gs-dl-top span{display:block;font-size:13.5px;color:#4C1D7E}
+.gs-dlbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:54px;border:0;border-radius:14px;background:#EC4899;color:#fff;font-family:inherit;font-weight:800;font-size:17px;cursor:pointer;box-shadow:0 6px 16px rgba(236,72,153,.35)}
+.gs-dlbtn:active{transform:translateY(1px)}.gs-dlbtn[data-busy]{background:#BE185D}
+.gs-dl-note{margin:8px 0 0;text-align:center;font-size:12.5px;color:#8B7AAB}
+
+.vids{margin:0 0 16px}.vids[hidden]{display:none}
+.vids h3{font-size:15px;margin:0 0 8px}
+/* SCREENS (17 Oct 2026): My scripts home -> one question per screen -> her script. Built for mums:
+   big buttons, one thing per screen, plain words, "Step X of 3", nothing moves on its own. */
+body{padding-bottom:150px}
+.go[hidden],.missing[hidden]{display:none!important}
+.tbar{position:sticky;top:0;z-index:20;background:var(--paper,#FFFBF7);display:flex;align-items:center;gap:10px;padding:12px 0;margin:0 0 6px;border-bottom:1px solid #EAD9E4}
+.tbar[hidden],.ctx[hidden],#home[hidden],.sfoot[hidden]{display:none}
+.tback{border:0;background:#F3ECF1;border-radius:12px;padding:13px 16px;font-family:inherit;font-weight:800;font-size:17px;color:#211C18;cursor:pointer}
+.tstep{margin-left:auto;text-align:right;font-weight:800;font-size:15px;color:#6F6259}
+.tdots{display:flex;gap:6px;justify-content:flex-end;margin-top:5px}.tdots i{width:28px;height:7px;border-radius:7px;background:#E6DCE3}.tdots i.on{background:#E5147F}
+.ctx{background:#F6F0F4;border-radius:14px;padding:12px 14px;font-size:16px;margin:12px 0 4px}
+.sfoot{position:fixed;left:0;right:0;bottom:0;z-index:30}
+.sfoot .in{max-width:640px;margin:0 auto;background:var(--paper,#FFFBF7);border-top:1px solid #EAD9E4;padding:12px 20px 18px;box-shadow:0 -8px 24px rgba(42,8,68,.06)}
+.fbig{display:block;width:100%;border:0;border-radius:16px;padding:19px;background:#E5147F;color:#fff;font-family:inherit;font-weight:800;font-size:19px;cursor:pointer}
+.fbig:disabled{background:#E6DCE3;color:#8C8279;cursor:default}
+.fbig.sec{background:#fff;color:#E5147F;border:2px solid #E5147F;margin-top:10px}.fbig[hidden]{display:none}
+.fhint{text-align:center;font-size:15px;color:#6F6259;margin:8px 0 0}.fhint:empty{display:none}
+.hsub{color:#463E37;margin:0 0 14px}
+.hempty{background:#fff;border:2px dashed #CDBFC9;border-radius:18px;padding:24px;text-align:center;color:#463E37;font-size:17px}.hempty .e{font-size:44px}
+.hcard{background:#fff;border:2px solid #EAD9E4;border-radius:18px;padding:16px;margin:0 0 12px;display:flex;gap:12px;align-items:center}
+.hcard .hn{flex:none;width:44px;height:44px;border-radius:50%;background:#FCE7F1;color:#E5147F;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center}
+.hcard .ht{flex:1;min-width:0}.hcard b{display:block;font-size:18px;line-height:1.3}.hcard span{display:block;font-size:15px;color:#6F6259}
+.hcard button{flex:none;border:0;background:#2A0844;color:#fff;border-radius:12px;padding:13px 18px;font-family:inherit;font-weight:800;font-size:16px;cursor:pointer}
+.hall{display:block;width:100%;margin:6px 0 10px;border:2px solid #E5147F;background:#fff;color:#BE185D;border-radius:14px;padding:14px;font-family:inherit;font-weight:800;font-size:16px;cursor:pointer}
+.hclear{display:block;margin:18px auto 0;border:0;background:none;color:#8C8279;text-decoration:underline;font-family:inherit;font-size:14px;cursor:pointer}
+.saved{background:#E8F5E9;color:#1B5E20;border-radius:14px;padding:13px 14px;font-weight:700;margin:12px 0 14px;font-size:16px}
+.vcard{background:#fff;border:1.5px solid #EAD9E4;border-radius:18px;margin:0 0 10px;overflow:hidden}
+.vcard.open{border-color:#EC4899;box-shadow:0 0 0 3px #FCE7F1}
+.vhead{display:flex;gap:10px;align-items:center;padding:12px 14px;cursor:pointer}
+.vcard.open .vhead{background:#FFF0F7;cursor:default}
+.vhead>span:nth-child(2){flex:1;min-width:0}
+.vhead b{display:block;font-size:15px}.vhead .vs{display:block;font-size:13px;color:#8B7AAB;margin-top:2px}
+.vcard.ok .vhead .vs{color:#2E7D32}
+.vchg{flex:none;border:1.5px solid #EC4899;background:#fff;color:#BE185D;border-radius:100px;padding:7px 12px;font-family:inherit;font-weight:800;font-size:13px;cursor:pointer}
+.vcard .vn{flex:none;width:30px;height:30px;border-radius:50%;background:#F1E9FB;color:#4C1D7E;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.vcard.ok .vn{background:#34C759;color:#fff}
+.vbody{padding:0 10px 12px}.vbody .q{margin:12px 0 0;box-shadow:none}
+.vrow{display:flex;gap:10px;align-items:center;width:100%;text-align:left;background:#fff;border:1.5px solid #EAD9E4;border-radius:14px;padding:10px 12px;margin:0 0 8px;font-family:inherit;cursor:pointer}
+.vrow.on{border-color:#EC4899;box-shadow:0 0 0 2px #FCE7F1}
+.vrow .vn{flex:none;width:28px;height:28px;border-radius:50%;background:#F1E9FB;color:#4C1D7E;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.vrow.ok .vn{background:#34C759;color:#fff}
+.vrow b{display:block;font-size:14.5px}.vrow span.vs{display:block;font-size:13px;color:#8B7AAB}
+.vfor{display:inline-block;background:#FCE7F1;color:#BE185D;border-radius:100px;padding:4px 11px;font-size:12.5px;font-weight:800;margin:0 0 8px}
+.vchip{display:inline-block;background:#EC4899;color:#fff;border-radius:100px;padding:2px 9px;font-size:11.5px;font-weight:800;margin-right:6px;vertical-align:1px}
+.vnext[hidden]{display:none!important}
+.vnext{display:block;width:100%;margin:12px 0 0;border:0;border-radius:14px;padding:13px;background:#2A0844;color:#fff;font-family:inherit;font-weight:800;font-size:15px;cursor:pointer}
+.vadd{display:block;width:100%;margin:12px 0 4px;border:0;border-radius:14px;padding:14px;background:#EC4899;color:#fff;font-family:inherit;font-weight:800;font-size:16px;cursor:pointer;box-shadow:0 6px 16px rgba(236,72,153,.3)}
+.vtabs{display:flex;gap:6px;overflow-x:auto;margin:12px 0 12px;padding-bottom:4px}
+.vtab{flex:none;border:1.5px solid #EAD9E4;background:#fff;border-radius:100px;padding:9px 14px;font-family:inherit;font-weight:800;font-size:13.5px;cursor:pointer;max-width:230px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vtab[aria-pressed="true"]{background:#2A0844;border-color:#2A0844;color:#fff}
+.vall{display:block;width:100%;margin:0 0 12px;border:1.5px solid #EC4899;background:#fff;color:#BE185D;border-radius:14px;padding:11px;font-family:inherit;font-weight:800;font-size:14.5px;cursor:pointer}
+.vmax{font-size:13.5px;color:#BE185D;font-weight:700;margin:8px 0 0}
+.wprog{background:#fff;border:1px solid #EAD9E4;border-radius:16px;padding:16px;text-align:center;margin-top:12px}
+.wprog b{display:block;font-size:16px;margin-bottom:10px}
+.wbar{height:10px;background:#F1E9FB;border-radius:10px;overflow:hidden}.wbar i{display:block;height:100%;width:0;background:#EC4899;border-radius:10px;transition:width .2s linear}
+.wprog span{display:block;margin-top:8px;font-size:13px;color:#8B7AAB}
+/* BIGGER TEXT (friction review, 17 Oct 2026): 65% of a script's text was under 15px, the smallest 9.6px.
+   Her lines are 18px, everything else at least 15-16px, labels in normal case and darker. */
+.say.guide{font-size:18px}.say.guide .ln{line-height:1.5}.say.exact{font-size:19px}
+.round-k{font-size:16px;letter-spacing:0;text-transform:none;color:#2A0844}
+.saytag{font-size:13.5px;letter-spacing:.05em}
+.beatnum{font-size:15px!important;width:26px!important;height:26px!important;display:inline-flex;align-items:center;justify-content:center}
+.pname{font-size:16px!important}.bhero .meta .l{font-size:12px}.hc-eyebrow{font-size:13px}.of-ref-only .cap{font-size:15px}
+.screen{font-size:16px!important;line-height:1.45}.screen b{color:#2A0844}
+.fnote{font-size:16px}
+.hk-in span{font-size:16px}.hk-in textarea{font-size:18px;padding:12px}
+.vision p,.sec table{font-size:16px!important}
+.lvl li,.lv-box p,.lv-box .q,.lvlink{font-size:16px}
+.act{font-size:16px;min-height:50px}
+.tip{font-size:15px}
+.pick .n{font-size:18px!important}.pick .d{font-size:16px!important}
+.hot-note{font-size:15px}
+.gs-say{font-size:18px}.gs-behind{font-size:15px}.gs-l{font-size:13px}
+.kp::after{font-size:13px!important}
+.gs-save{margin-top:8px;padding:12px 6px;border:1.5px solid #EC4899;border-radius:12px;background:#FFF0F7;font-size:15px}
+/* script page pieces */
+.toptools{display:flex;gap:10px;margin:0 0 16px}.toptools .act{flex:1}
+.howto{font-size:16px;color:#463E37;margin:0 0 16px}
+.sendin{background:#E8F5E9;border-radius:18px;padding:16px;margin:18px 0}
+.sendin>b{display:block;font-size:20px;color:#1B5E20;margin-bottom:4px}
+.sendin .r{background:#fff;border-radius:14px;padding:12px 14px;margin-top:10px;font-size:16px}
+.sendin .sbtn{display:block;margin-top:8px;background:#2A0844;color:#fff;border-radius:12px;padding:13px;text-align:center;font-weight:800;text-decoration:none}
+details.fold{background:#fff;border:2px solid #EAD9E4;border-radius:16px;margin:0 0 12px;overflow:hidden}
+details.fold>summary{list-style:none;cursor:pointer;padding:16px;font-weight:800;font-size:17px;display:flex;justify-content:space-between;align-items:center}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary::after{content:"Open ▾";font-size:14px;color:#E5147F}
+details.fold[open]>summary::after{content:"Close ▴"}
+details.fold .fbody{padding:0 10px 10px}
+.fbiglink{text-align:center;text-decoration:none;box-sizing:border-box}
+button.pbback{width:100%;border:0;background:none;font-family:inherit;cursor:pointer}
+.pbback{display:block;text-align:center;margin:14px 0 4px;padding:12px;font-weight:800;font-size:16px;color:#2A0844;text-decoration:underline}
+.endbtns{margin:18px 0 6px}.endbtns .fbig{margin-bottom:10px}
+.hk-guide.hk-sec{background:#fff!important;color:#BE185D!important;border:2px solid #EC4899;box-shadow:none!important;margin:12px 0 6px;font-size:16px}
+.hk-save{display:block;width:100%;margin:4px 0 6px;border:0;border-radius:14px;padding:14px;background:#EC4899;color:#fff;font-family:inherit;font-weight:800;font-size:17px;cursor:pointer}.hk-save.ok{background:#2E7D32}
+.hk-push{background:#FFF0F7;border:2px solid #EC4899;border-radius:14px;padding:12px 14px;margin:0 0 10px}.hk-push b{display:block;font-size:17px;line-height:1.35;color:#2A0844}.hk-push span{display:block;font-size:16px;color:#463E37;margin-top:4px}
+.hk-note{display:block;font-size:14.5px;color:#6F6259;margin:-4px 0 10px;text-align:center}
+.aline{display:block;font-size:16px;color:#463E37;margin-top:3px}
+.amore{display:inline-block;margin-top:6px;font-size:15px;font-weight:800;color:#E5147F;cursor:pointer}
+.afull{display:block;margin-top:8px}
+.hk-for{margin:8px 0 6px;font-size:14px;line-height:1.4;color:#444}.hk-for b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#E5147F;margin-bottom:2px}
+.hk-opts{display:flex;flex-direction:column;gap:8px;margin:6px 0 10px}.hk-load{font-size:13px;color:#888}
+.hk-opt{display:flex;gap:10px;align-items:flex-start;text-align:left;font:inherit;font-size:15px;line-height:1.35;padding:11px 12px;border:1.5px solid #ead7e0;border-radius:12px;background:#fff;color:#222;cursor:pointer}
+.hk-opt .hk-n{flex:none;width:22px;height:22px;border-radius:50%;background:#fbe3ee;color:#E5147F;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center}
+.hk-opt.on{border-color:#E5147F;background:#fff5fa}.hk-opt.on .hk-n{background:#E5147F;color:#fff}
+.apb{display:block;font-weight:800;font-size:17px;line-height:1.35;color:#2A0844;margin-top:2px}
+.afx{display:block;font-weight:700;font-size:16px;line-height:1.35;color:#BE185D;margin-top:4px}
+.pd{color:#BE185D!important;font-weight:700}
+.trust{margin:0 0 10px;background:#EDE9FE;border:1.5px solid #C4B5FD;border-radius:12px;padding:10px 14px;font-weight:700;color:#3B0764;font-size:15px}
+.trust b{color:#6B21A8}
+.exrow{display:flex;gap:10px;flex-wrap:wrap}
+#hgSheet{position:fixed;inset:0;z-index:1000;pointer-events:none}
+#hgSheet .hg-back{position:absolute;inset:0;background:rgba(42,8,68,.45);opacity:0;transition:opacity .25s}
+#hgSheet .hg-panel{position:absolute;left:0;right:0;bottom:0;height:88vh;background:#fff;border-radius:22px 22px 0 0;transform:translateY(100%);transition:transform .3s ease;display:flex;flex-direction:column;max-width:720px;margin:0 auto;box-shadow:0 -10px 30px rgba(42,8,68,.25)}
+#hgSheet.open{pointer-events:auto}#hgSheet.open .hg-back{opacity:1}#hgSheet.open .hg-panel{transform:translateY(0)}
+.hg-top{display:flex;align-items:center;justify-content:center;position:relative;padding:10px 12px}
+.hg-grab{width:44px;height:5px;border-radius:5px;background:#E9D5EF}
+.hg-x{position:absolute;right:12px;top:6px;border:0;background:#FCE7F1;color:#BE185D;font-family:inherit;font-weight:800;font-size:14px;border-radius:100px;padding:7px 12px;cursor:pointer}
+#hgSheet iframe{flex:1;border:0;width:100%;border-radius:0 0 0 0}
+.myhook.hk-locked{border-color:#34C759!important;background:#F2FBF4}
+.hk-guide.hk-must{position:relative;display:block;text-align:center;background:#EC4899!important;color:#fff!important;font-weight:800;font-size:17px;border-radius:999px;padding:15px 16px;margin:16px 0 6px;border:0;text-decoration:none;animation:hkpulse 1.8s infinite}
+.hk-must .hk-tag{position:absolute;top:-10px;right:16px;background:#FDE047;color:#2A0844;font-size:11px;font-weight:800;border-radius:999px;padding:3px 9px;letter-spacing:.05em}
+@keyframes hkpulse{0%{box-shadow:0 0 0 0 rgba(236,72,153,.55)}70%{box-shadow:0 0 0 14px rgba(236,72,153,0)}100%{box-shadow:0 0 0 0 rgba(236,72,153,0)}}
+.gs-beat .hk-guide.hk-must{display:block!important;background:#EC4899!important;color:#fff!important;padding:13px 14px!important;margin:12px 0 4px!important;border-radius:999px!important;font-size:15px!important;text-align:center;width:100%!important}
+.hk-emph{text-decoration:underline;text-decoration-color:#EC4899;text-decoration-thickness:2px;text-underline-offset:4px}
+.skey{background:#fff;border:1px solid #E9DDF3;border-radius:14px;padding:10px 14px;margin:0 0 14px}.sk-row{display:flex;gap:10px;align-items:center;font-size:14px;line-height:1.4;color:#3B2A4A;padding:5px 0}.sk-row+.sk-row{border-top:1px solid #F1E8F7}.sk-ic{font-size:16px;width:22px;text-align:center}.sk-row .lead{flex-shrink:0}
+.bhero.fin h2{font-size:clamp(1.5rem,4.6vw,2.1rem);line-height:1.12;margin:0 auto;max-width:560px}
+.fpill{display:inline-flex;align-items:center;gap:6px;margin:14px 0 0;background:rgba(255,255,255,.7);border:1px solid rgba(154,18,87,.18);color:#5B1240;font-weight:700;font-size:13px;padding:6px 12px;border-radius:99px}
+.fa-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 0;text-align:left}
+.fa-card{position:relative;background:#fff;border-radius:16px;padding:14px 14px 13px;box-shadow:0 6px 18px rgba(91,18,64,.10);display:flex;flex-direction:column;gap:5px}
+.fa-card b{font-size:15px;line-height:1.3;color:#211C18}.fa-card span{font-size:13.5px;line-height:1.4;color:#5E5560}
+.fa-tag{align-self:flex-start;font-size:10.5px!important;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:99px;margin-bottom:2px}
+.fa-card.bad .fa-tag{background:#FDE7EC;color:#B4234B!important}.fa-card.good .fa-tag{background:#DCFCE7;color:#15803D!important}
+.fa-card.bad{border-top:3px solid #F28CA6}.fa-card.good{border-top:3px solid #4ADE80}
+@media(max-width:480px){.fa-grid{grid-template-columns:1fr}}.hk-key{font-size:12px;color:#8B7AAB;margin:0 0 6px 2px}
+.hk-opt.on .hk-n{background:#EC4899!important;color:#fff!important}
+</style><style>.rv-bar{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.rv-bar button{border:1.5px solid #E9D5EF;background:#fff;border-radius:100px;padding:7px 12px;font:700 13px Manrope,sans-serif;cursor:pointer}'+
+    '.rv-bar button.on-ok{background:#2E7D32;border-color:#2E7D32;color:#fff}.rv-bar button.on-no{background:#C62828;border-color:#C62828;color:#fff}'+
+    '.rv-note{width:100%;margin-top:8px;border:1.5px solid #E9D5EF;border-radius:10px;padding:8px;font:14px Manrope,sans-serif;min-height:38px}'+
+    '.gs-beat.rv-ok{border-color:#2E7D32;box-shadow:0 0 0 2px #2E7D32}.gs-beat.rv-no{border-color:#C62828;box-shadow:0 0 0 2px #C62828}.gs-beat.rv-sw{border-color:#F59E0B;box-shadow:0 0 0 2px #F59E0B}'+
+    '.rv-foot{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #E9D5EF;padding:12px 16px;display:flex;gap:12px;align-items:center;justify-content:center;z-index:50}'+
+    '.rv-foot button{border:0;border-radius:100px;padding:12px 22px;background:#EC4899;color:#fff;font:800 15px Manrope,sans-serif;cursor:pointer}'+
+    '.rv-how{background:#fff;border:1.5px solid #E9D5EF;border-radius:16px;padding:12px 16px;margin:12px 0}.rv-how b{display:block}</style></head><body><div class="wrap"><div id="out"><div id="outScript"><div class="script"><div class="bhero fin"><div class="eyebrow">Baybella × Creator</div><h2>Warning signs you&#x27;ve settled for lashes you hate</h2><p class="stamp" style="margin:4px 0 8px;font-size:.8rem;opacity:.7">Built <span id="built" data-t="2026-11-13T22:05:59">13 Nov 2026, 10:05 PM</span> · <span id="ago"></span></p></div><div style="background:#fff;border:1px solid #E9D5EF;border-radius:14px;padding:16px;margin:14px 0"><div style="font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.6;text-align:center">🎬 Your format</div><div style="display:flex;flex-direction:column;gap:10px;margin-top:10px"><div style="flex:1;min-width:0;background:#EFFAF3;border:2px solid #BDE5CB;border-radius:14px;padding:14px;text-align:center"><div style="font-size:2rem">🎬</div><div style="font-size:1.15rem;font-weight:800;margin:4px 0">Short clips, no talking</div><div style="font-size:.95rem;line-height:1.4">Film each shot on its own, a few seconds each. Don't say anything, we add music.</div></div><div style="flex:1;min-width:0;background:#EEF5FF;border:2px solid #C7DBF7;border-radius:14px;padding:14px;text-align:center"><div style="font-size:2rem">🏠</div><div style="font-size:1.15rem;font-weight:800;margin:4px 0">Home is fine, outside is better</div><div style="font-size:.95rem;line-height:1.4">You can film it all at home, that's totally okay. But if you can film some shots outside, the ad will be much more effective.</div></div><div style="flex:1;min-width:0;background:#FFF0F7;border:2px solid #F9C6DD;border-radius:14px;padding:14px;text-align:center"><div style="font-size:2rem">👁</div><div style="font-size:1.15rem;font-weight:800;margin:4px 0">You'll need some other lashes</div><div style="font-size:.95rem;line-height:1.4">The hook and the warning signs need lashes that aren't Baybella. Glue lashes, strip lashes, any pair you've got. Only the reasons and the close use your Baybella ones.</div></div></div><div style="background:#FFF4D6;border:2px solid #F5C451;border-radius:12px;padding:10px 14px;margin-top:12px;font-size:1rem;font-weight:700;text-align:center">🚫 No text on screen. Don't add any captions or text, we add it all in the edit.</div></div><div class="exv" style="background:#fff;border:1px solid #E9D5EF;border-radius:14px;padding:16px;margin:14px 0"><b>👀 Watch this first: the style we're copying</b><div class="exrow"><video src="refs/inspo-warning-signs.mp4" poster="refs/inspo-warning-signs.jpg" controls playsinline preload="metadata"></video></div><div style="font-size:.95rem;margin-top:8px;line-height:1.45">Watch how fast it cuts: about 1 second a shot, all text, no talking. That&#x27;s the style. Copy the pace and the feel, not the words.</div></div><div style="background:#FFF0F7;border:1px solid #F9C6DD;border-radius:12px;padding:14px 16px;margin:14px 0"><div style="font-size:1.4rem;font-weight:800;margin-bottom:8px">💄 This is beauty content</div><div style="font-size:1.05rem;font-weight:700;margin:6px 0">🔍 Get right up close to the camera</div><div style="font-size:1.05rem;font-weight:700;margin:6px 0">✋ Bring everything you hold right up to the lens</div><div style="font-size:1.05rem;font-weight:700;margin:6px 0">💡 Keep your face and lashes clear and well lit</div><div class="exv" style="margin-top:12px"><b>🎥 This is the kind of shot we're after:</b><div class="exrow"><a href="https://www.instagram.com/p/DeiNx54irxs/" target="_blank" rel="noopener" onclick="window.open(this.href);return false" style="display:block;text-decoration:none;color:#E5147F;font-weight:800;background:#fff;border:2px solid #E5147F;border-radius:10px;padding:12px 14px;margin:6px 0">▶ Watch example 1 on Instagram →</a><a href="https://www.instagram.com/p/DemQ97kAzvz/" target="_blank" rel="noopener" onclick="window.open(this.href);return false" style="display:block;text-decoration:none;color:#E5147F;font-weight:800;background:#fff;border:2px solid #E5147F;border-radius:10px;padding:12px 14px;margin:6px 0">▶ Watch example 2 on Instagram →</a><a href="https://www.instagram.com/p/DcfxtlOOdDf/" target="_blank" rel="noopener" onclick="window.open(this.href);return false" style="display:block;text-decoration:none;color:#E5147F;font-weight:800;background:#fff;border:2px solid #E5147F;border-radius:10px;padding:12px 14px;margin:6px 0">▶ Watch example 3 on Instagram →</a></div></div></div><div class="sec" style="--c:#1D6FE0"><div class="panel"><div class="phead"><span class="pnum"></span><span class="pname">Your script</span><span class="pwhat">what to film</span></div><div class="round" style="border-top:none;padding-top:4px"><div class="round-top"><span class="beatnum" style="background:#E5147F">1</span><span class="round-k">The hook</span></div><div style="background:#fff;border-radius:14px;padding:14px;margin:8px 0 10px;box-shadow:0 2px 0 #E9D5EF;border-left:6px solid #E5147F"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span style="background:#2A1240;color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;border-radius:8px;padding:3px 9px">🎬 SHOT 1</span><div style="display:inline-block;background:#F6EEFA;color:#2A1240;border:1px solid #E9D5EF;border-radius:99px;padding:2px 10px;font-size:.85rem;font-weight:600;margin-top:0">⏱ Film about 5 seconds</div></div><div style="font-size:1.05rem;font-weight:700;line-height:1.4;margin:10px 0 8px;color:#2A1240;font-style:normal">Film yourself in your other lashes (not Baybella), looking in the mirror, unimpressed, and touching the corner of one lash</div><div style="font-size:.92rem;color:#7B6F8E;border-top:1px dashed #E9D5EF;padding-top:8px;margin-top:2px">📝 We add the text: “warning signs you&#x27;ve settled for lashes you hate ⚠️”</div></div></div><div class="round"><div class="round-top"><span class="beatnum" style="background:#E5147F">2</span><span class="round-k">The warning signs</span></div><div style="background:#fff;border-radius:14px;padding:14px;margin:8px 0 10px;box-shadow:0 2px 0 #E9D5EF;border-left:6px solid #E5147F"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span style="background:#2A1240;color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;border-radius:8px;padding:3px 9px">🎬 SHOT 2</span><div style="display:inline-block;background:#F6EEFA;color:#2A1240;border:1px solid #E9D5EF;border-radius:99px;padding:2px 10px;font-size:.85rem;font-weight:600;margin-top:0">⏱ Film about 3 seconds</div></div><div style="font-size:1.05rem;font-weight:700;line-height:1.4;margin:10px 0 8px;color:#2A1240;font-style:normal">Film yourself pressing the corner of your lash back down with your finger</div><div style="font-size:.92rem;color:#7B6F8E;border-top:1px dashed #E9D5EF;padding-top:8px;margin-top:2px">📝 We add the text: “corners lifting by dinner”</div></div><div style="background:#fff;border-radius:14px;padding:14px;margin:8px 0 10px;box-shadow:0 2px 0 #E9D5EF;border-left:6px solid #E5147F"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span style="background:#2A1240;color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;border-radius:8px;padding:3px 9px">🎬 SHOT 3</span><div style="display:inline-block;background:#F6EEFA;color:#2A1240;border:1px solid #E9D5EF;border-radius:99px;padding:2px 10px;font-size:.85rem;font-weight:600;margin-top:0">⏱ Film about 3 seconds</div></div><div style="font-size:1.05rem;font-weight:700;line-height:1.4;margin:10px 0 8px;color:#2A1240;font-style:normal">Film yourself walking into your bathroom and checking your lashes in the mirror</div><div style="font-size:.92rem;color:#7B6F8E;border-top:1px dashed #E9D5EF;padding-top:8px;margin-top:2px">📝 We add the text: “sneaking off to the bathroom to fix them”</div></div><div style="background:#fff;border-radius:14px;padding:14px;margin:8px 0 10px;box-shadow:0 2px 0 #E9D5EF;border-left:6px solid #E5147F"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span style="background:#2A1240;color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;border-radius:8px;padding:3px 9px">🎬 SHOT 4</span><div style="display:inline-block;background:#F6EEFA;color:#2A1240;border:1px solid #E9D5EF;border-radius:99px;padding:2px 10px;font-size:.85rem;font-weight:600;margin-top:0">⏱ Film about 3 seconds</div></div><div style="font-size:1.05rem;font-weight:700;line-height:1.4;margin:10px 0 8px;color:#2A1240;font-style:normal">Film yourself with one lash on, frowning at the crooked one in the mirror</div><div style="font-size:.92rem;color:#7B6F8E;border-top:1px dashed #E9D5EF;padding-top:8px;margin-top:2px">📝 We add the text: “first eye perfect, second goes on crooked”</div></div><div style="background:#fff;border-radius:14px;padding:14px;margin:8px 0 10px;box-shadow:0 2px 0 #E9D5EF;border-left:6px solid #E5147F"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span style="background:#2A1240;color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;border-radius:8px;padding:3px 9px">🎬 SHOT 5</span><div style="display:inline-block;background:#F6EEFA;color:#2A1240;border:1px solid #E9D5EF;border-radius:99px;padding:2px 10px;font-size:.85rem;font-weight:600;margin-top:0">⏱ Film about 3 seconds</div></div><div style="font-size:1.05rem;font-weight:700;line-height:1.4;margin:10px 0 8px;color:#2A1240;font-style:normal">Film yourself pulling your other lash off, then holding your sticky fingers up to the camera</div><div style="font-size:.92rem;color:#7B6F8E;border-top:1px dashed #E9D5EF;padding-top:8px;margin-top:2px">📝 We add the text: “rip it off, glue ALL over your fingers”</div></div></div><div class="round"><div class="round-top"><span class="beatnum" style="background:#9D1FB0">3</span><span class="round-k">The realisation</span></div><div style="background:#fff;border-radius:14px;padding:14px;margin:8px 0 10px;box-shadow:0 2px 0 #E9D5EF;border-left:6px solid #9D1FB0"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span style="background:#2A1240;color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;border-radius:8px;padding:3px 9px">🎬 SHOT 6</span><div style="display:inline-block;background:#F6EEFA;color:#2A1240;border:1px solid #E9D5EF;border-radius:99px;padding:2px 10px;font-size:.85rem;font-weight:600;margin-top:0">⏱ Film about 5 seconds</div></div><div style="font-size:1.05rem;font-weight:700;line-height:1.4;margin:10px 0 8px;color:#2A1240;font-style:normal">Film yourself looking straight into the camera, tired, then giving a small shake of your head</div><div style="font-size:.92rem;color:#7B6F8E;border-top:1px dashed #E9D5EF;padding-top:8px;margin-top:2px">📝 We add the text: “I thought this was just what lashes are like… it isn&#x27;t”</div></div></div><div class="round"><div class="round-top"><span class="beatnum" style="background:#1D6FE0">4</span><span class="round-k">The turn</span></div><div style="background:#fff;border-radius:14px;padding:14px;margin:8px 0 10px;box-shadow:0 2px 0 #E9D5EF;border-left:6px solid #1D6FE0"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span style="background:#2A1240;color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;border-radius:8px;padding:3px 9px">🎬 SHOT 7</span><div style="display:inline-block;background:#F6EEFA;color:#2A1240;border:1px solid #E9D5EF;border-radius:99px;padding:2px 10px;font-size:.85rem;font-weight:600;margin-top:0">⏱ Film about 5 seconds</div></div><div style="font-size:1.05rem;font-weight:700;line-height:1.4;margin:10px 0 8px;color:#2A1240;font-style:normal">Film yourself holding your Baybella case up to the camera and opening it</div><div style="font-size:.92rem;color:#7B6F8E;border-top:1px dashed #E9D5EF;padding-top:8px;margin-top:2px">📝 We add the text: “3 reasons picky girls finally wear magnetic lashes”</div></div></div><div class="round"><div class="round-top"><span class="beatnum" style="background:#0E9F6E">5</span><span class="round-k">Reason 1</span></div><div style="background:#fff;border-radius:14px;padding:14px;margin:8px 0 10px;box-shadow:0 2px 0 #E9D5EF;border-left:6px solid #0E9F6E"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span style="background:#2A1240;color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;border-radius:8px;padding:3px 9px">🎬 SHOT 8</span><div style="display:inline-block;background:#F6EEFA;color:#2A1240;border:1px solid #E9D5EF;border-radius:99px;padding:2px 10px;font-size:.85rem;font-weight:600;margin-top:0">⏱ Film the whole thing</div></div><div style="font-size:1.05rem;font-weight:700;line-height:1.4;margin:10px 0 8px;color:#2A1240;font-style:normal">Film yourself putting on a lash, then showing your finished eye up close</div><div style="font-size:.92rem;color:#7B6F8E;border-top:1px dashed #E9D5EF;padding-top:8px;margin-top:2px">📝 We add the text: “1. Natural, but still defined”</div></div><div class="exv"><b>🎥 Here's what that looks like:</b><div class="exrow"><video src="https://baybella.github.io/baybella-briefs/creator-kit/clip-pool/BR-0952.mp4" poster="https://baybella.github.io/baybella-briefs/creator-kit/clip-pool/BR-0952.jpg" muted controls playsinline preload="metadata"></video></div></div></div><div class="round"><div class="round-top"><span class="beatnum" style="background:#AF52DE">6</span><span class="round-k">Reason 2</span></div><div style="background:#fff;border-radius:14px;padding:14px;margin:8px 0 10px;box-shadow:0 2px 0 #E9D5EF;border-left:6px solid #AF52DE"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span style="background:#2A1240;color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;border-radius:8px;padding:3px 9px">🎬 SHOT 9</span><div style="display:inline-block;background:#F6EEFA;color:#2A1240;border:1px solid #E9D5EF;border-radius:99px;padding:2px 10px;font-size:.85rem;font-weight:600;margin-top:0">⏱ Film the whole thing</div></div><div style="font-size:1.05rem;font-weight:700;line-height:1.4;margin:10px 0 8px;color:#2A1240;font-style:normal">Film yourself putting one on a little crooked, pulling it apart and putting it back on, at real speed</div><div style="font-size:.92rem;color:#7B6F8E;border-top:1px dashed #E9D5EF;padding-top:8px;margin-top:2px">📝 We add the text: “2. Glue lashes only give you one shot. These let you try again.”</div></div><div class="exv"><b>🎥 Here's what that looks like:</b><div class="exrow"><video src="https://baybella.github.io/baybella-briefs/creator-kit/clip-pool/BR-1176.mp4" poster="https://baybella.github.io/baybella-briefs/creator-kit/clip-pool/BR-1176.jpg" muted controls playsinline preload="metadata"></video></div></div><div style="background:#fff;border-radius:14px;padding:14px;margin:8px 0 10px;box-shadow:0 2px 0 #E9D5EF;border-left:6px solid #AF52DE"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span style="background:#2A1240;color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;border-radius:8px;padding:3px 9px">🎬 SHOT 10</span><div style="display:inline-block;background:#F6EEFA;color:#2A1240;border:1px solid #E9D5EF;border-radius:99px;padding:2px 10px;font-size:.85rem;font-weight:600;margin-top:0">⏱ Film about 5 seconds</div></div><div style="font-size:1.05rem;font-weight:700;line-height:1.4;margin:10px 0 8px;color:#2A1240;font-style:normal">Film yourself holding the top and bottom lash right up close to the camera and letting them click together</div></div><div class="exv"><b>🎥 Here's what that looks like:</b><div class="exrow"><video src="https://baybella.github.io/baybella-briefs/creator-kit/clip-pool/BR-0883.mp4" poster="https://baybella.github.io/baybella-briefs/creator-kit/clip-pool/BR-0883.jpg" muted controls playsinline preload="metadata"></video></div></div></div><div class="round"><div class="round-top"><span class="beatnum" style="background:#5856D6">7</span><span class="round-k">Reason 3</span></div><div style="background:#fff;border-radius:14px;padding:14px;margin:8px 0 10px;box-shadow:0 2px 0 #E9D5EF;border-left:6px solid #5856D6"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span style="background:#2A1240;color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;border-radius:8px;padding:3px 9px">🎬 SHOT 11</span><div style="display:inline-block;background:#F6EEFA;color:#2A1240;border:1px solid #E9D5EF;border-radius:99px;padding:2px 10px;font-size:.85rem;font-weight:600;margin-top:0">⏱ Film about 5 seconds</div></div><div style="font-size:1.05rem;font-weight:700;line-height:1.4;margin:10px 0 8px;color:#2A1240;font-style:normal">Film yourself taking the lash off one eye, close to the camera</div><div style="font-size:.92rem;color:#7B6F8E;border-top:1px dashed #E9D5EF;padding-top:8px;margin-top:2px">📝 We add the text: “3. No stickiness or lifting, thanks to the magnets”</div></div><div class="exv"><b>🎥 Here's what that looks like:</b><div class="exrow"><video src="refs/BR-0434-eye.mp4" poster="refs/BR-0434-eye.jpg" muted controls playsinline preload="metadata"></video></div></div></div><div class="round"><div class="round-top"><span class="beatnum" style="background:#5856D6">8</span><span class="round-k">The close</span></div><div style="background:#fff;border-radius:14px;padding:14px;margin:8px 0 10px;box-shadow:0 2px 0 #E9D5EF;border-left:6px solid #5856D6"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span style="background:#2A1240;color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;border-radius:8px;padding:3px 9px">🎬 SHOT 12</span><div style="display:inline-block;background:#F6EEFA;color:#2A1240;border:1px solid #E9D5EF;border-radius:99px;padding:2px 10px;font-size:.85rem;font-weight:600;margin-top:0">⏱ Film about 5 seconds</div></div><div style="font-size:1.05rem;font-weight:700;line-height:1.4;margin:10px 0 8px;color:#2A1240;font-style:normal">Film yourself in your Baybella lashes, smiling at the camera. Look happy</div><div style="font-size:.92rem;color:#7B6F8E;border-top:1px dashed #E9D5EF;padding-top:8px;margin-top:2px">📝 We add the text: “Trial Baybella for 30 days. Love them or your money back.”</div></div></div></div></div><div class="sendin"><b>Filmed it? Here’s how to send it in</b><div class="r">Your edited video<a class="sbtn" href="https://jointrybe.com/" target="_blank" onclick="window.open(this.href);return false;">Submit in Trybe</a></div></div><div class="fold" style="padding:14px 16px"><b style="display:block;margin-bottom:10px;font-size:1.1rem">Make sure we can see your lashes</b><div class="fbody"><div class="lv-box lv-yellow"><div class="lvh">✨ IMPORTANT - READ THIS</div><div class="q">When you use the lashes on camera, always ask yourself:</div><ol class="lvl"><li>Can the camera clearly see the lashes when I use them?</li></ol><div class="q">And check:</div><ol class="lvl" start="2"><li>Are my hands blocking my face?</li><li>Is the applicator covering my eyes?</li><li>Is my face turned away?</li></ol><div class="lvlink"><a href="https://baybella-creator-guidelines.netlify.app" target="_blank" onclick="window.open(this.href);return false;">See video examples →</a></div></div><div class="lv-box lv-green"><p>If the script requires you to hold your phone while applying the lashes and you don’t have a way to see yourself while recording, please let us know.</p><p>We know applying lashes while looking through the camera app can be a little tricky, so <strong>we can send you a clip-on phone mirror attachment</strong> which allows you to see yourself properly while recording.</p></div></div></div></div><p class="tip">Keep this open while you film, or save it to your phone.</p></div></div></div><script>(function(){var s=document.getElementById('built'),a=document.getElementById('ago');function t(){var m=Math.round((Date.now()-new Date(s.dataset.t))/60000);a.textContent=m<1?'just now':m+' min ago';}t();setInterval(t,30000);})();</script></body></html>
